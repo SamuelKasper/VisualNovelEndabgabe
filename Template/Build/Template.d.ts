@@ -45,10 +45,6 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        miraRoomHandy: {
-            name: string;
-            background: string;
-        };
         miraRoomMath: {
             name: string;
             background: string;
@@ -69,7 +65,11 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        nicksRoom: {
+        nicksRoomGoodWeather: {
+            name: string;
+            background: string;
+        };
+        nicksRoomBadWeather: {
             name: string;
             background: string;
         };
@@ -122,7 +122,7 @@ declare namespace Template {
                 neutral: string;
                 happy: string;
                 sad: string;
-                worried: string;
+                good: string;
                 crying: string;
             };
         };
@@ -131,7 +131,7 @@ declare namespace Template {
             origin: f.ORIGIN2D;
             pose: {
                 neutral: string;
-                smile: string;
+                good: string;
                 sad: string;
                 tired: string;
                 crying: string;
@@ -141,8 +141,8 @@ declare namespace Template {
             name: string;
             origin: f.ORIGIN2D;
             pose: {
-                happy: string;
-                thinking: string;
+                good: string;
+                neutral: string;
             };
         };
     };

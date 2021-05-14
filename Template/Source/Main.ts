@@ -11,8 +11,8 @@ namespace Template {
     mysteryTheme: "Audio/",
     goodEnding: "Audio/",
     neutralEnding: "Audio/",
-    badEnding: "Audio/",
-    pianoSong_1: "Audio/",
+    badEnding: "Audio/Endings/darker.mp3",
+    pianoSong_1: "Audio/Piano_Room/Going.mp3",
     pianoSong_2: "Audio/",
     pianoSong_3: "Audio/",
     tetris: "Audio/",
@@ -25,92 +25,92 @@ namespace Template {
   export let location = {
     miraRoom: {
       name: "mirasRoom",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer.png"
     },
 
     nickRoom: {
       name: "nicksRoom",
-      background: "Images/"
+      background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
     },
 
     miraRoomHandyNews: {
       name: "miraRoomHandyNews",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Handy_News.png"
     },
 
     miraRoomHandyCalendar: {
       name: "miraRoomHandyCalendar",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Handy_Kalender.png"
     },
 
     miraRoomHandyNoMessage: {
       name: "miraRoomHandyNoMessage",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Keine_Nachricht.png"
     },
 
     miraRoomHandyBirthday: {
       name: "miraRoomHandyBirthday",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Geburtstag.png"
     },
 
     miraRoomHandyAnswer:  {
       name: "miraRoomHandyAnswer",
-      background: "Images/"
-    },
-
-    miraRoomHandy:  {
-      name: "miraRoomHandy",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Antwort.png"
     },
 
     miraRoomMath:  {
       name: "miraRoomMath",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe.png"
     },
 
     miraRoomMath2:  {
       name: "miraRoomMath2",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe_2.png"
     },
 
     miraRoomEnglish:  {
       name: "miraRoomEnglish",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Buch_Englisch.png"
     },
 
     miraRoomLaptop:  {
       name: "miraRoomLaptop",
-      background: "Images/"
+      background: "Images/Backgrounds/Miras_Zimmer_Lapto.png"
     },
 
     pianoRoom:  {
       name: "pianoRoom",
-      background: "Images/"
+      background: "Images/Backgrounds/Klavier_Zimmer.png"
     },
 
-    nicksRoom:  {
-      name: "nicksRoom",
-      background: "Images/"
+    nicksRoomGoodWeather:  {
+      name: "nicksRoomGoodWeather",
+      background: "Images/Nicks_Zimmer_Good_Weather.png"
+    },
+
+    nicksRoomBadWeather:  {
+      name: "nicksRoomBadWeather",
+      background: "Images/Nicks_Zimmer_Bad_Weather.png"
     },
 
     nicksRoomDoor:  {
       name: "nicksRoomDoor",
-      background: "Images/"
+      background: "Images/Nicks_Zimemrtür.png"
     },
 
     nicksKitchen:  {
       name: "nicksKitchen",
-      background: "Images/"
+      background: "Images/Nicks_Küche.png"
     },
 
     nicksBathroom:  {
       name: "nicksBathroom",
-      background: "Images/"
+      background: "Images/Nicks_Badezimmer.png"
     },
 
     nicksBathroomDead:  {
       name: "nicksBathroomDead",
-      background: "Images/"
+      background: "Images/Nicks_Badezimmer_tot.png"
     },
 
     nicksRoomTable:  {
@@ -120,12 +120,12 @@ namespace Template {
 
     nicksRoomPicture:  {
       name: "nicksRoomPicture",
-      background: "Images/"
+      background: "Images/VersteckFoto.png"
     },
 
     hideout:  {
       name: "hideout",
-      background: "Images/"
+      background: "Images/Versteck.png"
     },
 
     goodEnding: {
@@ -149,11 +149,11 @@ namespace Template {
       name: "Mira",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "Images/",
-        happy: "Images/",
-        sad: "Images/",
-        worried: "Images/",
-        crying: "Images/"
+        neutral: "Images/Characters/Mira/MC_neutral.png",
+        happy: "Images/Characters/Mira/MC_happy.png",
+        sad: "Images/Characters/Mira/MC_sad.png",
+        good: "Images/Characters/Mira/MC_good.png",
+        crying: "Images/Characters/Mira/MC_cry.png"
       }
     },
 
@@ -161,11 +161,11 @@ namespace Template {
       name: "Nick",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "Images/",
-        smile: "Images/",
-        sad: "Images/",
-        tired: "Images/",
-        crying: "Images/"
+        neutral: "Images/Characters/Nick/Friend_neutral.png",
+        good: "Images/Characters/Nick/Friend_good.png",
+        sad: "Images/Characters/Nick/Friend_sad.png",
+        tired: "Images/Characters/Nick/Friend_tired.png",
+        crying: "Images/Characters/Nick/Friend_cry.png"
       }
     },
 
@@ -173,8 +173,8 @@ namespace Template {
       name: "Nachbar",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
-        happy: "Images/",
-        thinking: "Images/"
+        good: "Images/Characters/Nachbar/Nachbar_good.png",
+        neutral: "Images/Characters/Nachbar/Nachbar_neutral.png"
       }
     }
   };
