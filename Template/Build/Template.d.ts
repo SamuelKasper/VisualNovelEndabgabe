@@ -113,6 +113,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        black: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Mira: {

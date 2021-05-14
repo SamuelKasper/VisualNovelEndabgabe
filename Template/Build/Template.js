@@ -117,11 +117,15 @@ var Template;
         badEnding: {
             name: "badEnding",
             background: "Images/"
+        },
+        black: {
+            name: "black",
+            background: "Images/Backgrounds/Black.png"
         }
     };
     Template.characters = {
         Mira: {
-            name: "Mira",
+            name: "Mira: ",
             origin: Template.fS.ORIGIN.BOTTOMCENTER,
             pose: {
                 neutral: "Images/Characters/Mira/MC_neutral.png",
@@ -132,7 +136,7 @@ var Template;
             }
         },
         Nick: {
-            name: "Nick",
+            name: "Nick: ",
             origin: Template.fS.ORIGIN.BOTTOMCENTER,
             pose: {
                 neutral: "Images/Characters/Nick/Friend_neutral.png",
@@ -143,7 +147,7 @@ var Template;
             }
         },
         Nachbar: {
-            name: "Nachbar",
+            name: "Josh: ",
             origin: Template.fS.ORIGIN.BOTTOMCENTER,
             pose: {
                 good: "Images/Characters/Nachbar/Nachbar_good.png",
@@ -177,7 +181,22 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene() {
-        console.log("FudgeStory Template Scene starting");
+        console.log("Scene 1 starting");
+        //Text
+        //Scene 1
+        await Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.update(0.7);
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(0.2);
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.update(0.3);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.Speech.show();
+        await Template.fS.update(1);
+        await Template.fS.Speech.tell(Template.characters.Mira, "Guten Morgen");
     }
     Template.Scene = Scene;
 })(Template || (Template = {}));

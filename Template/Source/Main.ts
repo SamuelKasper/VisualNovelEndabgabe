@@ -141,12 +141,17 @@ namespace Template {
     badEnding: {
       name: "badEnding",
       background: "Images/"
+    },
+
+    black: {
+      name: "black",
+      background: "Images/Backgrounds/Black.png"
     }
   }
 
   export let characters = {
     Mira: {
-      name: "Mira",
+      name: "Mira: ",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
         neutral: "Images/Characters/Mira/MC_neutral.png",
@@ -158,7 +163,7 @@ namespace Template {
     },
 
     Nick: {
-      name: "Nick",
+      name: "Nick: ",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
         neutral: "Images/Characters/Nick/Friend_neutral.png",
@@ -170,7 +175,7 @@ namespace Template {
     },
 
     Nachbar: {
-      name: "Nachbar",
+      name: "Josh: ",
       origin: fS.ORIGIN.BOTTOMCENTER,
       pose: {
         good: "Images/Characters/Nachbar/Nachbar_good.png",
