@@ -150,6 +150,10 @@ namespace Template {
   }
 
   export let characters = {
+    Narrator: {
+      name: "",
+    },
+
     Mira: {
       name: "Mira: ",
       origin: fS.ORIGIN.BOTTOMCENTER,

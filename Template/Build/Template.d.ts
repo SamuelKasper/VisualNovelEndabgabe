@@ -119,6 +119,9 @@ declare namespace Template {
         };
     };
     let characters: {
+        Narrator: {
+            name: string;
+        };
         Mira: {
             name: string;
             origin: f.ORIGIN2D;

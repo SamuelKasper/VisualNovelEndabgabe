@@ -124,6 +124,9 @@ var Template;
         }
     };
     Template.characters = {
+        Narrator: {
+            name: "",
+        },
         Mira: {
             name: "Mira: ",
             origin: Template.fS.ORIGIN.BOTTOMCENTER,
@@ -181,10 +184,19 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene() {
-        console.log("Scene 1 starting");
+        console.log("Scene_1_beginn: starting");
+        let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         //Text
-        //Scene 1
-        await Template.fS.Speech.hide();
+        let text = {
+            Mira: {
+                T0000: "Hm? Schon ziemlich hell...",
+                T0001: "Wie viel Uhr ist es?",
+                T0002: "...",
+                T0003: "Erst 8:30 Uhr. Soll ich schon aufstehen oder lieber noch ein bisschen weiter schlafen?"
+            }
+        };
+        //Wake up
+        Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.miraRoom);
@@ -194,9 +206,68 @@ var Template;
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.update(0.3);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
-        await Template.fS.Speech.show();
+        Template.fS.Speech.show();
         await Template.fS.update(1);
-        await Template.fS.Speech.tell(Template.characters.Mira, "Guten Morgen");
+        //Text
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        //get up or sleep
+        let sleepNewsCalendarAnswer = {
+            sleep: "Schlafen",
+            news: "News lesen",
+            calendar: "Kalender anschauen"
+        };
+        let sleepNewsCalendar = await Template.fS.Menu.getInput(sleepNewsCalendarAnswer, "decisionClass");
+        switch (sleepNewsCalendar) {
+            //Weiterschalfen: scene_2_bad (sceneDesicionPoints = 1)
+            case sleepNewsCalendarAnswer.sleep:
+                await Template.fS.Speech.tell(Template.characters.Mira, "Für einen Sonntag ist es ja noch ziemlich früh. Da kann man sich nochmal ein paar Stunden Schlaf gönnen.");
+                Template.fS.Speech.hide();
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Location.show(Template.location.black);
+                await Template.fS.update(0.5);
+                await signalDelay2s();
+                await Template.fS.Location.show(Template.location.miraRoom);
+                await Template.fS.update(0.3);
+                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                await Template.fS.update(1);
+                await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
+                break;
+            //News: scene_3_neutral (sceneDesicionPoints = 1001)  
+            case sleepNewsCalendarAnswer.news:
+                await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
+                Template.fS.Speech.hide();
+                await Template.fS.Location.show(Template.location.miraRoomHandyNews);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
+                break;
+            //Calendar
+            case sleepNewsCalendarAnswer.calendar:
+                await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitv mal mit lernen anfangen.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Oh, heute hat Nick Geburtstag. Wir haben uns schon lange nicht mehr gesehen.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht sollte ich mal wieder bei Ihm vorbei schauen.");
+                let goToBirthdayAnswer = {
+                    go: "Hingehen",
+                    dontGo: "Zuhause bleiben"
+                };
+                let goToBirthday = await Template.fS.Menu.getInput(goToBirthdayAnswer, "decisionClass");
+                switch (goToBirthday) {
+                    //go to Birthday: scene_4_good (sceneDesiscionPoints = 2001)
+                    case goToBirthdayAnswer.go:
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
+                        break;
+                    //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
+                    case goToBirthdayAnswer.dontGo:
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach.");
+                        break;
+                }
+                break;
+        }
     }
     Template.Scene = Scene;
 })(Template || (Template = {}));
