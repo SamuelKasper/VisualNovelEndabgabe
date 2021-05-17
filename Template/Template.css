@@ -36,5 +36,8 @@ speech{
   margin-bottom: 50px;
 }
 
+.hiddenText{
+  display: none;
+}
 
 

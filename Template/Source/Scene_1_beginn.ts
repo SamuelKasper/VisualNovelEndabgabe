@@ -1,5 +1,5 @@
 namespace Template {
-  export async function Scene(): fS.SceneReturn {
+  export async function Scene_1_beginn(): fS.SceneReturn {
     console.log("Scene_1_beginn: starting");
     let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 
@@ -22,10 +22,7 @@ namespace Template {
     await fS.Location.show(location.black);
     await fS.update(0.2);
     await fS.Location.show(location.miraRoom);
-    await fS.update(0.3);
-    await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
-    fS.Speech.show();
-    await fS.update(1);
+    await fS.update(0.5);
 
     //Text
     await fS.Speech.tell(characters.Mira, text.Mira.T0000);
@@ -52,9 +49,8 @@ namespace Template {
         await signalDelay2s();
         await fS.Location.show(location.miraRoom);
         await fS.update(0.3);
-        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
-        await fS.update(1);
         await fS.Speech.tell(characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
+        dataToSave.sceneDesiscionPoints = 1;
         break;
 
       //News: scene_3_neutral (sceneDesicionPoints = 1001)  
@@ -63,14 +59,18 @@ namespace Template {
         fS.Speech.hide();
         await fS.Location.show(location.miraRoomHandyNews);
         await fS.update();
+        await signalDelay2s();
+        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Spannend wie immer...");
         await fS.Speech.tell(characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
+        dataToSave.sceneDesiscionPoints = 1001;
         break;
 
       //Calendar
       case sleepNewsCalendarAnswer.calendar:
         await fS.Location.show(location.miraRoomHandyCalendar);
         await fS.update();
+        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitv mal mit lernen anfangen.");
         await fS.Speech.tell(characters.Mira, "Oh, heute hat Nick Geburtstag. Wir haben uns schon lange nicht mehr gesehen.");
         await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei Ihm vorbei schauen.");
@@ -86,11 +86,13 @@ namespace Template {
           //go to Birthday: scene_4_good (sceneDesiscionPoints = 2001)
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
+            dataToSave.sceneDesiscionPoints = 2001;
             break;
 
           //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
           case goToBirthdayAnswer.dontGo:
-            await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach.");
+            await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
+            dataToSave.sceneDesiscionPoints = 1;
             break;
         }
         break;

@@ -153,7 +153,10 @@ declare namespace Template {
             };
         };
     };
+    let dataToSave: {
+        sceneDesiscionPoints: number;
+    };
 }
 declare namespace Template {
-    function Scene(): fS.SceneReturn;
+    function Scene_1_beginn(): fS.SceneReturn;
 }

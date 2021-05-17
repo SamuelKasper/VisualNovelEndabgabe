@@ -188,6 +188,10 @@ namespace Template {
     }
   };
 
+  export let dataToSave = {
+    sceneDesiscionPoints: 0
+  };
+
   //save and load
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
@@ -206,8 +210,11 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      { scene: Scene, name: "Scene" }
+      { scene: Scene_1_beginn, name: "Scene_1_beginn" }
     ];
+
+    //set progress data
+    fS.Progress.setData(dataToSave);
 
     // start the sequence
     fS.Progress.go(scenes);

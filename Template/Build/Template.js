@@ -158,6 +158,9 @@ var Template;
             }
         }
     };
+    Template.dataToSave = {
+        sceneDesiscionPoints: 0
+    };
     //save and load
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -175,15 +178,17 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene, name: "Scene" }
+            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" }
         ];
+        //set progress data
+        Template.fS.Progress.setData(Template.dataToSave);
         // start the sequence
         Template.fS.Progress.go(scenes);
     }
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function Scene() {
+    async function Scene_1_beginn() {
         console.log("Scene_1_beginn: starting");
         let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         //Text
@@ -204,10 +209,7 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(0.2);
         await Template.fS.Location.show(Template.location.miraRoom);
-        await Template.fS.update(0.3);
-        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
-        Template.fS.Speech.show();
-        await Template.fS.update(1);
+        await Template.fS.update(0.5);
         //Text
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
@@ -231,9 +233,8 @@ var Template;
                 await signalDelay2s();
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update(0.3);
-                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
-                await Template.fS.update(1);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
+                Template.dataToSave.sceneDesiscionPoints = 1;
                 break;
             //News: scene_3_neutral (sceneDesicionPoints = 1001)  
             case sleepNewsCalendarAnswer.news:
@@ -241,13 +242,17 @@ var Template;
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.miraRoomHandyNews);
                 await Template.fS.update();
+                await signalDelay2s();
+                await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
+                Template.dataToSave.sceneDesiscionPoints = 1001;
                 break;
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
                 await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitv mal mit lernen anfangen.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Oh, heute hat Nick Geburtstag. Wir haben uns schon lange nicht mehr gesehen.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht sollte ich mal wieder bei Ihm vorbei schauen.");
@@ -260,15 +265,17 @@ var Template;
                     //go to Birthday: scene_4_good (sceneDesiscionPoints = 2001)
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
+                        Template.dataToSave.sceneDesiscionPoints = 2001;
                         break;
                     //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
                     case goToBirthdayAnswer.dontGo:
-                        await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach.");
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
+                        Template.dataToSave.sceneDesiscionPoints = 1;
                         break;
                 }
                 break;
         }
     }
-    Template.Scene = Scene;
+    Template.Scene_1_beginn = Scene_1_beginn;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

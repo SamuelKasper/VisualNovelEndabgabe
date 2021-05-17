@@ -3,7 +3,7 @@
     "commonSourceDirectory": "..",
     "sourceFiles": [
       "../Source/Main.ts",
-      "../Source/Scene.ts"
+      "../Source/Scene_1_beginn.ts"
     ],
     "js": {
       "sections": [
@@ -15,7 +15,7 @@
         },
         {
           "pos": 15,
-          "end": 11593,
+          "end": 11933,
           "kind": "text"
         }
       ],
@@ -43,7 +43,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 3959,
+          "end": 4038,
           "kind": "text"
         }
       ]
