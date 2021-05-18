@@ -3,7 +3,11 @@
     "commonSourceDirectory": "..",
     "sourceFiles": [
       "../Source/Main.ts",
-      "../Source/Scene_1_beginn.ts"
+      "../Source/SceneDesicionClass.ts",
+      "../Source/Scene_1_beginn.ts",
+      "../Source/Scene_2_bad.ts",
+      "../Source/Scene_2_good.ts",
+      "../Source/Scene_2_neutral.ts"
     ],
     "js": {
       "sections": [
@@ -15,7 +19,7 @@
         },
         {
           "pos": 15,
-          "end": 11933,
+          "end": 20002,
           "kind": "text"
         }
       ],
@@ -43,7 +47,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 4038,
+          "end": 4492,
           "kind": "text"
         }
       ]

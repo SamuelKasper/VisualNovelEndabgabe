@@ -53,7 +53,7 @@ namespace Template {
         dataToSave.sceneDesiscionPoints = 1;
         break;
 
-      //News: scene_3_neutral (sceneDesicionPoints = 1001)  
+      //News: scene_2_neutral (sceneDesicionPoints = 1001)  
       case sleepNewsCalendarAnswer.news:
         await fS.Speech.tell(characters.Mira, "Mal schauen ob's was neues gibt.")
         fS.Speech.hide();
@@ -82,8 +82,8 @@ namespace Template {
 
         let goToBirthday = await fS.Menu.getInput(goToBirthdayAnswer, "decisionClass");
 
-        switch(goToBirthday){
-          //go to Birthday: scene_4_good (sceneDesiscionPoints = 2001)
+        switch (goToBirthday) {
+          //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
             dataToSave.sceneDesiscionPoints = 2001;
@@ -97,5 +97,8 @@ namespace Template {
         }
         break;
     }
+
+    //chose next scene
+    return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
   }
 }

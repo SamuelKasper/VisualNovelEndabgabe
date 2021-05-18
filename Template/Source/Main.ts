@@ -4,7 +4,7 @@ namespace Template {
 
   console.log("FudgeStory template starting");
 
-  export let sound ={
+  export let sound = {
     //Music
     overworldTheme: "Audio/",
     overworldThemeMuted: "Audio/",
@@ -53,79 +53,79 @@ namespace Template {
       background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Geburtstag.png"
     },
 
-    miraRoomHandyAnswer:  {
+    miraRoomHandyAnswer: {
       name: "miraRoomHandyAnswer",
       background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Antwort.png"
     },
 
-    miraRoomMath:  {
+    miraRoomMath: {
       name: "miraRoomMath",
       background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe.png"
     },
 
-    miraRoomMath2:  {
+    miraRoomMath2: {
       name: "miraRoomMath2",
       background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe_2.png"
     },
 
-    miraRoomEnglish:  {
+    miraRoomEnglish: {
       name: "miraRoomEnglish",
       background: "Images/Backgrounds/Miras_Zimmer_Buch_Englisch.png"
     },
 
-    miraRoomLaptop:  {
+    miraRoomLaptop: {
       name: "miraRoomLaptop",
       background: "Images/Backgrounds/Miras_Zimmer_Lapto.png"
     },
 
-    pianoRoom:  {
+    pianoRoom: {
       name: "pianoRoom",
       background: "Images/Backgrounds/Klavier_Zimmer.png"
     },
 
-    nicksRoomGoodWeather:  {
+    nicksRoomGoodWeather: {
       name: "nicksRoomGoodWeather",
-      background: "Images/Nicks_Zimmer_Good_Weather.png"
+      background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
     },
 
-    nicksRoomBadWeather:  {
+    nicksRoomBadWeather: {
       name: "nicksRoomBadWeather",
-      background: "Images/Nicks_Zimmer_Bad_Weather.png"
+      background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
     },
 
-    nicksRoomDoor:  {
+    nicksRoomDoor: {
       name: "nicksRoomDoor",
-      background: "Images/Nicks_Zimemrtür.png"
+      background: "Images/Backgrounds/Nicks_Zimmertuer.png"
     },
 
-    nicksKitchen:  {
+    nicksKitchen: {
       name: "nicksKitchen",
-      background: "Images/Nicks_Küche.png"
+      background: "Images/Backgrounds/Nicks_Kueche.png"
     },
 
-    nicksBathroom:  {
+    nicksBathroom: {
       name: "nicksBathroom",
-      background: "Images/Nicks_Badezimmer.png"
+      background: "Images/Backgrounds/Nicks_Badezimmer.png"
     },
 
-    nicksBathroomDead:  {
+    nicksBathroomDead: {
       name: "nicksBathroomDead",
-      background: "Images/Nicks_Badezimmer_tot.png"
+      background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
     },
 
-    nicksRoomTable:  {
+    nicksRoomTable: {
       name: "nicksRoomTable",
       background: "Images/"
     },
 
-    nicksRoomPicture:  {
+    nicksRoomPicture: {
       name: "nicksRoomPicture",
-      background: "Images/VersteckFoto.png"
+      background: "Images/Backgrounds/VersteckFoto.png"
     },
 
-    hideout:  {
+    hideout: {
       name: "hideout",
-      background: "Images/Versteck.png"
+      background: "Images/Backgrounds/Versteck.png"
     },
 
     goodEnding: {
@@ -195,7 +195,7 @@ namespace Template {
   //save and load
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
-    switch(_event.code){
+    switch (_event.code) {
       case f.KEYBOARD_CODE.F2:
         console.log("Save");
         await fS.Progress.save();
@@ -210,7 +210,10 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      { scene: Scene_1_beginn, name: "Scene_1_beginn" }
+      { scene: Scene_1_beginn, name: "Scene_1_beginn" },
+      { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
+      { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
+      { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" }
     ];
 
     //set progress data

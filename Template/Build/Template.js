@@ -72,27 +72,27 @@ var Template;
         },
         nicksRoomGoodWeather: {
             name: "nicksRoomGoodWeather",
-            background: "Images/Nicks_Zimmer_Good_Weather.png"
+            background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
         },
         nicksRoomBadWeather: {
             name: "nicksRoomBadWeather",
-            background: "Images/Nicks_Zimmer_Bad_Weather.png"
+            background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
         },
         nicksRoomDoor: {
             name: "nicksRoomDoor",
-            background: "Images/Nicks_Zimemrtür.png"
+            background: "Images/Backgrounds/Nicks_Zimmertuer.png"
         },
         nicksKitchen: {
             name: "nicksKitchen",
-            background: "Images/Nicks_Küche.png"
+            background: "Images/Backgrounds/Nicks_Kueche.png"
         },
         nicksBathroom: {
             name: "nicksBathroom",
-            background: "Images/Nicks_Badezimmer.png"
+            background: "Images/Backgrounds/Nicks_Badezimmer.png"
         },
         nicksBathroomDead: {
             name: "nicksBathroomDead",
-            background: "Images/Nicks_Badezimmer_tot.png"
+            background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
         },
         nicksRoomTable: {
             name: "nicksRoomTable",
@@ -100,11 +100,11 @@ var Template;
         },
         nicksRoomPicture: {
             name: "nicksRoomPicture",
-            background: "Images/VersteckFoto.png"
+            background: "Images/Backgrounds/VersteckFoto.png"
         },
         hideout: {
             name: "hideout",
-            background: "Images/Versteck.png"
+            background: "Images/Backgrounds/Versteck.png"
         },
         goodEnding: {
             name: "goodEnding",
@@ -178,13 +178,34 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" }
+            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
+            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
+            { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" }
         ];
         //set progress data
         Template.fS.Progress.setData(Template.dataToSave);
         // start the sequence
         Template.fS.Progress.go(scenes);
     }
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    class SceneDesicionClass {
+        static chooseScene(_sceneDesicionPoints) {
+            switch (_sceneDesicionPoints) {
+                case 1:
+                    return "scene_2_bad";
+                case 1001:
+                    return "scene_2_neutral";
+                case 2001:
+                    return "scene_2_good";
+                default:
+                    return "no valid sceneDesicionPoint";
+            }
+        }
+    }
+    Template.SceneDesicionClass = SceneDesicionClass;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -236,7 +257,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
                 Template.dataToSave.sceneDesiscionPoints = 1;
                 break;
-            //News: scene_3_neutral (sceneDesicionPoints = 1001)  
+            //News: scene_2_neutral (sceneDesicionPoints = 1001)  
             case sleepNewsCalendarAnswer.news:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
                 Template.fS.Speech.hide();
@@ -262,7 +283,7 @@ var Template;
                 };
                 let goToBirthday = await Template.fS.Menu.getInput(goToBirthdayAnswer, "decisionClass");
                 switch (goToBirthday) {
-                    //go to Birthday: scene_4_good (sceneDesiscionPoints = 2001)
+                    //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
                         Template.dataToSave.sceneDesiscionPoints = 2001;
@@ -275,7 +296,122 @@ var Template;
                 }
                 break;
         }
+        //chose next scene
+        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_1_beginn = Scene_1_beginn;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_2_bad() {
+        console.log("Scene_2_bad: starting");
+        //Text
+        let text = {
+            Mira: {
+                T0000: "Was steht denn heute alles an?",
+                T0001: "In einer Woche sind Prüfungen... Ich sollte wirklich mal mit dem lernen anfangen.",
+                T0002: "Ich sollte meine Pflanzen mal wieder gießen. Die sahen auch schon mal besser aus.",
+                T0003: "Noch einen Monat bis zum Auftritt mit meinem Musikverein. Ich könnte mir schon mal die Stücke genauer anschauen.",
+                T0004: "Sollte heute nicht das neue Tetris rauskommen? Ich könnte das ja mal ein wenig anspielen."
+            }
+        };
+        //Story
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+    }
+    Template.Scene_2_bad = Scene_2_bad;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_2_good() {
+        console.log("Scene_2_good: starting");
+        //Text
+        let text = {
+            Narrator: {
+                T0000: "*Klopf Klopf*"
+            },
+            Mira: {
+                T0000: "Hey Nick! Alles Gute zum Geburtstag.",
+                T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
+                T0002: "Ach das macht doch nix. Erinnert mich an früher als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
+                T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
+                T0004: "Fangen die Prüfungen bei dir auch nächste Woche an.",
+                T0005: "Was denn sonst noch?"
+            },
+            Nick: {
+                T0000: "Mira? Was machst du denn hier?",
+                T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
+                T0002: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
+                T0003: ": Ja.. Da hast du wohl Recht.",
+                T0004: "...",
+                T0005: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
+                T0006: "Ja, unter anderem.",
+                T0007: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
+            }
+        };
+        //Story
+        await Template.fS.Location.show(Template.location.nicksRoomDoor);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+        await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positionPercent(20, 100));
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.fS.positionPercent(80, 100));
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        //Emotion
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.fS.positionPercent(80, 100));
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        //Emotion
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.fS.positionPercent(80, 100));
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0003);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0004);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0005);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0006);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0007);
+    }
+    Template.Scene_2_good = Scene_2_good;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_2_neutral() {
+        console.log("Scene_2_neutral: starting");
+        //Text
+        let text = {
+            Mira: {
+                T0000: "Was steht denn heute alles an?",
+                T0001: "In einer Woche sind Prüfungen... Ich sollte wirklich mal mit dem lernen anfangen.",
+                T0002: "Ich sollte meine Pflanzen mal wieder gießen. Die sahen auch schon mal besser aus.",
+                T0003: "Noch einen Monat bis zum Auftritt mit meinem Musikverein. Ich könnte mir schon mal die Stücke genauer anschauen.",
+                T0004: "Sollte heute nicht das neue Tetris rauskommen? Ich könnte das ja mal ein wenig anspielen."
+            }
+        };
+        //Story
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+    }
+    Template.Scene_2_neutral = Scene_2_neutral;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map
