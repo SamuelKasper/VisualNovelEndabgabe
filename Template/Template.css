@@ -40,4 +40,28 @@ speech{
   display: none;
 }
 
+.decisionClass{
+  padding: 0px;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: 5px;
+  border-color: black;
+}
+
+.decisionClass button{
+  font-size: 22px;
+  font-family: Calibri;
+  height: 60px;
+  width: 200px;
+  background-color: rgb(233, 233, 233);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+dialog{
+  background-color: black;
+  color: white;
+  border: none;
+}
 

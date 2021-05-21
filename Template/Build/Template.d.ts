@@ -159,7 +159,7 @@ declare namespace Template {
 }
 declare namespace Template {
     class SceneDesicionClass {
-        static chooseScene(_sceneDesicionPoints: number): "scene_2_bad" | "scene_2_neutral" | "scene_2_good" | "no valid sceneDesicionPoint";
+        static chooseScene(_sceneDesicionPoints: number): "scene_2_bad" | "scene_2_neutral" | "scene_2_good" | "scene_3_bad" | "no valid sceneDesicionPoint";
     }
 }
 declare namespace Template {
