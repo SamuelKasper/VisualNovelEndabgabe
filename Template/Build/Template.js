@@ -180,6 +180,7 @@ var Template;
         let scenes = [
             { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
             { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" },
             { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
             { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" }
         ];
@@ -512,5 +513,12 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
     }
     Template.Scene_2_neutral = Scene_2_neutral;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_3_bad() {
+        console.log("Scene_3_bad: starting");
+    }
+    Template.Scene_3_bad = Scene_3_bad;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map
