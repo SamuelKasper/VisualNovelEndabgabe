@@ -390,10 +390,12 @@ var Template;
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.black);
                 await Template.fS.update(1);
-                await Template.fS.Text.print("4h später...");
+                await Template.fS.Text.print("Einige Runden später...");
                 Template.fS.Text.close();
                 await Template.fS.update();
                 //fade in
+                await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Kein Wunder dass das alle toll finden.");

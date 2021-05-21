@@ -99,11 +99,13 @@ namespace Template {
                 fS.Speech.hide();
                 await fS.Location.show(location.black)
                 await fS.update(1);
-                await fS.Text.print("4h später...");
+                await fS.Text.print("Einige Runden später...");
                 fS.Text.close();
                 await fS.update();
 
                 //fade in
+                await fS.Location.show(location.miraRoomLaptop);
+                await fS.update();
                 await fS.Speech.tell(characters.Mira, "Das hat Spaß gemacht.");
                 await fS.Speech.tell(characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
                 await fS.Speech.tell(characters.Mira, "Kein Wunder dass das alle toll finden.");
