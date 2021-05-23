@@ -1,11 +1,11 @@
 namespace Template {
     let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
+    let plantsDone: boolean = false;
+    let tetrisDone: boolean = false;
+    let learningDone: boolean = false;
+    let pianoDone: boolean = false;
     export async function Scene_3_bad(): fS.SceneReturn {
         console.log("Scene_3_bad: starting");
-        let plantsDone: boolean = false;
-        let tetrisDone: boolean = false;
-        let learningDone: boolean = false;
-        let pianoDone: boolean = false;
 
         //Text
         let text = {
@@ -46,9 +46,36 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0007);
         await fS.Character.hide(characters.Mira);
 
-        while (!learningDone && !plantsDone && !tetrisDone && !pianoDone) {
-            await whatToDo();
+        while (true) {
+            if(learningDone && plantsDone && tetrisDone && pianoDone){
+                break;
+            }else{
+                await whatToDo();
+            }
+            
         }
+        await fS.Location.show(location.black);
+        await fS.update();
+        await signalDelay2s();
+        await fS.Character.hide(characters.Mira);
+        await fS.update();
+        await fS.Location.show(location.miraRoomHandyBirthday);
+        await fS.update();
+        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+        await fS.Speech.tell(characters.Mira, "Keine Nachricht...");
+        await fS.Speech.tell(characters.Mira, "Anscheinend ist er doch Sauer. Vielleicht sollte ich mich die Tage bei ihm persönlich entschuldigen.");
+        fS.Speech.hide();
+        await fS.Location.show(location.black);
+        await fS.update(1.5);
+        await signalDelay2s();
+        await fS.Text.print("2 Wochen später - Nach den Prüfungen."); 
+        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht."); 
+        await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
+        fS.Text.close();
+        await fS.update();
+        await fS.Location.show(location.badEnding);
+        await fS.update(1);
     }
 
     async function whatToDo(): Promise<void> {
@@ -111,6 +138,7 @@ namespace Template {
                 fS.Sound.fade(sound.pianoSongGoing, 0, 1, false);
                 fS.Sound.fade(sound.pianoSongDontStand, 0, 1, false);
                 fS.Sound.fade(sound.pianoSongFlowerfield, 0, 1, false);
+                pianoDone = true;
                 break;
 
             //-------------------plants  
@@ -123,12 +151,13 @@ namespace Template {
                     //pflanzen gießen geräusch (wasser plätschern)
                     await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                     await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
-                }else{
+                } else {
                     await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
                     await fS.Location.show(location.miraRoom);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
                 }
+                plantsDone = true;
                 break;
 
             //-------------------tetris
@@ -151,6 +180,7 @@ namespace Template {
                 await fS.Location.show(location.miraRoomLaptop);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
+                tetrisDone = true;
                 break;
 
             //-------------------lernen
@@ -169,6 +199,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
                 await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
                 await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                learningDone = true;
                 break;
         }
     }

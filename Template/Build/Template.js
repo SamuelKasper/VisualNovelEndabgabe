@@ -116,7 +116,7 @@ var Template;
         },
         badEnding: {
             name: "badEnding",
-            background: "Images/"
+            background: "Images/Backgrounds/Black.png"
         },
         black: {
             name: "black",
@@ -524,12 +524,12 @@ var Template;
 var Template;
 (function (Template) {
     let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
+    let plantsDone = false;
+    let tetrisDone = false;
+    let learningDone = false;
+    let pianoDone = false;
     async function Scene_3_bad() {
         console.log("Scene_3_bad: starting");
-        let plantsDone = false;
-        let tetrisDone = false;
-        let learningDone = false;
-        let pianoDone = false;
         //Text
         let text = {
             Mira: {
@@ -567,9 +567,36 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
         await Template.fS.Character.hide(Template.characters.Mira);
-        while (!learningDone && !plantsDone && !tetrisDone && !pianoDone) {
-            await whatToDo();
+        while (true) {
+            if (learningDone && plantsDone && tetrisDone && pianoDone) {
+                break;
+            }
+            else {
+                await whatToDo();
+            }
         }
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update();
+        await signalDelay2s();
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.miraRoomHandyBirthday);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+        await Template.fS.Speech.tell(Template.characters.Mira, "Keine Nachricht...");
+        await Template.fS.Speech.tell(Template.characters.Mira, "Anscheinend ist er doch Sauer. Vielleicht sollte ich mich die Tage bei ihm persönlich entschuldigen.");
+        Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(1.5);
+        await signalDelay2s();
+        await Template.fS.Text.print("2 Wochen später - Nach den Prüfungen.");
+        await Template.fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
+        await Template.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await Template.fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
+        Template.fS.Text.close();
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.badEnding);
+        await Template.fS.update(1);
     }
     Template.Scene_3_bad = Scene_3_bad;
     async function whatToDo() {
@@ -624,6 +651,7 @@ var Template;
                 Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 1, false);
+                pianoDone = true;
                 break;
             //-------------------plants  
             case whatToDoAnswer.pflanzen:
@@ -642,6 +670,7 @@ var Template;
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
                 }
+                plantsDone = true;
                 break;
             //-------------------tetris
             case whatToDoAnswer.tetris:
@@ -661,6 +690,7 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
+                tetrisDone = true;
                 break;
             //-------------------lernen
             case whatToDoAnswer.lernen:
@@ -678,6 +708,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
                 await Template.fS.Speech.tell(Template.characters.Mira, "this wird zu that... now zu then und ago zu before");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                learningDone = true;
                 break;
         }
     }

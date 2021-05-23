@@ -140,7 +140,7 @@ namespace Template {
 
     badEnding: {
       name: "badEnding",
-      background: "Images/"
+      background: "Images/Backgrounds/Black.png"
     },
 
     black: {
