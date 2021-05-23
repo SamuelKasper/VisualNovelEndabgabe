@@ -651,9 +651,7 @@ var Template;
                 //fade in
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
                 await Template.fS.update();
-                await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Kein Wunder dass das alle toll finden.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
                 break;
             //-------------------lernen
             case whatToDoAnswer.lernen:
