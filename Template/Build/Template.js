@@ -656,22 +656,19 @@ var Template;
             //-------------------lernen
             case whatToDoAnswer.lernen:
                 await Template.fS.Character.hide(Template.characters.Mira);
-                await Template.fS.Location.show(Template.location.miraRoomMath);
+                await Template.fS.Location.show(Template.location.miraRoomEnglish);
                 await Template.fS.update();
-                await Template.fS.Speech.tell(Template.characters.Mira, "Als erstes Mathe.");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Heute ist dann wohl Englisch drann.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "indirekte Rede...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Simple Present wird zu Simple Past");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                 await Template.fS.Speech.tell(Template.characters.Mira, "...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Will wird zu would");
                 await Template.fS.Speech.tell(Template.characters.Mira, "...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Assoziativgesetz...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Kommutativgesetz...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Distributivgesetz...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
+                await Template.fS.Speech.tell(Template.characters.Mira, "this wird zu that... now zu then und ago zu before");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
                 break;
         }
     }

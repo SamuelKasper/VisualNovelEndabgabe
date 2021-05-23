@@ -146,23 +146,19 @@ namespace Template {
             //-------------------lernen
             case whatToDoAnswer.lernen:
                 await fS.Character.hide(characters.Mira);
-                await fS.Location.show(location.miraRoomMath);
+                await fS.Location.show(location.miraRoomEnglish);
                 await fS.update();
-                await fS.Speech.tell(characters.Mira, "Als erstes Mathe.");
-                await fS.Speech.tell(characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch drann.");
+                await fS.Speech.tell(characters.Mira, "indirekte Rede...");
                 await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past");
+                await fS.Speech.tell(characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                 await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
+                await fS.Speech.tell(characters.Mira, "Will wird zu would");
                 await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
-                await fS.Speech.tell(characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
-                await fS.Speech.tell(characters.Mira, "Assoziativgesetz...");
-                await fS.Speech.tell(characters.Mira, "Kommutativgesetz...");
-                await fS.Speech.tell(characters.Mira, "Distributivgesetz...");
-                await fS.Speech.tell(characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                await fS.Speech.tell(characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
-
+                await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
+                await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
+                await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
                 break;
         }
     }
