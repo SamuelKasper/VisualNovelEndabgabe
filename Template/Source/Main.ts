@@ -189,7 +189,8 @@ namespace Template {
   };
 
   export let dataToSave = {
-    sceneDesiscionPoints: 0
+    sceneDesiscionPoints: 0,
+    plantsOnDayOne: false
   };
 
   //save and load

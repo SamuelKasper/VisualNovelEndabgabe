@@ -86,6 +86,7 @@ namespace Template {
                 //pflanzen gießen geräusch (wasser plätschern)
                 await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
+                dataToSave.plantsOnDayOne = true;
                 break;
 
             //-------------------tetris

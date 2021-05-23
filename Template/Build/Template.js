@@ -159,7 +159,8 @@ var Template;
         }
     };
     Template.dataToSave = {
-        sceneDesiscionPoints: 0
+        sceneDesiscionPoints: 0,
+        plantsOnDayOne: false
     };
     //save and load
     document.addEventListener("keydown", hndKeypress);
@@ -386,6 +387,7 @@ var Template;
                 //pflanzen gießen geräusch (wasser plätschern)
                 await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                Template.dataToSave.plantsOnDayOne = true;
                 break;
             //-------------------tetris
             case whatToDoAnswer.tetris:
@@ -616,13 +618,21 @@ var Template;
                 break;
             //-------------------plants  
             case whatToDoAnswer.pflanzen:
-                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
-                await Template.fS.Location.show(Template.location.miraRoom);
-                await Template.fS.update();
-                await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                //pflanzen gießen geräusch (wasser plätschern)
-                await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
-                await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                if (!Template.dataToSave.plantsOnDayOne) {
+                    await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                    await Template.fS.Location.show(Template.location.miraRoom);
+                    await Template.fS.update();
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
+                    //pflanzen gießen geräusch (wasser plätschern)
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                }
+                else {
+                    await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                    await Template.fS.Location.show(Template.location.miraRoom);
+                    await Template.fS.update();
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
+                }
                 break;
             //-------------------tetris
             case whatToDoAnswer.tetris:

@@ -155,6 +155,7 @@ declare namespace Template {
     };
     let dataToSave: {
         sceneDesiscionPoints: number;
+        plantsOnDayOne: boolean;
     };
 }
 declare namespace Template {
