@@ -582,6 +582,15 @@ var Template;
         };
         let whatToDo = await Template.fS.Menu.getInput(whatToDoAnswer, "decisionClass");
         switch (whatToDo) {
+            //-------------------Handy
+            case whatToDoAnswer.nachrichten:
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.update();
+                await Template.fS.Location.show(Template.location.miraRoomHandyBirthday);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Hm, er hat noch nicht geantwortet...");
+                break;
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await Template.fS.Character.hide(Template.characters.Mira);

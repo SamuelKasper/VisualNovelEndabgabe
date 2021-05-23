@@ -64,6 +64,16 @@ namespace Template {
         let whatToDo = await fS.Menu.getInput(whatToDoAnswer, "decisionClass");
 
         switch (whatToDo) {
+            //-------------------Handy
+            case whatToDoAnswer.nachrichten:
+                await fS.Character.hide(characters.Mira);
+                await fS.update();
+                await fS.Location.show(location.miraRoomHandyBirthday);
+                await fS.update();
+                await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                await fS.Speech.tell(characters.Mira, "Hm, er hat noch nicht geantwortet...");
+                break;
+
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await fS.Character.hide(characters.Mira);
