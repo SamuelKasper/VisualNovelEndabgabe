@@ -8,9 +8,9 @@ declare namespace Template {
         goodEnding: string;
         neutralEnding: string;
         badEnding: string;
-        pianoSong_1: string;
-        pianoSong_2: string;
-        pianoSong_3: string;
+        pianoSongGoing: string;
+        pianoSongDontStand: string;
+        pianoSongFlowerfield: string;
         tetris: string;
         fallingOnFloor: string;
         wateringPlants: string;

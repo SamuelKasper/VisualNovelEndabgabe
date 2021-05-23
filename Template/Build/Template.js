@@ -12,9 +12,9 @@ var Template;
         goodEnding: "Audio/",
         neutralEnding: "Audio/",
         badEnding: "Audio/Endings/darker.mp3",
-        pianoSong_1: "Audio/Piano_Room/Going.mp3",
-        pianoSong_2: "Audio/",
-        pianoSong_3: "Audio/",
+        pianoSongGoing: "Audio/Piano/Going.mp3",
+        pianoSongDontStand: "Audio/Piano/DontStand.mp3",
+        pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
         tetris: "Audio/",
         //Sounds
         fallingOnFloor: "Audio/",
@@ -258,8 +258,9 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update(0.3);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-                Template.dataToSave.sceneDesiscionPoints = 1;
-                break;
+                //dataToSave.sceneDesiscionPoints = 1;
+                //break;
+                return "scene_2_bad";
             //News: scene_2_neutral (sceneDesicionPoints = 1001)  
             case sleepNewsCalendarAnswer.news:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
@@ -270,8 +271,9 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-                Template.dataToSave.sceneDesiscionPoints = 1001;
-                break;
+                //dataToSave.sceneDesiscionPoints = 1001;
+                //break;
+                return "scene_2_neutral";
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
@@ -289,18 +291,20 @@ var Template;
                     //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
-                        Template.dataToSave.sceneDesiscionPoints = 2001;
-                        break;
+                        //dataToSave.sceneDesiscionPoints = 2001;
+                        //break;
+                        return "scene_2_good";
                     //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
                     case goToBirthdayAnswer.dontGo:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-                        Template.dataToSave.sceneDesiscionPoints = 1;
-                        break;
+                        //dataToSave.sceneDesiscionPoints = 1;
+                        return "scene_2_bad";
+                    //break;
                 }
                 break;
         }
         //chose next scene
-        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
+        //return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_1_beginn = Scene_1_beginn;
 })(Template || (Template = {}));
@@ -345,7 +349,8 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
         //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        Template.dataToSave.sceneDesiscionPoints = 2;
+        //dataToSave.sceneDesiscionPoints = 2;
+        return "scene_3_bad";
     }
     Template.Scene_2_bad = Scene_2_bad;
     async function whatToDo() {
@@ -516,9 +521,151 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
     async function Scene_3_bad() {
         console.log("Scene_3_bad: starting");
+        let plantsDone = false;
+        let tetrisDone = false;
+        let learningDone = false;
+        let pianoDone = false;
+        //Text
+        let text = {
+            Mira: {
+                T0000: "Neuer Tag, neues Glück.",
+                T0001: "4.2... Warte?",
+                T0002: "Gestern hatte doch Nick Geburtstag und ich habe ganz vergessen ihm zu gratulieren.",
+                T0003: "Jetzt aber schnell",
+                T0004: "Oh man.",
+                T0005: "Wie konnte ich das nur vergessen.",
+                T0006: "Ich hoffe er ist mir nicht böse.",
+                T0007: "Was steht denn heute an?"
+            }
+        };
+        //Story
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(0.5);
+        await signalDelay2s();
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.miraRoomHandyBirthday);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        while (!learningDone && !plantsDone && !tetrisDone && !pianoDone) {
+            await whatToDo();
+        }
     }
     Template.Scene_3_bad = Scene_3_bad;
+    async function whatToDo() {
+        let whatToDoAnswer = {
+            nachrichten: "Handy",
+            klavier: "Klavier üben",
+            pflanzen: "Pflanzen gießen",
+            tetris: "Tetris spielen",
+            lernen: "Lernen"
+        };
+        let whatToDo = await Template.fS.Menu.getInput(whatToDoAnswer, "decisionClass");
+        switch (whatToDo) {
+            //-------------------piano
+            case whatToDoAnswer.klavier:
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Location.show(Template.location.pianoRoom);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Hm, was spiele ich denn heute?");
+                let songsAnswer = {
+                    going: "Going",
+                    dontStand: "Don't Stand",
+                    flowerfield: "Flowerfield"
+                };
+                let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
+                switch (songs) {
+                    case songsAnswer.going:
+                        Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, false);
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        break;
+                    case songsAnswer.dontStand:
+                        Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, false);
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        break;
+                    case songsAnswer.flowerfield:
+                        Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, false);
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                        break;
+                }
+                await Template.fS.Speech.tell(Template.characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
+                Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0, 1, false);
+                Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 1, false);
+                Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 1, false);
+                break;
+            //-------------------plants  
+            case whatToDoAnswer.pflanzen:
+                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                await Template.fS.Location.show(Template.location.miraRoom);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
+                //pflanzen gießen geräusch (wasser plätschern)
+                await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                break;
+            //-------------------tetris
+            case whatToDoAnswer.tetris:
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
+                //start tetris musik
+                //fade out (game time)
+                Template.fS.Speech.hide();
+                await Template.fS.Location.show(Template.location.black);
+                await Template.fS.update(1);
+                await Template.fS.Text.print("Einige Runden später...");
+                Template.fS.Text.close();
+                await Template.fS.update();
+                //fade in
+                await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Kein Wunder dass das alle toll finden.");
+                break;
+            //-------------------lernen
+            case whatToDoAnswer.lernen:
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Location.show(Template.location.miraRoomMath);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Als erstes Mathe.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Assoziativgesetz...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Kommutativgesetz...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Distributivgesetz...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
+                break;
+        }
+    }
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map
