@@ -78,6 +78,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "...");
                 signalDelay2s();
                 await fS.Speech.tell(characters.Mira, "Ich kann mich nicht errinnern.");
+                fS.Sound.fade(sound.overworldTheme, 0.2, 1, false);
                 break;
 
             //-------------------plants  
@@ -97,7 +98,7 @@ namespace Template {
                 await fS.update();
                 dataToSave.plantsOnDayOne = true;
                 break;
-
+ 
             //-------------------tetris
             case whatToDoAnswer.tetris:
                 await fS.Character.hide(characters.Mira);
@@ -105,6 +106,7 @@ namespace Template {
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
                 //start tetris musik
+                fS.Sound.fade(sound.overworldTheme, 0, 0.3, true);
                 fS.Sound.fade(sound.tetris, 0.3, 1.5, true);
                 //fade out (game time)
                 fS.Speech.hide();
@@ -116,7 +118,8 @@ namespace Template {
 
                 //fade in
                 await fS.Location.show(location.miraRoomLaptop);
-                fS.Sound.fade(sound.tetris, 0, 1, false);
+                fS.Sound.fade(sound.tetris, 0, 0.3, true);
+                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Das hat Spaß gemacht.");
                 await fS.Speech.tell(characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");

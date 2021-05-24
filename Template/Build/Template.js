@@ -384,6 +384,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "...");
                 signalDelay2s();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich kann mich nicht errinnern.");
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, false);
                 break;
             //-------------------plants  
             case whatToDoAnswer.pflanzen:
@@ -409,6 +410,7 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
                 //start tetris musik
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, true);
                 Template.fS.Sound.fade(Template.sound.tetris, 0.3, 1.5, true);
                 //fade out (game time)
                 Template.fS.Speech.hide();
@@ -419,7 +421,8 @@ var Template;
                 await Template.fS.update();
                 //fade in
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
-                Template.fS.Sound.fade(Template.sound.tetris, 0, 1, false);
+                Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, true);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
@@ -653,17 +656,20 @@ var Template;
                 let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
                 switch (songs) {
                     case songsAnswer.going:
-                        Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, false);
+                        Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                        Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.dontStand:
-                        Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, false);
+                        Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                        Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.flowerfield:
-                        Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, false);
+                        Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                        Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         break;
@@ -672,6 +678,7 @@ var Template;
                 Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 1, false);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 pianoDone = true;
                 break;
             //-------------------plants  
@@ -706,6 +713,8 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
                 //start tetris musik
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, true);
+                Template.fS.Sound.fade(Template.sound.tetris, 0.3, 1.5, true);
                 //fade out (game time)
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.black);
@@ -717,6 +726,8 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
+                Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, true);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 tetrisDone = true;
                 break;
             //-------------------lernen
