@@ -1,5 +1,5 @@
 TASKS
-- Scene_2_bad: Nicks Song + Mädchenstimme die mit summt
+- Scene_2_bad: Nicks Song ->  Mädchenstimme die mit summt
 - Scene_2_bad: Wasser plätscher geräusch (pflanzen gießen)
 
 

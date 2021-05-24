@@ -69,16 +69,17 @@ namespace Template {
                 await fS.Location.show(location.pianoRoom);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Erstmal ein wenig einspielen.");
-                fS.Sound.fade(sound.overworldTheme, 0, 1.5, false);
+                fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
                 //play nicks song + Mädchenstimme die mit summt
-
+                fS.Sound.fade(sound.nicksSong, 0.2, 1.5, true);
                 await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                 await fS.Speech.tell(characters.Mira, "Hm, irgendwie kommt mir diese Melodie bekannt vor. Aber woher?");
                 await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                 await fS.Speech.tell(characters.Mira, "...");
                 signalDelay2s();
                 await fS.Speech.tell(characters.Mira, "Ich kann mich nicht errinnern.");
-                fS.Sound.fade(sound.overworldTheme, 0.2, 1, false);
+                fS.Sound.fade(sound.nicksSong, 0, 1, false);
+                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 break;
 
             //-------------------plants  

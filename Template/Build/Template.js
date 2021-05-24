@@ -16,6 +16,7 @@ var Template;
         pianoSongDontStand: "Audio/Piano/DontStand.mp3",
         pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
         tetris: "Audio/Tetris.wav",
+        nicksSong: "Audio/Piano/NicksSong.mp3",
         //Sounds
         fallingOnFloor: "Audio/",
         wateringPlants: "Audio/",
@@ -376,15 +377,17 @@ var Template;
                 await Template.fS.Location.show(Template.location.pianoRoom);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Erstmal ein wenig einspielen.");
-                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 1.5, false);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
                 //play nicks song + Mädchenstimme die mit summt
+                Template.fS.Sound.fade(Template.sound.nicksSong, 0.2, 1.5, true);
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie kommt mir diese Melodie bekannt vor. Aber woher?");
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "...");
                 signalDelay2s();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich kann mich nicht errinnern.");
-                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, false);
+                Template.fS.Sound.fade(Template.sound.nicksSong, 0, 1, false);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 break;
             //-------------------plants  
             case whatToDoAnswer.pflanzen:

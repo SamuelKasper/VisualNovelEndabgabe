@@ -16,6 +16,7 @@ namespace Template {
     pianoSongDontStand: "Audio/Piano/DontStand.mp3",
     pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
     tetris: "Audio/Tetris.wav",
+    nicksSong: "Audio/Piano/NicksSong.mp3",
     //Sounds
     fallingOnFloor: "Audio/",
     wateringPlants: "Audio/",

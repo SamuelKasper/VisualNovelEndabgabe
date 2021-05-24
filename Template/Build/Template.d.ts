@@ -12,6 +12,7 @@ declare namespace Template {
         pianoSongDontStand: string;
         pianoSongFlowerfield: string;
         tetris: string;
+        nicksSong: string;
         fallingOnFloor: string;
         wateringPlants: string;
         grabPaper: string;
