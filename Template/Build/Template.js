@@ -120,7 +120,7 @@ var Template;
         },
         badEnding: {
             name: "badEnding",
-            background: "Images/Backgrounds/Black.png"
+            background: "Images/Backgrounds/BadEnding.png"
         },
         black: {
             name: "black",
@@ -350,7 +350,7 @@ var Template;
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
-        await Template.fS.Speech.hide();
+        Template.fS.Speech.hide();
         await Template.fS.Character.hide(Template.characters.Mira);
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.black);
@@ -410,8 +410,8 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
                 //start tetris musik
-                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, true);
-                Template.fS.Sound.fade(Template.sound.tetris, 0.3, 1.5, true);
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                Template.fS.Sound.fade(Template.sound.tetris, 0.2, 1.5, true);
                 //fade out (game time)
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.black);
@@ -421,7 +421,7 @@ var Template;
                 await Template.fS.update();
                 //fade in
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
-                Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, true);
+                Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, false);
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
@@ -591,6 +591,7 @@ var Template;
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
         await Template.fS.Character.hide(Template.characters.Mira);
+        Template.fS.Speech.hide();
         while (true) {
             if (learningDone && plantsDone && tetrisDone && pianoDone) {
                 break;
@@ -600,27 +601,35 @@ var Template;
             }
         }
         await Template.fS.Location.show(Template.location.black);
-        await Template.fS.update();
-        await signalDelay2s();
+        await Template.fS.update(1);
+        await Template.fS.Location.show(Template.location.miraRoomDarker);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+        await Template.fS.update(1.5);
+        await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht hat Nick mittlerweile ja geantwortet.");
         await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Speech.hide();
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.miraRoomHandyBirthday);
-        await Template.fS.update();
+        await Template.fS.update(1);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Speech.tell(Template.characters.Mira, "Keine Nachricht...");
         await Template.fS.Speech.tell(Template.characters.Mira, "Anscheinend ist er doch Sauer. Vielleicht sollte ich mich die Tage bei ihm persönlich entschuldigen.");
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
+        Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 1, false);
         await Template.fS.update(1.5);
         await signalDelay2s();
         await Template.fS.Text.print("2 Wochen später - Nach den Prüfungen.");
         await Template.fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
         await Template.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        Template.fS.Sound.fade(Template.sound.badEnding, 0.2, 1.5, true);
         await Template.fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
         Template.fS.Text.close();
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.badEnding);
-        await Template.fS.update(1);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+        Template.fS.Sound.fade(Template.sound.badEnding, 0, 0.3, false);
     }
     Template.Scene_3_bad = Scene_3_bad;
     async function whatToDo() {
@@ -714,7 +723,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
                 //start tetris musik
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, true);
-                Template.fS.Sound.fade(Template.sound.tetris, 0.3, 1.5, true);
+                Template.fS.Sound.fade(Template.sound.tetris, 0.2, 1.5, true);
                 //fade out (game time)
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.black);

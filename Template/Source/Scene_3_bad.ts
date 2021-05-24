@@ -51,6 +51,7 @@ namespace Template {
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0007);
         await fS.Character.hide(characters.Mira);
+        fS.Speech.hide();
 
         while (true) {
             if(learningDone && plantsDone && tetrisDone && pianoDone){
@@ -61,27 +62,35 @@ namespace Template {
             
         }
         await fS.Location.show(location.black);
-        await fS.update();
-        await signalDelay2s();
+        await fS.update(1);
+        await fS.Location.show(location.miraRoomDarker);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+        await fS.update(1.5);
+        await fS.Speech.tell(characters.Mira, "Vielleicht hat Nick mittlerweile ja geantwortet.");
         await fS.Character.hide(characters.Mira);
+        await fS.Speech.hide();
         await fS.update();
         await fS.Location.show(location.miraRoomHandyBirthday);
-        await fS.update();
+        await fS.update(1);
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Keine Nachricht...");
         await fS.Speech.tell(characters.Mira, "Anscheinend ist er doch Sauer. Vielleicht sollte ich mich die Tage bei ihm persönlich entschuldigen.");
         fS.Speech.hide();
         await fS.Location.show(location.black);
+        fS.Sound.fade(sound.overworldTheme, 0, 1, false);
         await fS.update(1.5);
         await signalDelay2s();
         await fS.Text.print("2 Wochen später - Nach den Prüfungen."); 
         await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht."); 
         await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
         await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
         fS.Text.close();
         await fS.update();
         await fS.Location.show(location.badEnding);
-        await fS.update(1);
+        await fS.update();
+        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+        fS.Sound.fade(sound.badEnding, 0, 0.3, false);
     }
 
     async function whatToDo(): Promise<void> {
@@ -184,7 +193,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
                 //start tetris musik
                 fS.Sound.fade(sound.overworldTheme, 0, 0.3, true);
-                fS.Sound.fade(sound.tetris, 0.3, 1.5, true);
+                fS.Sound.fade(sound.tetris, 0.2, 1.5, true);
                 //fade out (game time)
                 fS.Speech.hide();
                 await fS.Location.show(location.black)

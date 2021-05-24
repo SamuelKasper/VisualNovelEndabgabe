@@ -39,7 +39,7 @@ namespace Template {
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0005);
         await fS.Speech.tell(characters.Mira, text.Mira.T0006);
-        await fS.Speech.hide();
+        fS.Speech.hide();
         await fS.Character.hide(characters.Mira);
         await fS.update();
         await fS.Location.show(location.black);
@@ -106,8 +106,8 @@ namespace Template {
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
                 //start tetris musik
-                fS.Sound.fade(sound.overworldTheme, 0, 0.3, true);
-                fS.Sound.fade(sound.tetris, 0.3, 1.5, true);
+                fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
+                fS.Sound.fade(sound.tetris, 0.2, 1.5, true);
                 //fade out (game time)
                 fS.Speech.hide();
                 await fS.Location.show(location.black)
@@ -118,7 +118,7 @@ namespace Template {
 
                 //fade in
                 await fS.Location.show(location.miraRoomLaptop);
-                fS.Sound.fade(sound.tetris, 0, 0.3, true);
+                fS.Sound.fade(sound.tetris, 0, 0.3, false);
                 fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Das hat Spaß gemacht.");
