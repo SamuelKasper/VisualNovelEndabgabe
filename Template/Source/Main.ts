@@ -6,7 +6,7 @@ namespace Template {
 
   export let sound = {
     //Music
-    overworldTheme: "Audio/",
+    overworldTheme: "Audio/DoingStuff.mp3",
     overworldThemeMuted: "Audio/",
     mysteryTheme: "Audio/",
     goodEnding: "Audio/",
@@ -26,6 +26,11 @@ namespace Template {
     miraRoom: {
       name: "mirasRoom",
       background: "Images/Backgrounds/Miras_Zimmer.png"
+    },
+
+    miraRoomDarker: {
+      name: "mirasRoom",
+      background: "Images/Backgrounds/MirasZimmerDarker.png"
     },
 
     nickRoom: {

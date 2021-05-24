@@ -6,7 +6,7 @@ var Template;
     console.log("FudgeStory template starting");
     Template.sound = {
         //Music
-        overworldTheme: "Audio/",
+        overworldTheme: "Audio/DoingStuff.mp3",
         overworldThemeMuted: "Audio/",
         mysteryTheme: "Audio/",
         goodEnding: "Audio/",
@@ -25,6 +25,10 @@ var Template;
         miraRoom: {
             name: "mirasRoom",
             background: "Images/Backgrounds/Miras_Zimmer.png"
+        },
+        miraRoomDarker: {
+            name: "mirasRoom",
+            background: "Images/Backgrounds/MirasZimmerDarker.png"
         },
         nickRoom: {
             name: "nicksRoom",
@@ -229,11 +233,11 @@ var Template;
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update();
-        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Location.show(Template.location.miraRoomDarker);
         await Template.fS.update(0.7);
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(0.2);
-        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Location.show(Template.location.miraRoomDarker);
         await Template.fS.update(0.5);
         //Text
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
@@ -328,6 +332,8 @@ var Template;
             }
         };
         //Story
+        //Music on
+        Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1.5, true);
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
         await Template.fS.update();
@@ -340,7 +346,7 @@ var Template;
         while (!learningDone) {
             await whatToDo();
         }
-        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.Location.show(Template.location.miraRoomDarker);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
@@ -370,6 +376,7 @@ var Template;
                 await Template.fS.Location.show(Template.location.pianoRoom);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Erstmal ein wenig einspielen.");
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 1.5, false);
                 //play nicks song + Mädchenstimme die mit summt
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie kommt mir diese Melodie bekannt vor. Aber woher?");
@@ -385,8 +392,14 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
                 //pflanzen gießen geräusch (wasser plätschern)
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+                await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                await Template.fS.update();
                 Template.dataToSave.plantsOnDayOne = true;
                 break;
             //-------------------tetris
@@ -553,6 +566,9 @@ var Template;
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
@@ -562,11 +578,14 @@ var Template;
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Location.show(Template.location.miraRoom);
-        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
         await Template.fS.Character.hide(Template.characters.Mira);
         while (true) {
@@ -663,8 +682,14 @@ var Template;
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
                     //pflanzen gießen geräusch (wasser plätschern)
+                    await Template.fS.Character.hide(Template.characters.Mira);
+                    await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+                    await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                     await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                    await Template.fS.Character.hide(Template.characters.Mira);
+                    await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                    await Template.fS.update();
                 }
                 else {
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);

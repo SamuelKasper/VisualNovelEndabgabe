@@ -1,7 +1,11 @@
+TASKS
+- Overworld music einbauen
 - Scene_2_bad: Nicks Song + Mädchenstimme die mit summt
-- Scene_2_bad: Miras room dunklel?? morgens und 22 Uhr
 - Scene_2_bad: Wasser plätscher geräusch (pflanzen gießen)
 - Scnen_3_bad: emotionen anpassen
 - Scene_3_bad: Bad ending screen fehlt noch
 - Scene_3_bad: Ende von Schwarz zu Handy einblenden richtig machen
+
+
+BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann.

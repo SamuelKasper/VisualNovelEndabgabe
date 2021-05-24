@@ -29,6 +29,9 @@ namespace Template {
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
+        await fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0001);
         await fS.Speech.tell(characters.Mira, text.Mira.T0002);
         await fS.Speech.tell(characters.Mira, text.Mira.T0003);
@@ -38,11 +41,14 @@ namespace Template {
         await fS.update();
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Location.show(location.miraRoom);
-        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0004);
         await fS.Speech.tell(characters.Mira, text.Mira.T0005);
         await fS.Speech.tell(characters.Mira, text.Mira.T0006);
+        await fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0007);
         await fS.Character.hide(characters.Mira);
 
@@ -149,8 +155,14 @@ namespace Template {
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
                     //pflanzen gießen geräusch (wasser plätschern)
+                    await fS.Character.hide(characters.Mira);
+                    await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+                    await fS.update();
                     await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                     await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
+                    await fS.Character.hide(characters.Mira);
+                    await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+                    await fS.update();
                 } else {
                     await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
                     await fS.Location.show(location.miraRoom);

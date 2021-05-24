@@ -21,6 +21,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        miraRoomDarker: {
+            name: string;
+            background: string;
+        };
         nickRoom: {
             name: string;
             background: string;

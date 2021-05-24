@@ -17,11 +17,11 @@ namespace Template {
     fS.Speech.hide();
     await fS.Location.show(location.black);
     await fS.update();
-    await fS.Location.show(location.miraRoom);
+    await fS.Location.show(location.miraRoomDarker);
     await fS.update(0.7);
     await fS.Location.show(location.black);
     await fS.update(0.2);
-    await fS.Location.show(location.miraRoom);
+    await fS.Location.show(location.miraRoomDarker);
     await fS.update(0.5);
 
     //Text

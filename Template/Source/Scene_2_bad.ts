@@ -19,6 +19,8 @@ namespace Template {
         }
 
         //Story
+        //Music on
+        fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
         await fS.Location.show(location.miraRoom);
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
         await fS.update();
@@ -29,11 +31,11 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0004);
         await fS.Character.hide(characters.Mira);
 
-        while(!learningDone){
+        while (!learningDone) {
             await whatToDo();
         }
 
-        await fS.Location.show(location.miraRoom);
+        await fS.Location.show(location.miraRoomDarker);
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0005);
         await fS.Speech.tell(characters.Mira, text.Mira.T0006);
@@ -67,6 +69,7 @@ namespace Template {
                 await fS.Location.show(location.pianoRoom);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Erstmal ein wenig einspielen.");
+                fS.Sound.fade(sound.overworldTheme, 0, 1.5, false);
                 //play nicks song + Mädchenstimme die mit summt
 
                 await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -84,8 +87,14 @@ namespace Template {
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
                 //pflanzen gießen geräusch (wasser plätschern)
+                await fS.Character.hide(characters.Mira);
+                await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+                await fS.update();
                 await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
+                await fS.Character.hide(characters.Mira);
+                await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+                await fS.update();
                 dataToSave.plantsOnDayOne = true;
                 break;
 
