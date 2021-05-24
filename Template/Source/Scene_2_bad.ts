@@ -96,7 +96,7 @@ namespace Template {
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
                 //start tetris musik
-
+                fS.Sound.fade(sound.tetris, 0.3, 1.5, true);
                 //fade out (game time)
                 fS.Speech.hide();
                 await fS.Location.show(location.black)
@@ -107,6 +107,7 @@ namespace Template {
 
                 //fade in
                 await fS.Location.show(location.miraRoomLaptop);
+                fS.Sound.fade(sound.tetris, 0, 1, false);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Das hat Spaß gemacht.");
                 await fS.Speech.tell(characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");

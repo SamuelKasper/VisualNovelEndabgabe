@@ -15,7 +15,7 @@ var Template;
         pianoSongGoing: "Audio/Piano/Going.mp3",
         pianoSongDontStand: "Audio/Piano/DontStand.mp3",
         pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
-        tetris: "Audio/",
+        tetris: "Audio/Tetris.wav",
         //Sounds
         fallingOnFloor: "Audio/",
         wateringPlants: "Audio/",
@@ -396,6 +396,7 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
                 //start tetris musik
+                Template.fS.Sound.fade(Template.sound.tetris, 0.3, 1.5, true);
                 //fade out (game time)
                 Template.fS.Speech.hide();
                 await Template.fS.Location.show(Template.location.black);
@@ -405,6 +406,7 @@ var Template;
                 await Template.fS.update();
                 //fade in
                 await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                Template.fS.Sound.fade(Template.sound.tetris, 0, 1, false);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das hat Spaß gemacht.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");

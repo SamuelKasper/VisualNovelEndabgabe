@@ -1,5 +1,4 @@
 - Scene_2_bad: Nicks Song + Mädchenstimme die mit summt
-- Scene_2_bad: Tetris music
 - Scene_2_bad: Miras room dunklel?? morgens und 22 Uhr
 - Scene_2_bad: Wasser plätscher geräusch (pflanzen gießen)
 - Scnen_3_bad: emotionen anpassen
