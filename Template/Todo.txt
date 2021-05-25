@@ -2,6 +2,8 @@ TASKS
 - Scene_2_bad: Nicks Song ->  Mädchenstimme die mit summt
 - Scene_2_bad: Wasser plätscher geräusch (pflanzen gießen)
 
+- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
+
 
 BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 
