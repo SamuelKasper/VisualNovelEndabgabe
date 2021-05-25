@@ -15,7 +15,7 @@ var Template;
         pianoSongGoing: "Audio/Piano/Going.mp3",
         pianoSongDontStand: "Audio/Piano/DontStand.mp3",
         pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
-        tetris: "Audio/Tetris.wav",
+        tetris: "Audio/Tetris.mp3",
         nicksSong: "Audio/Piano/NicksSong.mp3",
         //Sounds
         fallingOnFloor: "Audio/",

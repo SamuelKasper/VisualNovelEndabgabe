@@ -93,7 +93,7 @@ namespace Template {
         fS.Sound.fade(sound.badEnding, 0, 0.3, false);
     }
 
-    async function whatToDo(): Promise<void> {
+    async function whatToDo(): Promise<void> { 
 
         let whatToDoAnswer = {
             nachrichten: "Handy",
