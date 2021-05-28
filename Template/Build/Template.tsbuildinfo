@@ -8,7 +8,9 @@
       "../Source/Scene_2_bad.ts",
       "../Source/Scene_2_good.ts",
       "../Source/Scene_2_neutral.ts",
-      "../Source/Scene_3_bad.ts"
+      "../Source/Scene_3_bad.ts",
+      "../Source/Scene_3_good.ts",
+      "../Source/Scene_3_neutral.ts"
     ],
     "js": {
       "sections": [
@@ -20,7 +22,7 @@
         },
         {
           "pos": 15,
-          "end": 52758,
+          "end": 56188,
           "kind": "text"
         }
       ],
@@ -48,7 +50,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 4766,
+          "end": 4964,
           "kind": "text"
         }
       ]

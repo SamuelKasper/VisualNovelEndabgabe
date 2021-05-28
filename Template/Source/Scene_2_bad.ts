@@ -46,8 +46,7 @@ namespace Template {
         await fS.update(2);
 
         //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        //dataToSave.sceneDesiscionPoints = 2;
-        return "scene_3_bad";
+        dataToSave.sceneDesiscionPoints = 2;
     }
 
     async function whatToDo(): Promise<void> {

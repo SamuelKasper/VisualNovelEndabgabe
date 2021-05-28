@@ -50,9 +50,8 @@ namespace Template {
         await fS.Location.show(location.miraRoom);
         await fS.update(0.3);
         await fS.Speech.tell(characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-        //dataToSave.sceneDesiscionPoints = 1;
-        //break;
-        return "scene_2_bad";
+        dataToSave.sceneDesiscionPoints = 1;
+        break;
 
       //News: scene_2_neutral (sceneDesicionPoints = 1001)  
       case sleepNewsCalendarAnswer.news:
@@ -64,9 +63,8 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Spannend wie immer...");
         await fS.Speech.tell(characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-        //dataToSave.sceneDesiscionPoints = 1001;
-        //break;
-        return "scene_2_neutral";
+        dataToSave.sceneDesiscionPoints = 1001;
+        break;
 
       //Calendar
       case sleepNewsCalendarAnswer.calendar:
@@ -88,21 +86,19 @@ namespace Template {
           //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
-            //dataToSave.sceneDesiscionPoints = 2001;
-            //break;
-            return "scene_2_good";
+            dataToSave.sceneDesiscionPoints = 2001;
+            break;
 
           //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
           case goToBirthdayAnswer.dontGo:
             await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-            //dataToSave.sceneDesiscionPoints = 1;
-            return "scene_2_bad";
-            //break;
+            dataToSave.sceneDesiscionPoints = 1;
+            break;
         }
         break;
     }
 
     //chose next scene
-    //return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
+    return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
   }
 }

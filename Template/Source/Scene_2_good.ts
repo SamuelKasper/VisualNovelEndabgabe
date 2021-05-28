@@ -4,7 +4,7 @@ namespace Template {
 
         //Text
         let text = {
-            Narrator:{
+            Narrator: {
                 T0000: "*Klopf Klopf*"
             },
 
@@ -65,5 +65,33 @@ namespace Template {
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0005);
         await fS.Speech.tell(characters.Nick, text.Nick.T0007);
+
+        //Decision
+        let explainOrHelpAnswer = {
+            help: "Hilfe anbieten",
+            explain: "Erklärung suchen"
+        };
+
+        let explainOrHelp = await fS.Menu.getInput(explainOrHelpAnswer, "decisionClass");
+
+        switch (explainOrHelp) {
+            case explainOrHelpAnswer.help:
+                await fS.Speech.tell(characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Probem hast.");
+                await fS.Speech.tell(characters.Nick, "Ja... Danke.");
+                await fS.Speech.tell(characters.Mira, "Dafür sind Freunde doch da.");
+                await fS.Speech.tell(characters.Nick, "Ja...");
+                //Scene_3_good
+                dataToSave.sceneDesiscionPoints = 2002;
+                break;
+            case explainOrHelpAnswer.explain:
+                await fS.Speech.tell(characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
+                await fS.Speech.tell(characters.Nick, "Ja, da hast du sicher recht...");
+                //Scene_3_neutral
+                dataToSave.sceneDesiscionPoints = 1002;
+                break;
+        }
+
+        //chose next scene
+        return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
     }
 }

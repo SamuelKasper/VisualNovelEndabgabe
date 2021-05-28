@@ -185,10 +185,15 @@ var Template;
     function start(_event) {
         let scenes = [
             { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
+            //bad scenes
             { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" },
+            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ },
+            //neutral scenes
             { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
-            { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" }
+            { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
+            //good scenes
+            { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
+            { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" }
         ];
         //set progress data
         Template.fS.Progress.setData(Template.dataToSave);
@@ -201,14 +206,22 @@ var Template;
     class SceneDesicionClass {
         static chooseScene(_sceneDesicionPoints) {
             switch (_sceneDesicionPoints) {
+                //bad scenes
                 case 1:
                     return "scene_2_bad";
                 case 2:
                     return "scene_3_bad";
+                //neutral scenes
                 case 1001:
                     return "scene_2_neutral";
+                case 1002:
+                    return "scene_3_neutral";
+                //good scenes
                 case 2001:
                     return "scene_2_good";
+                case 2002:
+                    return "scene_3_good";
+                //default
                 default:
                     return "no valid sceneDesicionPoint";
             }
@@ -264,9 +277,8 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update(0.3);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-                //dataToSave.sceneDesiscionPoints = 1;
-                //break;
-                return "scene_2_bad";
+                Template.dataToSave.sceneDesiscionPoints = 1;
+                break;
             //News: scene_2_neutral (sceneDesicionPoints = 1001)  
             case sleepNewsCalendarAnswer.news:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
@@ -277,9 +289,8 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-                //dataToSave.sceneDesiscionPoints = 1001;
-                //break;
-                return "scene_2_neutral";
+                Template.dataToSave.sceneDesiscionPoints = 1001;
+                break;
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
@@ -297,20 +308,18 @@ var Template;
                     //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
-                        //dataToSave.sceneDesiscionPoints = 2001;
-                        //break;
-                        return "scene_2_good";
+                        Template.dataToSave.sceneDesiscionPoints = 2001;
+                        break;
                     //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
                     case goToBirthdayAnswer.dontGo:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-                        //dataToSave.sceneDesiscionPoints = 1;
-                        return "scene_2_bad";
-                    //break;
+                        Template.dataToSave.sceneDesiscionPoints = 1;
+                        break;
                 }
                 break;
         }
         //chose next scene
-        //return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
+        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_1_beginn = Scene_1_beginn;
 })(Template || (Template = {}));
@@ -357,8 +366,7 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
         //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        //dataToSave.sceneDesiscionPoints = 2;
-        return "scene_3_bad";
+        Template.dataToSave.sceneDesiscionPoints = 2;
     }
     Template.Scene_2_bad = Scene_2_bad;
     async function whatToDo() {
@@ -513,6 +521,30 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0006);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0007);
+        //Decision
+        let explainOrHelpAnswer = {
+            help: "Hilfe anbieten",
+            explain: "Erklärung suchen"
+        };
+        let explainOrHelp = await Template.fS.Menu.getInput(explainOrHelpAnswer, "decisionClass");
+        switch (explainOrHelp) {
+            case explainOrHelpAnswer.help:
+                await Template.fS.Speech.tell(Template.characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Probem hast.");
+                await Template.fS.Speech.tell(Template.characters.Nick, "Ja... Danke.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Dafür sind Freunde doch da.");
+                await Template.fS.Speech.tell(Template.characters.Nick, "Ja...");
+                //Scene_3_good
+                Template.dataToSave.sceneDesiscionPoints = 2002;
+                break;
+            case explainOrHelpAnswer.explain:
+                await Template.fS.Speech.tell(Template.characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
+                await Template.fS.Speech.tell(Template.characters.Nick, "Ja, da hast du sicher recht...");
+                //Scene_3_neutral
+                Template.dataToSave.sceneDesiscionPoints = 1002;
+                break;
+        }
+        //chose next scene
+        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_2_good = Scene_2_good;
 })(Template || (Template = {}));
@@ -903,5 +935,67 @@ var Template;
                 break;
         }
     }
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_3_good() {
+        console.log("Scene_3_good: starting");
+        //Text
+        let text = {
+            Narrator: {
+                T0000: ""
+            },
+            Mira: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: ""
+            },
+            Nick: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: "",
+                T0007: ""
+            }
+        };
+    }
+    Template.Scene_3_good = Scene_3_good;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene_3_neutral() {
+        console.log("Scene_3_neutral: starting");
+        //Text
+        let text = {
+            Narrator: {
+                T0000: ""
+            },
+            Mira: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: ""
+            },
+            Nick: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: "",
+                T0007: ""
+            }
+        };
+    }
+    Template.Scene_3_neutral = Scene_3_neutral;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

@@ -165,7 +165,7 @@ declare namespace Template {
 }
 declare namespace Template {
     class SceneDesicionClass {
-        static chooseScene(_sceneDesicionPoints: number): "scene_2_bad" | "scene_3_bad" | "scene_2_neutral" | "scene_2_good" | "no valid sceneDesicionPoint";
+        static chooseScene(_sceneDesicionPoints: number): "scene_2_bad" | "scene_3_bad" | "scene_2_neutral" | "scene_3_neutral" | "scene_2_good" | "scene_3_good" | "no valid sceneDesicionPoint";
     }
 }
 declare namespace Template {
@@ -182,4 +182,10 @@ declare namespace Template {
 }
 declare namespace Template {
     function Scene_3_bad(): fS.SceneReturn;
+}
+declare namespace Template {
+    function Scene_3_good(): fS.SceneReturn;
+}
+declare namespace Template {
+    function Scene_3_neutral(): fS.SceneReturn;
 }

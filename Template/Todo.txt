@@ -4,6 +4,8 @@ TASKS
 
 - Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
 
+-Scene_2_good: gespräch in Nicks zimmer verlegen
+
 
 BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 

@@ -218,10 +218,15 @@ namespace Template {
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
       { scene: Scene_1_beginn, name: "Scene_1_beginn" },
+      //bad scenes
       { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad"},
-      { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" },
+      { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */},
+      //neutral scenes
       { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
-      { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" }
+      { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
+      //good scenes
+      { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" },
+      { id: "scene_3_good", scene: Scene_3_good, name: "Scene_3_good" }
     ];
 
     //set progress data
