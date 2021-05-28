@@ -196,14 +196,16 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
+            /*
+            { scene: Scene_1_beginn, name: "Scene_1_beginn" },
             //bad scenes
-            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ },
+            { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ /* },
             //neutral scenes
-            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
-            { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
-            //good scenes
+            
+            { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
+            { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
+            //good scenes*/
             { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
             { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" }
         ];
@@ -510,6 +512,21 @@ var Template;
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+        /*-----Animation*/
+        //Animation
+        let moveLeftAnimation = {
+            start: { translation: Template.fS.positions.bottomcenter },
+            end: { translation: Template.fS.positions.bottomleft },
+            duration: 1,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "ANIMATION START");
+        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, moveLeftAnimation);
+        await Template.fS.update(1);
+        await Template.fS.Speech.tell(Template.characters.Mira, "ANIMATION ENDE");
+        /*-----Animation*/
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positionPercent(20, 100));
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.fS.positionPercent(80, 100));
         await Template.fS.update();

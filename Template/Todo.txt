@@ -7,6 +7,7 @@ TASKS
 - Scene_2_good: gespräch in Nicks zimmer verlegen
 - Name oberhalb des gesprochenen Textes
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
+- Character resizen
 
 
 BUGS / Probleme
