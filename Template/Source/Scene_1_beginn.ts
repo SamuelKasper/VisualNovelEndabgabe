@@ -41,7 +41,7 @@ namespace Template {
     let sleepNewsCalendar = await fS.Menu.getInput(sleepNewsCalendarAnswer, "decisionClass");
 
     switch (sleepNewsCalendar) {
-      //Weiterschalfen: scene_2_bad (sceneDesicionPoints = 1)
+      //Weiterschalfen
       case sleepNewsCalendarAnswer.sleep:
         await fS.Speech.tell(characters.Mira, "Für einen Sonntag ist es ja noch ziemlich früh. Da kann man sich nochmal ein paar Stunden Schlaf gönnen.");
         fS.Speech.hide();
@@ -52,10 +52,9 @@ namespace Template {
         await fS.Location.show(location.miraRoom);
         await fS.update(0.3);
         await fS.Speech.tell(characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-        dataToSave.sceneDesiscionPoints = 1;
-        break;
+        return "scene_2_bad";
 
-      //News: scene_2_neutral (sceneDesicionPoints = 1001)  
+      //News:
       case sleepNewsCalendarAnswer.news:
         await fS.Speech.tell(characters.Mira, "Mal schauen ob's was neues gibt.")
         fS.Speech.hide();
@@ -65,8 +64,7 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Spannend wie immer...");
         await fS.Speech.tell(characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-        dataToSave.sceneDesiscionPoints = 1001;
-        break;
+        return "scene_2_neutral";
 
       //Calendar
       case sleepNewsCalendarAnswer.calendar:
@@ -85,22 +83,17 @@ namespace Template {
         let goToBirthday = await fS.Menu.getInput(goToBirthdayAnswer, "decisionClass");
 
         switch (goToBirthday) {
-          //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
+          //go to Birthday
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
-            dataToSave.sceneDesiscionPoints = 2001;
-            break;
+            return "scene_2_good";
 
-          //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
+          //dont go to Birthday
           case goToBirthdayAnswer.dontGo:
             await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-            dataToSave.sceneDesiscionPoints = 1;
-            break;
+            return "scene_2_bad";
         }
         break;
     }
-
-    //chose next scene
-    return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
   }
 }

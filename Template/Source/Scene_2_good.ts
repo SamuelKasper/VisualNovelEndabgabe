@@ -98,18 +98,11 @@ namespace Template {
                 await fS.Speech.tell(characters.Nick, "Ja... Danke.");
                 await fS.Speech.tell(characters.Mira, "Dafür sind Freunde doch da.");
                 await fS.Speech.tell(characters.Nick, "Ja...");
-                //Scene_3_good
-                dataToSave.sceneDesiscionPoints = 2002;
-                break;
+                return "scene_3_good";
             case explainOrHelpAnswer.explain:
                 await fS.Speech.tell(characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
                 await fS.Speech.tell(characters.Nick, "Ja, da hast du sicher recht...");
-                //Scene_3_neutral
-                dataToSave.sceneDesiscionPoints = 1002;
-                break;
+                return "scene_3_neutral";
         }
-
-        //chose next scene
-        return SceneDesicionClass.chooseScene(dataToSave.sceneDesiscionPoints);
     }
 }

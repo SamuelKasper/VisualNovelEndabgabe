@@ -176,7 +176,6 @@ var Template;
         }
     };
     Template.dataToSave = {
-        sceneDesiscionPoints: 0,
         plantsOnDayOne: false
     };
     //save and load
@@ -196,16 +195,14 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-            { scene: Scene_1_beginn, name: "Scene_1_beginn" },
+            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
             //bad scenes
-            { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ /* },
+            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ },
             //neutral scenes
-            
-            { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
-            { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
-            //good scenes*/
+            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
+            { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
+            //good scenes
             { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
             { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" }
         ];
@@ -214,34 +211,6 @@ var Template;
         // start the sequence
         Template.fS.Progress.go(scenes);
     }
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    class SceneDesicionClass {
-        static chooseScene(_sceneDesicionPoints) {
-            switch (_sceneDesicionPoints) {
-                //bad scenes
-                case 1:
-                    return "scene_2_bad";
-                case 2:
-                    return "scene_3_bad";
-                //neutral scenes
-                case 1001:
-                    return "scene_2_neutral";
-                case 1002:
-                    return "scene_3_neutral";
-                //good scenes
-                case 2001:
-                    return "scene_2_good";
-                case 2002:
-                    return "scene_3_good";
-                //default
-                default:
-                    return "no valid sceneDesicionPoint";
-            }
-        }
-    }
-    Template.SceneDesicionClass = SceneDesicionClass;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -281,7 +250,7 @@ var Template;
         };
         let sleepNewsCalendar = await Template.fS.Menu.getInput(sleepNewsCalendarAnswer, "decisionClass");
         switch (sleepNewsCalendar) {
-            //Weiterschalfen: scene_2_bad (sceneDesicionPoints = 1)
+            //Weiterschalfen
             case sleepNewsCalendarAnswer.sleep:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Für einen Sonntag ist es ja noch ziemlich früh. Da kann man sich nochmal ein paar Stunden Schlaf gönnen.");
                 Template.fS.Speech.hide();
@@ -292,9 +261,8 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update(0.3);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-                Template.dataToSave.sceneDesiscionPoints = 1;
-                break;
-            //News: scene_2_neutral (sceneDesicionPoints = 1001)  
+                return "scene_2_bad";
+            //News:
             case sleepNewsCalendarAnswer.news:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
                 Template.fS.Speech.hide();
@@ -304,8 +272,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-                Template.dataToSave.sceneDesiscionPoints = 1001;
-                break;
+                return "scene_2_neutral";
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
@@ -320,21 +287,17 @@ var Template;
                 };
                 let goToBirthday = await Template.fS.Menu.getInput(goToBirthdayAnswer, "decisionClass");
                 switch (goToBirthday) {
-                    //go to Birthday: scene_2_good (sceneDesiscionPoints = 2001)
+                    //go to Birthday
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
-                        Template.dataToSave.sceneDesiscionPoints = 2001;
-                        break;
-                    //dont go to Birthday: scene_2_bad (sceneDesicionPoints = 1)  
+                        return "scene_2_good";
+                    //dont go to Birthday
                     case goToBirthdayAnswer.dontGo:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-                        Template.dataToSave.sceneDesiscionPoints = 1;
-                        break;
+                        return "scene_2_bad";
                 }
                 break;
         }
-        //chose next scene
-        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_1_beginn = Scene_1_beginn;
 })(Template || (Template = {}));
@@ -381,8 +344,7 @@ var Template;
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
-        //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        Template.dataToSave.sceneDesiscionPoints = 2;
+        return "scene_3_bad";
     }
     Template.Scene_2_bad = Scene_2_bad;
     async function whatToDo() {
@@ -564,18 +526,12 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja... Danke.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dafür sind Freunde doch da.");
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja...");
-                //Scene_3_good
-                Template.dataToSave.sceneDesiscionPoints = 2002;
-                break;
+                return "scene_3_good";
             case explainOrHelpAnswer.explain:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja, da hast du sicher recht...");
-                //Scene_3_neutral
-                Template.dataToSave.sceneDesiscionPoints = 1002;
-                break;
+                return "scene_3_neutral";
         }
-        //chose next scene
-        return Template.SceneDesicionClass.chooseScene(Template.dataToSave.sceneDesiscionPoints);
     }
     Template.Scene_2_good = Scene_2_good;
 })(Template || (Template = {}));
@@ -613,9 +569,6 @@ var Template;
             if (await whatToDo() == "scene_2_good") {
                 return "scene_2_good";
             }
-            else {
-                console.log("nicht hingehen ausgewählt");
-            }
         }
         await Template.fS.Location.show(Template.location.miraRoomDarker);
         await Template.fS.update();
@@ -626,8 +579,6 @@ var Template;
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
-        //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        //dataToSave.sceneDesiscionPoints = 2;
         return "scene_3_bad";
     }
     Template.Scene_2_neutral = Scene_2_neutral;
@@ -761,7 +712,7 @@ var Template;
                 T0000: "Neuer Tag, neues Glück.",
                 T0001: "4.2... Warte?",
                 T0002: "Gestern hatte doch Nick Geburtstag und ich habe ganz vergessen ihm zu gratulieren.",
-                T0003: "Jetzt aber schnell",
+                T0003: "Jetzt aber schnell!",
                 T0004: "Oh man.",
                 T0005: "Wie konnte ich das nur vergessen.",
                 T0006: "Ich hoffe er ist mir nicht böse.",
@@ -857,6 +808,7 @@ var Template;
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, er hat noch nicht geantwortet...");
+                Template.fS.Speech.hide();
                 break;
             //-------------------piano
             case whatToDoAnswer.klavier:
@@ -895,6 +847,7 @@ var Template;
                 Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 1, false);
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
+                Template.fS.Speech.hide();
                 pianoDone = true;
                 break;
             //-------------------plants  
@@ -920,6 +873,7 @@ var Template;
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
                 }
+                Template.fS.Speech.hide();
                 plantsDone = true;
                 break;
             //-------------------tetris
@@ -944,6 +898,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
                 Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, true);
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
+                Template.fS.Speech.hide();
                 tetrisDone = true;
                 break;
             //-------------------lernen
@@ -962,6 +917,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
                 await Template.fS.Speech.tell(Template.characters.Mira, "this wird zu that... now zu then und ago zu before");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                Template.fS.Speech.hide();
                 learningDone = true;
                 break;
         }

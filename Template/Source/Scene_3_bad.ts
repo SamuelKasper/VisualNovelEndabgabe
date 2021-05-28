@@ -13,7 +13,7 @@ namespace Template {
                 T0000: "Neuer Tag, neues Glück.",
                 T0001: "4.2... Warte?",
                 T0002: "Gestern hatte doch Nick Geburtstag und ich habe ganz vergessen ihm zu gratulieren.",
-                T0003: "Jetzt aber schnell",
+                T0003: "Jetzt aber schnell!",
                 T0004: "Oh man.",
                 T0005: "Wie konnte ich das nur vergessen.",
                 T0006: "Ich hoffe er ist mir nicht böse.",
@@ -114,6 +114,7 @@ namespace Template {
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                 await fS.Speech.tell(characters.Mira, "Hm, er hat noch nicht geantwortet...");
+                fS.Speech.hide();
                 break;
 
             //-------------------piano
@@ -157,6 +158,7 @@ namespace Template {
                 fS.Sound.fade(sound.pianoSongDontStand, 0, 1, false);
                 fS.Sound.fade(sound.pianoSongFlowerfield, 0, 1, false);
                 fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
+                fS.Speech.hide();
                 pianoDone = true;
                 break;
 
@@ -182,6 +184,7 @@ namespace Template {
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
                 }
+                fS.Speech.hide();
                 plantsDone = true;
                 break;
 
@@ -208,6 +211,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
                 fS.Sound.fade(sound.tetris, 0, 0.3, true);
                 fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
+                fS.Speech.hide();
                 tetrisDone = true;
                 break;
 
@@ -227,6 +231,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
                 await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
                 await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                fS.Speech.hide();
                 learningDone = true;
                 break;
         }

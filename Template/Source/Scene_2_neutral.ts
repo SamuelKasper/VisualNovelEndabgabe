@@ -33,9 +33,8 @@ namespace Template {
         while (!learningDone) {
             if(await whatToDo() == "scene_2_good"){
                 return "scene_2_good";
-            }else{
-                console.log("nicht hingehen ausgewählt");
             }
+            
         }
 
         await fS.Location.show(location.miraRoomDarker);
@@ -47,9 +46,6 @@ namespace Template {
         await fS.update();
         await fS.Location.show(location.black);
         await fS.update(2);
-
-        //Nächster Tag: scene_3_bad (sceneDesicionPoints = 2)
-        //dataToSave.sceneDesiscionPoints = 2;
         return "scene_3_bad";
     }
 
