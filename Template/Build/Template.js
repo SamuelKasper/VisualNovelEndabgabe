@@ -3,7 +3,7 @@ var Template;
 (function (Template) {
     Template.f = FudgeCore;
     Template.fS = FudgeStory;
-    console.log("FudgeStory template starting");
+    console.log("FudgeStory main starting");
     Template.sound = {
         //Music
         overworldTheme: "Audio/DoingStuff.mp3",
@@ -21,6 +21,18 @@ var Template;
         fallingOnFloor: "Audio/",
         wateringPlants: "Audio/",
         grabPaper: "Audio/"
+    };
+    Template.transition = {
+        ants: {
+            duration: 1.5,
+            alpha: "Transitions/circlewipe-cw.jpg",
+            edge: 1
+        },
+        transTwo: {
+            duration: 1.5,
+            alpha: "Transitions/039.jpg",
+            edge: 1
+        }
     };
     Template.location = {
         miraRoom: {
@@ -248,7 +260,8 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.miraRoomDarker);
-        await Template.fS.update(0.7);
+        //await fS.update(0.7);
+        await Template.fS.update(Template.transition.ants.duration, Template.transition.ants.alpha, Template.transition.ants.edge);
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(0.2);
         await Template.fS.Location.show(Template.location.miraRoomDarker);

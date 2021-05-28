@@ -2,7 +2,7 @@ namespace Template {
   export import f = FudgeCore;
   export import fS = FudgeStory;
 
-  console.log("FudgeStory template starting");
+  console.log("FudgeStory main starting");
 
   export let sound = {
     //Music
@@ -21,6 +21,20 @@ namespace Template {
     fallingOnFloor: "Audio/",
     wateringPlants: "Audio/",
     grabPaper: "Audio/"
+  };
+
+  export let transition = {
+    ants: {
+      duration: 1.5,
+      alpha: "Transitions/circlewipe-cw.jpg",
+      edge: 1
+    },
+
+    transTwo: {
+      duration: 1.5,
+      alpha: "Transitions/039.jpg",
+      edge: 1
+    }
   };
 
   export let location = {

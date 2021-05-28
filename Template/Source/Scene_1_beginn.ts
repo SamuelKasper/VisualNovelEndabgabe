@@ -14,11 +14,13 @@ namespace Template {
     }
 
     //Wake up
+    
     fS.Speech.hide();
     await fS.Location.show(location.black);
     await fS.update();
     await fS.Location.show(location.miraRoomDarker);
-    await fS.update(0.7);
+    //await fS.update(0.7);
+    await fS.update(transition.ants.duration, transition.ants.alpha, transition.ants.edge);
     await fS.Location.show(location.black);
     await fS.update(0.2);
     await fS.Location.show(location.miraRoomDarker);

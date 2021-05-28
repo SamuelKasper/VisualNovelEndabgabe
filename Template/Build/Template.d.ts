@@ -17,6 +17,18 @@ declare namespace Template {
         wateringPlants: string;
         grabPaper: string;
     };
+    let transition: {
+        ants: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        transTwo: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+    };
     let location: {
         miraRoom: {
             name: string;
