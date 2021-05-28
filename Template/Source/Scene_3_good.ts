@@ -28,6 +28,6 @@ namespace Template {
                 T0007: ""
             }
         }
-
+        await fS.Speech.tell(characters.Nick, text.Mira.T0000);
     }       
 }

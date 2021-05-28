@@ -343,6 +343,7 @@ var Template;
         };
         //Story
         //Music on
+        //GEHT NICHT AUF DEM VOLUME fS.Sound.play(sound.overworldTheme, 0.2, true);
         Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1.5, true);
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
@@ -964,6 +965,7 @@ var Template;
                 T0007: ""
             }
         };
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Mira.T0000);
     }
     Template.Scene_3_good = Scene_3_good;
 })(Template || (Template = {}));
@@ -995,6 +997,7 @@ var Template;
                 T0007: ""
             }
         };
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Mira.T0000);
     }
     Template.Scene_3_neutral = Scene_3_neutral;
 })(Template || (Template = {}));

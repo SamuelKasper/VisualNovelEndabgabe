@@ -4,7 +4,9 @@ TASKS
 
 - Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
 
--Scene_2_good: gespräch in Nicks zimmer verlegen
+- Scene_2_good: gespräch in Nicks zimmer verlegen
+- Name oberhalb des gesprochenen Textes
+- Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 
 
 BUGS / Probleme

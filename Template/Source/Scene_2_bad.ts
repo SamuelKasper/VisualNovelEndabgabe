@@ -20,6 +20,7 @@ namespace Template {
 
         //Story
         //Music on
+        //GEHT NICHT AUF DEM VOLUME fS.Sound.play(sound.overworldTheme, 0.2, true);
         fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
         await fS.Location.show(location.miraRoom);
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
