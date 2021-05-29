@@ -178,6 +178,9 @@ var Template;
     Template.dataToSave = {
         plantsOnDayOne: false
     };
+    //Both characters on screen
+    Template.miraPosWhenBoth = new Template.fS.Position(-384, -360);
+    Template.nickPosWhenBoth = new Template.fS.Position(384, -360);
     //save and load
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -477,22 +480,20 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         /*-----Animation*/
-        //Animation
         let moveLeftAnimation = {
             start: { translation: Template.fS.positions.bottomcenter },
-            end: { translation: Template.fS.positions.bottomleft },
-            duration: 4,
+            end: { translation: Template.miraPosWhenBoth },
+            duration: 2,
             playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
         };
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
         await Template.fS.update();
-        await Template.fS.Speech.tell(Template.characters.Mira, "ANIMATION START");
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, moveLeftAnimation);
         await Template.fS.update(1);
-        await Template.fS.Speech.tell(Template.characters.Mira, "ANIMATION ENDE");
         /*-----Animation*/
-        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positionPercent(20, 100));
-        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.fS.positionPercent(80, 100));
+        //await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positionPercent(20, 100));
+        //await fS.update();
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0000);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);

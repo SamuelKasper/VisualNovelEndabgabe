@@ -173,6 +173,8 @@ declare namespace Template {
     let dataToSave: {
         plantsOnDayOne: boolean;
     };
+    let miraPosWhenBoth: f.Vector2;
+    let nickPosWhenBoth: f.Vector2;
 }
 declare namespace Template {
     function Scene_1_beginn(): fS.SceneReturn;

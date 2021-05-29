@@ -212,6 +212,9 @@ namespace Template {
     plantsOnDayOne: false
   };
 
+  //Both characters on screen
+  export let miraPosWhenBoth: f.Vector2 =  new fS.Position(-384, -360);
+  export let nickPosWhenBoth: f.Vector2 =  new fS.Position(384, -360);
   
 
   //save and load
