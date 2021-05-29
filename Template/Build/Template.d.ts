@@ -18,12 +18,12 @@ declare namespace Template {
         grabPaper: string;
     };
     let transition: {
-        ants: {
+        blink: {
             duration: number;
             alpha: string;
             edge: number;
         };
-        transTwo: {
+        swipe: {
             duration: number;
             alpha: string;
             edge: number;

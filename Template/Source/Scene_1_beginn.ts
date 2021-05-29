@@ -19,8 +19,7 @@ namespace Template {
     await fS.Location.show(location.black);
     await fS.update();
     await fS.Location.show(location.miraRoomDarker);
-    //await fS.update(0.7);
-    await fS.update(transition.ants.duration, transition.ants.alpha, transition.ants.edge);
+    await fS.update(0.7);
     await fS.Location.show(location.black);
     await fS.update(0.2);
     await fS.Location.show(location.miraRoomDarker);
@@ -86,6 +85,7 @@ namespace Template {
           //go to Birthday
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
+            fS.Speech.hide();
             return "scene_2_good";
 
           //dont go to Birthday

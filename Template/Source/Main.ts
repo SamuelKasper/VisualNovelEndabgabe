@@ -24,15 +24,15 @@ namespace Template {
   };
 
   export let transition = {
-    ants: {
-      duration: 1.5,
-      alpha: "Transitions/circlewipe-cw.jpg",
+    blink: {
+      duration: 0.7,
+      alpha: "Transitions/blink.jpg",
       edge: 1
     },
 
-    transTwo: {
-      duration: 1.5,
-      alpha: "Transitions/039.jpg",
+    swipe: {
+      duration: 0.7,
+      alpha: "Transitions/swipe.jpg",
       edge: 1
     }
   };

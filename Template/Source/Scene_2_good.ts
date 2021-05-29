@@ -31,7 +31,7 @@ namespace Template {
 
         //Story
         await fS.Location.show(location.nicksRoomDoor);
-        await fS.update();
+        await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Narrator, text.Narrator.T0000);
 

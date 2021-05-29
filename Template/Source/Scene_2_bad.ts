@@ -64,8 +64,9 @@ namespace Template {
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await fS.Character.hide(characters.Mira);
-                await fS.Location.show(location.pianoRoom);
                 await fS.update();
+                await fS.Location.show(location.pianoRoom);
+                await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
                 await fS.Speech.tell(characters.Mira, "Erstmal ein wenig einspielen.");
                 fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
                 //play nicks song + Mädchenstimme die mit summt

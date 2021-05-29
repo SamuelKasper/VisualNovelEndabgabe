@@ -23,14 +23,14 @@ var Template;
         grabPaper: "Audio/"
     };
     Template.transition = {
-        ants: {
-            duration: 1.5,
-            alpha: "Transitions/circlewipe-cw.jpg",
+        blink: {
+            duration: 0.7,
+            alpha: "Transitions/blink.jpg",
             edge: 1
         },
-        transTwo: {
-            duration: 1.5,
-            alpha: "Transitions/039.jpg",
+        swipe: {
+            duration: 0.7,
+            alpha: "Transitions/swipe.jpg",
             edge: 1
         }
     };
@@ -231,8 +231,7 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.miraRoomDarker);
-        //await fS.update(0.7);
-        await Template.fS.update(Template.transition.ants.duration, Template.transition.ants.alpha, Template.transition.ants.edge);
+        await Template.fS.update(0.7);
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(0.2);
         await Template.fS.Location.show(Template.location.miraRoomDarker);
@@ -290,6 +289,7 @@ var Template;
                     //go to Birthday
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
+                        Template.fS.Speech.hide();
                         return "scene_2_good";
                     //dont go to Birthday
                     case goToBirthdayAnswer.dontGo:
@@ -360,8 +360,9 @@ var Template;
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await Template.fS.Character.hide(Template.characters.Mira);
-                await Template.fS.Location.show(Template.location.pianoRoom);
                 await Template.fS.update();
+                await Template.fS.Location.show(Template.location.pianoRoom);
+                await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Erstmal ein wenig einspielen.");
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
                 //play nicks song + Mädchenstimme die mit summt
@@ -471,7 +472,7 @@ var Template;
         };
         //Story
         await Template.fS.Location.show(Template.location.nicksRoomDoor);
-        await Template.fS.update();
+        await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         /*-----Animation*/
@@ -595,8 +596,9 @@ var Template;
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await Template.fS.Character.hide(Template.characters.Mira);
-                await Template.fS.Location.show(Template.location.pianoRoom);
                 await Template.fS.update();
+                await Template.fS.Location.show(Template.location.pianoRoom);
+                await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Erstmal ein wenig einspielen.");
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
                 //play nicks song + Mädchenstimme die mit summt
@@ -813,8 +815,9 @@ var Template;
             //-------------------piano
             case whatToDoAnswer.klavier:
                 await Template.fS.Character.hide(Template.characters.Mira);
-                await Template.fS.Location.show(Template.location.pianoRoom);
                 await Template.fS.update();
+                await Template.fS.Location.show(Template.location.pianoRoom);
+                await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, was spiele ich denn heute?");
                 let songsAnswer = {
                     going: "Going",
