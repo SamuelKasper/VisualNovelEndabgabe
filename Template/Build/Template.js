@@ -471,6 +471,7 @@ var Template;
             }
         };
         //Story
+        Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1.5, true);
         await Template.fS.Location.show(Template.location.nicksRoomDoor);
         await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -480,7 +481,7 @@ var Template;
         let moveLeftAnimation = {
             start: { translation: Template.fS.positions.bottomcenter },
             end: { translation: Template.fS.positions.bottomleft },
-            duration: 1,
+            duration: 4,
             playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
         };
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);

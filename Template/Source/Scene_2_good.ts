@@ -30,6 +30,7 @@ namespace Template {
         }
 
         //Story
+        fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
         await fS.Location.show(location.nicksRoomDoor);
         await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -40,7 +41,7 @@ namespace Template {
         let moveLeftAnimation: fS.AnimationDefinition = {
             start: { translation: fS.positions.bottomcenter },
             end: { translation: fS.positions.bottomleft },
-            duration: 1,
+            duration: 4,
             playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
         };
 

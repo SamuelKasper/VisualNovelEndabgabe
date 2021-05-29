@@ -8,7 +8,7 @@ TASKS
 - Name oberhalb des gesprochenen Textes
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 
-- Scene_1_baginn: Transition ändern
+- Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
 
 
 BUGS / Probleme
