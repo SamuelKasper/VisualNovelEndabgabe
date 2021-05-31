@@ -198,14 +198,15 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
+            /*
+            { scene: Scene_1_beginn, name: "Scene_1_beginn" },
             //bad scenes
-            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end */ },
+            { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end  },
             //neutral scenes
-            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
-            { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
-            //good scenes
+            { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
+            { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
+            //good scenes*/
             { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
             { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" }
         ];
@@ -459,7 +460,7 @@ var Template;
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
                 T0002: "Ach das macht doch nix. Erinnert mich an früher als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
                 T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
-                T0004: "Fangen die Prüfungen bei dir auch nächste Woche an.",
+                T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
             },
             Nick: {
@@ -531,7 +532,13 @@ var Template;
         let explainOrHelp = await Template.fS.Menu.getInput(explainOrHelpAnswer, "decisionClass");
         switch (explainOrHelp) {
             case explainOrHelpAnswer.help:
-                await Template.fS.Speech.tell(Template.characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Probem hast.");
+                await Template.fS.Character.hide(Template.characters.Mira);
+                await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.miraPosWhenBoth);
+                await Template.fS.update();
+                await Template.fS.Speech.tell(Template.characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
+                await Template.fS.Character.hide(Template.characters.Nick);
+                await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.nickPosWhenBoth);
+                await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja... Danke.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dafür sind Freunde doch da.");
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja...");
@@ -936,33 +943,242 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    let plantsDone = false;
+    let tetrisDone = false;
+    let learningDone = false;
+    let pianoDone = false;
     async function Scene_3_good() {
         console.log("Scene_3_good: starting");
         //Text
         let text = {
             Narrator: {
-                T0000: ""
+                T0000: "Hey, mir gehts gerade nicht gut. Schätze wir müssen unser Treffen auf wann anders verschieben... tut mir leid."
             },
             Mira: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: ""
+                T0000: "...",
+                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie füher eben...",
+                T0002: "Klar, sonst hätte ich ja nicht gefragt.",
+                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an wenns dir passt.",
+                T0004: "Supi. Bis dann.",
+                T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen... ",
+                T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
+                T0007: "Alles klar. Dann morgen. Kommst du zu mir?",
+                T0008: "Okay. Bis morgen dann.",
+                T0009: "Neuer Tag neues Glück.",
+                T0010: "Noch eine Woche bis zur ersten Prüfung und noch 3 Stunden bis Nick kommt.",
+                T0011: "Was mache ich denn bis dahin?",
+                T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
+                T0013: "...",
+                T0014: "Oh, er hat mir geschrieben.",
+                T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
+                T0016: "Naja dann wird eben weiter gelernt."
             },
             Nick: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: "",
-                T0006: "",
-                T0007: ""
+                T0000: "Gerne, wenn das für dich in Ordnung geht.",
+                T0001: "Stimmt...",
+                T0002: "Okay... Mache ich.",
+                T0003: "...",
+                T0004: "Warte!",
+                T0005: "...",
+                T0006: "Hast du vielleicht Lust schon morgen etwas zusammen zu machen?",
+                T0007: "Gerne.",
+                T0008: "Bis morgen!",
             }
         };
-        await Template.fS.Speech.tell(Template.characters.Nick, text.Mira.T0000);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.miraPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.nickPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0000);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.miraPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0001);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0002);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0003);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0004);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0005);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0006);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.miraPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.miraPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.nickPosWhenBoth);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0007);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0008);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0008);
+        //end day one
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(1);
+        //start day two
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.update(1);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0009);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0010);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0011);
+        while (true) {
+            if (learningDone && plantsDone && tetrisDone && pianoDone) {
+                break;
+            }
+            else {
+                await whatToDo();
+            }
+        }
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0012);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0013);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0014);
+        await Template.fS.Location.show(Template.location.miraRoomHandyAnswer);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+        await Template.fS.Location.show(Template.location.miraRoom);
+        await Template.fS.update();
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0015);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0016);
+        async function whatToDo() {
+            let whatToDoAnswer = {
+                klavier: "Klavier üben",
+                pflanzen: "Pflanzen gießen",
+                tetris: "Tetris spielen",
+                lernen: "Lernen"
+            };
+            let whatToDo = await Template.fS.Menu.getInput(whatToDoAnswer, "decisionClass");
+            switch (whatToDo) {
+                //-------------------piano
+                case whatToDoAnswer.klavier:
+                    await Template.fS.Character.hide(Template.characters.Mira);
+                    await Template.fS.update();
+                    await Template.fS.Location.show(Template.location.pianoRoom);
+                    await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Hm, was spiele ich denn heute?");
+                    let songsAnswer = {
+                        going: "Going",
+                        dontStand: "Don't Stand",
+                        flowerfield: "Flowerfield"
+                    };
+                    let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
+                    switch (songs) {
+                        case songsAnswer.going:
+                            Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                            Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.dontStand:
+                            Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                            Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.flowerfield:
+                            Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, false);
+                            Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+                            break;
+                    }
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
+                    Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0, 1, false);
+                    Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 1, false);
+                    Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 1, false);
+                    Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
+                    Template.fS.Speech.hide();
+                    pianoDone = true;
+                    break;
+                //-------------------plants  
+                case whatToDoAnswer.pflanzen:
+                    if (!Template.dataToSave.plantsOnDayOne) {
+                        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                        await Template.fS.Location.show(Template.location.miraRoom);
+                        await Template.fS.update();
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
+                        //pflanzen gießen geräusch (wasser plätschern)
+                        await Template.fS.Character.hide(Template.characters.Mira);
+                        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+                        await Template.fS.update();
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                        await Template.fS.Character.hide(Template.characters.Mira);
+                        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                        await Template.fS.update();
+                    }
+                    else {
+                        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+                        await Template.fS.Location.show(Template.location.miraRoom);
+                        await Template.fS.update();
+                        await Template.fS.Speech.tell(Template.characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
+                    }
+                    Template.fS.Speech.hide();
+                    plantsDone = true;
+                    break;
+                //-------------------tetris
+                case whatToDoAnswer.tetris:
+                    await Template.fS.Character.hide(Template.characters.Mira);
+                    await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                    await Template.fS.update();
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Okay, los gehts.");
+                    //start tetris musik
+                    Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0.3, true);
+                    Template.fS.Sound.fade(Template.sound.tetris, 0.2, 1.5, true);
+                    //fade out (game time)
+                    Template.fS.Speech.hide();
+                    await Template.fS.Location.show(Template.location.black);
+                    await Template.fS.update(1);
+                    await Template.fS.Text.print("Einige Runden später...");
+                    Template.fS.Text.close();
+                    await Template.fS.update();
+                    //fade in
+                    await Template.fS.Location.show(Template.location.miraRoomLaptop);
+                    await Template.fS.update();
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
+                    Template.fS.Sound.fade(Template.sound.tetris, 0, 0.3, true);
+                    Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
+                    Template.fS.Speech.hide();
+                    tetrisDone = true;
+                    break;
+                //-------------------lernen
+                case whatToDoAnswer.lernen:
+                    await Template.fS.Character.hide(Template.characters.Mira);
+                    await Template.fS.Location.show(Template.location.miraRoomEnglish);
+                    await Template.fS.update();
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Heute ist dann wohl Englisch drann.");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "indirekte Rede...");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Simple Present wird zu Simple Past");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Will wird zu would");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "...");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "this wird zu that... now zu then und ago zu before");
+                    await Template.fS.Speech.tell(Template.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    Template.fS.Speech.hide();
+                    learningDone = true;
+                    break;
+            }
+        }
     }
     Template.Scene_3_good = Scene_3_good;
 })(Template || (Template = {}));

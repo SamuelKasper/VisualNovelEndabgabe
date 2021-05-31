@@ -13,7 +13,7 @@ namespace Template {
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
                 T0002: "Ach das macht doch nix. Erinnert mich an früher als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
                 T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
-                T0004: "Fangen die Prüfungen bei dir auch nächste Woche an.",
+                T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
             },
 
@@ -40,7 +40,7 @@ namespace Template {
         /*-----Animation-----*/
         let moveLeftAnimation: fS.AnimationDefinition = {
             start: { translation: fS.positions.bottomcenter },
-            end: { translation: miraPosWhenBoth},
+            end: { translation: miraPosWhenBoth },
             duration: 2,
             playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
         };
@@ -67,7 +67,7 @@ namespace Template {
         //hide for transition
         await fS.Character.hide(characters.Nick);
         await fS.Character.hide(characters.Mira);
-       
+
         //change locations and show characters after
         await fS.Location.show(location.nicksRoomGoodWeather);
         fS.Speech.hide();
@@ -101,7 +101,13 @@ namespace Template {
 
         switch (explainOrHelp) {
             case explainOrHelpAnswer.help:
-                await fS.Speech.tell(characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Probem hast.");
+                await fS.Character.hide(characters.Mira);
+                await fS.Character.show(characters.Mira, characters.Mira.pose.good, miraPosWhenBoth);
+                await fS.update();
+                await fS.Speech.tell(characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
+                await fS.Character.hide(characters.Nick);
+                await fS.Character.show(characters.Nick, characters.Nick.pose.good, nickPosWhenBoth);
+                await fS.update();
                 await fS.Speech.tell(characters.Nick, "Ja... Danke.");
                 await fS.Speech.tell(characters.Mira, "Dafür sind Freunde doch da.");
                 await fS.Speech.tell(characters.Nick, "Ja...");

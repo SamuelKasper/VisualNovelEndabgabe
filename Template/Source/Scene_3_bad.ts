@@ -59,7 +59,6 @@ namespace Template {
             }else{
                 await whatToDo();
             }
-            
         }
         await fS.Location.show(location.black);
         await fS.update(1);
