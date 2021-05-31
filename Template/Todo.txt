@@ -4,12 +4,15 @@ TASKS
 
 - Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
 
-- Scene_2_good: gespräch in Nicks zimmer verlegen
-- Name oberhalb des gesprochenen Textes
-- Ins konzept schreiben das alle Inhalte selbst erstellt wurden
-
 - Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
 
+- Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
+bei jeder entscheidung
+
+
+Anderes: 
+- Name oberhalb des gesprochenen Textes
+- Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 
 BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 

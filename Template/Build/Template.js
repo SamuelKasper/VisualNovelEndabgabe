@@ -465,12 +465,13 @@ var Template;
             Nick: {
                 T0000: "Mira? Was machst du denn hier?",
                 T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
-                T0002: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
-                T0003: ": Ja.. Da hast du wohl Recht.",
-                T0004: "...",
-                T0005: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
-                T0006: "Ja, unter anderem.",
-                T0007: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
+                T0002: "Komm doch rein.",
+                T0003: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
+                T0004: ": Ja.. Da hast du wohl Recht.",
+                T0005: "...",
+                T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
+                T0007: "Ja, unter anderem.",
+                T0008: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
             }
         };
         //Story
@@ -479,7 +480,7 @@ var Template;
         await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
-        /*-----Animation*/
+        /*-----Animation-----*/
         let moveLeftAnimation = {
             start: { translation: Template.fS.positions.bottomcenter },
             end: { translation: Template.miraPosWhenBoth },
@@ -490,33 +491,38 @@ var Template;
         await Template.fS.update();
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, moveLeftAnimation);
         await Template.fS.update(1);
-        /*-----Animation*/
-        //await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positionPercent(20, 100));
-        //await fS.update();
+        /*-----Animation End-----*/
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0000);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
         //Emotion
         await Template.fS.Character.hide(Template.characters.Nick);
-        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.fS.positionPercent(80, 100));
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.good, Template.nickPosWhenBoth);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0001);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
-        //Emotion
-        await Template.fS.Character.hide(Template.characters.Nick);
-        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.fS.positionPercent(80, 100));
-        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0002);
-        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
+        //hide for transition
+        await Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        //change locations and show characters after
+        await Template.fS.Location.show(Template.location.nicksRoomGoodWeather);
+        Template.fS.Speech.hide();
+        await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0003);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0002);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0004);
-        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0005);
-        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0006);
-        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0007);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0005);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0008);
         //Decision
         let explainOrHelpAnswer = {
             help: "Hilfe anbieten",
