@@ -32,6 +32,7 @@ namespace Template {
                 T0014: "Oh, er hat mir geschrieben.",
                 T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
                 T0016: "Naja dann wird eben weiter gelernt.",
+                
                 T0017: "...",
                 T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
@@ -41,6 +42,7 @@ namespace Template {
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
                 T0025: "...",
+                
                 T0026: "Vielleicht sollte ich morgen mal bei ihm vorbei gehen und schauen wie es ihm geht.",
                 T0027: "Er sah ja gestern schon irgendwie bedrückt aus...",
                 T0028: "Andernfalls gibt es noch so viel Schulstoff den ich lernen sollte..."
