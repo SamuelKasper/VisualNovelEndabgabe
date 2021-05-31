@@ -1,4 +1,5 @@
 namespace Template {
+    let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
     let plantsDone: boolean = false;
     let tetrisDone: boolean = false;
     let learningDone: boolean = false;
@@ -30,7 +31,19 @@ namespace Template {
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
                 T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
-                T0016: "Naja dann wird eben weiter gelernt."
+                T0016: "Naja dann wird eben weiter gelernt.",
+                T0017: "...",
+                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0019: "...",
+                T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0022: "...",
+                T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
+                T0024: "Das müsste ja dann so stimmen.",
+                T0025: "...",
+                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbei gehen und schauen wie es ihm geht.",
+                T0027: "Er sah ja gestern schon irgendwie bedrückt aus...",
+                T0028: "Andernfalls gibt es noch so viel Schulstoff den ich lernen sollte..."
             },
 
             Nick: {
@@ -96,6 +109,7 @@ namespace Template {
         await fS.update(1);
 
         //start day two
+        signalDelay2s();
         await fS.Location.show(location.miraRoom);
         await fS.update(1);
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
@@ -115,14 +129,47 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0012);
         await fS.Speech.tell(characters.Mira, text.Mira.T0013);
         await fS.Speech.tell(characters.Mira, text.Mira.T0014);
+        await fS.Character.hide(characters.Mira);
         await fS.Location.show(location.miraRoomHandyAnswer);
         await fS.update();
         await fS.Speech.tell(characters.Narrator, text.Narrator.T0000);
         await fS.Location.show(location.miraRoom);
         await fS.update();
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0015);
         await fS.Speech.tell(characters.Mira, text.Mira.T0016);
+
+        await fS.Character.hide(characters.Mira);
+        await fS.Location.show(location.miraRoomMath2);
+        await fS.update();
+        await fS.Speech.tell(characters.Mira, text.Mira.T0017);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0018);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0019);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0020);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0021);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0022);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0023);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0024);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0025);
+        fS.Speech.hide();
+        await fS.Location.show(location.black)
+        await fS.update(1);
+        await fS.Text.print("Einige Zeit später...");
+        fS.Text.close();
+        await fS.update();
+        await fS.Location.show(location.miraRoomDarker)
+        await fS.update();
+        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+        await fS.update();
+        await fS.Speech.tell(characters.Mira, text.Mira.T0026);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0027);
+        await fS.Speech.tell(characters.Mira, text.Mira.T0028);
+        await fS.Character.hide(characters.Mira);
+        fS.Speech.hide();
+        await fS.Location.show(location.black);
+        await fS.update(1);
+        return "scene_4_good";
 
         async function whatToDo(): Promise<void> {
 

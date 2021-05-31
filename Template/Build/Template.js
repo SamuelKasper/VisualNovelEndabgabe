@@ -943,6 +943,7 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
     let plantsDone = false;
     let tetrisDone = false;
     let learningDone = false;
@@ -971,7 +972,19 @@ var Template;
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
                 T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
-                T0016: "Naja dann wird eben weiter gelernt."
+                T0016: "Naja dann wird eben weiter gelernt.",
+                T0017: "...",
+                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0019: "...",
+                T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0022: "...",
+                T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
+                T0024: "Das müsste ja dann so stimmen.",
+                T0025: "...",
+                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbei gehen und schauen wie es ihm geht.",
+                T0027: "Er sah ja gestern schon irgendwie bedrückt aus...",
+                T0028: "Andernfalls gibt es noch so viel Schulstoff den ich lernen sollte..."
             },
             Nick: {
                 T0000: "Gerne, wenn das für dich in Ordnung geht.",
@@ -1031,6 +1044,7 @@ var Template;
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(1);
         //start day two
+        signalDelay2s();
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.update(1);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
@@ -1049,14 +1063,46 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0012);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0013);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0014);
+        await Template.fS.Character.hide(Template.characters.Mira);
         await Template.fS.Location.show(Template.location.miraRoomHandyAnswer);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.update();
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0015);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0016);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Location.show(Template.location.miraRoomMath2);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0017);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0020);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0021);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0022);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0023);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0024);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0025);
+        Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(1);
+        await Template.fS.Text.print("Einige Zeit später...");
+        Template.fS.Text.close();
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.miraRoomDarker);
+        await Template.fS.update();
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0026);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0027);
+        await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0028);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(1);
+        return "scene_4_good";
         async function whatToDo() {
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
