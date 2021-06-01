@@ -155,7 +155,7 @@ namespace Template {
 
     neutralEnding: {
       name: "neutralEnding",
-      background: "Images/"
+      background: "Images/Backgrounds/MissingEnding.png"
     },
 
     badEnding: {
@@ -243,6 +243,7 @@ namespace Template {
       //neutral scenes
       { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },*/
       { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
+      { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding" },
       //good scenes
       /*
       { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" },

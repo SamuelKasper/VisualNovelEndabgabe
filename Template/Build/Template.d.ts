@@ -177,6 +177,9 @@ declare namespace Template {
     let nickPosWhenBoth: f.Vector2;
 }
 declare namespace Template {
+    function NeutralEnding(): fS.SceneReturn;
+}
+declare namespace Template {
     function Scene_1_beginn(): fS.SceneReturn;
 }
 declare namespace Template {

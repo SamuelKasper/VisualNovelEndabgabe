@@ -129,7 +129,7 @@ var Template;
         },
         neutralEnding: {
             name: "neutralEnding",
-            background: "Images/"
+            background: "Images/Backgrounds/MissingEnding.png"
         },
         badEnding: {
             name: "badEnding",
@@ -206,12 +206,38 @@ var Template;
             //neutral scenes
             { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },*/
             { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding" },
         ];
         //set progress data
         Template.fS.Progress.setData(Template.dataToSave);
         // start the sequence
         Template.fS.Progress.go(scenes);
     }
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
+    async function NeutralEnding() {
+        console.log("neutralEnding: starting");
+        Template.fS.Character.hideAll();
+        Template.fS.Speech.hide();
+        await Template.fS.Location.show(Template.location.black);
+        Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 1, false);
+        await Template.fS.update(1.5);
+        await signalDelay2s();
+        await Template.fS.Text.print("2 Wochen später - Nach den Prüfungen.");
+        await Template.fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
+        await Template.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        Template.fS.Sound.fade(Template.sound.badEnding, 0.2, 1.5, true);
+        await Template.fS.Text.print("Von diesen erfährst du das Nick vor knapp ein einhalb Wochen verschwunden und seit dem vermisst ist.");
+        Template.fS.Text.close();
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.neutralEnding);
+        await Template.fS.update();
+        await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
+        Template.fS.Sound.fade(Template.sound.badEnding, 0, 0.3, false);
+    }
+    Template.NeutralEnding = NeutralEnding;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -1426,7 +1452,7 @@ var Template;
                     Template.fS.Speech.hide();
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(1);
-                    return "scene_4_neutral";
+                    return "neutralEnding";
             }
         }
         else {

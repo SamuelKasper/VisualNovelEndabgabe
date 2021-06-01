@@ -214,7 +214,7 @@ namespace Template {
                     fS.Speech.hide();
                     await fS.Location.show(location.black);
                     await fS.update(1);
-                    return "scene_4_neutral";
+                    return "neutralEnding";
             }
         } else {
             await fS.Speech.tell(characters.Mira, "Keine Nachrichten...");
