@@ -9,10 +9,17 @@ TASKS
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 
+- Story in mehr Szenen aufteilen
+
+- Szenen umbenennen
+
 
 Anderes: 
 - Name oberhalb des gesprochenen Textes
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
+- Rechtschreibung korregieren
+- Diagram aktualisieren!
+- Inhaltsangabe schreiben
 
 BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 
