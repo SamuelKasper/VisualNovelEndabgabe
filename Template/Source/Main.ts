@@ -213,9 +213,9 @@ namespace Template {
   };
 
   //Both characters on screen
-  export let miraPosWhenBoth: f.Vector2 =  new fS.Position(-384, -360);
-  export let nickPosWhenBoth: f.Vector2 =  new fS.Position(384, -360);
-  
+  export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
+  export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
+
 
   //save and load
   document.addEventListener("keydown", hndKeypress);
@@ -235,19 +235,21 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      /*
+
       { scene: Scene_1_beginn, name: "Scene_1_beginn" },
       //bad scenes
       { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
-      { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end  },
+      { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad", next: "endOfNovel" },
       //neutral scenes
-      { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },*/
+      { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
       { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
-      { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding" },
+      { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
-      /*
       { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" },
-      { id: "scene_3_good", scene: Scene_3_good, name: "Scene_3_good" }*/
+      { id: "scene_3_good", scene: Scene_3_good, name: "Scene_3_good" },
+
+      //last Scene in Novel
+      { id: "endOfNovel", scene: EndOfNovel, name: "EndOfNovel" }
     ];
 
     //set progress data

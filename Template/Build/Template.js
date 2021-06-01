@@ -1,6 +1,11 @@
 "use strict";
 var Template;
 (function (Template) {
+    async function EndOfNovel() { }
+    Template.EndOfNovel = EndOfNovel;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     Template.f = FudgeCore;
     Template.fS = FudgeStory;
     console.log("FudgeStory main starting");
@@ -198,15 +203,19 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-            { scene: Scene_1_beginn, name: "Scene_1_beginn" },
+            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
             //bad scenes
-            { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad" /**next: reload page/ end  },
+            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
+            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad", next: "endOfNovel" },
             //neutral scenes
-            { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },*/
+            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
             { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
-            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            //good scenes
+            { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
+            { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" },
+            //last Scene in Novel
+            { id: "endOfNovel", scene: Template.EndOfNovel, name: "EndOfNovel" }
         ];
         //set progress data
         Template.fS.Progress.setData(Template.dataToSave);
@@ -1121,6 +1130,22 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0026);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0027);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0028);
+        //visit Nick or learn
+        let visitOrLearnAnswer = {
+            besuchen: "Nick besuchen",
+            lernen: "Lernen"
+        };
+        let visitOrLearn = await Template.fS.Menu.getInput(visitOrLearnAnswer, "decisionClass");
+        switch (visitOrLearn) {
+            case visitOrLearnAnswer.besuchen:
+                break;
+            case visitOrLearnAnswer.lernen:
+                await Template.fS.Character.hide(Template.characters.Mira);
+                Template.fS.Speech.hide();
+                await Template.fS.Location.show(Template.location.black);
+                await Template.fS.update(1);
+                return "neutralEnding";
+        }
         await Template.fS.Character.hide(Template.characters.Mira);
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);

@@ -167,6 +167,24 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0026);
         await fS.Speech.tell(characters.Mira, text.Mira.T0027);
         await fS.Speech.tell(characters.Mira, text.Mira.T0028);
+
+        //visit Nick or learn
+        let visitOrLearnAnswer = {
+            besuchen: "Nick besuchen",
+            lernen: "Lernen"
+        };
+        let visitOrLearn = await fS.Menu.getInput(visitOrLearnAnswer, "decisionClass");
+        switch (visitOrLearn) {
+            case visitOrLearnAnswer.besuchen:
+                break;
+            case visitOrLearnAnswer.lernen:
+                await fS.Character.hide(characters.Mira);
+                fS.Speech.hide();
+                await fS.Location.show(location.black);
+                await fS.update(1);
+                return "neutralEnding";
+        }
+
         await fS.Character.hide(characters.Mira);
         fS.Speech.hide();
         await fS.Location.show(location.black);
