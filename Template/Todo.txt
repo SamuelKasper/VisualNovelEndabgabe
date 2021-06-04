@@ -1,25 +1,20 @@
-TASKS
+------------------------------------------------- TASKS
 - Scene_2_bad: Nicks Song ->  Mädchenstimme die mit summt
 - Scene_2_bad: Wasser plätscher geräusch (pflanzen gießen)
-
 - Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
-
 - Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
-
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
-
 - Story in mehr Szenen aufteilen
+- .ts Dateien umbenennen -> fehler
 
-- Szenen umbenennen
 
-
-Anderes: 
+------------------------------------------------- Anderes: 
 - Name oberhalb des gesprochenen Textes
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 - Rechtschreibung korregieren
 - Diagram aktualisieren!
 - Inhaltsangabe schreiben
 
-BUGS / Probleme
+------------------------------------------------- BUGS / Probleme
 - Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 
