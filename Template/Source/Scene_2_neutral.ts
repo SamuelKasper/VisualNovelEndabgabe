@@ -1,8 +1,8 @@
 namespace Template {
     //check if mira did the leaning part
     let learningDone: boolean = false;
-    export async function Scene_2_neutral(): fS.SceneReturn {
-        console.log("Scene_2_neutral: starting");
+    export async function RememberWhilePiano(): fS.SceneReturn {
+        console.log("RememberWhilePiano: starting");
 
         //Text
         let text = {
@@ -31,8 +31,8 @@ namespace Template {
         await fS.Character.hide(characters.Mira);
 
         while (!learningDone) {
-            if(await whatToDo() == "scene_2_good"){
-                return "scene_2_good";
+            if(await whatToDo() == "NicksBirthday"){
+                return "NicksBirthday";
             }
             
         }
@@ -46,7 +46,7 @@ namespace Template {
         await fS.update();
         await fS.Location.show(location.black);
         await fS.update(2);
-        return "scene_3_bad";
+        return "BadEnding1";
     }
 
     async function whatToDo(): fS.SceneReturn {
@@ -98,7 +98,7 @@ namespace Template {
                         fS.Speech.hide();
                         await fS.Location.show(location.black);
                         await fS.update(1.5);
-                        return "scene_2_good";
+                        return "NicksBirthday";
                     case hingehenAnswer.zuhauseDisable:
                         await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach.");
                 }

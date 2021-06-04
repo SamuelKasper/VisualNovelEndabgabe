@@ -1,6 +1,6 @@
 namespace Template {
-    export async function Scene_2_good(): fS.SceneReturn {
-        console.log("Scene_2_good: starting");
+    export async function NicksBirthday(): fS.SceneReturn {
+        console.log("NicksBirthday: starting");
 
         //Text
         let text = {
@@ -111,11 +111,11 @@ namespace Template {
                 await fS.Speech.tell(characters.Nick, "Ja... Danke.");
                 await fS.Speech.tell(characters.Mira, "Dafür sind Freunde doch da.");
                 await fS.Speech.tell(characters.Nick, "Ja...");
-                return "scene_3_good";
+                return "AnswerFromNick";
             case explainOrHelpAnswer.explain:
                 await fS.Speech.tell(characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
                 await fS.Speech.tell(characters.Nick, "Ja, da hast du sicher recht...");
-                return "scene_3_neutral";
+                return "NoAnswerFromNick";
         }
     }
 }

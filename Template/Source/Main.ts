@@ -236,17 +236,17 @@ namespace Template {
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
 
-      { scene: Scene_1_beginn, name: "Scene_1_beginn" },
+      { scene: WakeUp, name: "WakeUp" },
       //bad scenes
-      { id: "scene_2_bad", scene: Scene_2_bad, name: "Scene_2_bad" },
-      { id: "scene_3_bad", scene: Scene_3_bad, name: "Scene_3_bad", next: "endOfNovel" },
+      { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
+      { id: "BadEnding1", scene: BadEnding1, name: "BadEnding1", next: "endOfNovel" },
       //neutral scenes
-      { id: "scene_2_neutral", scene: Scene_2_neutral, name: "Scene_2_neutral" },
-      { id: "scene_3_neutral", scene: Scene_3_neutral, name: "Scene_3_neutral" },
+      { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
+      { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
-      { id: "scene_2_good", scene: Scene_2_good, name: "Scene_2_good" },
-      { id: "scene_3_good", scene: Scene_3_good, name: "Scene_3_good" },
+      { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
 
       //last Scene in Novel
       { id: "endOfNovel", scene: EndOfNovel, name: "EndOfNovel" }

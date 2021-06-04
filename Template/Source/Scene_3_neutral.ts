@@ -5,8 +5,8 @@ namespace Template {
     let learningDone: boolean = false;
     let pianoDone: boolean = false;
     let waitForNick: boolean = false;
-    export async function Scene_3_neutral(): fS.SceneReturn {
-        console.log("Scene_3_neutral: starting");
+    export async function NoAnswerFromNick(): fS.SceneReturn {
+        console.log("NoAnswerFromNick: starting");
 
         //Text
         let text = {
@@ -230,7 +230,7 @@ namespace Template {
         fS.Speech.hide();
         await fS.Location.show(location.black);
         await fS.update(1);
-        return "scene_4_good";
+        return "NickNotAtHome";
 
         async function whatToDo(): Promise<void> {
 

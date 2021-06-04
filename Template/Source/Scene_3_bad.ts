@@ -4,8 +4,8 @@ namespace Template {
     let tetrisDone: boolean = false;
     let learningDone: boolean = false;
     let pianoDone: boolean = false;
-    export async function Scene_3_bad(): fS.SceneReturn {
-        console.log("Scene_3_bad: starting");
+    export async function BadEnding1(): fS.SceneReturn {
+        console.log("BadEnding1: starting");
 
         //Text
         let text = {

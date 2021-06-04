@@ -4,8 +4,8 @@ namespace Template {
     let tetrisDone: boolean = false;
     let learningDone: boolean = false;
     let pianoDone: boolean = false;
-    export async function Scene_3_good(): fS.SceneReturn {
-        console.log("Scene_3_good: starting");
+    export async function AnswerFromNick(): fS.SceneReturn {
+        console.log("AnswerFromNick: starting");
 
         //Text
         let text = {
@@ -189,7 +189,7 @@ namespace Template {
         fS.Speech.hide();
         await fS.Location.show(location.black);
         await fS.update(1);
-        return "scene_4_good";
+        return "NickNotAtHome";
 
         async function whatToDo(): Promise<void> {
 

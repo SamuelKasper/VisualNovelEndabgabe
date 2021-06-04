@@ -203,17 +203,17 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene_1_beginn, name: "Scene_1_beginn" },
+            { scene: Template.WakeUp, name: "WakeUp" },
             //bad scenes
-            { id: "scene_2_bad", scene: Template.Scene_2_bad, name: "Scene_2_bad" },
-            { id: "scene_3_bad", scene: Template.Scene_3_bad, name: "Scene_3_bad", next: "endOfNovel" },
+            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "BadEnding1", scene: Template.BadEnding1, name: "BadEnding1", next: "endOfNovel" },
             //neutral scenes
-            { id: "scene_2_neutral", scene: Template.Scene_2_neutral, name: "Scene_2_neutral" },
-            { id: "scene_3_neutral", scene: Template.Scene_3_neutral, name: "Scene_3_neutral" },
+            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
             { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
-            { id: "scene_2_good", scene: Template.Scene_2_good, name: "Scene_2_good" },
-            { id: "scene_3_good", scene: Template.Scene_3_good, name: "Scene_3_good" },
+            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
             //last Scene in Novel
             { id: "endOfNovel", scene: Template.EndOfNovel, name: "EndOfNovel" }
         ];
@@ -250,8 +250,8 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function Scene_1_beginn() {
-        console.log("Scene_1_beginn: starting");
+    async function WakeUp() {
+        console.log("WakeUp: starting");
         let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         //Text
         let text = {
@@ -296,7 +296,7 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update(0.3);
                 await Template.fS.Speech.tell(Template.characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-                return "scene_2_bad";
+                return "DontRememberBirthday";
             //News:
             case sleepNewsCalendarAnswer.news:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Mal schauen ob's was neues gibt.");
@@ -307,7 +307,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Spannend wie immer...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-                return "scene_2_neutral";
+                return "RememberWhilePiano";
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
@@ -326,23 +326,23 @@ var Template;
                     case goToBirthdayAnswer.go:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
                         Template.fS.Speech.hide();
-                        return "scene_2_good";
+                        return "NicksBirthday";
                     //dont go to Birthday
                     case goToBirthdayAnswer.dontGo:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-                        return "scene_2_bad";
+                        return "DontRememberBirthday";
                 }
                 break;
         }
     }
-    Template.Scene_1_beginn = Scene_1_beginn;
+    Template.WakeUp = WakeUp;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
     //check if mira did the leaning part
     let learningDone = false;
-    async function Scene_2_bad() {
-        console.log("Scene_2_bad: starting");
+    async function DontRememberBirthday() {
+        console.log("DontRememberBirthday: starting");
         //Text
         let text = {
             Mira: {
@@ -380,9 +380,9 @@ var Template;
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
-        return "scene_3_bad";
+        return "BadEnding1";
     }
-    Template.Scene_2_bad = Scene_2_bad;
+    Template.DontRememberBirthday = DontRememberBirthday;
     async function whatToDo() {
         let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         let whatToDoAnswer = {
@@ -480,8 +480,8 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function Scene_2_good() {
-        console.log("Scene_2_good: starting");
+    async function NicksBirthday() {
+        console.log("NicksBirthday: starting");
         //Text
         let text = {
             Narrator: {
@@ -574,21 +574,21 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja... Danke.");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Dafür sind Freunde doch da.");
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja...");
-                return "scene_3_good";
+                return "AnswerFromNick";
             case explainOrHelpAnswer.explain:
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hm, das liegt sicher nur am Stress. Das wird schon wieder.");
                 await Template.fS.Speech.tell(Template.characters.Nick, "Ja, da hast du sicher recht...");
-                return "scene_3_neutral";
+                return "NoAnswerFromNick";
         }
     }
-    Template.Scene_2_good = Scene_2_good;
+    Template.NicksBirthday = NicksBirthday;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
     //check if mira did the leaning part
     let learningDone = false;
-    async function Scene_2_neutral() {
-        console.log("Scene_2_neutral: starting");
+    async function RememberWhilePiano() {
+        console.log("RememberWhilePiano: starting");
         //Text
         let text = {
             Mira: {
@@ -614,8 +614,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0004);
         await Template.fS.Character.hide(Template.characters.Mira);
         while (!learningDone) {
-            if (await whatToDo() == "scene_2_good") {
-                return "scene_2_good";
+            if (await whatToDo() == "NicksBirthday") {
+                return "NicksBirthday";
             }
         }
         await Template.fS.Location.show(Template.location.miraRoomDarker);
@@ -627,9 +627,9 @@ var Template;
         await Template.fS.update();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
-        return "scene_3_bad";
+        return "BadEnding1";
     }
-    Template.Scene_2_neutral = Scene_2_neutral;
+    Template.RememberWhilePiano = RememberWhilePiano;
     async function whatToDo() {
         let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         let whatToDoAnswer = {
@@ -673,7 +673,7 @@ var Template;
                         Template.fS.Speech.hide();
                         await Template.fS.Location.show(Template.location.black);
                         await Template.fS.update(1.5);
-                        return "scene_2_good";
+                        return "NicksBirthday";
                     case hingehenAnswer.zuhauseDisable:
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie ist mir gerade nicht danach.");
                 }
@@ -753,8 +753,8 @@ var Template;
     let tetrisDone = false;
     let learningDone = false;
     let pianoDone = false;
-    async function Scene_3_bad() {
-        console.log("Scene_3_bad: starting");
+    async function BadEnding1() {
+        console.log("BadEnding1: starting");
         //Text
         let text = {
             Mira: {
@@ -838,7 +838,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
         Template.fS.Sound.fade(Template.sound.badEnding, 0, 0.3, false);
     }
-    Template.Scene_3_bad = Scene_3_bad;
+    Template.BadEnding1 = BadEnding1;
     async function whatToDo() {
         let whatToDoAnswer = {
             nachrichten: "Handy",
@@ -980,8 +980,8 @@ var Template;
     let tetrisDone = false;
     let learningDone = false;
     let pianoDone = false;
-    async function Scene_3_good() {
-        console.log("Scene_3_good: starting");
+    async function AnswerFromNick() {
+        console.log("AnswerFromNick: starting");
         //Text
         let text = {
             Narrator: {
@@ -1150,7 +1150,7 @@ var Template;
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(1);
-        return "scene_4_good";
+        return "NickNotAtHome";
         async function whatToDo() {
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
@@ -1274,7 +1274,7 @@ var Template;
             }
         }
     }
-    Template.Scene_3_good = Scene_3_good;
+    Template.AnswerFromNick = AnswerFromNick;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -1284,8 +1284,8 @@ var Template;
     let learningDone = false;
     let pianoDone = false;
     let waitForNick = false;
-    async function Scene_3_neutral() {
-        console.log("Scene_3_neutral: starting");
+    async function NoAnswerFromNick() {
+        console.log("NoAnswerFromNick: starting");
         //Text
         let text = {
             Narrator: {
@@ -1494,7 +1494,7 @@ var Template;
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(1);
-        return "scene_4_good";
+        return "NickNotAtHome";
         async function whatToDo() {
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
@@ -1618,6 +1618,6 @@ var Template;
             }
         }
     }
-    Template.Scene_3_neutral = Scene_3_neutral;
+    Template.NoAnswerFromNick = NoAnswerFromNick;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

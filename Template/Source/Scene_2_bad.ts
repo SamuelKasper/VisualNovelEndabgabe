@@ -2,8 +2,8 @@ namespace Template {
     //check if mira did the leaning part
     let learningDone: boolean = false;
 
-    export async function Scene_2_bad(): fS.SceneReturn {
-        console.log("Scene_2_bad: starting");
+    export async function DontRememberBirthday(): fS.SceneReturn {
+        console.log("DontRememberBirthday: starting");
 
         //Text
         let text = {
@@ -45,7 +45,7 @@ namespace Template {
         await fS.update();
         await fS.Location.show(location.black);
         await fS.update(2);
-        return "scene_3_bad";
+        return "BadEnding1";
     }
 
     async function whatToDo(): Promise<void> {

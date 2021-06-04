@@ -1,6 +1,6 @@
 namespace Template {
-  export async function Scene_1_beginn(): fS.SceneReturn {
-    console.log("Scene_1_beginn: starting");
+  export async function WakeUp(): fS.SceneReturn {
+    console.log("WakeUp: starting");
     let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 
     //Text
@@ -51,7 +51,7 @@ namespace Template {
         await fS.Location.show(location.miraRoom);
         await fS.update(0.3);
         await fS.Speech.tell(characters.Mira, "Sonntag 10:30 Uhr. Jetzt bin ich bereit aufzustehen.");
-        return "scene_2_bad";
+        return "DontRememberBirthday";
 
       //News:
       case sleepNewsCalendarAnswer.news:
@@ -63,7 +63,7 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Mira, "Spannend wie immer...");
         await fS.Speech.tell(characters.Mira, "Dann ist es wohl mal Zeit aufzustehen.");
-        return "scene_2_neutral";
+        return "RememberWhilePiano";
 
       //Calendar
       case sleepNewsCalendarAnswer.calendar:
@@ -86,12 +86,12 @@ namespace Template {
           case goToBirthdayAnswer.go:
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
             fS.Speech.hide();
-            return "scene_2_good";
+            return "NicksBirthday";
 
           //dont go to Birthday
           case goToBirthdayAnswer.dontGo:
             await fS.Speech.tell(characters.Mira, "Hm, irgendwie ist mir gerade nicht danach. Ich schreib ihm später einfach mal.");
-            return "scene_2_bad";
+            return "DontRememberBirthday";
         }
         break;
     }

@@ -183,23 +183,23 @@ declare namespace Template {
     function NeutralEnding(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_1_beginn(): fS.SceneReturn;
+    function WakeUp(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_2_bad(): fS.SceneReturn;
+    function DontRememberBirthday(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_2_good(): fS.SceneReturn;
+    function NicksBirthday(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_2_neutral(): fS.SceneReturn;
+    function RememberWhilePiano(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_3_bad(): fS.SceneReturn;
+    function BadEnding1(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_3_good(): fS.SceneReturn;
+    function AnswerFromNick(): fS.SceneReturn;
 }
 declare namespace Template {
-    function Scene_3_neutral(): fS.SceneReturn;
+    function NoAnswerFromNick(): fS.SceneReturn;
 }
