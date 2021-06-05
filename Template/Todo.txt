@@ -6,8 +6,6 @@
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 - Story in mehr Szenen aufteilen
-- .ts Dateien umbenennen -> fehler
-
 
 ------------------------------------------------- Anderes: 
 - Name oberhalb des gesprochenen Textes
@@ -17,4 +15,4 @@ bei jeder entscheidung
 - Inhaltsangabe schreiben
 
 ------------------------------------------------- BUGS / Probleme
-- Sound beginnt beim ersten mal laut und bug am ende, beim zweiten mal etc. stimmt der fade dann. 
+- .ts Dateien umbenennen -> fehler
