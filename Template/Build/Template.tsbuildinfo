@@ -5,6 +5,7 @@
       "../Source/EndOfNovel.ts",
       "../Source/Main.ts",
       "../Source/NeutralEnding.ts",
+      "../Source/NickNotAtHome.ts",
       "../Source/Scene_1_beginn.ts",
       "../Source/Scene_2_bad.ts",
       "../Source/Scene_2_good.ts",
@@ -23,7 +24,7 @@
         },
         {
           "pos": 15,
-          "end": 101551,
+          "end": 116610,
           "kind": "text"
         }
       ],
@@ -51,7 +52,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 5155,
+          "end": 5235,
           "kind": "text"
         }
       ]

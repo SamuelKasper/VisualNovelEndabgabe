@@ -183,6 +183,9 @@ declare namespace Template {
     function NeutralEnding(): fS.SceneReturn;
 }
 declare namespace Template {
+    function NickNotAtHome(): fS.SceneReturn;
+}
+declare namespace Template {
     function WakeUp(): fS.SceneReturn;
 }
 declare namespace Template {
