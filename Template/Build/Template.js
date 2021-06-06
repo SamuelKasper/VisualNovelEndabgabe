@@ -23,9 +23,9 @@ var Template;
         tetris: "Audio/Tetris.mp3",
         nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
         //Sounds
-        fallingOnFloor: "Audio/",
-        wateringPlants: "Audio/",
-        grabPaper: "Audio/"
+        hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
+        wateringPlants: "Audio/Sounds/WateringPlants.mp3",
+        grabPaper: "Audio/Sounds/grabPaper.mp3"
     };
     Template.transition = {
         blink: {
@@ -418,12 +418,13 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                //pflanzen gießen geräusch (wasser plätschern)
+                await Template.fS.Sound.fade(Template.sound.wateringPlants, 0.3, 1);
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                await Template.fS.Sound.fade(Template.sound.wateringPlants, 0, 1);
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                 await Template.fS.update();
@@ -686,12 +687,13 @@ var Template;
                 await Template.fS.Location.show(Template.location.miraRoom);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                //pflanzen gießen geräusch (wasser plätschern)
+                await Template.fS.Sound.fade(Template.sound.wateringPlants, 0.3, 1);
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                await Template.fS.Sound.fade(Template.sound.wateringPlants, 0, 1);
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                 await Template.fS.update();
@@ -907,12 +909,13 @@ var Template;
                     await Template.fS.Location.show(Template.location.miraRoom);
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                    //pflanzen gießen geräusch (wasser plätschern)
+                    await Template.fS.Sound.fade(Template.sound.wateringPlants, 0.3, 1);
                     await Template.fS.Character.hide(Template.characters.Mira);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                     await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                    await Template.fS.Sound.fade(Template.sound.wateringPlants, 0, 1);
                     await Template.fS.Character.hide(Template.characters.Mira);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
@@ -1208,12 +1211,13 @@ var Template;
                         await Template.fS.Location.show(Template.location.miraRoom);
                         await Template.fS.update();
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                        //pflanzen gießen geräusch (wasser plätschern)
+                        await Template.fS.Sound.fade(Template.sound.wateringPlants, 0.3, 1);
                         await Template.fS.Character.hide(Template.characters.Mira);
                         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                         await Template.fS.update();
                         await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                        await Template.fS.Sound.fade(Template.sound.wateringPlants, 0, 1);
                         await Template.fS.Character.hide(Template.characters.Mira);
                         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                         await Template.fS.update();
@@ -1552,12 +1556,13 @@ var Template;
                         await Template.fS.Location.show(Template.location.miraRoom);
                         await Template.fS.update();
                         await Template.fS.Speech.tell(Template.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                        //pflanzen gießen geräusch (wasser plätschern)
+                        await Template.fS.Sound.fade(Template.sound.wateringPlants, 0.3, 1);
                         await Template.fS.Character.hide(Template.characters.Mira);
                         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                         await Template.fS.update();
                         await Template.fS.Speech.tell(Template.characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ich hoffe die werden wieder.");
+                        await Template.fS.Sound.fade(Template.sound.wateringPlants, 0, 1);
                         await Template.fS.Character.hide(Template.characters.Mira);
                         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                         await Template.fS.update();

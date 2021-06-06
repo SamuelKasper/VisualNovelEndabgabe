@@ -87,12 +87,13 @@ namespace Template {
                 await fS.Location.show(location.miraRoom);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
-                //pflanzen gießen geräusch (wasser plätschern)
+                await fS.Sound.fade(sound.wateringPlants, 0.3, 1);
                 await fS.Character.hide(characters.Mira);
                 await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
                 await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
+                await fS.Sound.fade(sound.wateringPlants, 0, 1);
                 await fS.Character.hide(characters.Mira);
                 await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
                 await fS.update();

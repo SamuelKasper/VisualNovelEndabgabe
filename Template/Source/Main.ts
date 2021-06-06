@@ -18,9 +18,9 @@ namespace Template {
     tetris: "Audio/Tetris.mp3",
     nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
     //Sounds
-    fallingOnFloor: "Audio/",
-    wateringPlants: "Audio/",
-    grabPaper: "Audio/"
+    hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
+    wateringPlants: "Audio/Sounds/WateringPlants.mp3",
+    grabPaper: "Audio/Sounds/grabPaper.mp3"
   };
 
   export let transition = {
