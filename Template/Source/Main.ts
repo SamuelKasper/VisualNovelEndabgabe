@@ -235,7 +235,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      /*
+      
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
@@ -246,7 +246,7 @@ namespace Template {
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
 
       //last Scene in Novel

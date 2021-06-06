@@ -51,13 +51,13 @@ namespace Template {
             }
         }
         await fS.Location.show(location.miraRoom);
-        await fS.update(0);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
         await fS.Speech.tell(characters.Mira, "...");
         await fS.Speech.tell(characters.Mira, text.Mira.T0001);
         fS.Speech.hide();
         await fS.Location.show(location.black);
-        await fS.update(2);
+        await fS.update(1);
         await fS.Location.show(location.miraRoom);
         await fS.update(1);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
@@ -67,7 +67,7 @@ namespace Template {
         await fS.Character.hide(characters.Mira);
         fS.Speech.hide();
         await fS.Location.show(location.black);
-        await fS.update(2);
+        await fS.update(1);
         await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Location.show(location.nicksRoomDoor);
         await fS.update(1);
@@ -109,19 +109,28 @@ namespace Template {
         await fS.Character.hide(characters.Mira);
         await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveLeftAnimation);
         await fS.update(1);
-        await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.neutral, nickPosWhenBoth);
+        await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.good, nickPosWhenBoth);
         await fS.update();
         /*-----Animation End-----*/
 
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0000);
+        await fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.good, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0009);
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0001);
+        await fS.Character.hide(characters.Nachbar);
+        await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.neutral, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0002);
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0003);
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0004);
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0005);
         await fS.Speech.tell(characters.Mira, text.Mira.T0010);
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0006);
+        await fS.Character.hide(characters.Nachbar);
+        await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.good, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0007);
         await fS.Speech.tell(characters.Mira, text.Mira.T0011);
         await fS.Character.hide(characters.Nachbar);
@@ -137,6 +146,7 @@ namespace Template {
 
         await fS.Character.hide(characters.Mira);
         await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveRightAnimation);
+        await fS.update();
         /*-----Animation End-----*/
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0012);
@@ -164,7 +174,7 @@ namespace Template {
             if (nicksRoom && bathroom && kitchen) {
                 break;
             } else {
-                searchNick();
+                await searchNick();
             }
         }
 
@@ -227,7 +237,7 @@ namespace Template {
         //give up or search for hints
         let giveUpOrSearchAnswer = {
             GiveUp: "Suche aufgeben",
-            Search: "Nach Hinweisen suchen"
+            Search: "Hinweise suchen"
         };
         let giveUpOrSearch = await fS.Menu.getInput(giveUpOrSearchAnswer, "decisionClass");
         switch (giveUpOrSearch) {
@@ -241,12 +251,22 @@ namespace Template {
         }
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0022);
-        //Foto anzeigen
+        fS.Character.hideAll();
+        await fS.update();
+        await fS.Location.show(location.nicksRoomPicture);
+        await fS.update(0.5);
         await fS.Speech.tell(characters.Mira, text.Mira.T0023);
-        //Papier geräusch
         //Foto in Inventar
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
+        fS.Sound.fade(sound.grabPaper, 0.2, 1);
+        await fS.Location.show(location.nicksRoomGoodWeather);
+        await fS.update(0.5);
         await fS.Speech.tell(characters.Mira, text.Mira.T0025);
-        //Ausblenden oder so
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await fS.update();
+        fS.Sound.fade(sound.grabPaper, 0, 0.5);
+        await fS.Location.show(location.black);
+        await fS.update(2);
     }
 }

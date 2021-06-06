@@ -203,18 +203,17 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-            { scene: WakeUp, name: "WakeUp" },
+            { scene: Template.WakeUp, name: "WakeUp" },
             //bad scenes
-            { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "BadEnding1", scene: BadEnding1, name: "BadEnding1", next: "endOfNovel" },
+            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "BadEnding1", scene: Template.BadEnding1, name: "BadEnding1", next: "endOfNovel" },
             //neutral scenes
-            { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
-            { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
             { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
             //last Scene in Novel
             { id: "endOfNovel", scene: Template.EndOfNovel, name: "EndOfNovel" }
@@ -301,13 +300,13 @@ var Template;
             }
         };
         await Template.fS.Location.show(Template.location.miraRoom);
-        await Template.fS.update(0);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0000);
         await Template.fS.Speech.tell(Template.characters.Mira, "...");
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0001);
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
-        await Template.fS.update(2);
+        await Template.fS.update(1);
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.update(1);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
@@ -317,7 +316,7 @@ var Template;
         await Template.fS.Character.hide(Template.characters.Mira);
         Template.fS.Speech.hide();
         await Template.fS.Location.show(Template.location.black);
-        await Template.fS.update(2);
+        await Template.fS.update(1);
         await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Location.show(Template.location.nicksRoomDoor);
         await Template.fS.update(1);
@@ -356,18 +355,27 @@ var Template;
         await Template.fS.Character.hide(Template.characters.Mira);
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, moveLeftAnimation);
         await Template.fS.update(1);
-        await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.neutral, Template.nickPosWhenBoth);
+        await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.good, Template.nickPosWhenBoth);
         await Template.fS.update();
         /*-----Animation End-----*/
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0000);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0009);
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0001);
+        await Template.fS.Character.hide(Template.characters.Nachbar);
+        await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.neutral, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0002);
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0003);
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0004);
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0005);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0010);
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0006);
+        await Template.fS.Character.hide(Template.characters.Nachbar);
+        await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.good, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nachbar, text.Nachbar.T0007);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0011);
         await Template.fS.Character.hide(Template.characters.Nachbar);
@@ -381,6 +389,7 @@ var Template;
         };
         await Template.fS.Character.hide(Template.characters.Mira);
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, moveRightAnimation);
+        await Template.fS.update();
         /*-----Animation End-----*/
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0012);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0013);
@@ -407,7 +416,7 @@ var Template;
                 break;
             }
             else {
-                searchNick();
+                await searchNick();
             }
         }
         async function searchNick() {
@@ -468,7 +477,7 @@ var Template;
         //give up or search for hints
         let giveUpOrSearchAnswer = {
             GiveUp: "Suche aufgeben",
-            Search: "Nach Hinweisen suchen"
+            Search: "Hinweise suchen"
         };
         let giveUpOrSearch = await Template.fS.Menu.getInput(giveUpOrSearchAnswer, "decisionClass");
         switch (giveUpOrSearch) {
@@ -481,13 +490,23 @@ var Template;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0022);
-        //Foto anzeigen
+        Template.fS.Character.hideAll();
+        await Template.fS.update();
+        await Template.fS.Location.show(Template.location.nicksRoomPicture);
+        await Template.fS.update(0.5);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0023);
-        //Papier geräusch
         //Foto in Inventar
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0024);
+        Template.fS.Sound.fade(Template.sound.grabPaper, 0.2, 1);
+        await Template.fS.Location.show(Template.location.nicksRoomGoodWeather);
+        await Template.fS.update(0.5);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0025);
-        //Ausblenden oder so
+        Template.fS.Speech.hide();
+        Template.fS.Character.hideAll();
+        await Template.fS.update();
+        Template.fS.Sound.fade(Template.sound.grabPaper, 0, 0.5);
+        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.update(2);
     }
     Template.NickNotAtHome = NickNotAtHome;
 })(Template || (Template = {}));
