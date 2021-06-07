@@ -2,6 +2,9 @@ declare namespace Template {
     function EndOfNovel(): fS.SceneReturn;
 }
 declare namespace Template {
+    function FinalConversation(): fS.SceneReturn;
+}
+declare namespace Template {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let sound: {

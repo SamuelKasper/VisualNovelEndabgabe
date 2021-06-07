@@ -3,6 +3,7 @@
     "commonSourceDirectory": "..",
     "sourceFiles": [
       "../Source/EndOfNovel.ts",
+      "../Source/FinalConversation.ts",
       "../Source/Main.ts",
       "../Source/NeutralEnding.ts",
       "../Source/NickNotAtHome.ts",
@@ -24,7 +25,7 @@
         },
         {
           "pos": 15,
-          "end": 118020,
+          "end": 131082,
           "kind": "text"
         }
       ],
@@ -52,7 +53,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 5235,
+          "end": 5319,
           "kind": "text"
         }
       ]

@@ -4,6 +4,7 @@
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 - Nick Not at Home Inventar
+- Ending screen von Story abtrennen
 
 ------------------------------------------------- Anderes: 
 - Name oberhalb des gesprochenen Textes
