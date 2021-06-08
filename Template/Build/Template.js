@@ -263,6 +263,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0032);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0033);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0042);
+        Template.fS.Speech.hide();
+        Template.fS.Character.hideAll();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
         await Template.fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");

@@ -283,7 +283,9 @@ namespace Template {
         await fS.Speech.tell(characters.Nick, text.Nick.T0032);
         await fS.Speech.tell(characters.Nick, text.Nick.T0033);
         await fS.Speech.tell(characters.Mira, text.Mira.T0042);
-
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        
         await fS.Location.show(location.black);
         await fS.update(2);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
