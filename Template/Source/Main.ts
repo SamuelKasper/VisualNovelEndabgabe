@@ -249,6 +249,7 @@ namespace Template {
       { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation"},
+      { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel"},
 
       //last Scene in Novel
       { id: "endOfNovel", scene: EndOfNovel, name: "EndOfNovel" }
