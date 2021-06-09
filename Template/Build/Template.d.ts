@@ -99,6 +99,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        nicksRoomBadWeatherNoPhoto: {
+            name: string;
+            background: string;
+        };
         nicksRoomDoor: {
             name: string;
             background: string;

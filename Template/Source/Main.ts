@@ -113,6 +113,11 @@ namespace Template {
       background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
     },
 
+    nicksRoomBadWeatherNoPhoto: {
+      name: "nicksRoomBadWeatherNoPhoto",
+      background: "Images/Backgrounds/NicksZimmerBadWeatherNoPhoto.png"
+    },
+
     nicksRoomDoor: {
       name: "nicksRoomDoor",
       background: "Images/Backgrounds/Nicks_Zimmertuer.png"

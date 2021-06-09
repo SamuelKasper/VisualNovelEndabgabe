@@ -127,7 +127,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
         Template.fS.Speech.hide();
         Template.fS.Character.hideAll();
-        await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+        await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
         await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.fS.positions.bottomcenter);
         await Template.fS.update();
@@ -139,7 +139,7 @@ var Template;
         await Template.fS.Text.print("Zwei Stunden später...");
         Template.fS.Text.close();
         await Template.fS.update();
-        await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+        await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
         await Template.fS.update(1);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0000);
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.tired, Template.nickPosWhenBoth);
@@ -281,7 +281,7 @@ var Template;
             Template.fS.Speech.hide();
             await Template.fS.Location.show(Template.location.black);
             await Template.fS.update(1);
-            await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+            await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
             await Template.fS.update(1);
             await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.fS.positions.bottomcenter);
             await Template.fS.update();
@@ -300,7 +300,7 @@ var Template;
                     Template.fS.Speech.hide();
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.5);
-                    await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+                    await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(0.7);
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.3);
@@ -308,11 +308,11 @@ var Template;
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.2);
-                    await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+                    await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(0.7);
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.2);
-                    await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+                    await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(0.7);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
@@ -331,7 +331,7 @@ var Template;
                     await Template.fS.Text.print("30 Minuten später...");
                     Template.fS.Text.close();
                     await Template.fS.update();
-                    await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+                    await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(1);
                     break;
             }
@@ -402,7 +402,7 @@ var Template;
                     await Template.fS.Text.print("Ein paar Minuten später...");
                     Template.fS.Text.close();
                     await Template.fS.update();
-                    await Template.fS.Location.show(Template.location.nicksRoomBadWeather);
+                    await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(1);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
@@ -532,6 +532,10 @@ var Template;
         nicksRoomBadWeather: {
             name: "nicksRoomBadWeather",
             background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
+        },
+        nicksRoomBadWeatherNoPhoto: {
+            name: "nicksRoomBadWeatherNoPhoto",
+            background: "Images/Backgrounds/NicksZimmerBadWeatherNoPhoto.png"
         },
         nicksRoomDoor: {
             name: "nicksRoomDoor",
@@ -934,7 +938,7 @@ var Template;
         //Foto in Inventar
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0024);
         Template.fS.Sound.fade(Template.sound.grabPaper, 0.2, 1);
-        await Template.fS.Location.show(Template.location.nicksRoomGoodWeather);
+        await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
         await Template.fS.update(0.5);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
         await Template.fS.update();

@@ -139,7 +139,7 @@ namespace Template {
         await fS.Speech.tell(characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
         fS.Speech.hide();
         fS.Character.hideAll();
-        await fS.Location.show(location.nicksRoomBadWeather);
+        await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
         await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Character.show(characters.Mira, characters.Mira.pose.sad, fS.positions.bottomcenter);
         await fS.update();
@@ -151,7 +151,7 @@ namespace Template {
         await fS.Text.print("Zwei Stunden später...");
         fS.Text.close();
         await fS.update();
-        await fS.Location.show(location.nicksRoomBadWeather);
+        await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
         await fS.update(1);
         await fS.Speech.tell(characters.Nick, text.Nick.T0000);
         await fS.Character.show(characters.Nick, characters.Nick.pose.tired, nickPosWhenBoth);
@@ -305,7 +305,7 @@ namespace Template {
             fS.Speech.hide();
             await fS.Location.show(location.black);
             await fS.update(1);
-            await fS.Location.show(location.nicksRoomBadWeather);
+            await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
             await fS.update(1);
             await fS.Character.show(characters.Mira, characters.Mira.pose.sad, fS.positions.bottomcenter);
             await fS.update();
@@ -325,7 +325,7 @@ namespace Template {
                     fS.Speech.hide();
                     await fS.Location.show(location.black);
                     await fS.update(0.5);
-                    await fS.Location.show(location.nicksRoomBadWeather);
+                    await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(0.7);
                     await fS.Location.show(location.black);
                     await fS.update(0.3);
@@ -333,11 +333,11 @@ namespace Template {
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Location.show(location.black);
                     await fS.update(0.2);
-                    await fS.Location.show(location.nicksRoomBadWeather);
+                    await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(0.7);
                     await fS.Location.show(location.black);
                     await fS.update(0.2);
-                    await fS.Location.show(location.nicksRoomBadWeather);
+                    await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(0.7);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
@@ -356,7 +356,7 @@ namespace Template {
                     await fS.Text.print("30 Minuten später...");
                     fS.Text.close();
                     await fS.update();
-                    await fS.Location.show(location.nicksRoomBadWeather);
+                    await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(1);
                     break;
             }
@@ -436,7 +436,7 @@ namespace Template {
                     await fS.Text.print("Ein paar Minuten später...");
                     fS.Text.close();
                     await fS.update();
-                    await fS.Location.show(location.nicksRoomBadWeather);
+                    await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(1);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();

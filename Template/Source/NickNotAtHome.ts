@@ -259,7 +259,7 @@ namespace Template {
         //Foto in Inventar
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
         fS.Sound.fade(sound.grabPaper, 0.2, 1);
-        await fS.Location.show(location.nicksRoomGoodWeather);
+        await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
         await fS.update(0.5);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
