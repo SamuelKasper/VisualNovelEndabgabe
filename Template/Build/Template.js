@@ -37,7 +37,7 @@ var Template;
                 T0025: "...",
                 T0026: "Aber dann schreib mir doch.. Oder irgendwem... Einfach abzuhauen kann doch nicht die Lösung sein...",
                 T0027: "Nick...",
-                T0028: "hm?",
+                T0028: "Hm?",
                 T0029: "...Aber zu es über sich ergehen zu lassen macht es doch auch nicht besser!",
                 T0030: "Was redest du da?",
                 T0031: "NICK! Hör auf!",
@@ -62,7 +62,7 @@ var Template;
                 T0005: "... ist doch egal! Einfach weg! Ich halts nicht mehr aus...",
                 T0006: "... Ich ...will nicht mehr...",
                 T0007: "... ja",
-                T0008: "Kann schon sein...",
+                T0008: "Ich weis nicht... kann schon sein.",
                 T0009: "Schwer zu sagen.",
                 T0010: "Es gibt Tage, an denen fühle ich mich einfach nutzlos...",
                 T0011: "Egal was ich mache, alles ergibt einfach keinen Sinn und bringt mich nicht weiter... ",
@@ -76,7 +76,7 @@ var Template;
                 T0019: "Es reicht doch schon das ich unter meinen Problemen leide...",
                 T0020: "Nein.. Deswegen wäre es vielleicht auch besser wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
-                T0022: "Naja das wäre doch für alle das b..",
+                T0022: "Naja das wäre doch für alle das Beste.",
                 T0023: "?",
                 T0024: "...",
                 T0025: "Was meinst du?",
@@ -112,7 +112,7 @@ var Template;
         let waitOrAmbulance = await Template.fS.Menu.getInput(waitOrAmbulanceAnswer, "decisionClass");
         switch (waitOrAmbulance) {
             case waitOrAmbulanceAnswer.wait:
-                badEnding2();
+                return await badEnding2();
             case waitOrAmbulanceAnswer.ambulance:
                 break;
         }
@@ -163,6 +163,9 @@ var Template;
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.crying, Template.nickPosWhenBoth);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0004);
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0005);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0006);
@@ -174,7 +177,7 @@ var Template;
         let getAngryOrTalk = await Template.fS.Menu.getInput(getAngryOrTalkAnswer, "decisionClass");
         switch (getAngryOrTalk) {
             case getAngryOrTalkAnswer.angry:
-                badEnding3();
+                return await badEnding3();
             case getAngryOrTalkAnswer.scars:
                 break;
         }
@@ -183,10 +186,21 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Nick, "...");
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0007);
         await Template.fS.Speech.tell(Template.characters.Mira, "...");
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.crying, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0021);
-        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0008);
+        await Template.fS.Speech.tell(Template.characters.Mira, "...");
+        await Template.fS.Speech.tell(Template.characters.Nick, "...");
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0022);
+        await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0008);
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.crying, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0023);
+        Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.sad, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0009);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0024);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0010);
@@ -194,6 +208,9 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0012);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0013);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0025);
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0026);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0014);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0015);
@@ -214,17 +231,23 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Nick, "...");
                 break;
             case ThanksOrContradictAnswer.contradict:
-                await Template.fS.Speech.tell(Template.characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!.");
+                await Template.fS.Speech.tell(Template.characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich bekomme meine Probleme schon irgendwie auf die Reihe!");
                 await Template.fS.Speech.tell(Template.characters.Nick, "...");
                 break;
         }
+        Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.crying, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0017);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0028);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0018);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0019);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0029);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0020);
+        Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.tired, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0021);
         //get angry or talk
         let getAngryOrTalkAnswer2 = {
@@ -234,19 +257,28 @@ var Template;
         let getAngryOrTalk2 = await Template.fS.Menu.getInput(getAngryOrTalkAnswer2, "decisionClass");
         switch (getAngryOrTalk2) {
             case getAngryOrTalkAnswer2.angry:
-                badEnding3();
+                return await badEnding3();
             case getAngryOrTalkAnswer2.nick:
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0030);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0022);
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.crying, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0031);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0023);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0032);
+        Template.fS.Character.hide(Template.characters.Nick);
+        await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.sad, Template.nickPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0024);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0033);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0025);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0034);
+        Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.miraPosWhenBoth);
+        await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0035);
         await Template.fS.Speech.tell(Template.characters.Nick, text.Nick.T0026);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0036);
@@ -267,6 +299,7 @@ var Template;
         Template.fS.Character.hideAll();
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
+        Template.fS.Sound.fade(Template.sound.goodEnding, 0.2, 2, true);
         await Template.fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         Template.fS.Text.close();
         await Template.fS.update();
@@ -431,7 +464,6 @@ var Template;
         Template.fS.Speech.hide();
         //good Ending Screen
         await Template.fS.Location.show(Template.location.black);
-        Template.fS.Sound.fade(Template.sound.goodEnding, 0.2, 1, true);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
     }

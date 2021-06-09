@@ -5,7 +5,6 @@
 bei jeder entscheidung
 - Nick Not at Home Inventar
 - Ending screen von Story abtrennen
-- Nicks room bad weather ohne Bild auf tisch
 - HitTheGround Sound??
 - Good Ending Screen (Beide stehen vor hell farbigem Hintergrund und halten Händchen)
 - Emotions FInalConversation

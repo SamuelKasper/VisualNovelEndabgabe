@@ -37,7 +37,7 @@ namespace Template {
                 T0026: "Aber dann schreib mir doch.. Oder irgendwem... Einfach abzuhauen kann doch nicht die Lösung sein...",
                 T0027: "Nick...",
 
-                T0028: "hm?",
+                T0028: "Hm?",
                 T0029: "...Aber zu es über sich ergehen zu lassen macht es doch auch nicht besser!",
 
                 T0030: "Was redest du da?",
@@ -66,7 +66,7 @@ namespace Template {
                 T0006: "... Ich ...will nicht mehr...",
 
                 T0007: "... ja",
-                T0008: "Kann schon sein...",
+                T0008: "Ich weis nicht... kann schon sein.",
                 T0009: "Schwer zu sagen.",
                 T0010: "Es gibt Tage, an denen fühle ich mich einfach nutzlos...",
                 T0011: "Egal was ich mache, alles ergibt einfach keinen Sinn und bringt mich nicht weiter... ",
@@ -82,7 +82,7 @@ namespace Template {
                 T0020: "Nein.. Deswegen wäre es vielleicht auch besser wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
 
-                T0022: "Naja das wäre doch für alle das b..",
+                T0022: "Naja das wäre doch für alle das Beste.",
                 T0023: "?",
                 T0024: "...",
 
@@ -123,7 +123,7 @@ namespace Template {
         let waitOrAmbulance = await fS.Menu.getInput(waitOrAmbulanceAnswer, "decisionClass");
         switch (waitOrAmbulance) {
             case waitOrAmbulanceAnswer.wait:
-                badEnding2();
+                return await badEnding2();
             case waitOrAmbulanceAnswer.ambulance:
                 break;
         }
@@ -175,6 +175,9 @@ namespace Template {
         await fS.Character.show(characters.Nick, characters.Nick.pose.crying, nickPosWhenBoth);
         await fS.update();
         await fS.Speech.tell(characters.Nick, text.Nick.T0004);
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.sad, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0018);
         await fS.Speech.tell(characters.Nick, text.Nick.T0005);
         await fS.Speech.tell(characters.Nick, text.Nick.T0006);
@@ -187,7 +190,7 @@ namespace Template {
         let getAngryOrTalk = await fS.Menu.getInput(getAngryOrTalkAnswer, "decisionClass");
         switch (getAngryOrTalk) {
             case getAngryOrTalkAnswer.angry:
-                badEnding3();
+                return await badEnding3();
             case getAngryOrTalkAnswer.scars:
                 break;
         }
@@ -197,10 +200,21 @@ namespace Template {
         await fS.Speech.tell(characters.Nick, "...");
         await fS.Speech.tell(characters.Nick, text.Nick.T0007);
         await fS.Speech.tell(characters.Mira, "...");
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.crying, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0021);
-        await fS.Speech.tell(characters.Nick, text.Nick.T0008);
+        await fS.Speech.tell(characters.Mira, "...");
+        await fS.Speech.tell(characters.Nick, "...");
         await fS.Speech.tell(characters.Mira, text.Mira.T0022);
+        await fS.Speech.tell(characters.Nick, text.Nick.T0008);
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.crying, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0023);
+        fS.Character.hide(characters.Nick);
+        await fS.Character.show(characters.Nick, characters.Nick.pose.sad, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nick, text.Nick.T0009);
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
         await fS.Speech.tell(characters.Nick, text.Nick.T0010);
@@ -208,6 +222,9 @@ namespace Template {
         await fS.Speech.tell(characters.Nick, text.Nick.T0012);
         await fS.Speech.tell(characters.Nick, text.Nick.T0013);
         await fS.Speech.tell(characters.Mira, text.Mira.T0025);
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.sad, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0026);
         await fS.Speech.tell(characters.Nick, text.Nick.T0014);
         await fS.Speech.tell(characters.Nick, text.Nick.T0015);
@@ -229,19 +246,24 @@ namespace Template {
                 await fS.Speech.tell(characters.Nick, "...");
                 break;
             case ThanksOrContradictAnswer.contradict:
-                await fS.Speech.tell(characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!.");
+                await fS.Speech.tell(characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!");
                 await fS.Speech.tell(characters.Mira, "Ich bekomme meine Probleme schon irgendwie auf die Reihe!");
                 await fS.Speech.tell(characters.Nick, "...");
                 break;
         }
 
-
+        fS.Character.hide(characters.Nick);
+        await fS.Character.show(characters.Nick, characters.Nick.pose.crying, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nick, text.Nick.T0017);
         await fS.Speech.tell(characters.Mira, text.Mira.T0028);
         await fS.Speech.tell(characters.Nick, text.Nick.T0018);
         await fS.Speech.tell(characters.Nick, text.Nick.T0019);
         await fS.Speech.tell(characters.Mira, text.Mira.T0029);
         await fS.Speech.tell(characters.Nick, text.Nick.T0020);
+        fS.Character.hide(characters.Nick);
+        await fS.Character.show(characters.Nick, characters.Nick.pose.tired, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nick, text.Nick.T0021);
 
         //get angry or talk
@@ -252,21 +274,29 @@ namespace Template {
         let getAngryOrTalk2 = await fS.Menu.getInput(getAngryOrTalkAnswer2, "decisionClass");
         switch (getAngryOrTalk2) {
             case getAngryOrTalkAnswer2.angry:
-                badEnding3();
+                return await badEnding3();
             case getAngryOrTalkAnswer2.nick:
                 break;
         }
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0030);
         await fS.Speech.tell(characters.Nick, text.Nick.T0022);
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.crying, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0031);
         await fS.Speech.tell(characters.Nick, text.Nick.T0023);
         await fS.Speech.tell(characters.Mira, text.Mira.T0032);
+        fS.Character.hide(characters.Nick);
+        await fS.Character.show(characters.Nick, characters.Nick.pose.sad, nickPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Nick, text.Nick.T0024);
-
         await fS.Speech.tell(characters.Mira, text.Mira.T0033);
         await fS.Speech.tell(characters.Nick, text.Nick.T0025);
         await fS.Speech.tell(characters.Mira, text.Mira.T0034);
+        fS.Character.hide(characters.Mira);
+        await fS.Character.show(characters.Mira, characters.Mira.pose.sad, miraPosWhenBoth);
+        await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0035);
         await fS.Speech.tell(characters.Nick, text.Nick.T0026);
         await fS.Speech.tell(characters.Mira, text.Mira.T0036);
@@ -288,6 +318,7 @@ namespace Template {
         
         await fS.Location.show(location.black);
         await fS.update(2);
+        fS.Sound.fade(sound.goodEnding, 0.2, 2, true);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         fS.Text.close();
         await fS.update();
@@ -378,10 +409,6 @@ namespace Template {
             await fS.Location.show(location.black);
             await fS.update(2);
             return "BadEnding1";
-
-
-
-
         }
 
         async function badEnding3(): Promise<string> {
