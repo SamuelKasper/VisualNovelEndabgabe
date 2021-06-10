@@ -70,14 +70,26 @@ speech.Mira name{
 }
 
 #goodEndingText > p{
-  font-size: 100px;
+  font-size: 200px;
   color: white;
   font-family: Calibri;
   left: 50%;
-  margin-left: -260px;
+  margin-left: -520px;
   position: absolute;
   top: 50%;
-  margin-top: -66px;
+  margin-top: -122px;
+}
 
+@media screen and (max-width: 1300px) {
+  #goodEndingText > p{
+    font-size: 100px;
+    color: white;
+    font-family: Calibri;
+    left: 50%;
+    margin-left: -260px;
+    position: absolute;
+    top: 50%;
+    margin-top: -66px;
+  }
 }
 
