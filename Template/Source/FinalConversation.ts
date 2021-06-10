@@ -99,7 +99,7 @@ namespace Template {
 
             }
         }
-        fS.Sound.fade(sound.mysteryTheme, 0.2, 4, true);
+        fS.Sound.fade(sound.mysteryTheme, 0.1, 4, true);
         await fS.Location.show(location.hideout);
         await fS.update(2);
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -137,6 +137,8 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0010);
         await fS.Speech.tell(characters.Mira, text.Mira.T0011);
         await fS.Speech.tell(characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
+        fS.Sound.fade(sound.rain, 0.03, 3, true);
+        fS.Sound.fade(sound.mysteryTheme, 0, 1, true);
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
@@ -330,6 +332,7 @@ namespace Template {
         async function badEnding2(): Promise<string> {
             await fS.Speech.tell(characters.Mira, "Vielleicht wacht er ja gleich auf");
             await fS.Speech.tell(characters.Narrator, "Du wartest 30 Minuten neben Nick. Es beginnt zu regnen.");
+            fS.Sound.fade(sound.rain, 0.06, 3, true);
             await fS.Speech.tell(characters.Mira, "Oh man, er kommt nicht zu sich.");
             await fS.Speech.tell(characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
             fS.Character.hideAll();

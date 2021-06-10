@@ -20,7 +20,8 @@ namespace Template {
     //Sounds
     hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
     wateringPlants: "Audio/Sounds/WateringPlants.mp3",
-    grabPaper: "Audio/Sounds/grabPaper.mp3"
+    grabPaper: "Audio/Sounds/grabPaper.mp3",
+    rain: "Audio/Sounds/Rain.mp3"
   };
 
   export let transition = {

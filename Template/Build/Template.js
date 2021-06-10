@@ -90,7 +90,7 @@ var Template;
                 T0033: "Denke schon."
             }
         };
-        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.2, 4, true);
+        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.1, 4, true);
         await Template.fS.Location.show(Template.location.hideout);
         await Template.fS.update(2);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -126,6 +126,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0010);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0011);
         await Template.fS.Speech.tell(Template.characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
+        Template.fS.Sound.fade(Template.sound.rain, 0.03, 3, true);
+        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 1, true);
         Template.fS.Speech.hide();
         Template.fS.Character.hideAll();
         await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
@@ -309,6 +311,7 @@ var Template;
         async function badEnding2() {
             await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht wacht er ja gleich auf");
             await Template.fS.Speech.tell(Template.characters.Narrator, "Du wartest 30 Minuten neben Nick. Es beginnt zu regnen.");
+            Template.fS.Sound.fade(Template.sound.rain, 0.06, 3, true);
             await Template.fS.Speech.tell(Template.characters.Mira, "Oh man, er kommt nicht zu sich.");
             await Template.fS.Speech.tell(Template.characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
             Template.fS.Character.hideAll();
@@ -497,7 +500,8 @@ var Template;
         //Sounds
         hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
         wateringPlants: "Audio/Sounds/WateringPlants.mp3",
-        grabPaper: "Audio/Sounds/grabPaper.mp3"
+        grabPaper: "Audio/Sounds/grabPaper.mp3",
+        rain: "Audio/Sounds/Rain.mp3"
     };
     Template.transition = {
         blink: {

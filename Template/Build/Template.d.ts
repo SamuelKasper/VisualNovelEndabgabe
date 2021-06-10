@@ -25,6 +25,7 @@ declare namespace Template {
         hitTheFloor: string;
         wateringPlants: string;
         grabPaper: string;
+        rain: string;
     };
     let transition: {
         blink: {
