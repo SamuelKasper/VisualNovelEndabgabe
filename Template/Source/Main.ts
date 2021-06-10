@@ -7,8 +7,8 @@ namespace Template {
   export let sound = {
     //Music
     overworldTheme: "Audio/DoingStuff.mp3",
-    overworldThemeMuted: "Audio/",
-    mysteryTheme: "Audio/",
+    overworldThemeMuted: "Audio/DoingStuffMuted.mp3",
+    mysteryTheme: "Audio/Harvest.mp3",
     goodEnding: "Audio/Endings/NicksAlive.mp3",
     neutralEnding: "Audio/",
     badEnding: "Audio/Endings/darker.mp3",
@@ -155,7 +155,12 @@ namespace Template {
 
     goodEnding: {
       name: "goodEnding",
-      background: "Images/"
+      background: "Images/Backgrounds/GoodEnding.png"
+    },
+
+    goodEndingBlurred: {
+      name: "goodEndingBlurred",
+      background: "Images/Backgrounds/GoodEndingBlurred.png"
     },
 
     neutralEnding: {
