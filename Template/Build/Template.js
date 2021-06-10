@@ -90,6 +90,7 @@ var Template;
                 T0033: "Denke schon."
             }
         };
+        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.2, 4, true);
         await Template.fS.Location.show(Template.location.hideout);
         await Template.fS.update(2);
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -297,7 +298,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0042);
         Template.fS.Speech.hide();
         Template.fS.Character.hideAll();
-        await Template.fS.Location.show(Template.location.black);
+        await Template.fS.Location.show(Template.location.colorBeforeEnding);
         await Template.fS.update(2);
         Template.fS.Sound.fade(Template.sound.goodEnding, 0.2, 2, true);
         await Template.fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
@@ -467,7 +468,7 @@ var Template;
         await Template.fS.update(2);
         await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
         await Template.fS.Location.show(Template.location.goodEndingBlurred);
-        await Template.fS.update(2);
+        await Template.fS.update(0.7);
         let text = document.createElement('p');
         text.innerHTML = "Good Ending";
         document.getElementById("goodEndingText").appendChild(text);
@@ -485,7 +486,7 @@ var Template;
         overworldTheme: "Audio/DoingStuff.mp3",
         overworldThemeMuted: "Audio/DoingStuffMuted.mp3",
         mysteryTheme: "Audio/Harvest.mp3",
-        goodEnding: "Audio/Endings/NicksAlive.mp3",
+        goodEnding: "Audio/Endings/NicksAliveV2.mp3",
         neutralEnding: "Audio/",
         badEnding: "Audio/Endings/darker.mp3",
         pianoSongGoing: "Audio/Piano/Going.mp3",
@@ -591,10 +592,6 @@ var Template;
             name: "nicksBathroomDead",
             background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
         },
-        nicksRoomTable: {
-            name: "nicksRoomTable",
-            background: "Images/"
-        },
         nicksRoomPicture: {
             name: "nicksRoomPicture",
             background: "Images/Backgrounds/VersteckFoto.png"
@@ -622,6 +619,10 @@ var Template;
         black: {
             name: "black",
             background: "Images/Backgrounds/Black.png"
+        },
+        colorBeforeEnding: {
+            name: "colorBeforeEnding",
+            background: "Images/Backgrounds/ColorBeforeEnding.png"
         }
     };
     Template.characters = {

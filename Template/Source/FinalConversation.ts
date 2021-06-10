@@ -99,7 +99,7 @@ namespace Template {
 
             }
         }
-
+        fS.Sound.fade(sound.mysteryTheme, 0.2, 4, true);
         await fS.Location.show(location.hideout);
         await fS.update(2);
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -316,7 +316,7 @@ namespace Template {
         fS.Speech.hide();
         fS.Character.hideAll();
         
-        await fS.Location.show(location.black);
+        await fS.Location.show(location.colorBeforeEnding);
         await fS.update(2);
         fS.Sound.fade(sound.goodEnding, 0.2, 2, true);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");

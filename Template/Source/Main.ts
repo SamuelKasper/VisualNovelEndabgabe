@@ -9,7 +9,7 @@ namespace Template {
     overworldTheme: "Audio/DoingStuff.mp3",
     overworldThemeMuted: "Audio/DoingStuffMuted.mp3",
     mysteryTheme: "Audio/Harvest.mp3",
-    goodEnding: "Audio/Endings/NicksAlive.mp3",
+    goodEnding: "Audio/Endings/NicksAliveV2.mp3",
     neutralEnding: "Audio/",
     badEnding: "Audio/Endings/darker.mp3",
     pianoSongGoing: "Audio/Piano/Going.mp3",
@@ -138,11 +138,6 @@ namespace Template {
       background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
     },
 
-    nicksRoomTable: {
-      name: "nicksRoomTable",
-      background: "Images/"
-    },
-
     nicksRoomPicture: {
       name: "nicksRoomPicture",
       background: "Images/Backgrounds/VersteckFoto.png"
@@ -176,6 +171,11 @@ namespace Template {
     black: {
       name: "black",
       background: "Images/Backgrounds/Black.png"
+    },
+
+    colorBeforeEnding: {
+      name: "colorBeforeEnding",
+      background: "Images/Backgrounds/ColorBeforeEnding.png"
     }
   }
 

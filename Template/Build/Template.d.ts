@@ -119,10 +119,6 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        nicksRoomTable: {
-            name: string;
-            background: string;
-        };
         nicksRoomPicture: {
             name: string;
             background: string;
@@ -148,6 +144,10 @@ declare namespace Template {
             background: string;
         };
         black: {
+            name: string;
+            background: string;
+        };
+        colorBeforeEnding: {
             name: string;
             background: string;
         };

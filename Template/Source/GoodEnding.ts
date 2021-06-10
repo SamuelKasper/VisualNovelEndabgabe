@@ -8,7 +8,7 @@ namespace Template {
         await fS.update(2);
         await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
         await fS.Location.show(location.goodEndingBlurred);
-        await fS.update(2);
+        await fS.update(0.7);
         
         let text = document.createElement('p');
         text.innerHTML = "Good Ending";

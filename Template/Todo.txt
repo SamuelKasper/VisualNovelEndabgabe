@@ -6,8 +6,7 @@ bei jeder entscheidung
 - Nick Not at Home Inventar
 - Ending screen von Story abtrennen
 - HitTheGround Sound??
-- Good Ending Screen (Beide stehen vor hell farbigem Hintergrund und halten Händchen)
-- Emotions FInalConversation
+- MutedDoingStuff einbauen
 
 ------------------------------------------------- Anderes: 
 - Name oberhalb des gesprochenen Textes
