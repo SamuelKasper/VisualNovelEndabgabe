@@ -135,6 +135,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        goodEndingBlurred: {
+            name: string;
+            background: string;
+        };
         neutralEnding: {
             name: string;
             background: string;
