@@ -487,10 +487,6 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
         await Template.fS.Location.show(Template.location.goodEndingBlurred);
         await Template.fS.update(0.7);
-        let text = document.createElement('p');
-        text.innerHTML = "Good Ending";
-        document.getElementById("goodEndingText").appendChild(text);
-        await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
     }
     Template.GoodEnding = GoodEnding;
 })(Template || (Template = {}));
@@ -512,7 +508,6 @@ var Template;
     Template.sound = {
         //Music
         overworldTheme: "Audio/DoingStuff.mp3",
-        overworldThemeMuted: "Audio/DoingStuffMuted.mp3",
         mysteryTheme: "Audio/Harvest.mp3",
         goodEnding: "Audio/Endings/NicksAliveV2.mp3",
         neutralEnding: "Audio/",
@@ -1234,6 +1229,7 @@ var Template;
                 break;
             //-------------------lernen
             case whatToDoAnswer.lernen:
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Location.show(Template.location.miraRoomMath);
                 await Template.fS.update();

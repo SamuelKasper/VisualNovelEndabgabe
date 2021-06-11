@@ -9,10 +9,5 @@ namespace Template {
         await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
         await fS.Location.show(location.goodEndingBlurred);
         await fS.update(0.7);
-        
-        let text = document.createElement('p');
-        text.innerHTML = "Good Ending";
-        document.getElementById("goodEndingText").appendChild(text);
-        await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
     }
 }

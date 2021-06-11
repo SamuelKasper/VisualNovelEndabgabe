@@ -7,7 +7,6 @@ namespace Template {
   export let sound = {
     //Music
     overworldTheme: "Audio/DoingStuff.mp3",
-    overworldThemeMuted: "Audio/DoingStuffMuted.mp3",
     mysteryTheme: "Audio/Harvest.mp3",
     goodEnding: "Audio/Endings/NicksAliveV2.mp3",
     neutralEnding: "Audio/",

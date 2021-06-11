@@ -18,7 +18,6 @@ declare namespace Template {
     export import fS = FudgeStory;
     let sound: {
         overworldTheme: string;
-        overworldThemeMuted: string;
         mysteryTheme: string;
         goodEnding: string;
         neutralEnding: string;

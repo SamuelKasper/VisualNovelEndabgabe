@@ -129,6 +129,7 @@ namespace Template {
 
             //-------------------lernen
             case whatToDoAnswer.lernen:
+                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 await fS.Character.hide(characters.Mira);
                 await fS.Location.show(location.miraRoomMath);
                 await fS.update();
