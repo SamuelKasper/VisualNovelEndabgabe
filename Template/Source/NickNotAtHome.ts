@@ -260,7 +260,7 @@ namespace Template {
         fS.Sound.fade(sound.grabPaper, 0.2, 1);
         //Foto in Inventar
         fS.Inventory.add(items.Image);
-        await fS.Inventory.open();
+        await fS.Speech.tell(characters.Narrator, "Das Foto wurde deinem Inventar hinzugefügt.");
         //--
         await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
         await fS.update(0.5);

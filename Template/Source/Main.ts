@@ -234,7 +234,6 @@ namespace Template {
   export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
   export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
 
-
   //save and load
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
@@ -246,6 +245,14 @@ namespace Template {
       case f.KEYBOARD_CODE.F9:
         console.log("Load");
         await fS.Progress.load();
+        break;
+      case f.KEYBOARD_CODE.I:
+        try {
+            console.log("Open Inventory");
+            await fS.Inventory.open();
+          }catch (error) {
+            console.log("Inventory already open");
+        }
         break;
     }
   }
@@ -267,8 +274,8 @@ namespace Template {
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
       { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
-      { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation"},
-      { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel"},
+      { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation" },
+      { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel" },
 
       //last Scene in Novel
       { id: "endOfNovel", scene: EndOfNovel, name: "EndOfNovel" }

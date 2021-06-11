@@ -712,6 +712,15 @@ var Template;
                 console.log("Load");
                 await Template.fS.Progress.load();
                 break;
+            case Template.f.KEYBOARD_CODE.I:
+                try {
+                    console.log("Open Inventory");
+                    await Template.fS.Inventory.open();
+                }
+                catch (error) {
+                    console.log("Inventory already open");
+                }
+                break;
         }
     }
     window.addEventListener("load", start);
@@ -1017,7 +1026,7 @@ var Template;
         Template.fS.Sound.fade(Template.sound.grabPaper, 0.2, 1);
         //Foto in Inventar
         Template.fS.Inventory.add(Template.items.Image);
-        await Template.fS.Inventory.open();
+        await Template.fS.Speech.tell(Template.characters.Narrator, "Das Foto wurde deinem Inventar hinzugefügt.");
         //--
         await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
         await Template.fS.update(0.5);
