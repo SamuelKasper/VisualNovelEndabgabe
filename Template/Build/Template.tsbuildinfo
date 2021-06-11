@@ -2,21 +2,21 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
+      "../Source/AAMain.ts",
+      "../Source/AnswerFromNick.ts",
       "../Source/BadEnding.ts",
+      "../Source/DontRememberBirthday.ts",
       "../Source/EndOfNovel.ts",
       "../Source/FinalConversation.ts",
       "../Source/GoodEnding.ts",
       "../Source/Helper.ts",
-      "../Source/Main.ts",
       "../Source/NeutralEnding.ts",
       "../Source/NickNotAtHome.ts",
-      "../Source/Scene_1_beginn.ts",
-      "../Source/Scene_2_bad.ts",
-      "../Source/Scene_2_good.ts",
-      "../Source/Scene_2_neutral.ts",
-      "../Source/Scene_3_bad.ts",
-      "../Source/Scene_3_good.ts",
-      "../Source/Scene_3_neutral.ts"
+      "../Source/NicksBirthday.ts",
+      "../Source/NoAnswerFromNick.ts",
+      "../Source/RememberWhilePiano.ts",
+      "../Source/WaitForAnswer.ts",
+      "../Source/WakeUp.ts"
     ],
     "js": {
       "sections": [
@@ -28,7 +28,7 @@
         },
         {
           "pos": 15,
-          "end": 153735,
+          "end": 153787,
           "kind": "text"
         }
       ],

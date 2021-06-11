@@ -247,11 +247,12 @@ namespace Template {
         console.log("Load");
         await fS.Progress.load();
         break;
-      case f.KEYBOARD_CODE.I:
+      case f.KEYBOARD_CODE.I:        
         try {
             console.log("Open Inventory");
             await fS.Inventory.open();
           }catch (error) {
+            fS.Inventory.close();
             console.log("Inventory already open");
         }
         break;

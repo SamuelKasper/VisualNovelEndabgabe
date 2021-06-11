@@ -6,6 +6,7 @@
 bei jeder entscheidung
 - Item nicht aus Inventar nach anklicken
 - Good Ending Text auf Schwarzem Hintergrund -> Transparent
+- SignalDelay auslagern
 
 -----Musik
 - Musik nachdem Mira Nick heimgetragen hat (slower)
@@ -22,4 +23,4 @@ bei jeder entscheidung
 - Kriterien Katalog
 
 ------------------------------------------------- BUGS / Probleme
-- .ts Dateien umbenennen -> fehler
+- .ts Dateien umbenennen -> Main Muss na
