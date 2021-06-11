@@ -1,10 +1,11 @@
 ------------------------------------------------- TASKS
-- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??
+(- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
+
 - Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 - Item nicht aus Inventar nach anklicken
-- Speichern/ Laden
+- animation hängt beim start
 
 -----Musik
 - Musik nachdem Mira Nick heimgetragen hat
@@ -22,4 +23,3 @@ bei jeder entscheidung
 
 ------------------------------------------------- BUGS / Probleme
 - .ts Dateien umbenennen -> fehler
-- animation hängt beim start

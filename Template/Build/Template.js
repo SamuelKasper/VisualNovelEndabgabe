@@ -881,7 +881,7 @@ var Template;
         };
         await Template.fS.Character.hide(Template.characters.Mira);
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, moveLeftAnimation);
-        await Template.fS.update(1);
+        await Template.fS.update();
         await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.good, Template.nickPosWhenBoth);
         await Template.fS.update();
         /*-----Animation End-----*/
@@ -1320,7 +1320,7 @@ var Template;
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
         await Template.fS.update();
         await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, moveLeftAnimation);
-        await Template.fS.update(1);
+        await Template.fS.update();
         /*-----Animation End-----*/
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
         await Template.fS.update();

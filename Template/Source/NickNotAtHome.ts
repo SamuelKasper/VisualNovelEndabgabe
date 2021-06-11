@@ -108,7 +108,7 @@ namespace Template {
 
         await fS.Character.hide(characters.Mira);
         await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveLeftAnimation);
-        await fS.update(1);
+        await fS.update();
         await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.good, nickPosWhenBoth);
         await fS.update();
         /*-----Animation End-----*/

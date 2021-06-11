@@ -48,7 +48,7 @@ namespace Template {
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
         await fS.update();
         await fS.Character.animate(characters.Mira, characters.Mira.pose.good, moveLeftAnimation);
-        await fS.update(1);
+        await fS.update();
         /*-----Animation End-----*/
 
         await fS.Character.show(characters.Nick, characters.Nick.pose.neutral, nickPosWhenBoth);
