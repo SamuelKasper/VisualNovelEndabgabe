@@ -248,7 +248,9 @@ var Template;
         Template.fS.Progress.go(scenes);
     }
 })(Template || (Template = {}));
+///<reference path= "Main.ts"/>
 var Template;
+///<reference path= "Main.ts"/>
 (function (Template) {
     let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
     let plantsDone = false;
