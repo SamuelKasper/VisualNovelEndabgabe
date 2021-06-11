@@ -99,6 +99,7 @@ namespace Template {
 
             }
         }
+        fS.Sound.fade(sound.overworldTheme, 0, 1, true);
         fS.Sound.fade(sound.mysteryTheme, 0.1, 4, true);
         await fS.Location.show(location.hideout);
         await fS.update(2);
@@ -411,7 +412,7 @@ namespace Template {
             fS.Speech.hide();
             await fS.Location.show(location.black);
             await fS.update(2);
-            return "BadEnding1";
+            return "BadEnding";
         }
 
         async function badEnding3(): Promise<string> {
@@ -483,7 +484,7 @@ namespace Template {
             await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
             await fS.Location.show(location.black);
             await fS.update(2);
-            return "BadEnding1";
+            return "BadEnding";
         }
     }
 }

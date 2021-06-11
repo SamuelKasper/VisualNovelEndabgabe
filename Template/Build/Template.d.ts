@@ -1,4 +1,7 @@
 declare namespace Template {
+    function BadEnding(): fS.SceneReturn;
+}
+declare namespace Template {
     function EndOfNovel(): fS.SceneReturn;
 }
 declare namespace Template {
@@ -6,6 +9,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function GoodEnding(): fS.SceneReturn;
+}
+declare namespace Template {
+    function muteAllMusic(): void;
 }
 declare namespace Template {
     export import f = FudgeCore;
@@ -213,7 +219,7 @@ declare namespace Template {
     function RememberWhilePiano(): fS.SceneReturn;
 }
 declare namespace Template {
-    function BadEnding1(): fS.SceneReturn;
+    function WaitForAnswer(): fS.SceneReturn;
 }
 declare namespace Template {
     function AnswerFromNick(): fS.SceneReturn;

@@ -4,8 +4,8 @@ namespace Template {
     let tetrisDone: boolean = false;
     let learningDone: boolean = false;
     let pianoDone: boolean = false;
-    export async function BadEnding1(): fS.SceneReturn {
-        console.log("BadEnding1: starting");
+    export async function WaitForAnswer(): fS.SceneReturn {
+        console.log("WaitForAnswer: starting");
 
         //Text
         let text = {
@@ -54,9 +54,9 @@ namespace Template {
         fS.Speech.hide();
 
         while (true) {
-            if(learningDone && plantsDone && tetrisDone && pianoDone){
+            if (learningDone && plantsDone && tetrisDone && pianoDone) {
                 break;
-            }else{
+            } else {
                 await whatToDo();
             }
         }
@@ -79,20 +79,17 @@ namespace Template {
         fS.Sound.fade(sound.overworldTheme, 0, 1, false);
         await fS.update(1.5);
         await signalDelay2s();
-        await fS.Text.print("2 Wochen später - Nach den Prüfungen."); 
-        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht."); 
+        await fS.Text.print("2 Wochen später - Nach den Prüfungen.");
+        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
         await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
         fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
         await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
         fS.Text.close();
         await fS.update();
-        await fS.Location.show(location.badEnding);
-        await fS.update();
-        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-        fS.Sound.fade(sound.badEnding, 0, 0.3, false);
+        return "BadEnding";
     }
 
-    async function whatToDo(): Promise<void> { 
+    async function whatToDo(): Promise<void> {
 
         let whatToDoAnswer = {
             nachrichten: "Handy",
@@ -134,19 +131,22 @@ namespace Template {
 
                 switch (songs) {
                     case songsAnswer.going:
-                        fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongGoing, 0);
                         fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.dontStand:
-                        fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongDontStand, 0);
                         fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.flowerfield:
-                        fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongFlowerfield, 0);
                         fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -154,9 +154,7 @@ namespace Template {
                 }
 
                 await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                fS.Sound.fade(sound.pianoSongGoing, 0, 1, false);
-                fS.Sound.fade(sound.pianoSongDontStand, 0, 1, false);
-                fS.Sound.fade(sound.pianoSongFlowerfield, 0, 1, false);
+                muteAllMusic();
                 fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 fS.Speech.hide();
                 pianoDone = true;

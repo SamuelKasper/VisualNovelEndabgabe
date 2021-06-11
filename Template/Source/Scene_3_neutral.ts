@@ -262,23 +262,26 @@ namespace Template {
 
                     switch (songs) {
                         case songsAnswer.going:
-                            fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
-                            fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            break;
-                        case songsAnswer.dontStand:
-                            fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
-                            fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            break;
-                        case songsAnswer.flowerfield:
-                            fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
-                            fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                            break;
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongGoing, 0);
+                        fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        break;
+                    case songsAnswer.dontStand:
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongDontStand, 0);
+                        fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        break;
+                    case songsAnswer.flowerfield:
+                        muteAllMusic();
+                        fS.Sound.play(sound.pianoSongFlowerfield, 0);
+                        fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                        break;
                     }
 
                     await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
