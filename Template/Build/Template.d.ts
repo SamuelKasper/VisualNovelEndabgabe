@@ -1,4 +1,25 @@
 declare namespace Template {
+    function AnswerFromNick(): fS.SceneReturn;
+}
+declare namespace Template {
+    function BadEnding(): fS.SceneReturn;
+}
+declare namespace Template {
+    function DontRememberBirthday(): fS.SceneReturn;
+}
+declare namespace Template {
+    function EndOfNovel(): fS.SceneReturn;
+}
+declare namespace Template {
+    function FinalConversation(): fS.SceneReturn;
+}
+declare namespace Template {
+    function GoodEnding(): fS.SceneReturn;
+}
+declare namespace Template {
+    function mutePianoMusic(): void;
+}
+declare namespace Template {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let sound: {
@@ -191,27 +212,6 @@ declare namespace Template {
     };
     let miraPosWhenBoth: f.Vector2;
     let nickPosWhenBoth: f.Vector2;
-}
-declare namespace Template {
-    function AnswerFromNick(): fS.SceneReturn;
-}
-declare namespace Template {
-    function BadEnding(): fS.SceneReturn;
-}
-declare namespace Template {
-    function DontRememberBirthday(): fS.SceneReturn;
-}
-declare namespace Template {
-    function EndOfNovel(): fS.SceneReturn;
-}
-declare namespace Template {
-    function FinalConversation(): fS.SceneReturn;
-}
-declare namespace Template {
-    function GoodEnding(): fS.SceneReturn;
-}
-declare namespace Template {
-    function mutePianoMusic(): void;
 }
 declare namespace Template {
     function NeutralEnding(): fS.SceneReturn;

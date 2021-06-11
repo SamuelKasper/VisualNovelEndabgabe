@@ -1,263 +1,12 @@
 "use strict";
 var Template;
 (function (Template) {
-    Template.f = FudgeCore;
-    Template.fS = FudgeStory;
-    console.log("FudgeStory main starting");
-    Template.sound = {
-        //Music
-        overworldTheme: "Audio/DoingStuff.mp3",
-        overworldThemeDark: "Audio/slower.mp3",
-        mysteryTheme: "Audio/AloneInDarkness.mp3",
-        goodEnding: "Audio/Endings/NicksAliveV2.mp3",
-        neutralEnding: "Audio/Endings/LosingSanity.mp3",
-        badEnding: "Audio/Endings/LosingSanity.mp3",
-        pianoSongGoing: "Audio/Piano/Going.mp3",
-        pianoSongDontStand: "Audio/Piano/DontStand.mp3",
-        pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
-        tetris: "Audio/Tetris.mp3",
-        nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
-        //Sounds
-        hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
-        wateringPlants: "Audio/Sounds/WateringPlants.mp3",
-        grabPaper: "Audio/Sounds/grabPaper.mp3",
-        rain: "Audio/Sounds/Rain.mp3"
-    };
-    Template.transition = {
-        blink: {
-            duration: 0.7,
-            alpha: "Transitions/blink.jpg",
-            edge: 1
-        },
-        swipe: {
-            duration: 0.7,
-            alpha: "Transitions/swipe.jpg",
-            edge: 1
-        }
-    };
-    Template.location = {
-        miraRoom: {
-            name: "mirasRoom",
-            background: "Images/Backgrounds/Miras_Zimmer.png"
-        },
-        miraRoomDarker: {
-            name: "mirasRoom",
-            background: "Images/Backgrounds/MirasZimmerDarker.png"
-        },
-        nickRoom: {
-            name: "nicksRoom",
-            background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
-        },
-        miraRoomHandyNews: {
-            name: "miraRoomHandyNews",
-            background: "Images/Backgrounds/Miras_Zimmer_Handy_News.png"
-        },
-        miraRoomHandyCalendar: {
-            name: "miraRoomHandyCalendar",
-            background: "Images/Backgrounds/Miras_Zimmer_Handy_Kalender.png"
-        },
-        miraRoomHandyNoMessage: {
-            name: "miraRoomHandyNoMessage",
-            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Keine_Nachricht.png"
-        },
-        miraRoomHandyBirthday: {
-            name: "miraRoomHandyBirthday",
-            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Geburtstag.png"
-        },
-        miraRoomHandyAnswer: {
-            name: "miraRoomHandyAnswer",
-            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Antwort.png"
-        },
-        miraRoomMath: {
-            name: "miraRoomMath",
-            background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe.png"
-        },
-        miraRoomMath2: {
-            name: "miraRoomMath2",
-            background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe_2.png"
-        },
-        miraRoomEnglish: {
-            name: "miraRoomEnglish",
-            background: "Images/Backgrounds/Miras_Zimmer_Buch_Englisch.png"
-        },
-        miraRoomLaptop: {
-            name: "miraRoomLaptop",
-            background: "Images/Backgrounds/Miras_Zimmer_Lapto.png"
-        },
-        pianoRoom: {
-            name: "pianoRoom",
-            background: "Images/Backgrounds/Klavier_Zimmer.png"
-        },
-        nicksRoomGoodWeather: {
-            name: "nicksRoomGoodWeather",
-            background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
-        },
-        nicksRoomBadWeather: {
-            name: "nicksRoomBadWeather",
-            background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
-        },
-        nicksRoomBadWeatherNoPhoto: {
-            name: "nicksRoomBadWeatherNoPhoto",
-            background: "Images/Backgrounds/NicksZimmerBadWeatherNoPhoto.png"
-        },
-        nicksRoomDoor: {
-            name: "nicksRoomDoor",
-            background: "Images/Backgrounds/Nicks_Zimmertuer.png"
-        },
-        nicksKitchen: {
-            name: "nicksKitchen",
-            background: "Images/Backgrounds/Nicks_Kueche.png"
-        },
-        nicksBathroom: {
-            name: "nicksBathroom",
-            background: "Images/Backgrounds/Nicks_Badezimmer.png"
-        },
-        nicksBathroomDead: {
-            name: "nicksBathroomDead",
-            background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
-        },
-        nicksRoomPicture: {
-            name: "nicksRoomPicture",
-            background: "Images/Backgrounds/VersteckFoto.png"
-        },
-        hideout: {
-            name: "hideout",
-            background: "Images/Backgrounds/Versteck.png"
-        },
-        goodEnding: {
-            name: "goodEnding",
-            background: "Images/Backgrounds/GoodEnding.png"
-        },
-        goodEndingBlurred: {
-            name: "goodEndingBlurred",
-            background: "Images/Backgrounds/GoodEndingBlurred.png"
-        },
-        neutralEnding: {
-            name: "neutralEnding",
-            background: "Images/Backgrounds/MissingEnding.png"
-        },
-        badEnding: {
-            name: "badEnding",
-            background: "Images/Backgrounds/BadEnding.png"
-        },
-        black: {
-            name: "black",
-            background: "Images/Backgrounds/Black.png"
-        },
-        colorBeforeEnding: {
-            name: "colorBeforeEnding",
-            background: "Images/Backgrounds/ColorBeforeEnding.png"
-        }
-    };
-    Template.characters = {
-        Narrator: {
-            name: "",
-        },
-        Mira: {
-            name: "Mira: ",
-            origin: Template.fS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                neutral: "Images/Characters/Mira/MC_neutral.png",
-                happy: "Images/Characters/Mira/MC_happy.png",
-                sad: "Images/Characters/Mira/MC_sad.png",
-                good: "Images/Characters/Mira/MC_good.png",
-                crying: "Images/Characters/Mira/MC_cry.png"
-            }
-        },
-        Nick: {
-            name: "Nick: ",
-            origin: Template.fS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                neutral: "Images/Characters/Nick/Friend_neutral.png",
-                good: "Images/Characters/Nick/Friend_good.png",
-                sad: "Images/Characters/Nick/Friend_sad.png",
-                tired: "Images/Characters/Nick/Friend_tired.png",
-                crying: "Images/Characters/Nick/Friend_cry.png"
-            }
-        },
-        Nachbar: {
-            name: "Josh: ",
-            origin: Template.fS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                good: "Images/Characters/Nachbar/Nachbar_good.png",
-                neutral: "Images/Characters/Nachbar/Nachbar_neutral.png"
-            }
-        }
-    };
-    Template.dataToSave = {
-        plantsOnDayOne: false
-    };
-    Template.items = {
-        Image: {
-            name: "Foto",
-            description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
-            image: "Images/Backgrounds/VersteckFotoInventar.png"
-        }
-    };
-    //Both characters on screen
-    Template.miraPosWhenBoth = new Template.fS.Position(-384, -360);
-    Template.nickPosWhenBoth = new Template.fS.Position(384, -360);
-    //save and load
-    document.addEventListener("keydown", hndKeypress);
-    async function hndKeypress(_event) {
-        switch (_event.code) {
-            case Template.f.KEYBOARD_CODE.F2:
-                console.log("Save");
-                await Template.fS.Progress.save();
-                break;
-            case Template.f.KEYBOARD_CODE.F9:
-                console.log("Load");
-                await Template.fS.Progress.load();
-                break;
-            case Template.f.KEYBOARD_CODE.I:
-                try {
-                    console.log("Open Inventory");
-                    await Template.fS.Inventory.open();
-                }
-                catch (error) {
-                    Template.fS.Inventory.close();
-                    console.log("Inventory already open");
-                }
-                break;
-        }
-    }
-    window.addEventListener("load", start);
-    function start(_event) {
-        let scenes = [
-            { scene: Template.WakeUp, name: "WakeUp" },
-            //bad scenes
-            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
-            //neutral scenes
-            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
-            //good scenes
-            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
-            { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
-            { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
-            { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
-            //last Scene in Novel
-            { id: "endOfNovel", scene: Template.EndOfNovel, name: "EndOfNovel" }
-        ];
-        //set progress data
-        Template.fS.Progress.setData(Template.dataToSave);
-        // start the sequence
-        Template.fS.Progress.go(scenes);
-    }
-})(Template || (Template = {}));
-///<reference path= "Main.ts"/>
-var Template;
-///<reference path= "Main.ts"/>
-(function (Template) {
-    let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
-    let plantsDone = false;
-    let tetrisDone = false;
-    let learningDone = false;
-    let pianoDone = false;
     async function AnswerFromNick() {
+        let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
+        let plantsDone = false;
+        let tetrisDone = false;
+        let learningDone = false;
+        let pianoDone = false;
         console.log("AnswerFromNick: starting");
         //Text
         let text = {
@@ -1211,6 +960,255 @@ var Template;
         Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 0, false);
     }
     Template.mutePianoMusic = mutePianoMusic;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    Template.f = FudgeCore;
+    Template.fS = FudgeStory;
+    console.log("FudgeStory main starting");
+    Template.sound = {
+        //Music
+        overworldTheme: "Audio/DoingStuff.mp3",
+        overworldThemeDark: "Audio/slower.mp3",
+        mysteryTheme: "Audio/AloneInDarkness.mp3",
+        goodEnding: "Audio/Endings/NicksAliveV2.mp3",
+        neutralEnding: "Audio/Endings/LosingSanity.mp3",
+        badEnding: "Audio/Endings/LosingSanity.mp3",
+        pianoSongGoing: "Audio/Piano/Going.mp3",
+        pianoSongDontStand: "Audio/Piano/DontStand.mp3",
+        pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
+        tetris: "Audio/Tetris.mp3",
+        nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
+        //Sounds
+        hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
+        wateringPlants: "Audio/Sounds/WateringPlants.mp3",
+        grabPaper: "Audio/Sounds/grabPaper.mp3",
+        rain: "Audio/Sounds/Rain.mp3"
+    };
+    Template.transition = {
+        blink: {
+            duration: 0.7,
+            alpha: "Transitions/blink.jpg",
+            edge: 1
+        },
+        swipe: {
+            duration: 0.7,
+            alpha: "Transitions/swipe.jpg",
+            edge: 1
+        }
+    };
+    Template.location = {
+        miraRoom: {
+            name: "mirasRoom",
+            background: "Images/Backgrounds/Miras_Zimmer.png"
+        },
+        miraRoomDarker: {
+            name: "mirasRoom",
+            background: "Images/Backgrounds/MirasZimmerDarker.png"
+        },
+        nickRoom: {
+            name: "nicksRoom",
+            background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
+        },
+        miraRoomHandyNews: {
+            name: "miraRoomHandyNews",
+            background: "Images/Backgrounds/Miras_Zimmer_Handy_News.png"
+        },
+        miraRoomHandyCalendar: {
+            name: "miraRoomHandyCalendar",
+            background: "Images/Backgrounds/Miras_Zimmer_Handy_Kalender.png"
+        },
+        miraRoomHandyNoMessage: {
+            name: "miraRoomHandyNoMessage",
+            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Keine_Nachricht.png"
+        },
+        miraRoomHandyBirthday: {
+            name: "miraRoomHandyBirthday",
+            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Geburtstag.png"
+        },
+        miraRoomHandyAnswer: {
+            name: "miraRoomHandyAnswer",
+            background: "Images/Backgrounds/Miras_Zimmer_Handy_Nachricht-Antwort.png"
+        },
+        miraRoomMath: {
+            name: "miraRoomMath",
+            background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe.png"
+        },
+        miraRoomMath2: {
+            name: "miraRoomMath2",
+            background: "Images/Backgrounds/Miras_Zimmer_Buch_Mathe_2.png"
+        },
+        miraRoomEnglish: {
+            name: "miraRoomEnglish",
+            background: "Images/Backgrounds/Miras_Zimmer_Buch_Englisch.png"
+        },
+        miraRoomLaptop: {
+            name: "miraRoomLaptop",
+            background: "Images/Backgrounds/Miras_Zimmer_Lapto.png"
+        },
+        pianoRoom: {
+            name: "pianoRoom",
+            background: "Images/Backgrounds/Klavier_Zimmer.png"
+        },
+        nicksRoomGoodWeather: {
+            name: "nicksRoomGoodWeather",
+            background: "Images/Backgrounds/Nicks_Zimmer_Good_Weather.png"
+        },
+        nicksRoomBadWeather: {
+            name: "nicksRoomBadWeather",
+            background: "Images/Backgrounds/Nicks_Zimmer_Bad_Weather.png"
+        },
+        nicksRoomBadWeatherNoPhoto: {
+            name: "nicksRoomBadWeatherNoPhoto",
+            background: "Images/Backgrounds/NicksZimmerBadWeatherNoPhoto.png"
+        },
+        nicksRoomDoor: {
+            name: "nicksRoomDoor",
+            background: "Images/Backgrounds/Nicks_Zimmertuer.png"
+        },
+        nicksKitchen: {
+            name: "nicksKitchen",
+            background: "Images/Backgrounds/Nicks_Kueche.png"
+        },
+        nicksBathroom: {
+            name: "nicksBathroom",
+            background: "Images/Backgrounds/Nicks_Badezimmer.png"
+        },
+        nicksBathroomDead: {
+            name: "nicksBathroomDead",
+            background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
+        },
+        nicksRoomPicture: {
+            name: "nicksRoomPicture",
+            background: "Images/Backgrounds/VersteckFoto.png"
+        },
+        hideout: {
+            name: "hideout",
+            background: "Images/Backgrounds/Versteck.png"
+        },
+        goodEnding: {
+            name: "goodEnding",
+            background: "Images/Backgrounds/GoodEnding.png"
+        },
+        goodEndingBlurred: {
+            name: "goodEndingBlurred",
+            background: "Images/Backgrounds/GoodEndingBlurred.png"
+        },
+        neutralEnding: {
+            name: "neutralEnding",
+            background: "Images/Backgrounds/MissingEnding.png"
+        },
+        badEnding: {
+            name: "badEnding",
+            background: "Images/Backgrounds/BadEnding.png"
+        },
+        black: {
+            name: "black",
+            background: "Images/Backgrounds/Black.png"
+        },
+        colorBeforeEnding: {
+            name: "colorBeforeEnding",
+            background: "Images/Backgrounds/ColorBeforeEnding.png"
+        }
+    };
+    Template.characters = {
+        Narrator: {
+            name: "",
+        },
+        Mira: {
+            name: "Mira: ",
+            origin: Template.fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                neutral: "Images/Characters/Mira/MC_neutral.png",
+                happy: "Images/Characters/Mira/MC_happy.png",
+                sad: "Images/Characters/Mira/MC_sad.png",
+                good: "Images/Characters/Mira/MC_good.png",
+                crying: "Images/Characters/Mira/MC_cry.png"
+            }
+        },
+        Nick: {
+            name: "Nick: ",
+            origin: Template.fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                neutral: "Images/Characters/Nick/Friend_neutral.png",
+                good: "Images/Characters/Nick/Friend_good.png",
+                sad: "Images/Characters/Nick/Friend_sad.png",
+                tired: "Images/Characters/Nick/Friend_tired.png",
+                crying: "Images/Characters/Nick/Friend_cry.png"
+            }
+        },
+        Nachbar: {
+            name: "Josh: ",
+            origin: Template.fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                good: "Images/Characters/Nachbar/Nachbar_good.png",
+                neutral: "Images/Characters/Nachbar/Nachbar_neutral.png"
+            }
+        }
+    };
+    Template.dataToSave = {
+        plantsOnDayOne: false
+    };
+    Template.items = {
+        Image: {
+            name: "Foto",
+            description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
+            image: "Images/Backgrounds/VersteckFotoInventar.png"
+        }
+    };
+    //Both characters on screen
+    Template.miraPosWhenBoth = new Template.fS.Position(-384, -360);
+    Template.nickPosWhenBoth = new Template.fS.Position(384, -360);
+    //save and load
+    document.addEventListener("keydown", hndKeypress);
+    async function hndKeypress(_event) {
+        switch (_event.code) {
+            case Template.f.KEYBOARD_CODE.F2:
+                console.log("Save");
+                await Template.fS.Progress.save();
+                break;
+            case Template.f.KEYBOARD_CODE.F9:
+                console.log("Load");
+                await Template.fS.Progress.load();
+                break;
+            case Template.f.KEYBOARD_CODE.I:
+                try {
+                    console.log("Open Inventory");
+                    await Template.fS.Inventory.open();
+                }
+                catch (error) {
+                    Template.fS.Inventory.close();
+                    console.log("Inventory already open");
+                }
+                break;
+        }
+    }
+    window.addEventListener("load", start);
+    function start(_event) {
+        let scenes = [
+            { scene: Template.WakeUp, name: "WakeUp" },
+            //bad scenes
+            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
+            //neutral scenes
+            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            //good scenes
+            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
+            { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
+            { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
+            { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
+            //last Scene in Novel
+            { id: "endOfNovel", scene: Template.EndOfNovel, name: "EndOfNovel" }
+        ];
+        //set progress data
+        Template.fS.Progress.setData(Template.dataToSave);
+        // start the sequence
+        Template.fS.Progress.go(scenes);
+    }
 })(Template || (Template = {}));
 var Template;
 (function (Template) {

@@ -2,7 +2,6 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
-      "../Source/Main.ts",
       "../Source/AnswerFromNick.ts",
       "../Source/BadEnding.ts",
       "../Source/DontRememberBirthday.ts",
@@ -10,6 +9,7 @@
       "../Source/FinalConversation.ts",
       "../Source/GoodEnding.ts",
       "../Source/Helper.ts",
+      "../Source/Main.ts",
       "../Source/NeutralEnding.ts",
       "../Source/NickNotAtHome.ts",
       "../Source/NicksBirthday.ts",
@@ -28,7 +28,7 @@
         },
         {
           "pos": 15,
-          "end": 153853,
+          "end": 153807,
           "kind": "text"
         }
       ],
