@@ -233,7 +233,7 @@ namespace Template {
         await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
-        
+
         //give up or search for hints
         let giveUpOrSearchAnswer = {
             GiveUp: "Suche aufgeben",
@@ -256,9 +256,12 @@ namespace Template {
         await fS.Location.show(location.nicksRoomPicture);
         await fS.update(0.5);
         await fS.Speech.tell(characters.Mira, text.Mira.T0023);
-        //Foto in Inventar
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
         fS.Sound.fade(sound.grabPaper, 0.2, 1);
+        //Foto in Inventar
+        fS.Inventory.add(items.Image);
+        await fS.Inventory.open();
+        //--
         await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
         await fS.update(0.5);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);

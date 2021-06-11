@@ -3,7 +3,8 @@
 - Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
-- Nick Not at Home Inventar
+- Item nicht aus Inventar nach anklicken
+- Item Verbrauchen im Inventar deaktivieren
 
 -----Musik
 - Musik nachdem Mira Nick heimgetragen hat
@@ -17,6 +18,7 @@ bei jeder entscheidung
 - Rechtschreibung korregieren
 - Diagram aktualisieren!
 - Inhaltsangabe schreiben
+- Kriterien Katalog
 
 ------------------------------------------------- BUGS / Probleme
 - .ts Dateien umbenennen -> fehler

@@ -196,6 +196,13 @@ declare namespace Template {
     let dataToSave: {
         plantsOnDayOne: boolean;
     };
+    let items: {
+        Image: {
+            name: string;
+            description: string;
+            image: string;
+        };
+    };
     let miraPosWhenBoth: f.Vector2;
     let nickPosWhenBoth: f.Vector2;
 }

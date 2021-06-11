@@ -69,4 +69,44 @@ speech.Mira name{
   font-weight: 700;
 }
 
+dialog[type="inventory"]{
+  background-color: rgb(233, 233, 233);
+  color: black;
+  border: 6px;
+  border-color: black;
+  border-style: solid;
+}
 
+dialog[type="inventory"] > button{
+  width: 100%;
+  height: 50px;
+  border: 3px;
+  border-style: solid;
+  border-color: black;
+  font-size: 25px;
+  background-color: lightgray;
+}
+
+dialog[type="inventory"] > ul{
+  padding-left: 0px;
+}
+
+dialog[type="inventory"] > ul > li{
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+dialog[type="inventory"] > ul > li > amount{
+  display: none;
+}
+
+dialog[type="inventory"] > ul > li > description{
+  color: black;
+  padding-top: 15px;
+  padding-left: 50px;
+}
+
+dialog[type="inventory"] > ul > li > name{
+  display: none;
+}

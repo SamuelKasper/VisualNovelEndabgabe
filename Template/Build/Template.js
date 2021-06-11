@@ -690,6 +690,13 @@ var Template;
     Template.dataToSave = {
         plantsOnDayOne: false
     };
+    Template.items = {
+        Image: {
+            name: "Foto",
+            description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
+            image: "Images/Backgrounds/VersteckFotoInventar.png"
+        }
+    };
     //Both characters on screen
     Template.miraPosWhenBoth = new Template.fS.Position(-384, -360);
     Template.nickPosWhenBoth = new Template.fS.Position(384, -360);
@@ -722,8 +729,8 @@ var Template;
             { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
             { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
-            { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
+            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+            { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
             //last Scene in Novel
@@ -1006,9 +1013,12 @@ var Template;
         await Template.fS.Location.show(Template.location.nicksRoomPicture);
         await Template.fS.update(0.5);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0023);
-        //Foto in Inventar
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0024);
         Template.fS.Sound.fade(Template.sound.grabPaper, 0.2, 1);
+        //Foto in Inventar
+        Template.fS.Inventory.add(Template.items.Image);
+        await Template.fS.Inventory.open();
+        //--
         await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
         await Template.fS.update(0.5);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);

@@ -222,6 +222,14 @@ namespace Template {
     plantsOnDayOne: false
   };
 
+  export let items = {
+    Image: {
+      name: "Foto",
+      description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
+      image: "Images/Backgrounds/VersteckFotoInventar.png"
+    }
+  };
+
   //Both characters on screen
   export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
   export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
@@ -257,8 +265,8 @@ namespace Template {
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
-      { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+      { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation"},
       { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel"},
 
