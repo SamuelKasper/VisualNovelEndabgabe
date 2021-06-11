@@ -55,6 +55,8 @@ namespace Template {
 
         while (true) {
             if (learningDone && plantsDone && tetrisDone && pianoDone) {
+                mutePianoMusic();
+                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 break;
             } else {
                 await whatToDo();

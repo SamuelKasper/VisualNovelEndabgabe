@@ -6,6 +6,7 @@ var Template;
         Template.fS.Character.hideAll();
         Template.fS.Speech.hide();
         //Bad Ending Screen
+        Template.fS.Sound.fade(Template.sound.badEnding, 0.2, 0.5, true);
         await Template.fS.Location.show(Template.location.badEnding);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -142,7 +143,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0011);
         await Template.fS.Speech.tell(Template.characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
         Template.fS.Sound.fade(Template.sound.rain, 0.03, 3, true);
-        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 1, true);
+        Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 1, false);
+        Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0.03, 1, true);
         Template.fS.Speech.hide();
         Template.fS.Character.hideAll();
         await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
@@ -317,6 +319,7 @@ var Template;
         Template.fS.Character.hideAll();
         await Template.fS.Location.show(Template.location.colorBeforeEnding);
         await Template.fS.update(2);
+        Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0, 2, true);
         Template.fS.Sound.fade(Template.sound.goodEnding, 0.2, 2, true);
         await Template.fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         Template.fS.Text.close();
@@ -330,12 +333,16 @@ var Template;
             await Template.fS.Speech.tell(Template.characters.Mira, "Oh man, er kommt nicht zu sich.");
             await Template.fS.Speech.tell(Template.characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
             Template.fS.Sound.fade(Template.sound.rain, 0.02, 1, true);
+            Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 1, false);
+            Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0.03, 1, true);
             Template.fS.Character.hideAll();
             Template.fS.Speech.hide();
             await Template.fS.Location.show(Template.location.black);
             await Template.fS.update(1);
+            Template.fS.Speech.hide();
+            Template.fS.Character.hideAll();
             await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
-            await Template.fS.update(1);
+            await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
             await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.fS.positions.bottomcenter);
             await Template.fS.update();
             await Template.fS.Speech.tell(Template.characters.Mira, "Was mache ich denn jetzt?");
@@ -357,7 +364,7 @@ var Template;
                     await Template.fS.update(0.7);
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.3);
-                    Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 0.5, true);
+                    Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0, 0.5, true);
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Location.show(Template.location.black);
@@ -368,7 +375,7 @@ var Template;
                     await Template.fS.update(0.2);
                     await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(0.7);
-                    Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.1, 0.5, true);
+                    Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0.03, 0.5, true);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Mist, ich bin eingeschlafen.");
@@ -438,7 +445,7 @@ var Template;
             await Template.fS.update();
             /*-----Animation End-----*/
             await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
-            await Template.fS.Sound.fade(Template.sound.hitTheFloor, 1, 0.5);
+            await Template.fS.Sound.fade(Template.sound.hitTheFloor, 3, 0.5);
             await Template.fS.Speech.tell(Template.characters.Mira, "Nick? Alles okay?");
             //lookOrWait
             let lookOrWaitAnswer = {
@@ -473,6 +480,7 @@ var Template;
             await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
             await Template.fS.Location.show(Template.location.black);
             await Template.fS.update(2);
+            Template.fS.Sound.fade(Template.sound.overworldThemeDark, 0, 1, true);
             return "BadEnding";
         }
     }
@@ -511,10 +519,11 @@ var Template;
     Template.sound = {
         //Music
         overworldTheme: "Audio/DoingStuff.mp3",
-        mysteryTheme: "Audio/Harvest.mp3",
+        overworldThemeDark: "Audio/slower.mp3",
+        mysteryTheme: "Audio/AloneInDarkness.mp3",
         goodEnding: "Audio/Endings/NicksAliveV2.mp3",
-        neutralEnding: "Audio/",
-        badEnding: "Audio/Endings/darker.mp3",
+        neutralEnding: "Audio/Endings/LosingSanity.mp3",
+        badEnding: "Audio/Endings/LosingSanity.mp3",
         pianoSongGoing: "Audio/Piano/Going.mp3",
         pianoSongDontStand: "Audio/Piano/DontStand.mp3",
         pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
@@ -726,19 +735,18 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-            { scene: WakeUp, name: "WakeUp" },
+            { scene: Template.WakeUp, name: "WakeUp" },
             //bad scenes
-            { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
+            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
             //neutral scenes
-            { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
-            { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
             { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
@@ -1599,6 +1607,8 @@ var Template;
         Template.fS.Speech.hide();
         while (true) {
             if (learningDone && plantsDone && tetrisDone && pianoDone) {
+                Template.mutePianoMusic();
+                Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 break;
             }
             else {

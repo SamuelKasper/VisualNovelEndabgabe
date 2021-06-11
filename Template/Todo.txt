@@ -5,12 +5,12 @@
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 - Item nicht aus Inventar nach anklicken
-- animation hängt beim start
+- Good Ending Text auf Schwarzem Hintergrund -> Transparent
 
 -----Musik
-- Musik nachdem Mira Nick heimgetragen hat
+- Musik nachdem Mira Nick heimgetragen hat (slower)
 - Musik Neutral Ending
-- Musik Geheimversteck
+- Musik Geheimversteck (AloneInDarkness)
 - Musik BadEnding
 
 ------------------------------------------------- Anderes: 

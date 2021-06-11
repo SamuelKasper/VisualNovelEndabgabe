@@ -139,7 +139,8 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0011);
         await fS.Speech.tell(characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
         fS.Sound.fade(sound.rain, 0.03, 3, true);
-        fS.Sound.fade(sound.mysteryTheme, 0, 1, true);
+        fS.Sound.fade(sound.mysteryTheme, 0, 1, false);
+        fS.Sound.fade(sound.overworldThemeDark, 0.03, 1, true);
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
@@ -318,9 +319,10 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0042);
         fS.Speech.hide();
         fS.Character.hideAll();
-        
+
         await fS.Location.show(location.colorBeforeEnding);
         await fS.update(2);
+        fS.Sound.fade(sound.overworldThemeDark, 0, 2, true);
         fS.Sound.fade(sound.goodEnding, 0.2, 2, true);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         fS.Text.close();
@@ -337,12 +339,16 @@ namespace Template {
             await fS.Speech.tell(characters.Mira, "Oh man, er kommt nicht zu sich.");
             await fS.Speech.tell(characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
             fS.Sound.fade(sound.rain, 0.02, 1, true);
+            fS.Sound.fade(sound.mysteryTheme, 0, 1, false);
+            fS.Sound.fade(sound.overworldThemeDark, 0.03, 1, true);
             fS.Character.hideAll();
             fS.Speech.hide();
             await fS.Location.show(location.black);
             await fS.update(1);
+            fS.Speech.hide();
+            fS.Character.hideAll();
             await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
-            await fS.update(1);
+            await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
             await fS.Character.show(characters.Mira, characters.Mira.pose.sad, fS.positions.bottomcenter);
             await fS.update();
             await fS.Speech.tell(characters.Mira, "Was mache ich denn jetzt?");
@@ -365,7 +371,7 @@ namespace Template {
                     await fS.update(0.7);
                     await fS.Location.show(location.black);
                     await fS.update(0.3);
-                    fS.Sound.fade(sound.mysteryTheme, 0, 0.5, true);
+                    fS.Sound.fade(sound.overworldThemeDark, 0, 0.5, true);
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Location.show(location.black);
@@ -376,7 +382,7 @@ namespace Template {
                     await fS.update(0.2);
                     await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(0.7);
-                    fS.Sound.fade(sound.mysteryTheme, 0.1, 0.5, true);
+                    fS.Sound.fade(sound.overworldThemeDark, 0.03, 0.5, true);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Mist, ich bin eingeschlafen.");
@@ -450,7 +456,7 @@ namespace Template {
             await fS.update();
             /*-----Animation End-----*/
             await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
-            await fS.Sound.fade(sound.hitTheFloor, 1, 0.5);
+            await fS.Sound.fade(sound.hitTheFloor, 3, 0.5);
             await fS.Speech.tell(characters.Mira, "Nick? Alles okay?");
 
             //lookOrWait
@@ -487,6 +493,7 @@ namespace Template {
             await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
             await fS.Location.show(location.black);
             await fS.update(2);
+            fS.Sound.fade(sound.overworldThemeDark, 0, 1, true);
             return "BadEnding";
         }
     }

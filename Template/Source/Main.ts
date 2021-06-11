@@ -7,10 +7,11 @@ namespace Template {
   export let sound = {
     //Music
     overworldTheme: "Audio/DoingStuff.mp3",
-    mysteryTheme: "Audio/Harvest.mp3",
+    overworldThemeDark: "Audio/slower.mp3",
+    mysteryTheme: "Audio/AloneInDarkness.mp3",
     goodEnding: "Audio/Endings/NicksAliveV2.mp3",
-    neutralEnding: "Audio/",
-    badEnding: "Audio/Endings/darker.mp3",
+    neutralEnding: "Audio/Endings/LosingSanity.mp3",
+    badEnding: "Audio/Endings/LosingSanity.mp3",
     pianoSongGoing: "Audio/Piano/Going.mp3",
     pianoSongDontStand: "Audio/Piano/DontStand.mp3",
     pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
@@ -260,7 +261,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      /*
+      
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
@@ -272,7 +273,7 @@ namespace Template {
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation" },
       { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel" },
