@@ -131,21 +131,21 @@ namespace Template {
 
                 switch (songs) {
                     case songsAnswer.going:
-                        muteAllMusic();
+                        mutePianoMusic();
                         fS.Sound.play(sound.pianoSongGoing, 0);
                         fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.dontStand:
-                        muteAllMusic();
+                        mutePianoMusic();
                         fS.Sound.play(sound.pianoSongDontStand, 0);
                         fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.flowerfield:
-                        muteAllMusic();
+                        mutePianoMusic();
                         fS.Sound.play(sound.pianoSongFlowerfield, 0);
                         fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
                         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -154,7 +154,7 @@ namespace Template {
                 }
 
                 await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                muteAllMusic();
+                mutePianoMusic();
                 fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                 fS.Speech.hide();
                 pianoDone = true;

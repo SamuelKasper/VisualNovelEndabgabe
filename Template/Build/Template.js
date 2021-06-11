@@ -326,9 +326,10 @@ var Template;
         async function badEnding2() {
             await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht wacht er ja gleich auf");
             await Template.fS.Speech.tell(Template.characters.Narrator, "Du wartest 30 Minuten neben Nick. Es beginnt zu regnen.");
-            Template.fS.Sound.fade(Template.sound.rain, 0.06, 3, true);
+            Template.fS.Sound.fade(Template.sound.rain, 0.04, 1, true);
             await Template.fS.Speech.tell(Template.characters.Mira, "Oh man, er kommt nicht zu sich.");
             await Template.fS.Speech.tell(Template.characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
+            Template.fS.Sound.fade(Template.sound.rain, 0.02, 1, true);
             Template.fS.Character.hideAll();
             Template.fS.Speech.hide();
             await Template.fS.Location.show(Template.location.black);
@@ -356,6 +357,7 @@ var Template;
                     await Template.fS.update(0.7);
                     await Template.fS.Location.show(Template.location.black);
                     await Template.fS.update(0.3);
+                    Template.fS.Sound.fade(Template.sound.mysteryTheme, 0, 0.5, true);
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Location.show(Template.location.black);
@@ -366,6 +368,7 @@ var Template;
                     await Template.fS.update(0.2);
                     await Template.fS.Location.show(Template.location.nicksRoomBadWeatherNoPhoto);
                     await Template.fS.update(0.7);
+                    Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.1, 0.5, true);
                     await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
                     await Template.fS.update();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Mist, ich bin eingeschlafen.");
@@ -492,13 +495,13 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    function muteAllMusic() {
+    function mutePianoMusic() {
         Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 0, false);
         Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0, 0, false);
         Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0, 0, false);
         Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0, 0, false);
     }
-    Template.muteAllMusic = muteAllMusic;
+    Template.mutePianoMusic = mutePianoMusic;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -707,19 +710,20 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.WakeUp, name: "WakeUp" },
+            /*
+            { scene: WakeUp, name: "WakeUp" },
             //bad scenes
-            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
+            { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
             //neutral scenes
-            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
-            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
-            { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
+            { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
+            { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
             //last Scene in Novel
@@ -1646,21 +1650,21 @@ var Template;
                 let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
                 switch (songs) {
                     case songsAnswer.going:
-                        Template.muteAllMusic();
+                        Template.mutePianoMusic();
                         Template.fS.Sound.play(Template.sound.pianoSongGoing, 0);
                         Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.dontStand:
-                        Template.muteAllMusic();
+                        Template.mutePianoMusic();
                         Template.fS.Sound.play(Template.sound.pianoSongDontStand, 0);
                         Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                         break;
                     case songsAnswer.flowerfield:
-                        Template.muteAllMusic();
+                        Template.mutePianoMusic();
                         Template.fS.Sound.play(Template.sound.pianoSongFlowerfield, 0);
                         Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
                         await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -1668,7 +1672,7 @@ var Template;
                         break;
                 }
                 await Template.fS.Speech.tell(Template.characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                Template.muteAllMusic();
+                Template.mutePianoMusic();
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 Template.fS.Speech.hide();
                 pianoDone = true;
@@ -1949,21 +1953,21 @@ var Template;
                     let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
                     switch (songs) {
                         case songsAnswer.going:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongGoing, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.dontStand:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongDontStand, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.flowerfield:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongFlowerfield, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -2297,21 +2301,21 @@ var Template;
                     let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
                     switch (songs) {
                         case songsAnswer.going:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongGoing, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.dontStand:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongDontStand, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.flowerfield:
-                            Template.muteAllMusic();
+                            Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongFlowerfield, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");

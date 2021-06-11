@@ -333,9 +333,10 @@ namespace Template {
         async function badEnding2(): Promise<string> {
             await fS.Speech.tell(characters.Mira, "Vielleicht wacht er ja gleich auf");
             await fS.Speech.tell(characters.Narrator, "Du wartest 30 Minuten neben Nick. Es beginnt zu regnen.");
-            fS.Sound.fade(sound.rain, 0.06, 3, true);
+            fS.Sound.fade(sound.rain, 0.04, 1, true);
             await fS.Speech.tell(characters.Mira, "Oh man, er kommt nicht zu sich.");
             await fS.Speech.tell(characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
+            fS.Sound.fade(sound.rain, 0.02, 1, true);
             fS.Character.hideAll();
             fS.Speech.hide();
             await fS.Location.show(location.black);
@@ -364,6 +365,7 @@ namespace Template {
                     await fS.update(0.7);
                     await fS.Location.show(location.black);
                     await fS.update(0.3);
+                    fS.Sound.fade(sound.mysteryTheme, 0, 0.5, true);
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Location.show(location.black);
@@ -374,6 +376,7 @@ namespace Template {
                     await fS.update(0.2);
                     await fS.Location.show(location.nicksRoomBadWeatherNoPhoto);
                     await fS.update(0.7);
+                    fS.Sound.fade(sound.mysteryTheme, 0.1, 0.5, true);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Mist, ich bin eingeschlafen.");

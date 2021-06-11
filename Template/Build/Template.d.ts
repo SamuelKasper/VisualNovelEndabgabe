@@ -11,7 +11,7 @@ declare namespace Template {
     function GoodEnding(): fS.SceneReturn;
 }
 declare namespace Template {
-    function muteAllMusic(): void;
+    function mutePianoMusic(): void;
 }
 declare namespace Template {
     export import f = FudgeCore;

@@ -4,10 +4,11 @@
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
 bei jeder entscheidung
 - Nick Not at Home Inventar
+
+-----Musik
 - Musik nachdem Mira Nick heimgetragen hat
-- Neutral Ending Musik
-- Geheimversteck Musik
-- Final Conversation beim Schlafen Musik aus
+- Musik Neutral Ending
+- Musik Geheimversteck
 - Musik BadEnding
 
 ------------------------------------------------- Anderes: 
