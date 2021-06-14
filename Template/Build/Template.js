@@ -1391,6 +1391,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0020);
+        await Template.fS.Speech.tell(Template.characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
+        await Template.fS.Speech.tell(Template.characters.Narrator, "Code eingeben: ");
         await inputCode();
         //waiting for input of the right code
         async function inputCode() {
@@ -1399,7 +1401,6 @@ var Template;
                 await inputCode();
             }
             else {
-                await Template.fS.Speech.tell(Template.characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das wäre geschafft.");
             }
         }
