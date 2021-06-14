@@ -7,7 +7,8 @@
 - Raumwechsel -> swipe transition
 - Um in Nicks Zimmer zu kommen code an tür eingeben (!eingabefeld!). 
     Code befindet sich da wo sonst schlüssel wäre. Nach aufsammeln ins !inventar!
-- animation position fehler
+- Zahlenschloss Tür Bild Nick
+- Zettel mit Code für Tür fürs Inventar
 
 ------------------------------------------------- Musik
 
@@ -21,3 +22,4 @@
 
 ------------------------------------------------- BUGS / Probleme
 - Musik bei WaitForAnswer bei Lernen > Tetris > Pflanzen > Piano: Going geht nach ende nicht aus, !! Wenn zu schnell geskipt
+- animation position fehler wenn ausgelagert

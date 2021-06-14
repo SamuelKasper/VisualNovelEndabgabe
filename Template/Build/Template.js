@@ -1391,11 +1391,15 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0020);
-        inputCode();
+        await inputCode();
         //waiting for input of the right code
         async function inputCode() {
             if (await Template.fS.Speech.getInput() != "139181") {
-                inputCode();
+                console.log("code incorrect");
+                await inputCode();
+            }
+            else {
+                await Template.fS.Speech.tell(Template.characters.Mira, "Das wäre geschafft.");
             }
         }
         //progress story

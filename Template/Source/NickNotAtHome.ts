@@ -155,12 +155,15 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0018);
         await fS.Speech.tell(characters.Mira, text.Mira.T0019);
         await fS.Speech.tell(characters.Mira, text.Mira.T0020);
-        inputCode();
+        await inputCode();
 
         //waiting for input of the right code
         async function inputCode() {
             if (await fS.Speech.getInput() != "139181") {
-                inputCode();
+                console.log("code incorrect");
+                await inputCode();
+            }else{
+                await fS.Speech.tell(characters.Mira, "Das wäre geschafft.");
             }
         }
 

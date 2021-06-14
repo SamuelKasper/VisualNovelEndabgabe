@@ -73,6 +73,10 @@ speech.Mira name{
   background-color: transparent;
 }
 
+input:disabled{
+  display: none;
+}
+
 dialog[type="inventory"]{
   background-color: rgb(233, 233, 233);
   color: black;
