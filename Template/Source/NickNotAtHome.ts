@@ -163,6 +163,7 @@ namespace Template {
                 console.log("code incorrect");
                 await inputCode();
             }else{
+                await fS.Speech.tell(characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
                 await fS.Speech.tell(characters.Mira, "Das wäre geschafft.");
             }
         }

@@ -1399,6 +1399,7 @@ var Template;
                 await inputCode();
             }
             else {
+                await Template.fS.Speech.tell(Template.characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
                 await Template.fS.Speech.tell(Template.characters.Mira, "Das wäre geschafft.");
             }
         }
