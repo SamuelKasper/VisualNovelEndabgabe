@@ -24,8 +24,8 @@ namespace Template {
                 T0011: "Bis dann.",
                 T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
                 T0013: "Vielleicht sollte ich einfach mal rein und schauen ob alles okay ist.",
-                T0014: "Wenn ich mich richtig erinnere hatte Nick doch immer einen Ersatzschlüssel irgendwo vor seiner Tür versteckt.",
-                T0015: "Wo könnte der Schlüssel sein?",
+                T0014: "Wenn ich mich richtig erinnere hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
+                T0015: "Wo könnte der Code sein?",
                 T0016: "Vielleicht unter der Schuhmatte?",
                 T0017: "Nein, da ist nix... Dann bleibt ja eigentlich nur noch der Blumentopf übrig...",
                 T0018: "...",
@@ -50,6 +50,21 @@ namespace Template {
                 T0007: "Bis dann."
             }
         }
+
+        let moveLeftAnimation: fS.AnimationDefinition = {
+            start: { translation: fS.positions.bottomcenter },
+            end: { translation: miraPosWhenBoth },
+            duration: 2,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+
+        let moveRightAnimation: fS.AnimationDefinition = {
+            start: { translation: miraPosWhenBoth },
+            end: { translation: fS.positions.bottomcenter },
+            duration: 2,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+
         await fS.Location.show(location.miraRoom);
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
@@ -140,6 +155,16 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0018);
         await fS.Speech.tell(characters.Mira, text.Mira.T0019);
         await fS.Speech.tell(characters.Mira, text.Mira.T0020);
+        inputCode();
+
+        //waiting for input of the right code
+        async function inputCode() {
+            if (await fS.Speech.getInput() != "139181") {
+                inputCode();
+            }
+        }
+
+        //progress story
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.update();

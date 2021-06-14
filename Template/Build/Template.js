@@ -550,6 +550,12 @@ var Template;
                 T0033: "Denke schon."
             }
         };
+        let moveRightAnimation = {
+            start: { translation: Template.miraPosWhenBoth },
+            end: { translation: Template.fS.positions.bottomcenter },
+            duration: 2,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
         Template.fS.Sound.fade(Template.sound.overworldTheme, 0, 1, true);
         Template.fS.Sound.fade(Template.sound.mysteryTheme, 0.1, 4, true);
         await Template.fS.Location.show(Template.location.hideout);
@@ -879,7 +885,7 @@ var Template;
             Template.fS.Character.hide(Template.characters.Nick);
             await Template.fS.update(1);
             await Template.fS.Character.hide(Template.characters.Mira);
-            await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.sad, Template.moveRightAnimation);
+            await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.sad, moveRightAnimation);
             await Template.fS.update();
             await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
             await Template.fS.Sound.fade(Template.sound.hitTheFloor, 3, 0.5);
@@ -1148,19 +1154,20 @@ var Template;
     Template.mutePianoMusic = mutePianoMusic;
     //delay
     Template.signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
-    //animations
-    Template.moveLeftAnimation = {
-        start: { translation: Template.fS.positions.bottomcenter },
-        end: { translation: Template.miraPosWhenBoth },
-        duration: 2,
-        playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+    /* Auslagern führt zu problemen. Mira fliegt von oben rein, bottomcenter stimmt nicht mehr
+    export let moveLeftAnimation: fS.AnimationDefinition = {
+      start: { translation: fS.positions.bottomcenter },
+      end: { translation: miraPosWhenBoth },
+      duration: 2,
+      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
     };
-    Template.moveRightAnimation = {
-        start: { translation: Template.miraPosWhenBoth },
-        end: { translation: Template.fS.positions.bottomcenter },
-        duration: 2,
-        playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
-    };
+  
+    export let moveRightAnimation: fS.AnimationDefinition = {
+      start: { translation: miraPosWhenBoth },
+      end: { translation: fS.positions.bottomcenter },
+      duration: 2,
+      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+    };*/
     //key inputs
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -1188,18 +1195,19 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.WakeUp, name: "WakeUp" },
-            //bad scenes
-            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
-            //neutral scenes
-            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
-            //good scenes
-            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
+            /*
+                  { scene: WakeUp, name: "WakeUp" },
+                  //bad scenes
+                  { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
+                  { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
+                  { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
+                  //neutral scenes
+                  { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
+                  { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
+                  { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+                  //good scenes
+                  { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
+                  { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
             { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
@@ -1262,8 +1270,8 @@ var Template;
                 T0011: "Bis dann.",
                 T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
                 T0013: "Vielleicht sollte ich einfach mal rein und schauen ob alles okay ist.",
-                T0014: "Wenn ich mich richtig erinnere hatte Nick doch immer einen Ersatzschlüssel irgendwo vor seiner Tür versteckt.",
-                T0015: "Wo könnte der Schlüssel sein?",
+                T0014: "Wenn ich mich richtig erinnere hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
+                T0015: "Wo könnte der Code sein?",
                 T0016: "Vielleicht unter der Schuhmatte?",
                 T0017: "Nein, da ist nix... Dann bleibt ja eigentlich nur noch der Blumentopf übrig...",
                 T0018: "...",
@@ -1285,6 +1293,18 @@ var Template;
                 T0006: "Kein Ding.",
                 T0007: "Bis dann."
             }
+        };
+        let moveLeftAnimation = {
+            start: { translation: Template.fS.positions.bottomcenter },
+            end: { translation: Template.miraPosWhenBoth },
+            duration: 2,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+        let moveRightAnimation = {
+            start: { translation: Template.miraPosWhenBoth },
+            end: { translation: Template.fS.positions.bottomcenter },
+            duration: 2,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
         };
         await Template.fS.Location.show(Template.location.miraRoom);
         await Template.fS.update();
@@ -1333,7 +1353,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0007);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0008);
         await Template.fS.Character.hide(Template.characters.Mira);
-        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.moveLeftAnimation);
+        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, moveLeftAnimation);
         await Template.fS.update();
         await Template.fS.Character.show(Template.characters.Nachbar, Template.characters.Nachbar.pose.good, Template.nickPosWhenBoth);
         await Template.fS.update();
@@ -1360,7 +1380,7 @@ var Template;
         await Template.fS.Character.hide(Template.characters.Nachbar);
         await Template.fS.update(1);
         await Template.fS.Character.hide(Template.characters.Mira);
-        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.moveRightAnimation);
+        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.neutral, moveRightAnimation);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0012);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0013);
@@ -1371,6 +1391,14 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0020);
+        inputCode();
+        //waiting for input of the right code
+        async function inputCode() {
+            if (await Template.fS.Speech.getInput() != "139181") {
+                inputCode();
+            }
+        }
+        //progress story
         Template.fS.Speech.hide();
         Template.fS.Character.hideAll();
         await Template.fS.update();
@@ -1516,6 +1544,12 @@ var Template;
                 T0008: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
             }
         };
+        let moveLeftAnimation = {
+            start: { translation: Template.fS.positions.bottomcenter },
+            end: { translation: Template.miraPosWhenBoth },
+            duration: 2,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
         //Story
         Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1.5, true);
         await Template.fS.Location.show(Template.location.nicksRoomDoor);
@@ -1524,7 +1558,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
         await Template.fS.update();
-        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, Template.moveLeftAnimation);
+        await Template.fS.Character.animate(Template.characters.Mira, Template.characters.Mira.pose.good, moveLeftAnimation);
         await Template.fS.update();
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.neutral, Template.nickPosWhenBoth);
         await Template.fS.update();

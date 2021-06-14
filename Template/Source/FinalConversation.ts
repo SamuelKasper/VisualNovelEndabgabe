@@ -99,6 +99,13 @@ namespace Template {
 
             }
         }
+        let moveRightAnimation: fS.AnimationDefinition = {
+            start: { translation: miraPosWhenBoth },
+            end: { translation: fS.positions.bottomcenter },
+            duration: 2,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+
         fS.Sound.fade(sound.overworldTheme, 0, 1, true);
         fS.Sound.fade(sound.mysteryTheme, 0.1, 4, true);
         await fS.Location.show(location.hideout);

@@ -2,13 +2,14 @@
 (- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
 
 - Geschenk szene einbauen. Sonst kommt besuch bei nick sehr plötzlich
-- Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen 
-bei jeder entscheidung
+- Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen bei jeder entscheidung
 - Item nicht aus Inventar nach anklicken
 - Raumwechsel -> swipe transition
-- Musik bei WaitForAnswer bei Lernen > Tetris > Pflanzen > Piano: Going geht nach ende nicht aus, !! Wenn zu schnell geskipt
+- Um in Nicks Zimmer zu kommen code an tür eingeben (!eingabefeld!). 
+    Code befindet sich da wo sonst schlüssel wäre. Nach aufsammeln ins !inventar!
+- animation position fehler
 
------Musik
+------------------------------------------------- Musik
 
 ------------------------------------------------- Anderes: 
 - Name oberhalb des gesprochenen Textes
@@ -19,4 +20,4 @@ bei jeder entscheidung
 - Kriterien Katalog
 
 ------------------------------------------------- BUGS / Probleme
-- .ts Dateien umbenennen -> Main Muss na
+- Musik bei WaitForAnswer bei Lernen > Tetris > Pflanzen > Piano: Going geht nach ende nicht aus, !! Wenn zu schnell geskipt

@@ -30,6 +30,13 @@ namespace Template {
             }
         }
 
+        let moveLeftAnimation: fS.AnimationDefinition = {
+            start: { translation: fS.positions.bottomcenter },
+            end: { translation: miraPosWhenBoth },
+            duration: 2,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+
         //Story
         fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
         await fS.Location.show(location.nicksRoomDoor);

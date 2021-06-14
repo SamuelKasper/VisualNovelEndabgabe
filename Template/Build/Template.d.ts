@@ -212,8 +212,6 @@ declare namespace Template {
     let nickPosWhenBoth: f.Vector2;
     function mutePianoMusic(): void;
     let signalDelay2s: fS.Signal;
-    let moveLeftAnimation: fS.AnimationDefinition;
-    let moveRightAnimation: fS.AnimationDefinition;
 }
 declare namespace Template {
     function NeutralEnding(): fS.SceneReturn;

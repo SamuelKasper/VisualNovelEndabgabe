@@ -248,7 +248,7 @@ namespace Template {
   //delay
   export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 
-  //animations
+  /* Auslagern führt zu problemen. Mira fliegt von oben rein, bottomcenter stimmt nicht mehr
   export let moveLeftAnimation: fS.AnimationDefinition = {
     start: { translation: fS.positions.bottomcenter },
     end: { translation: miraPosWhenBoth },
@@ -261,7 +261,7 @@ namespace Template {
     end: { translation: fS.positions.bottomcenter },
     duration: 2,
     playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-  };
+  };*/
 
   //key inputs
   document.addEventListener("keydown", hndKeypress);
@@ -290,7 +290,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-
+/*
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
@@ -302,7 +302,7 @@ namespace Template {
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation" },
       { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel" },
