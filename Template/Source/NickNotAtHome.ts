@@ -155,6 +155,14 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0018);
         await fS.Speech.tell(characters.Mira, text.Mira.T0019);
         await fS.Speech.tell(characters.Mira, text.Mira.T0020);
+        await fS.Character.hide(characters.Mira);
+        await fS.Location.show(location.numberCode);
+        await fS.update(1);
+        await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
+        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+        await fS.Location.show(location.nicksRoomDoor);
+        await fS.update(1);
+        fS.Inventory.add(items.Code);
         await fS.Speech.tell(characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
         await fS.Speech.tell(characters.Narrator, "Code eingeben: ");
         await inputCode();

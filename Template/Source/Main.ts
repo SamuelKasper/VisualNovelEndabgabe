@@ -174,6 +174,11 @@ namespace Template {
       background: "Images/Backgrounds/Black.png"
     },
 
+    numberCode: {
+      name: "numberCode",
+      background: "Images/Backgrounds/NicksDoorCode.png"
+    },
+
     colorBeforeEnding: {
       name: "colorBeforeEnding",
       background: "Images/Backgrounds/ColorBeforeEnding.png"
@@ -228,6 +233,12 @@ namespace Template {
       name: "Foto",
       description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
       image: "Images/Backgrounds/VersteckFotoInventar.png"
+    },
+
+    Code: {
+      name: "Code",
+      description: "Zahlencode für Nicks Haustür",
+      image: "Images/Backgrounds/NicksDoorCodeInventar.png"
     }
   };
 

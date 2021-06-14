@@ -157,6 +157,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        numberCode: {
+            name: string;
+            background: string;
+        };
         colorBeforeEnding: {
             name: string;
             background: string;
@@ -202,6 +206,11 @@ declare namespace Template {
     };
     let items: {
         Image: {
+            name: string;
+            description: string;
+            image: string;
+        };
+        Code: {
             name: string;
             description: string;
             image: string;

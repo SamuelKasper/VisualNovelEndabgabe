@@ -1089,6 +1089,10 @@ var Template;
             name: "black",
             background: "Images/Backgrounds/Black.png"
         },
+        numberCode: {
+            name: "numberCode",
+            background: "Images/Backgrounds/NicksDoorCode.png"
+        },
         colorBeforeEnding: {
             name: "colorBeforeEnding",
             background: "Images/Backgrounds/ColorBeforeEnding.png"
@@ -1137,6 +1141,11 @@ var Template;
             name: "Foto",
             description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
             image: "Images/Backgrounds/VersteckFotoInventar.png"
+        },
+        Code: {
+            name: "Code",
+            description: "Zahlencode für Nicks Haustür",
+            image: "Images/Backgrounds/NicksDoorCodeInventar.png"
         }
     };
     /**Stuff needed in Scenes */
@@ -1391,6 +1400,14 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0018);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0020);
+        await Template.fS.Character.hide(Template.characters.Mira);
+        await Template.fS.Location.show(Template.location.numberCode);
+        await Template.fS.update(1);
+        await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
+        await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
+        await Template.fS.Location.show(Template.location.nicksRoomDoor);
+        await Template.fS.update(1);
+        Template.fS.Inventory.add(Template.items.Code);
         await Template.fS.Speech.tell(Template.characters.Narrator, "Zahlencode wurde deinem Inventar hinzugefügt");
         await Template.fS.Speech.tell(Template.characters.Narrator, "Code eingeben: ");
         await inputCode();
