@@ -1,7 +1,6 @@
 namespace Template {
   export async function WakeUp(): fS.SceneReturn {
     console.log("WakeUp: starting");
-    let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 
     //Text
     let text = {

@@ -69,6 +69,10 @@ speech.Mira name{
   font-weight: 700;
 }
 
+#printText{
+  background-color: transparent;
+}
+
 dialog[type="inventory"]{
   background-color: rgb(233, 233, 233);
   color: black;

@@ -231,11 +231,39 @@ namespace Template {
     }
   };
 
+  /**Stuff needed in Scenes */
   //Both characters on screen
   export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
   export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
 
-  //save and load
+  //mute piano songs
+  export function mutePianoMusic(): void {
+    console.log("Muting all Songs");
+    fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongFlowerfield, 0, 0.1, false);
+  }
+
+  //delay
+  export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
+
+  //animations
+  export let moveLeftAnimation: fS.AnimationDefinition = {
+    start: { translation: fS.positions.bottomcenter },
+    end: { translation: miraPosWhenBoth },
+    duration: 2,
+    playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+  };
+
+  export let moveRightAnimation: fS.AnimationDefinition = {
+    start: { translation: miraPosWhenBoth },
+    end: { translation: fS.positions.bottomcenter },
+    duration: 2,
+    playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+  };
+
+  //key inputs
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
     switch (_event.code) {
@@ -247,13 +275,13 @@ namespace Template {
         console.log("Load");
         await fS.Progress.load();
         break;
-      case f.KEYBOARD_CODE.I:        
+      case f.KEYBOARD_CODE.I:
         try {
-            console.log("Open Inventory");
-            await fS.Inventory.open();
-          }catch (error) {
-            fS.Inventory.close();
-            console.log("Inventory already open");
+          console.log("Open Inventory");
+          await fS.Inventory.open();
+        } catch (error) {
+          fS.Inventory.close();
+          console.log("Inventory already open");
         }
         break;
     }
@@ -262,7 +290,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      
+
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },

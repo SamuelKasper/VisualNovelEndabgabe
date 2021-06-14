@@ -1,5 +1,4 @@
 namespace Template{
-    let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
     export async function NeutralEnding(): fS.SceneReturn {
         console.log("neutralEnding: starting");
         fS.Character.hideAll();

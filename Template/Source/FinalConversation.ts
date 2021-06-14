@@ -443,18 +443,9 @@ namespace Template {
             fS.Character.hide(characters.Nick);
             await fS.update(1);
 
-            /*-----Animation-----*/
-            let moveRightAnimation: fS.AnimationDefinition = {
-                start: { translation: miraPosWhenBoth },
-                end: { translation: fS.positions.bottomcenter },
-                duration: 2,
-                playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-            };
-
             await fS.Character.hide(characters.Mira);
             await fS.Character.animate(characters.Mira, characters.Mira.pose.sad, moveRightAnimation);
             await fS.update();
-            /*-----Animation End-----*/
             await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
             await fS.Sound.fade(sound.hitTheFloor, 3, 0.5);
             await fS.Speech.tell(characters.Mira, "Nick? Alles okay?");

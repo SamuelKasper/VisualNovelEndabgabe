@@ -17,9 +17,6 @@ declare namespace Template {
     function GoodEnding(): fS.SceneReturn;
 }
 declare namespace Template {
-    function mutePianoMusic(): void;
-}
-declare namespace Template {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let sound: {
@@ -210,8 +207,13 @@ declare namespace Template {
             image: string;
         };
     };
+    /**Stuff needed in Scenes */
     let miraPosWhenBoth: f.Vector2;
     let nickPosWhenBoth: f.Vector2;
+    function mutePianoMusic(): void;
+    let signalDelay2s: fS.Signal;
+    let moveLeftAnimation: fS.AnimationDefinition;
+    let moveRightAnimation: fS.AnimationDefinition;
 }
 declare namespace Template {
     function NeutralEnding(): fS.SceneReturn;

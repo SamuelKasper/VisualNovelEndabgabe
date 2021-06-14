@@ -1,11 +1,11 @@
 namespace Template {
-    let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
-    let plantsDone: boolean = false;
-    let tetrisDone: boolean = false;
-    let learningDone: boolean = false;
-    let pianoDone: boolean = false;
     export async function WaitForAnswer(): fS.SceneReturn {
         console.log("WaitForAnswer: starting");
+
+        let plantsDone: boolean = false;
+        let tetrisDone: boolean = false;
+        let learningDone: boolean = false;
+        let pianoDone: boolean = false;
 
         //Text
         let text = {
@@ -89,152 +89,152 @@ namespace Template {
         fS.Text.close();
         await fS.update();
         return "BadEnding";
-    }
 
-    async function whatToDo(): Promise<void> {
+        async function whatToDo(): Promise<void> {
 
-        let whatToDoAnswer = {
-            nachrichten: "Handy",
-            klavier: "Klavier üben",
-            pflanzen: "Pflanzen gießen",
-            tetris: "Tetris spielen",
-            lernen: "Lernen"
-        };
+            let whatToDoAnswer = {
+                nachrichten: "Handy",
+                klavier: "Klavier üben",
+                pflanzen: "Pflanzen gießen",
+                tetris: "Tetris spielen",
+                lernen: "Lernen"
+            };
 
-        let whatToDo = await fS.Menu.getInput(whatToDoAnswer, "decisionClass");
+            let whatToDo = await fS.Menu.getInput(whatToDoAnswer, "decisionClass");
 
-        switch (whatToDo) {
-            //-------------------Handy
-            case whatToDoAnswer.nachrichten:
-                await fS.Character.hide(characters.Mira);
-                await fS.update();
-                await fS.Location.show(location.miraRoomHandyBirthday);
-                await fS.update();
-                await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                await fS.Speech.tell(characters.Mira, "Hm, er hat noch nicht geantwortet...");
-                fS.Speech.hide();
-                break;
-
-            //-------------------piano
-            case whatToDoAnswer.klavier:
-                await fS.Character.hide(characters.Mira);
-                await fS.update();
-                await fS.Location.show(location.pianoRoom);
-                await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
-                await fS.Speech.tell(characters.Mira, "Hm, was spiele ich denn heute?");
-
-                let songsAnswer = {
-                    going: "Going",
-                    dontStand: "Don't Stand",
-                    flowerfield: "Flowerfield"
-                };
-
-                let songs = await fS.Menu.getInput(songsAnswer, "decisionClass");
-
-                switch (songs) {
-                    case songsAnswer.going:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongGoing, 0);
-                        fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
-                    case songsAnswer.dontStand:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongDontStand, 0);
-                        fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
-                    case songsAnswer.flowerfield:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongFlowerfield, 0);
-                        fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
-                }
-
-                await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                mutePianoMusic();
-                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
-                fS.Speech.hide();
-                pianoDone = true;
-                break;
-
-            //-------------------plants  
-            case whatToDoAnswer.pflanzen:
-                if (!dataToSave.plantsOnDayOne) {
-                    await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
-                    await fS.Location.show(location.miraRoom);
-                    await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
-                    await fS.Sound.fade(sound.wateringPlants, 0.3, 1);
+            switch (whatToDo) {
+                //-------------------Handy
+                case whatToDoAnswer.nachrichten:
                     await fS.Character.hide(characters.Mira);
-                    await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
-                    await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
-                    await fS.Sound.fade(sound.wateringPlants, 0, 1);
+                    await fS.Location.show(location.miraRoomHandyBirthday);
+                    await fS.update();
+                    await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                    await fS.Speech.tell(characters.Mira, "Hm, er hat noch nicht geantwortet...");
+                    fS.Speech.hide();
+                    break;
+
+                //-------------------piano
+                case whatToDoAnswer.klavier:
                     await fS.Character.hide(characters.Mira);
-                    await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
                     await fS.update();
-                } else {
-                    await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
-                    await fS.Location.show(location.miraRoom);
+                    await fS.Location.show(location.pianoRoom);
+                    await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
+                    await fS.Speech.tell(characters.Mira, "Hm, was spiele ich denn heute?");
+
+                    let songsAnswer = {
+                        going: "Going",
+                        dontStand: "Don't Stand",
+                        flowerfield: "Flowerfield"
+                    };
+
+                    let songs = await fS.Menu.getInput(songsAnswer, "decisionClass");
+
+                    switch (songs) {
+                        case songsAnswer.going:
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongGoing, 0);
+                            fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.dontStand:
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongDontStand, 0);
+                            fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.flowerfield:
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongFlowerfield, 0);
+                            fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
+                    }
+
+                    await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
+                    mutePianoMusic();
+                    fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
+                    fS.Speech.hide();
+                    pianoDone = true;
+                    break;
+
+                //-------------------plants  
+                case whatToDoAnswer.pflanzen:
+                    if (!dataToSave.plantsOnDayOne) {
+                        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+                        await fS.Location.show(location.miraRoom);
+                        await fS.update();
+                        await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
+                        await fS.Sound.fade(sound.wateringPlants, 0.3, 1);
+                        await fS.Character.hide(characters.Mira);
+                        await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
+                        await fS.update();
+                        await fS.Speech.tell(characters.Mira, "Genauer betrachtet sehen die ziemlich schlimm aus...");
+                        await fS.Speech.tell(characters.Mira, "Ich hoffe die werden wieder.");
+                        await fS.Sound.fade(sound.wateringPlants, 0, 1);
+                        await fS.Character.hide(characters.Mira);
+                        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+                        await fS.update();
+                    } else {
+                        await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
+                        await fS.Location.show(location.miraRoom);
+                        await fS.update();
+                        await fS.Speech.tell(characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
+                    }
+                    fS.Speech.hide();
+                    plantsDone = true;
+                    break;
+
+                //-------------------tetris
+                case whatToDoAnswer.tetris:
+                    await fS.Character.hide(characters.Mira);
+                    await fS.Location.show(location.miraRoomLaptop);
                     await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Die Erde ist noch von gestern feucht. Die brauchen noch kein Wasser.");
-                }
-                fS.Speech.hide();
-                plantsDone = true;
-                break;
+                    await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
+                    //start tetris musik
+                    fS.Sound.fade(sound.overworldTheme, 0, 0.3, true);
+                    fS.Sound.fade(sound.tetris, 0.2, 1.5, true);
+                    //fade out (game time)
+                    fS.Speech.hide();
+                    await fS.Location.show(location.black)
+                    await fS.update(1);
+                    await fS.Text.print("Einige Runden später...");
+                    fS.Text.close();
+                    await fS.update();
 
-            //-------------------tetris
-            case whatToDoAnswer.tetris:
-                await fS.Character.hide(characters.Mira);
-                await fS.Location.show(location.miraRoomLaptop);
-                await fS.update();
-                await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
-                //start tetris musik
-                fS.Sound.fade(sound.overworldTheme, 0, 0.3, true);
-                fS.Sound.fade(sound.tetris, 0.2, 1.5, true);
-                //fade out (game time)
-                fS.Speech.hide();
-                await fS.Location.show(location.black)
-                await fS.update(1);
-                await fS.Text.print("Einige Runden später...");
-                fS.Text.close();
-                await fS.update();
+                    //fade in
+                    await fS.Location.show(location.miraRoomLaptop);
+                    await fS.update();
+                    await fS.Speech.tell(characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
+                    fS.Sound.fade(sound.tetris, 0, 0.3, true);
+                    fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
+                    fS.Speech.hide();
+                    tetrisDone = true;
+                    break;
 
-                //fade in
-                await fS.Location.show(location.miraRoomLaptop);
-                await fS.update();
-                await fS.Speech.tell(characters.Mira, "Das letzte Level war wirklich eine Herausforderung...");
-                fS.Sound.fade(sound.tetris, 0, 0.3, true);
-                fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
-                fS.Speech.hide();
-                tetrisDone = true;
-                break;
-
-            //-------------------lernen
-            case whatToDoAnswer.lernen:
-                await fS.Character.hide(characters.Mira);
-                await fS.Location.show(location.miraRoomEnglish);
-                await fS.update();
-                await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch drann.");
-                await fS.Speech.tell(characters.Mira, "indirekte Rede...");
-                await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past");
-                await fS.Speech.tell(characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
-                await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Will wird zu would");
-                await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
-                await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
-                fS.Speech.hide();
-                learningDone = true;
-                break;
+                //-------------------lernen
+                case whatToDoAnswer.lernen:
+                    await fS.Character.hide(characters.Mira);
+                    await fS.Location.show(location.miraRoomEnglish);
+                    await fS.update();
+                    await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch drann.");
+                    await fS.Speech.tell(characters.Mira, "indirekte Rede...");
+                    await fS.Speech.tell(characters.Mira, "...");
+                    await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past");
+                    await fS.Speech.tell(characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
+                    await fS.Speech.tell(characters.Mira, "...");
+                    await fS.Speech.tell(characters.Mira, "Will wird zu would");
+                    await fS.Speech.tell(characters.Mira, "...");
+                    await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
+                    await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
+                    await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    fS.Speech.hide();
+                    learningDone = true;
+                    break;
+            }
         }
     }
 }

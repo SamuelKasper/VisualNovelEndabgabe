@@ -1,12 +1,12 @@
 namespace Template {
-    let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
-    let plantsDone: boolean = false;
-    let tetrisDone: boolean = false;
-    let learningDone: boolean = false;
-    let pianoDone: boolean = false;
-    let waitForNick: boolean = false;
     export async function NoAnswerFromNick(): fS.SceneReturn {
         console.log("NoAnswerFromNick: starting");
+
+        let plantsDone: boolean = false;
+        let tetrisDone: boolean = false;
+        let learningDone: boolean = false;
+        let pianoDone: boolean = false;
+        let waitForNick: boolean = false;
 
         //Text
         let text = {
@@ -209,7 +209,7 @@ namespace Template {
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Lernen ist da wohl die sichere Variante.");
-                    await fS.Speech.tell(characters.Mira,  "Er kann mir auch noch nach den Prüfungen erklären aus welchem Grund er mich sitzen lassen hat.");
+                    await fS.Speech.tell(characters.Mira, "Er kann mir auch noch nach den Prüfungen erklären aus welchem Grund er mich sitzen lassen hat.");
                     await fS.Character.hide(characters.Mira);
                     fS.Speech.hide();
                     await fS.Location.show(location.black);
@@ -262,26 +262,26 @@ namespace Template {
 
                     switch (songs) {
                         case songsAnswer.going:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongGoing, 0);
-                        fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
-                    case songsAnswer.dontStand:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongDontStand, 0);
-                        fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
-                    case songsAnswer.flowerfield:
-                        mutePianoMusic();
-                        fS.Sound.play(sound.pianoSongFlowerfield, 0);
-                        fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-                        break;
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongGoing, 0);
+                            fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.dontStand:
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongDontStand, 0);
+                            fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
+                        case songsAnswer.flowerfield:
+                            mutePianoMusic();
+                            fS.Sound.play(sound.pianoSongFlowerfield, 0);
+                            fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
+                            break;
                     }
 
                     await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");

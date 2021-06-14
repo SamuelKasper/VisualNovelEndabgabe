@@ -37,19 +37,10 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
         await fS.Speech.tell(characters.Narrator, text.Narrator.T0000);
 
-        /*-----Animation-----*/
-        let moveLeftAnimation: fS.AnimationDefinition = {
-            start: { translation: fS.positions.bottomcenter },
-            end: { translation: miraPosWhenBoth },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
         await fS.update();
         await fS.Character.animate(characters.Mira, characters.Mira.pose.good, moveLeftAnimation);
         await fS.update();
-        /*-----Animation End-----*/
 
         await fS.Character.show(characters.Nick, characters.Nick.pose.neutral, nickPosWhenBoth);
         await fS.update();

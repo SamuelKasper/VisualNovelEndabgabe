@@ -98,20 +98,11 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0007);
         await fS.Speech.tell(characters.Mira, text.Mira.T0008);
 
-        /*-----Animation-----*/
-        let moveLeftAnimation: fS.AnimationDefinition = {
-            start: { translation: fS.positions.bottomcenter },
-            end: { translation: miraPosWhenBoth },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
         await fS.Character.hide(characters.Mira);
         await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveLeftAnimation);
         await fS.update();
         await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.good, nickPosWhenBoth);
         await fS.update();
-        /*-----Animation End-----*/
 
         await fS.Speech.tell(characters.Nachbar, text.Nachbar.T0000);
         await fS.Character.hide(characters.Mira);
@@ -136,18 +127,9 @@ namespace Template {
         await fS.Character.hide(characters.Nachbar);
         await fS.update(1);
 
-        /*-----Animation-----*/
-        let moveRightAnimation: fS.AnimationDefinition = {
-            start: { translation: miraPosWhenBoth },
-            end: { translation: fS.positions.bottomcenter },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
         await fS.Character.hide(characters.Mira);
         await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveRightAnimation);
         await fS.update();
-        /*-----Animation End-----*/
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0012);
         await fS.Speech.tell(characters.Mira, text.Mira.T0013);

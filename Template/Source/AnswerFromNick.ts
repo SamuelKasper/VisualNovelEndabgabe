@@ -1,6 +1,5 @@
 namespace Template {
     export async function AnswerFromNick(): fS.SceneReturn {
-        let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
         let plantsDone: boolean = false;
         let tetrisDone: boolean = false;
         let learningDone: boolean = false;

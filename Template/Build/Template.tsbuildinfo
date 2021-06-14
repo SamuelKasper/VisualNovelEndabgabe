@@ -8,7 +8,6 @@
       "../Source/EndOfNovel.ts",
       "../Source/FinalConversation.ts",
       "../Source/GoodEnding.ts",
-      "../Source/Helper.ts",
       "../Source/Main.ts",
       "../Source/NeutralEnding.ts",
       "../Source/NickNotAtHome.ts",
@@ -28,7 +27,7 @@
         },
         {
           "pos": 15,
-          "end": 153807,
+          "end": 153804,
           "kind": "text"
         }
       ],
@@ -56,7 +55,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 5929,
+          "end": 6070,
           "kind": "text"
         }
       ]
