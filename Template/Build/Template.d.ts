@@ -203,6 +203,7 @@ declare namespace Template {
     };
     let dataToSave: {
         plantsOnDayOne: boolean;
+        specialText: number;
     };
     let items: {
         Image: {

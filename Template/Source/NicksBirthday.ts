@@ -99,6 +99,7 @@ namespace Template {
 
         switch (explainOrHelp) {
             case explainOrHelpAnswer.help:
+                dataToSave.specialText++;
                 await fS.Character.hide(characters.Mira);
                 await fS.Character.show(characters.Mira, characters.Mira.pose.good, miraPosWhenBoth);
                 await fS.update();

@@ -66,6 +66,7 @@ namespace Template {
 
       //Calendar
       case sleepNewsCalendarAnswer.calendar:
+        dataToSave.specialText++;
         await fS.Location.show(location.miraRoomHandyCalendar);
         await fS.update();
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
@@ -83,6 +84,7 @@ namespace Template {
         switch (goToBirthday) {
           //go to Birthday
           case goToBirthdayAnswer.go:
+            dataToSave.specialText++;
             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
             fS.Speech.hide();
             return "NicksBirthday";

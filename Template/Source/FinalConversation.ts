@@ -133,6 +133,7 @@ namespace Template {
             case waitOrAmbulanceAnswer.wait:
                 return await badEnding2();
             case waitOrAmbulanceAnswer.ambulance:
+                dataToSave.specialText++;
                 break;
         }
 
@@ -203,6 +204,7 @@ namespace Template {
             case getAngryOrTalkAnswer.angry:
                 return await badEnding3();
             case getAngryOrTalkAnswer.scars:
+                dataToSave.specialText++;
                 break;
         }
 
@@ -262,7 +264,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Nick, "...");
                 break;
         }
-
+        dataToSave.specialText++;
         fS.Character.hide(characters.Nick);
         await fS.Character.show(characters.Nick, characters.Nick.pose.crying, nickPosWhenBoth);
         await fS.update();
@@ -287,6 +289,7 @@ namespace Template {
             case getAngryOrTalkAnswer2.angry:
                 return await badEnding3();
             case getAngryOrTalkAnswer2.nick:
+                dataToSave.specialText++;
                 break;
         }
 
@@ -333,7 +336,7 @@ namespace Template {
         fS.Sound.fade(sound.goodEnding, 0.2, 2, true);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         fS.Text.close();
-        await fS.update();
+        await fS.update();  
         await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
         return "GoodEnding";
 

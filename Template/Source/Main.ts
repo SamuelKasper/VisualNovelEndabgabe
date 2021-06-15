@@ -225,7 +225,8 @@ namespace Template {
   };
 
   export let dataToSave = {
-    plantsOnDayOne: false
+    plantsOnDayOne: false,
+    specialText: 0
   };
 
   export let items = {
@@ -301,7 +302,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-
+/*
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
@@ -314,7 +315,7 @@ namespace Template {
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
       { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
-      { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
+      { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation" },
       { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel" },
 

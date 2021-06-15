@@ -2,8 +2,7 @@
 (- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
 - Spezialsequenz wenn überdurchschnittlich viele Nebenhandlungen gemacht wurde. Punktesystem -> hochzählen bei jeder entscheidung
 - Item (zahlencode & bild versteck) nicht aus Inventar nach anklicken
-- Raumwechsel -> swipe transition
-- Josh -> Elias
+- Out of Game Menu
 
 ------------------------------------------------- Musik
 

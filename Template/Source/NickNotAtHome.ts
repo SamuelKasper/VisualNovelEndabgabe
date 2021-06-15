@@ -103,6 +103,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Scheint keiner da zu sein... Dann geh ich wohl wieder.");
                 return "neutralEnding";
             case waitOrKnockAnswer.klopfen:
+                dataToSave.specialText++;
                 break;
         }
         await fS.Speech.tell(characters.Narrator, text.Narrator.T0000);
@@ -205,6 +206,7 @@ namespace Template {
             let whereToSearch = await fS.Menu.getInput(whereToSearchAnswer, "decisionClass");
             switch (whereToSearch) {
                 case whereToSearchAnswer.Kueche:
+                    dataToSave.specialText++;
                     fS.Speech.hide();
                     fS.Character.hideAll();
                     await fS.update();
@@ -216,6 +218,7 @@ namespace Template {
                     kitchen = true;
                     break;
                 case whereToSearchAnswer.NicksZimmer:
+                    dataToSave.specialText++;
                     fS.Speech.hide();
                     fS.Character.hideAll();
                     await fS.update();
@@ -228,6 +231,7 @@ namespace Template {
                     nicksRoom = true;
                     break;
                 case whereToSearchAnswer.Badezimmer:
+                    dataToSave.specialText++;
                     fS.Speech.hide();
                     fS.Character.hideAll();
                     await fS.update();
@@ -264,6 +268,7 @@ namespace Template {
                 await fS.Speech.tell(characters.Mira, "Ich sollte auch weiter lernen.");
                 return "neutralEnding";
             case giveUpOrSearchAnswer.Search:
+                dataToSave.specialText++;
                 break;
         }
 
@@ -290,6 +295,7 @@ namespace Template {
         fS.Sound.fade(sound.grabPaper, 0, 0.5);
         await fS.Location.show(location.black);
         await fS.update(2);
+        dataToSave.specialText++;
         return "FinalConversation";
     }
 }

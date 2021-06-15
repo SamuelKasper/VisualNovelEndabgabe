@@ -163,6 +163,7 @@ var Template;
         let visitOrLearn = await Template.fS.Menu.getInput(visitOrLearnAnswer, "decisionClass");
         switch (visitOrLearn) {
             case visitOrLearnAnswer.besuchen:
+                Template.dataToSave.specialText++;
                 break;
             case visitOrLearnAnswer.lernen:
                 await Template.fS.Character.hide(Template.characters.Mira);
@@ -187,6 +188,7 @@ var Template;
             switch (whatToDo) {
                 //-------------------piano
                 case whatToDoAnswer.klavier:
+                    Template.dataToSave.specialText++;
                     await Template.fS.Character.hide(Template.characters.Mira);
                     await Template.fS.update();
                     await Template.fS.Location.show(Template.location.pianoRoom);
@@ -200,6 +202,7 @@ var Template;
                     let songs = await Template.fS.Menu.getInput(songsAnswer, "decisionClass");
                     switch (songs) {
                         case songsAnswer.going:
+                            Template.dataToSave.specialText++;
                             Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongGoing, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongGoing, 0.3, 1.5, true);
@@ -207,6 +210,7 @@ var Template;
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.dontStand:
+                            Template.dataToSave.specialText++;
                             Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongDontStand, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongDontStand, 0.3, 1.5, true);
@@ -214,6 +218,7 @@ var Template;
                             await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.flowerfield:
+                            Template.dataToSave.specialText++;
                             Template.mutePianoMusic();
                             Template.fS.Sound.play(Template.sound.pianoSongFlowerfield, 0);
                             Template.fS.Sound.fade(Template.sound.pianoSongFlowerfield, 0.3, 1.5, true);
@@ -231,6 +236,7 @@ var Template;
                     break;
                 //-------------------plants  
                 case whatToDoAnswer.pflanzen:
+                    Template.dataToSave.specialText++;
                     if (!Template.dataToSave.plantsOnDayOne) {
                         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.fS.positions.bottomcenter);
                         await Template.fS.Location.show(Template.location.miraRoom);
@@ -258,6 +264,7 @@ var Template;
                     break;
                 //-------------------tetris
                 case whatToDoAnswer.tetris:
+                    Template.dataToSave.specialText++;
                     await Template.fS.Character.hide(Template.characters.Mira);
                     await Template.fS.Location.show(Template.location.miraRoomLaptop);
                     await Template.fS.update();
@@ -283,6 +290,7 @@ var Template;
                     break;
                 //-------------------lernen
                 case whatToDoAnswer.lernen:
+                    Template.dataToSave.specialText++;
                     await Template.fS.Character.hide(Template.characters.Mira);
                     await Template.fS.Location.show(Template.location.miraRoomEnglish);
                     await Template.fS.update();
@@ -582,6 +590,7 @@ var Template;
             case waitOrAmbulanceAnswer.wait:
                 return await badEnding2();
             case waitOrAmbulanceAnswer.ambulance:
+                Template.dataToSave.specialText++;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0006);
@@ -650,6 +659,7 @@ var Template;
             case getAngryOrTalkAnswer.angry:
                 return await badEnding3();
             case getAngryOrTalkAnswer.scars:
+                Template.dataToSave.specialText++;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0019);
@@ -707,6 +717,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Nick, "...");
                 break;
         }
+        Template.dataToSave.specialText++;
         Template.fS.Character.hide(Template.characters.Nick);
         await Template.fS.Character.show(Template.characters.Nick, Template.characters.Nick.pose.crying, Template.nickPosWhenBoth);
         await Template.fS.update();
@@ -730,6 +741,7 @@ var Template;
             case getAngryOrTalkAnswer2.angry:
                 return await badEnding3();
             case getAngryOrTalkAnswer2.nick:
+                Template.dataToSave.specialText++;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0030);
@@ -933,11 +945,20 @@ var Template;
 (function (Template) {
     async function GoodEnding() {
         console.log("goodEnding: starting");
+        console.log(Template.dataToSave.specialText); //23 wenn alles mitgenommen
         Template.fS.Character.hideAll();
         Template.fS.Speech.hide();
         //good Ending Screen
         await Template.fS.Location.show(Template.location.goodEnding);
         await Template.fS.update(2);
+        //Special when enought options were clicked
+        if (Template.dataToSave.specialText >= 23) {
+            await Template.fS.Speech.tell(Template.characters.Mira, "Bist du aufgeregt?");
+            await Template.fS.Speech.tell(Template.characters.Nick, "...");
+            await Template.fS.Speech.tell(Template.characters.Nick, "Ein bisschen.");
+            await Template.fS.Speech.tell(Template.characters.Mira, "Wir schaffen das!");
+        }
+        Template.fS.Speech.hide();
         await Template.fS.Speech.tell(Template.characters.Narrator, "", true, "hiddenText");
         await Template.fS.Location.show(Template.location.goodEndingBlurred);
         await Template.fS.update(0.7);
@@ -1134,7 +1155,8 @@ var Template;
         }
     };
     Template.dataToSave = {
-        plantsOnDayOne: false
+        plantsOnDayOne: false,
+        specialText: 0
     };
     Template.items = {
         Image: {
@@ -1204,19 +1226,20 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.WakeUp, name: "WakeUp" },
-            //bad scenes
-            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
-            //neutral scenes
-            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
-            //good scenes
-            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
-            { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
+            /*
+                  { scene: WakeUp, name: "WakeUp" },
+                  //bad scenes
+                  { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
+                  { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
+                  { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
+                  //neutral scenes
+                  { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
+                  { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
+                  { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+                  //good scenes
+                  { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
+                  { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
+                  { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
             //last Scene in Novel
@@ -1351,6 +1374,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Scheint keiner da zu sein... Dann geh ich wohl wieder.");
                 return "neutralEnding";
             case waitOrKnockAnswer.klopfen:
+                Template.dataToSave.specialText++;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
@@ -1447,6 +1471,7 @@ var Template;
             let whereToSearch = await Template.fS.Menu.getInput(whereToSearchAnswer, "decisionClass");
             switch (whereToSearch) {
                 case whereToSearchAnswer.Kueche:
+                    Template.dataToSave.specialText++;
                     Template.fS.Speech.hide();
                     Template.fS.Character.hideAll();
                     await Template.fS.update();
@@ -1458,6 +1483,7 @@ var Template;
                     kitchen = true;
                     break;
                 case whereToSearchAnswer.NicksZimmer:
+                    Template.dataToSave.specialText++;
                     Template.fS.Speech.hide();
                     Template.fS.Character.hideAll();
                     await Template.fS.update();
@@ -1470,6 +1496,7 @@ var Template;
                     nicksRoom = true;
                     break;
                 case whereToSearchAnswer.Badezimmer:
+                    Template.dataToSave.specialText++;
                     Template.fS.Speech.hide();
                     Template.fS.Character.hideAll();
                     await Template.fS.update();
@@ -1505,6 +1532,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.Mira, "Ich sollte auch weiter lernen.");
                 return "neutralEnding";
             case giveUpOrSearchAnswer.Search:
+                Template.dataToSave.specialText++;
                 break;
         }
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0022);
@@ -1530,6 +1558,7 @@ var Template;
         Template.fS.Sound.fade(Template.sound.grabPaper, 0, 0.5);
         await Template.fS.Location.show(Template.location.black);
         await Template.fS.update(2);
+        Template.dataToSave.specialText++;
         return "FinalConversation";
     }
     Template.NickNotAtHome = NickNotAtHome;
@@ -1618,6 +1647,7 @@ var Template;
         let explainOrHelp = await Template.fS.Menu.getInput(explainOrHelpAnswer, "decisionClass");
         switch (explainOrHelp) {
             case explainOrHelpAnswer.help:
+                Template.dataToSave.specialText++;
                 await Template.fS.Character.hide(Template.characters.Mira);
                 await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.good, Template.miraPosWhenBoth);
                 await Template.fS.update();
@@ -2434,6 +2464,7 @@ var Template;
                 return "RememberWhilePiano";
             //Calendar
             case sleepNewsCalendarAnswer.calendar:
+                Template.dataToSave.specialText++;
                 await Template.fS.Location.show(Template.location.miraRoomHandyCalendar);
                 await Template.fS.update();
                 await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
@@ -2448,6 +2479,7 @@ var Template;
                 switch (goToBirthday) {
                     //go to Birthday
                     case goToBirthdayAnswer.go:
+                        Template.dataToSave.specialText++;
                         await Template.fS.Speech.tell(Template.characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
                         Template.fS.Speech.hide();
                         return "NicksBirthday";

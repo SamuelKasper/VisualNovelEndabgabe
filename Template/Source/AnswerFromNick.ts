@@ -175,6 +175,7 @@ namespace Template {
         let visitOrLearn = await fS.Menu.getInput(visitOrLearnAnswer, "decisionClass");
         switch (visitOrLearn) {
             case visitOrLearnAnswer.besuchen:
+                dataToSave.specialText++;
                 break;
             case visitOrLearnAnswer.lernen:
                 await fS.Character.hide(characters.Mira);
@@ -204,6 +205,7 @@ namespace Template {
             switch (whatToDo) {
                 //-------------------piano
                 case whatToDoAnswer.klavier:
+                    dataToSave.specialText++;
                     await fS.Character.hide(characters.Mira);
                     await fS.update();
                     await fS.Location.show(location.pianoRoom);
@@ -220,6 +222,7 @@ namespace Template {
 
                     switch (songs) {
                         case songsAnswer.going:
+                            dataToSave.specialText++;
                             mutePianoMusic();
                             fS.Sound.play(sound.pianoSongGoing, 0);
                             fS.Sound.fade(sound.pianoSongGoing, 0.3, 1.5, true);
@@ -227,6 +230,7 @@ namespace Template {
                             await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.dontStand:
+                            dataToSave.specialText++;
                             mutePianoMusic();
                             fS.Sound.play(sound.pianoSongDontStand, 0);
                             fS.Sound.fade(sound.pianoSongDontStand, 0.3, 1.5, true);
@@ -234,6 +238,7 @@ namespace Template {
                             await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                             break;
                         case songsAnswer.flowerfield:
+                            dataToSave.specialText++;
                             mutePianoMusic();
                             fS.Sound.play(sound.pianoSongFlowerfield, 0);
                             fS.Sound.fade(sound.pianoSongFlowerfield, 0.3, 1.5, true);
@@ -253,6 +258,7 @@ namespace Template {
 
                 //-------------------plants  
                 case whatToDoAnswer.pflanzen:
+                    dataToSave.specialText++;
                     if (!dataToSave.plantsOnDayOne) {
                         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
                         await fS.Location.show(location.miraRoom);
@@ -280,6 +286,7 @@ namespace Template {
 
                 //-------------------tetris
                 case whatToDoAnswer.tetris:
+                    dataToSave.specialText++;
                     await fS.Character.hide(characters.Mira);
                     await fS.Location.show(location.miraRoomLaptop);
                     await fS.update();
@@ -307,6 +314,7 @@ namespace Template {
 
                 //-------------------lernen
                 case whatToDoAnswer.lernen:
+                    dataToSave.specialText++;
                     await fS.Character.hide(characters.Mira);
                     await fS.Location.show(location.miraRoomEnglish);
                     await fS.update();
