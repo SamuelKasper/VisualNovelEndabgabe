@@ -19,7 +19,7 @@ namespace Template {
                 T0006: "NICK?",
                 T0007: "...",
                 T0008: "Scheint keiner da zu sein. Vielleicht wissen ja die Nachbarn wo er ist oder wann er wieder kommt.",
-                T0009: "Oh, hey Josh. Ich wollte dich eigenlich eben fragen ob du weist wo Nick hingegangen ist.",
+                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen ob du weist wo Nick hingegangen ist.",
                 T0010: "Oh okay, naja danke trotzden.",
                 T0011: "Bis dann.",
                 T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
@@ -81,11 +81,8 @@ namespace Template {
         await fS.Speech.tell(characters.Mira, text.Mira.T0003);
         await fS.Character.hide(characters.Mira);
         fS.Speech.hide();
-        await fS.Location.show(location.black);
-        await fS.update(1);
-        await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Location.show(location.nicksRoomDoor);
-        await fS.update(1);
+        await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
         await fS.Speech.tell(characters.Narrator, text.Narrator.T0000);

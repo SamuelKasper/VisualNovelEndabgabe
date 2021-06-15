@@ -1125,7 +1125,7 @@ var Template;
             }
         },
         Nachbar: {
-            name: "Josh: ",
+            name: "Elias: ",
             origin: Template.fS.ORIGIN.BOTTOMCENTER,
             pose: {
                 good: "Images/Characters/Nachbar/Nachbar_good.png",
@@ -1204,19 +1204,18 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-                  { scene: WakeUp, name: "WakeUp" },
-                  //bad scenes
-                  { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
-                  { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
-                  { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
-                  //neutral scenes
-                  { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
-                  { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
-                  { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
-                  //good scenes
-                  { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-                  { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
+            { scene: Template.WakeUp, name: "WakeUp" },
+            //bad scenes
+            { id: "DontRememberBirthday", scene: Template.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: Template.WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: Template.BadEnding, name: "BadEnding", next: "endOfNovel" },
+            //neutral scenes
+            { id: "RememberWhilePiano", scene: Template.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Template.NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: Template.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            //good scenes
+            { id: "NicksBirthday", scene: Template.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Template.AnswerFromNick, name: "AnswerFromNick" },
             { id: "NickNotAtHome", scene: Template.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Template.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Template.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
@@ -1274,7 +1273,7 @@ var Template;
                 T0006: "NICK?",
                 T0007: "...",
                 T0008: "Scheint keiner da zu sein. Vielleicht wissen ja die Nachbarn wo er ist oder wann er wieder kommt.",
-                T0009: "Oh, hey Josh. Ich wollte dich eigenlich eben fragen ob du weist wo Nick hingegangen ist.",
+                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen ob du weist wo Nick hingegangen ist.",
                 T0010: "Oh okay, naja danke trotzden.",
                 T0011: "Bis dann.",
                 T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
@@ -1331,11 +1330,8 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.Mira, text.Mira.T0003);
         await Template.fS.Character.hide(Template.characters.Mira);
         Template.fS.Speech.hide();
-        await Template.fS.Location.show(Template.location.black);
-        await Template.fS.update(1);
-        await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Location.show(Template.location.nicksRoomDoor);
-        await Template.fS.update(1);
+        await Template.fS.update(Template.transition.swipe.duration, Template.transition.swipe.alpha, Template.transition.swipe.edge);
         await Template.fS.Character.show(Template.characters.Mira, Template.characters.Mira.pose.neutral, Template.fS.positions.bottomcenter);
         await Template.fS.update();
         await Template.fS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
@@ -2032,7 +2028,6 @@ var Template;
         await Template.fS.update(2);
         return "BadEnding1";
         async function whatToDo() {
-            let signalDelay2s = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
                 pflanzen: "Pflanzen gießen",
@@ -2055,7 +2050,7 @@ var Template;
                     await Template.fS.Speech.tell(Template.characters.Mira, "Hm, irgendwie kommt mir diese Melodie bekannt vor. Aber woher?");
                     await Template.fS.Speech.tell(Template.characters.Mira, "", true, "hiddenText");
                     await Template.fS.Speech.tell(Template.characters.Mira, "...");
-                    signalDelay2s();
+                    Template.signalDelay2s();
                     await Template.fS.Speech.tell(Template.characters.Mira, "Jetzt weis ich's. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
                     await Template.fS.Speech.tell(Template.characters.Mira, "Apropos, heute ist doch der dritte Februar. Da hat Nick Geburtstag.");
                     await Template.fS.Speech.tell(Template.characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbei schauen. Haben uns ja lange nicht gesehen.");
@@ -2204,6 +2199,7 @@ var Template;
         Template.fS.Speech.hide();
         while (true) {
             if (learningDone && plantsDone && tetrisDone && pianoDone) {
+                Template.fS.Character.hideAll();
                 Template.mutePianoMusic();
                 Template.fS.Sound.fade(Template.sound.overworldTheme, 0.2, 1, true);
                 break;

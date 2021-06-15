@@ -47,7 +47,6 @@ namespace Template {
         return "BadEnding1";
 
         async function whatToDo(): fS.SceneReturn {
-            let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
     
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
