@@ -1,1 +1,1 @@
-Link zur Visual Novel: 
+Link zur Visual Novel: https://samuelkasper.github.io/VisualNovelEndabgabe/Endabgabe/index.html
