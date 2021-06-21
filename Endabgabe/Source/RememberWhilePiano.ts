@@ -44,7 +44,7 @@ namespace Endabgabe {
         await fS.update();
         await fS.Location.show(location.black);
         await fS.update(2);
-        return "BadEnding1";
+        return "WaitForAnswer";
 
         async function whatToDo(): fS.SceneReturn {
     

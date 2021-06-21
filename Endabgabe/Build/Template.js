@@ -2055,7 +2055,7 @@ var Endabgabe;
         await Endabgabe.fS.update();
         await Endabgabe.fS.Location.show(Endabgabe.location.black);
         await Endabgabe.fS.update(2);
-        return "BadEnding1";
+        return "WaitForAnswer";
         async function whatToDo() {
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
