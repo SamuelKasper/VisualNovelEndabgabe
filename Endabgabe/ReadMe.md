@@ -1,0 +1,1 @@
+Link zur Visual Novel: 

@@ -1,22 +1,22 @@
-declare namespace Template {
+declare namespace Endabgabe {
     function AnswerFromNick(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function BadEnding(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function DontRememberBirthday(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function EndOfNovel(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function FinalConversation(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function GoodEnding(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let sound: {
@@ -223,24 +223,24 @@ declare namespace Template {
     function mutePianoMusic(): void;
     let signalDelay2s: fS.Signal;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function NeutralEnding(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function NickNotAtHome(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function NicksBirthday(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function NoAnswerFromNick(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function RememberWhilePiano(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function WaitForAnswer(): fS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Endabgabe {
     function WakeUp(): fS.SceneReturn;
 }
