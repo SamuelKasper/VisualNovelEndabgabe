@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function NoAnswerFromNick(): fS.SceneReturn {
         console.log("NoAnswerFromNick: starting");
 

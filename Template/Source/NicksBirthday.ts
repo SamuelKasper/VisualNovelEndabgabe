@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function NicksBirthday(): fS.SceneReturn {
         console.log("NicksBirthday: starting");
 

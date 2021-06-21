@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function DontRememberBirthday(): fS.SceneReturn {
         console.log("DontRememberBirthday: starting");
 

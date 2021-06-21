@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function BadEnding(): fS.SceneReturn {
         console.log("BadEnding: starting");
         fS.Character.hideAll();

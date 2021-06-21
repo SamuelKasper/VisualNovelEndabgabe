@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function NickNotAtHome(): fS.SceneReturn {
         let nicksRoom: boolean = false;
         let bathroom: boolean = false;

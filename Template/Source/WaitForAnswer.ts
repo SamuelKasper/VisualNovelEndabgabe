@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function WaitForAnswer(): fS.SceneReturn {
         console.log("WaitForAnswer: starting");
 

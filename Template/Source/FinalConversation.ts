@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function FinalConversation(): fS.SceneReturn {
         let text = {
             Mira: {

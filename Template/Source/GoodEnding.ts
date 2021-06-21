@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function GoodEnding(): fS.SceneReturn {
         console.log("goodEnding: starting");
         console.log(dataToSave.specialText); //23 wenn alles mitgenommen

@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function RememberWhilePiano(): fS.SceneReturn {
         console.log("RememberWhilePiano: starting");
 

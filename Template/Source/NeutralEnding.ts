@@ -1,4 +1,4 @@
-namespace Template{
+namespace Endabgabe{
     export async function NeutralEnding(): fS.SceneReturn {
         console.log("neutralEnding: starting");
         fS.Character.hideAll();

@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
   export async function WakeUp(): fS.SceneReturn {
     console.log("WakeUp: starting");
 

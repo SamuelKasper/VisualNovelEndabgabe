@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
   export import f = FudgeCore;
   export import fS = FudgeStory;
 

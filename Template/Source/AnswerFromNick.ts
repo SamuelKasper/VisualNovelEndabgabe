@@ -1,4 +1,4 @@
-namespace Template {
+namespace Endabgabe {
     export async function AnswerFromNick(): fS.SceneReturn {
         let plantsDone: boolean = false;
         let tetrisDone: boolean = false;
