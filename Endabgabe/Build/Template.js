@@ -1226,20 +1226,19 @@ var Endabgabe;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            /*
-                  { scene: WakeUp, name: "WakeUp" },
-                  //bad scenes
-                  { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
-                  { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
-                  { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
-                  //neutral scenes
-                  { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
-                  { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
-                  { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
-                  //good scenes
-                  { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-                  { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
-                  { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },*/
+            { scene: Endabgabe.WakeUp, name: "WakeUp" },
+            //bad scenes
+            { id: "DontRememberBirthday", scene: Endabgabe.DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: Endabgabe.WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: Endabgabe.BadEnding, name: "BadEnding", next: "endOfNovel" },
+            //neutral scenes
+            { id: "RememberWhilePiano", scene: Endabgabe.RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: Endabgabe.NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: Endabgabe.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            //good scenes
+            { id: "NicksBirthday", scene: Endabgabe.NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: Endabgabe.AnswerFromNick, name: "AnswerFromNick" },
+            { id: "NickNotAtHome", scene: Endabgabe.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Endabgabe.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Endabgabe.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
             //last Scene in Novel
