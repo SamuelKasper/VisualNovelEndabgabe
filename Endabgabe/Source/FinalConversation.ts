@@ -13,7 +13,7 @@ namespace Endabgabe {
                 T0007: "Mist, kein Netz.",
                 T0008: "Egal, dann halt nicht.",
 
-                T0009: "Erstmal schauen ob er verletzt ist.",
+                T0009: "Erstmal schauen, ob er verletzt ist.",
                 T0010: "Sind das da an deinen Armen... Nick... warum nur...",
                 T0011: "Egal, das hat Zeit bis später. Ich muss ihn erstmal nach Hause bringen bevor es noch mit Regen anfängt!",
                 T0012: "Jetzt heist es warten...",
@@ -22,13 +22,13 @@ namespace Endabgabe {
                 T0014: "Was ich hier mache?",
                 T0015: "Ich hab dich bewusstlos in unserem alten Geheimversteck gefunden und nach Hause getragen.",
                 T0016: "Sag du mir lieber mal was das für ne Aktion war?",
-                T0017: "Was bitte hattest du den vor? Was wenn ich dich nicht gefunden hätte?",
+                T0017: "Was bitte hattest du denn vor? Was wenn ich dich nicht gefunden hätte?",
                 T0018: "Wie weg? Wohin?",
 
                 T0019: "Die Narben...",
                 T0020: "W..Warst du das?",
 
-                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht das du sowas machst.",
+                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht dass du sowas machst.",
 
                 T0022: "Glaubst du, dass du depressiv bist?",
                 T0023: "Kennst du den Grund dafür? Also gibt es vielleicht etwas das dich runter zieht?",
@@ -42,10 +42,10 @@ namespace Endabgabe {
 
                 T0030: "Was redest du da?",
                 T0031: "NICK! Hör auf!",
-                T0032: "Es reicht! Hör auf sowas zu sagen! Ich bin froh das du existierst. ",
+                T0032: "Es reicht! Hör auf sowas zu sagen! Ich bin froh, dass du existierst. ",
 
                 T0033: "Denkst du oft über sowas nach?",
-                T0034: "Ja, also das es besser wäre wenn du nicht existieren würdest...",
+                T0034: "Ja, also dass es besser wäre wenn du nicht existieren würdest...",
                 T0035: "Sowas meine ich...",
                 T0036: "... Ich weis nicht.",
                 T0037: "Eigentlich nicht, nein...",
@@ -61,7 +61,7 @@ namespace Endabgabe {
                 T0001: "Wo ... bin ich?",
                 T0002: "M.. Mira? Was machst du hier?",
                 T0003: "... ich",
-                T0004: "... ich wollte weg..von hier.",
+                T0004: "... ich wollte weg... von hier.",
                 T0005: "... ist doch egal! Einfach weg! Ich halts nicht mehr aus...",
                 T0006: "... Ich ...will nicht mehr...",
 
@@ -76,10 +76,10 @@ namespace Endabgabe {
                 T0015: "Du hast ja auch zu tun.",
                 T0016: "Da musst du dich nicht auch noch um meine Probleme kümmern.",
 
-                T0017: "Ich will nicht das du auch noch unter meinen Problemen leidest...",
+                T0017: "Ich will nicht, dass du auch noch unter meinen Problemen leidest...",
                 T0018: "Ich will dich nicht auch noch zusätzlich belasten...",
-                T0019: "Es reicht doch schon das ich unter meinen Problemen leide...",
-                T0020: "Nein.. Deswegen wäre es vielleicht auch besser wenn ich nicht weiter existieren würde...",
+                T0019: "Es reicht doch schon dass ich unter meinen Problemen leide...",
+                T0020: "Nein.. Deswegen wäre es vielleicht auch besser, wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
 
                 T0022: "Naja das wäre doch für alle das Beste.",

@@ -325,6 +325,7 @@ namespace Endabgabe {
   }
 
   let gameMenu: fS.Menu;
+  console.log(gameMenu);
   async function Menu(_option: string): Promise<void> {
     switch (_option) {
       case gameMenuOptions.save:

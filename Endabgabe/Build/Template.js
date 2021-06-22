@@ -294,17 +294,17 @@ var Endabgabe;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomEnglish);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch drann.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "indirekte Rede...");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch dran.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Indirekte Rede...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "this wird zu that... now zu then und ago zu before");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "This wird zu that... now zu then und ago zu before.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei Gelegenheit mal noch ein paar Beispiele anschauen.");
                     Endabgabe.fS.Speech.hide();
                     learningDone = true;
                     break;
@@ -486,7 +486,7 @@ var Endabgabe;
                 T0006: "Ich sollte einen Krankenwagen rufen!",
                 T0007: "Mist, kein Netz.",
                 T0008: "Egal, dann halt nicht.",
-                T0009: "Erstmal schauen ob er verletzt ist.",
+                T0009: "Erstmal schauen, ob er verletzt ist.",
                 T0010: "Sind das da an deinen Armen... Nick... warum nur...",
                 T0011: "Egal, das hat Zeit bis später. Ich muss ihn erstmal nach Hause bringen bevor es noch mit Regen anfängt!",
                 T0012: "Jetzt heist es warten...",
@@ -494,11 +494,11 @@ var Endabgabe;
                 T0014: "Was ich hier mache?",
                 T0015: "Ich hab dich bewusstlos in unserem alten Geheimversteck gefunden und nach Hause getragen.",
                 T0016: "Sag du mir lieber mal was das für ne Aktion war?",
-                T0017: "Was bitte hattest du den vor? Was wenn ich dich nicht gefunden hätte?",
+                T0017: "Was bitte hattest du denn vor? Was wenn ich dich nicht gefunden hätte?",
                 T0018: "Wie weg? Wohin?",
                 T0019: "Die Narben...",
                 T0020: "W..Warst du das?",
-                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht das du sowas machst.",
+                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht dass du sowas machst.",
                 T0022: "Glaubst du, dass du depressiv bist?",
                 T0023: "Kennst du den Grund dafür? Also gibt es vielleicht etwas das dich runter zieht?",
                 T0024: "...",
@@ -509,9 +509,9 @@ var Endabgabe;
                 T0029: "...Aber zu es über sich ergehen zu lassen macht es doch auch nicht besser!",
                 T0030: "Was redest du da?",
                 T0031: "NICK! Hör auf!",
-                T0032: "Es reicht! Hör auf sowas zu sagen! Ich bin froh das du existierst. ",
+                T0032: "Es reicht! Hör auf sowas zu sagen! Ich bin froh, dass du existierst. ",
                 T0033: "Denkst du oft über sowas nach?",
-                T0034: "Ja, also das es besser wäre wenn du nicht existieren würdest...",
+                T0034: "Ja, also dass es besser wäre wenn du nicht existieren würdest...",
                 T0035: "Sowas meine ich...",
                 T0036: "... Ich weis nicht.",
                 T0037: "Eigentlich nicht, nein...",
@@ -526,7 +526,7 @@ var Endabgabe;
                 T0001: "Wo ... bin ich?",
                 T0002: "M.. Mira? Was machst du hier?",
                 T0003: "... ich",
-                T0004: "... ich wollte weg..von hier.",
+                T0004: "... ich wollte weg... von hier.",
                 T0005: "... ist doch egal! Einfach weg! Ich halts nicht mehr aus...",
                 T0006: "... Ich ...will nicht mehr...",
                 T0007: "... ja",
@@ -539,10 +539,10 @@ var Endabgabe;
                 T0014: "Ich wollte dich eigentlich nicht mit sowas belasten...",
                 T0015: "Du hast ja auch zu tun.",
                 T0016: "Da musst du dich nicht auch noch um meine Probleme kümmern.",
-                T0017: "Ich will nicht das du auch noch unter meinen Problemen leidest...",
+                T0017: "Ich will nicht, dass du auch noch unter meinen Problemen leidest...",
                 T0018: "Ich will dich nicht auch noch zusätzlich belasten...",
-                T0019: "Es reicht doch schon das ich unter meinen Problemen leide...",
-                T0020: "Nein.. Deswegen wäre es vielleicht auch besser wenn ich nicht weiter existieren würde...",
+                T0019: "Es reicht doch schon dass ich unter meinen Problemen leide...",
+                T0020: "Nein.. Deswegen wäre es vielleicht auch besser, wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
                 T0022: "Naja das wäre doch für alle das Beste.",
                 T0023: "?",
@@ -1246,6 +1246,7 @@ var Endabgabe;
         credits: "Credits"
     };
     let gameMenu;
+    console.log(gameMenu);
     async function Menu(_option) {
         switch (_option) {
             case gameMenuOptions.save:
@@ -1353,7 +1354,7 @@ var Endabgabe;
                 T0000: "*Klopf Klopf*"
             },
             Mira: {
-                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch  schreiben das ich vorbei komme.",
+                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch schreiben, dass ich vorbei komme.",
                 T0001: "So, dann mal aufstehen, richten und frühstücken.",
                 T0002: "Jetzt ist 11:30 und er hat immer noch nicht geantwortet...",
                 T0003: "Naja ich geh einfach mal los. Wird schon klappen.",
@@ -1362,7 +1363,7 @@ var Endabgabe;
                 T0006: "NICK?",
                 T0007: "...",
                 T0008: "Scheint keiner da zu sein. Vielleicht wissen ja die Nachbarn wo er ist oder wann er wieder kommt.",
-                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen ob du weist wo Nick hingegangen ist.",
+                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen, ob du weist wo Nick hingegangen ist.",
                 T0010: "Oh okay, naja danke trotzden.",
                 T0011: "Bis dann.",
                 T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
@@ -1375,7 +1376,7 @@ var Endabgabe;
                 T0019: "Da ist er ja!",
                 T0020: "Okay, dann mal schauen...",
                 T0021: "Wo suche ich am besten als erstes?",
-                T0022: "Hier liegt immer noch das Foto von unseren früheren Geheimversteck...",
+                T0022: "Hier liegt immer noch das Foto von unserem früheren Geheimversteck...",
                 T0023: "Könnte es sein, dass er da ist?",
                 T0024: "Einen Versuch ist es ja wert...",
                 T0025: "Ich mache mich gleich auf den Weg."
@@ -1641,7 +1642,7 @@ var Endabgabe;
             Mira: {
                 T0000: "Hey Nick! Alles Gute zum Geburtstag.",
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
-                T0002: "Ach das macht doch nix. Erinnert mich an früher als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
+                T0002: "Ach das macht doch nix. Erinnert mich an früher, als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
                 T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
                 T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
@@ -1651,7 +1652,7 @@ var Endabgabe;
                 T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
                 T0002: "Komm doch rein.",
                 T0003: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
-                T0004: ": Ja.. Da hast du wohl Recht.",
+                T0004: "Ja.. Da hast du wohl Recht.",
                 T0005: "...",
                 T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
                 T0007: "Ja, unter anderem.",
@@ -1717,7 +1718,7 @@ var Endabgabe;
                 await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                 await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.good, Endabgabe.miraPosWhenBoth);
                 await Endabgabe.fS.update();
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Du weißt, dass du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
                 await Endabgabe.fS.Character.hide(Endabgabe.characters.Nick);
                 await Endabgabe.fS.Character.show(Endabgabe.characters.Nick, Endabgabe.characters.Nick.pose.good, Endabgabe.nickPosWhenBoth);
                 await Endabgabe.fS.update();
@@ -2213,7 +2214,7 @@ var Endabgabe;
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das hat Spaß gemacht.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kein Wunder dass das alle toll finden.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kein Wunder, dass das alle toll finden.");
                     break;
                 //-------------------lernen
                 case whatToDoAnswer.lernen:

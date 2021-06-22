@@ -145,7 +145,7 @@ namespace Endabgabe {
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Das hat Spaß gemacht.");
                     await fS.Speech.tell(characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
-                    await fS.Speech.tell(characters.Mira, "Kein Wunder dass das alle toll finden.");
+                    await fS.Speech.tell(characters.Mira, "Kein Wunder, dass das alle toll finden.");
                     break;
     
                 //-------------------lernen

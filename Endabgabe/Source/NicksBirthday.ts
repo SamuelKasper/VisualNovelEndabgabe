@@ -11,7 +11,7 @@ namespace Endabgabe {
             Mira: {
                 T0000: "Hey Nick! Alles Gute zum Geburtstag.",
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
-                T0002: "Ach das macht doch nix. Erinnert mich an früher als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
+                T0002: "Ach das macht doch nix. Erinnert mich an früher, als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
                 T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
                 T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
@@ -22,7 +22,7 @@ namespace Endabgabe {
                 T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
                 T0002: "Komm doch rein.",
                 T0003: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
-                T0004: ": Ja.. Da hast du wohl Recht.",
+                T0004: "Ja.. Da hast du wohl Recht.",
                 T0005: "...",
                 T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
                 T0007: "Ja, unter anderem.",
@@ -103,7 +103,7 @@ namespace Endabgabe {
                 await fS.Character.hide(characters.Mira);
                 await fS.Character.show(characters.Mira, characters.Mira.pose.good, miraPosWhenBoth);
                 await fS.update();
-                await fS.Speech.tell(characters.Mira, "Du weißt das du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
+                await fS.Speech.tell(characters.Mira, "Du weißt, dass du mich jeder Zeit anschreiben kannst, wenn du ein Problem hast.");
                 await fS.Character.hide(characters.Nick);
                 await fS.Character.show(characters.Nick, characters.Nick.pose.good, nickPosWhenBoth);
                 await fS.update();
