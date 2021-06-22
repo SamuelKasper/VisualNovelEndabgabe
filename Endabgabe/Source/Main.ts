@@ -279,6 +279,8 @@ namespace Endabgabe {
   //menu variables
   let showingMenu: boolean = true;
   let showingCredits: boolean = true;
+  let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
+  let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
 
   //key inputs
   document.addEventListener("keydown", hndKeypress);
@@ -318,7 +320,7 @@ namespace Endabgabe {
   let gameMenuOptions = {
     save: "Speichern",
     load: "Laden",
-    controls: "Steuerung",
+    control: "Steuerung",
     credits: "Credits"
   }
 
@@ -334,14 +336,13 @@ namespace Endabgabe {
       case gameMenuOptions.credits:
         showCredits();
         break;
-      case gameMenuOptions.controls:
+      case gameMenuOptions.control:
         showControls();
         break;
     }
   }
 
   function showCredits(): void {
-    let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
     if (showingCredits) {
       console.log("showing");
       creditsObj.style.display = "none";
@@ -349,18 +350,21 @@ namespace Endabgabe {
     } else {
       console.log("hidden");
       creditsObj.style.display = "flex";
+      controlsObj.style.display = "none";
+      showingControls = false;
       showingCredits = true;
     }
   }
 
   let showingControls: boolean = false;
   function showControls(): void {
-    let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("steuerung");
     if (showingControls) {
       controlsObj.style.display = "none";
       showingControls = false;
     } else {
       controlsObj.style.display = "flex";
+      creditsObj.style.display = "none";
+      showingCredits = false;
       showingControls = true;
     }
   }

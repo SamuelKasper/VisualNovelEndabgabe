@@ -157,7 +157,7 @@ dialog[type="inventory"] > ul > li > name{
   border: none;
 }
 
-#steuerung{
+#controls{
   display: none;
   justify-content: center;
   position: absolute;
@@ -172,12 +172,12 @@ dialog[type="inventory"] > ul > li > name{
   margin-top: 20%;
 }
 
-#steuerung th{
+#controls th{
   padding-right: 70px;
   text-align: left;
 }
 
-#steuerung td{
+#controls td{
   padding-right: 70px;
   text-align: left;
 }

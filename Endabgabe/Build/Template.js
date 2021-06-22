@@ -1202,6 +1202,8 @@ var Endabgabe;
     //menu variables
     let showingMenu = true;
     let showingCredits = true;
+    let controlsObj = document.getElementById("controls");
+    let creditsObj = document.getElementById("credit");
     //key inputs
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -1240,7 +1242,7 @@ var Endabgabe;
     let gameMenuOptions = {
         save: "Speichern",
         load: "Laden",
-        controls: "Steuerung",
+        control: "Steuerung",
         credits: "Credits"
     };
     let gameMenu;
@@ -1255,13 +1257,12 @@ var Endabgabe;
             case gameMenuOptions.credits:
                 showCredits();
                 break;
-            case gameMenuOptions.controls:
+            case gameMenuOptions.control:
                 showControls();
                 break;
         }
     }
     function showCredits() {
-        let creditsObj = document.getElementById("credit");
         if (showingCredits) {
             console.log("showing");
             creditsObj.style.display = "none";
@@ -1270,18 +1271,21 @@ var Endabgabe;
         else {
             console.log("hidden");
             creditsObj.style.display = "flex";
+            controlsObj.style.display = "none";
+            showingControls = false;
             showingCredits = true;
         }
     }
     let showingControls = false;
     function showControls() {
-        let controlsObj = document.getElementById("steuerung");
         if (showingControls) {
             controlsObj.style.display = "none";
             showingControls = false;
         }
         else {
             controlsObj.style.display = "flex";
+            creditsObj.style.display = "none";
+            showingCredits = false;
             showingControls = true;
         }
     }
