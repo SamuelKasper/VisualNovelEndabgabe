@@ -1199,6 +1199,9 @@ var Endabgabe;
       duration: 2,
       playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
     };*/
+    //menu variables
+    let showingMenu = true;
+    let showingCredits = true;
     //key inputs
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -1221,15 +1224,24 @@ var Endabgabe;
                     console.log("Inventory already open");
                 }
                 break;
+            case Endabgabe.f.KEYBOARD_CODE.M:
+                let menuObj = document.getElementsByClassName("gameMenu")[0];
+                if (showingMenu) {
+                    menuObj.style.display = "none";
+                    showingMenu = false;
+                }
+                else {
+                    menuObj.style.display = "block";
+                    showingMenu = true;
+                }
         }
     }
     //OutOfGameMenu
     let gameMenuOptions = {
         save: "Speichern",
         load: "Laden",
-        close: "Schließen",
-        credits: "Credits",
-        controls: "Steuerung"
+        controls: "Steuerung",
+        credits: "Credits"
     };
     let gameMenu;
     async function Menu(_option) {
@@ -1243,16 +1255,35 @@ var Endabgabe;
             case gameMenuOptions.credits:
                 showCredits();
                 break;
-            case gameMenuOptions.close:
-                gameMenu.close();
-                break;
             case gameMenuOptions.controls:
-                //Text mit Menü schließen/öffnen, Inventar etc
+                showControls();
                 break;
         }
     }
     function showCredits() {
-        console.log("open credits");
+        let creditsObj = document.getElementById("credit");
+        if (showingCredits) {
+            console.log("showing");
+            creditsObj.style.display = "none";
+            showingCredits = false;
+        }
+        else {
+            console.log("hidden");
+            creditsObj.style.display = "flex";
+            showingCredits = true;
+        }
+    }
+    let showingControls = false;
+    function showControls() {
+        let controlsObj = document.getElementById("steuerung");
+        if (showingControls) {
+            controlsObj.style.display = "none";
+            showingControls = false;
+        }
+        else {
+            controlsObj.style.display = "flex";
+            showingControls = true;
+        }
     }
     gameMenu = Endabgabe.fS.Menu.create(gameMenuOptions, Menu, "gameMenu");
     window.addEventListener("load", start);

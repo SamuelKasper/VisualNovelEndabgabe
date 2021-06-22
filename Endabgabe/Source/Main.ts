@@ -275,6 +275,11 @@ namespace Endabgabe {
     playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
   };*/
 
+
+  //menu variables
+  let showingMenu: boolean = true;
+  let showingCredits: boolean = true;
+
   //key inputs
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
@@ -296,16 +301,25 @@ namespace Endabgabe {
           console.log("Inventory already open");
         }
         break;
+      case f.KEYBOARD_CODE.M:
+        let menuObj: HTMLDialogElement = <HTMLDialogElement>document.getElementsByClassName("gameMenu")[0];
+        if (showingMenu) {
+          menuObj.style.display = "none";
+          showingMenu = false;
+        } else {
+          menuObj.style.display = "block";
+          showingMenu = true;
+        }
     }
+
   }
 
   //OutOfGameMenu
   let gameMenuOptions = {
     save: "Speichern",
     load: "Laden",
-    close: "Schließen",
-    credits: "Credits",
-    controls: "Steuerung"
+    controls: "Steuerung",
+    credits: "Credits"
   }
 
   let gameMenu: fS.Menu;
@@ -320,17 +334,35 @@ namespace Endabgabe {
       case gameMenuOptions.credits:
         showCredits();
         break;
-      case gameMenuOptions.close:
-        gameMenu.close();
-        break;
       case gameMenuOptions.controls:
-        //Text mit Menü schließen/öffnen, Inventar etc
+        showControls();
         break;
     }
   }
 
   function showCredits(): void {
-    console.log("open credits");
+    let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
+    if (showingCredits) {
+      console.log("showing");
+      creditsObj.style.display = "none";
+      showingCredits = false;
+    } else {
+      console.log("hidden");
+      creditsObj.style.display = "flex";
+      showingCredits = true;
+    }
+  }
+
+  let showingControls: boolean = false;
+  function showControls(): void {
+    let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("steuerung");
+    if (showingControls) {
+      controlsObj.style.display = "none";
+      showingControls = false;
+    } else {
+      controlsObj.style.display = "flex";
+      showingControls = true;
+    }
   }
 
   gameMenu = fS.Menu.create(gameMenuOptions, Menu, "gameMenu");
