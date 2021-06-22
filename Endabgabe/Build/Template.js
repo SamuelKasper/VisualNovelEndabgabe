@@ -1223,6 +1223,38 @@ var Endabgabe;
                 break;
         }
     }
+    //OutOfGameMenu
+    let gameMenuOptions = {
+        save: "Speichern",
+        load: "Laden",
+        close: "Schließen",
+        credits: "Credits",
+        controls: "Steuerung"
+    };
+    let gameMenu;
+    async function Menu(_option) {
+        switch (_option) {
+            case gameMenuOptions.save:
+                await Endabgabe.fS.Progress.save();
+                break;
+            case gameMenuOptions.load:
+                await Endabgabe.fS.Progress.load();
+                break;
+            case gameMenuOptions.credits:
+                showCredits();
+                break;
+            case gameMenuOptions.close:
+                gameMenu.close();
+                break;
+            case gameMenuOptions.controls:
+                //Text mit Menü schließen/öffnen, Inventar etc
+                break;
+        }
+    }
+    function showCredits() {
+        console.log("open credits");
+    }
+    gameMenu = Endabgabe.fS.Menu.create(gameMenuOptions, Menu, "gameMenu");
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [

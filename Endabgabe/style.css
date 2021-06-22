@@ -128,3 +128,23 @@ dialog[type="inventory"] > ul > li > description{
 dialog[type="inventory"] > ul > li > name{
   display: none;
 }
+
+.gameMenu{
+  background-color: transparent;
+  border: solid 2px black;
+  border-radius: 5px;
+  padding: 0px;
+  height: 30px;
+  position: absolute;
+  top: 5px
+}
+
+.gameMenu button{
+  height: 30px;
+  vertical-align: top;
+  font-size: 16px;
+  background-color: rgb(233, 233, 233);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}

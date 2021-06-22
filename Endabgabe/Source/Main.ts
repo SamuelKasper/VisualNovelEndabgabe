@@ -299,6 +299,42 @@ namespace Endabgabe {
     }
   }
 
+  //OutOfGameMenu
+  let gameMenuOptions = {
+    save: "Speichern",
+    load: "Laden",
+    close: "Schließen",
+    credits: "Credits",
+    controls: "Steuerung"
+  }
+
+  let gameMenu: fS.Menu;
+  async function Menu(_option: string): Promise<void> {
+    switch (_option) {
+      case gameMenuOptions.save:
+        await fS.Progress.save();
+        break;
+      case gameMenuOptions.load:
+        await fS.Progress.load();
+        break;
+      case gameMenuOptions.credits:
+        showCredits();
+        break;
+      case gameMenuOptions.close:
+        gameMenu.close();
+        break;
+      case gameMenuOptions.controls:
+        //Text mit Menü schließen/öffnen, Inventar etc
+        break;
+    }
+  }
+
+  function showCredits(): void {
+    console.log("open credits");
+  }
+
+  gameMenu = fS.Menu.create(gameMenuOptions, Menu, "gameMenu");
+
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
