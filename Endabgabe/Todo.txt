@@ -7,8 +7,7 @@
 ------------------------------------------------- Musik
 - Tetris lauter im vergleich zu Background theme
 
-------------------------------------------------- Anderes: 
-- Name oberhalb des gesprochenen Textes
+------------------------------------------------- Anderes:
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 - Rechtschreibung korregieren
 - Diagram aktualisieren!

@@ -112,7 +112,12 @@ dialog[type="inventory"] > ul{
 dialog[type="inventory"] > ul > li{
   list-style: none;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+dialog[type="inventory"] img{
+  right: 30px;
+  position: absolute;
 }
 
 dialog[type="inventory"] > ul > li > amount{
@@ -123,6 +128,7 @@ dialog[type="inventory"] > ul > li > description{
   color: black;
   padding-top: 15px;
   padding-left: 50px;
+  padding-right: 150px;
 }
 
 dialog[type="inventory"] > ul > li > name{
