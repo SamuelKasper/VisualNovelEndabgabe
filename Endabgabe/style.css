@@ -1,3 +1,14 @@
+body dialog > div{
+  background-color: #dbafa2 !important;
+}
+
+body dialog > div p{
+  color: white;
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
 scene {
   width: 1280px;
   height: 720px;
