@@ -1,9 +1,7 @@
 ------------------------------------------------- TASKS
 (- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
 - Item (zahlencode & bild versteck) nicht aus Inventar nach anklicken
-- Splash Image
 - Ausschalten das es beim drücken von tasten wie credits oder steuerung weiter geht
-- Inventar hässlich wenn beide items drin sind
 ------------------------------------------------- Musik
 - Tetris lauter im vergleich zu Background theme
 

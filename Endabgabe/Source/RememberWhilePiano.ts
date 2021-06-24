@@ -108,7 +108,7 @@ namespace Endabgabe {
                     await fS.Location.show(location.miraRoom);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Hier ein bisschen Wasser für euch.");
-                    await fS.Sound.fade(sound.wateringPlants, 0.3, 1);
+                    await fS.Sound.fade(sound.wateringPlants, 0.2, 1);
                     await fS.Character.hide(characters.Mira);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
@@ -129,7 +129,7 @@ namespace Endabgabe {
                     await fS.Speech.tell(characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     fS.Sound.fade(sound.overworldTheme, 0, 0.3, false);
-                    fS.Sound.fade(sound.tetris, 0.2, 1.5, true);
+                    fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
                     await fS.Location.show(location.black)

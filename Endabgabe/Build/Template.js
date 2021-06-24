@@ -242,7 +242,7 @@ var Endabgabe;
                         await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
                         await Endabgabe.fS.update();
                         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.3, 1);
+                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.2, 1);
                         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                         await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                         await Endabgabe.fS.update();
@@ -271,7 +271,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.3, true);
-                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.2, 1.5, true);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -403,7 +403,7 @@ var Endabgabe;
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                    await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.3, 1);
+                    await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.2, 1);
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                     await Endabgabe.fS.update();
@@ -423,7 +423,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.3, false);
-                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.2, 1.5, true);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -2012,7 +2012,7 @@ var Endabgabe;
                         await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
                         await Endabgabe.fS.update();
                         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.3, 1);
+                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.2, 1);
                         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                         await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                         await Endabgabe.fS.update();
@@ -2040,7 +2040,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.3, true);
-                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.2, 1.5, true);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -2179,7 +2179,7 @@ var Endabgabe;
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                    await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.3, 1);
+                    await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.2, 1);
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                     await Endabgabe.fS.update();
@@ -2199,7 +2199,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.3, false);
-                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.2, 1.5, true);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -2401,7 +2401,7 @@ var Endabgabe;
                         await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
                         await Endabgabe.fS.update();
                         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ein bisschen Wasser für euch.");
-                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.3, 1);
+                        await Endabgabe.fS.Sound.fade(Endabgabe.sound.wateringPlants, 0.2, 1);
                         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                         await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                         await Endabgabe.fS.update();
@@ -2429,7 +2429,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Okay, los gehts.");
                     //start tetris musik
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.3, true);
-                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.2, 1.5, true);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
