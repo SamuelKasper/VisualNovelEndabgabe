@@ -1736,9 +1736,9 @@ var Endabgabe;
             },
             Mira: {
                 T0000: "...",
-                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie füher eben...",
+                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an wenns dir passt.",
+                T0003: "Naja, dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
                 T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen... ",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
@@ -1749,14 +1749,14 @@ var Endabgabe;
                 T0011: "Was mache ich denn bis dahin?",
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
-                T0014: "Viellecht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
+                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
                 T0015: "So, jetzt heißt es wieder warten.",
-                T0016: "Vielleicht sollte ich nochmal Mathe lernen. Da hänge ich eh noch hinterher.",
+                T0016: "Vielleicht sollte ich nochmal Mathematik lernen. Da hänge ich eh noch hinterher.",
                 T0017: "...",
-                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
                 T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
-                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, ich glaube das stimmt nicht.",
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
@@ -1864,9 +1864,9 @@ var Endabgabe;
                 await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                 await Endabgabe.fS.update();
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Echt jetzt, wo bleibt der... 2 Stunden gewartet für nichts. Da hätte ich meine Zeit sinnvoller nutzen können!");
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich hoffe er hat einen guten Grund dafür!");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich hoffe, er hat einen guten Grund dafür!");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mir doch nochmal Mathe anschauen. Dann war der Tag immerhin nicht völlig umsonst.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mir doch nochmal Mathematik anschauen. Dann war der Tag immerhin nicht völlig umsonst.");
                 waitForNick = true;
                 break;
             case waitOrMathAnswer.lernen:
@@ -1896,7 +1896,7 @@ var Endabgabe;
         if (waitForNick) {
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Keine Nachrichten...");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Na danke auch! Lässt mich hier den ganzen Tag warten und meldet sich nicht!");
-            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich morgen persöhnlich fragen was sein Problem ist! Wobei... am Ende macht er mir garnicht auf.");
+            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich morgen persönlich fragen, was sein Problem ist! Wobei... am Ende macht er mir gar nicht auf.");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oder ich bereite mich auf meine Prüfungen vor...");
             let visitOrLearnAnswer = {
                 besuchen: "Nick besuchen",
@@ -1932,7 +1932,7 @@ var Endabgabe;
         await Endabgabe.fS.update(1);
         await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
         await Endabgabe.fS.update();
-        await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Naja, dann nutze ich den restlichen Tag mal noch zum lernen und schaue dann morgen mal bei ihm vorbei.");
+        await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Naja, dann nutze ich den restlichen Tag mal noch um zu lernen und schaue dann morgen mal bei ihm vorbei.");
         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
         Endabgabe.fS.Speech.hide();
         await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -2048,17 +2048,17 @@ var Endabgabe;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomEnglish);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch drann.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch dran.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Indirekte Rede...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "This wird zu that... now zu then und ago zu before");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "This wird zu that... now zu then und ago zu before.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei Gelegenheit mal noch ein paar Beispiele anschauen.");
                     Endabgabe.fS.Speech.hide();
                     learningDone = true;
                     break;
@@ -2134,9 +2134,9 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "", true, "hiddenText");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     Endabgabe.signalDelay2s();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jetzt weis ich's. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jetzt weiß ich es. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Apropos, heute ist doch der dritte Februar. Da hat Nick Geburtstag.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbei schauen. Haben uns ja lange nicht gesehen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbeischauen. Haben uns ja lange nicht gesehen.");
                     //Go to birthday or not
                     let hingehenAnswer = {
                         hingehen: "Hingehen",
@@ -2207,20 +2207,20 @@ var Endabgabe;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomMath);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Als erstes Mathe.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Als erstes Mathematik.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht dran?");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reellen Zahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jede reelle Zahl ist eine komplexe Zahl.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Assoziativgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kommutativgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Distributivgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oh je. Ich glaube, das muss ich mir später nochmal genauer anschauen.");
                     learningDone = true;
                     break;
             }
@@ -2243,9 +2243,9 @@ var Endabgabe;
                 T0001: "4.2... Warte?",
                 T0002: "Gestern hatte doch Nick Geburtstag und ich habe ganz vergessen ihm zu gratulieren.",
                 T0003: "Jetzt aber schnell!",
-                T0004: "Oh man.",
+                T0004: "Oh Mann.",
                 T0005: "Wie konnte ich das nur vergessen.",
-                T0006: "Ich hoffe er ist mir nicht böse.",
+                T0006: "Ich hoffe, er ist mir nicht böse.",
                 T0007: "Was steht denn heute an?"
             }
         };
@@ -2310,11 +2310,11 @@ var Endabgabe;
         Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 1, false);
         await Endabgabe.fS.update(1.5);
         await Endabgabe.signalDelay2s();
-        await Endabgabe.fS.Text.print("2 Wochen später - Nach den Prüfungen.");
-        await Endabgabe.fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
-        await Endabgabe.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await Endabgabe.fS.Text.print("2 Wochen später - nach den Prüfungen.");
+        await Endabgabe.fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei Nick vorbeizugehen, um zu schauen wie es ihm geht.");
+        await Endabgabe.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         Endabgabe.fS.Sound.fade(Endabgabe.sound.badEnding, 0.2, 1.5, true);
-        await Endabgabe.fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
+        await Endabgabe.fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
         Endabgabe.fS.Text.close();
         await Endabgabe.fS.update();
         return "BadEnding";
@@ -2437,17 +2437,17 @@ var Endabgabe;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomEnglish);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch drann.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "indirekte Rede...");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Heute ist dann wohl Englisch dran.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Indirekte Rede...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Present wird zu Simple Past.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Will wird zu would.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "this wird zu that... now zu then und ago zu before");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "This wird zu that... now zu then und ago zu before.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Da sollte ich mir bei Gelegenheit mal noch ein paar Beispiele anschauen.");
                     Endabgabe.fS.Speech.hide();
                     learningDone = true;
                     break;
@@ -2506,7 +2506,7 @@ var Endabgabe;
                 return "DontRememberBirthday";
             //News:
             case sleepNewsCalendarAnswer.news:
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Mal schauen ob's was neues gibt.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Mal schauen ob es was Neues gibt.");
                 Endabgabe.fS.Speech.hide();
                 await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomHandyNews);
                 await Endabgabe.fS.update();
@@ -2521,9 +2521,9 @@ var Endabgabe;
                 await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomHandyCalendar);
                 await Endabgabe.fS.update();
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "", true, "hiddenText");
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitv mal mit lernen anfangen.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitiv mal mit lernen anfangen.");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oh, heute hat Nick Geburtstag. Wir haben uns schon lange nicht mehr gesehen.");
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mal wieder bei Ihm vorbei schauen.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbeischauen.");
                 let goToBirthdayAnswer = {
                     go: "Hingehen",
                     dontGo: "Zuhause bleiben"

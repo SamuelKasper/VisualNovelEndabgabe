@@ -54,7 +54,7 @@ namespace Endabgabe {
 
       //News:
       case sleepNewsCalendarAnswer.news:
-        await fS.Speech.tell(characters.Mira, "Mal schauen ob's was neues gibt.")
+        await fS.Speech.tell(characters.Mira, "Mal schauen ob es was Neues gibt.")
         fS.Speech.hide();
         await fS.Location.show(location.miraRoomHandyNews);
         await fS.update();
@@ -70,9 +70,9 @@ namespace Endabgabe {
         await fS.Location.show(location.miraRoomHandyCalendar);
         await fS.update();
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-        await fS.Speech.tell(characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitv mal mit lernen anfangen.");
+        await fS.Speech.tell(characters.Mira, "Noch eine Woche bis zu den Prüfungen. Ich sollte heute definitiv mal mit lernen anfangen.");
         await fS.Speech.tell(characters.Mira, "Oh, heute hat Nick Geburtstag. Wir haben uns schon lange nicht mehr gesehen.");
-        await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei Ihm vorbei schauen.");
+        await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbeischauen.");
 
         let goToBirthdayAnswer = {
           go: "Hingehen",

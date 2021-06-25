@@ -73,9 +73,9 @@ namespace Endabgabe {
                     await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
                     await fS.Speech.tell(characters.Mira, "...");
                     signalDelay2s();
-                    await fS.Speech.tell(characters.Mira, "Jetzt weis ich's. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
+                    await fS.Speech.tell(characters.Mira, "Jetzt weiß ich es. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
                     await fS.Speech.tell(characters.Mira, "Apropos, heute ist doch der dritte Februar. Da hat Nick Geburtstag.");
-                    await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbei schauen. Haben uns ja lange nicht gesehen.");
+                    await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbeischauen. Haben uns ja lange nicht gesehen.");
     
                     //Go to birthday or not
                     let hingehenAnswer = {
@@ -153,20 +153,20 @@ namespace Endabgabe {
                     await fS.Character.hide(characters.Mira);
                     await fS.Location.show(location.miraRoomMath);
                     await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Als erstes Mathe.");
-                    await fS.Speech.tell(characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                    await fS.Speech.tell(characters.Mira, "Als erstes Mathematik.");
+                    await fS.Speech.tell(characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht dran?");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                    await fS.Speech.tell(characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reellen Zahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
                     await fS.Speech.tell(characters.Mira, "...");
                     await fS.Speech.tell(characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
                     await fS.Speech.tell(characters.Mira, "...");
                     await fS.Speech.tell(characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
-                    await fS.Speech.tell(characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
+                    await fS.Speech.tell(characters.Mira, "Jede reelle Zahl ist eine komplexe Zahl.");
                     await fS.Speech.tell(characters.Mira, "Assoziativgesetz...");
                     await fS.Speech.tell(characters.Mira, "Kommutativgesetz...");
                     await fS.Speech.tell(characters.Mira, "Distributivgesetz...");
                     await fS.Speech.tell(characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                    await fS.Speech.tell(characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
+                    await fS.Speech.tell(characters.Mira, "Oh je. Ich glaube, das muss ich mir später nochmal genauer anschauen.");
                     learningDone = true;
                     break;
             }

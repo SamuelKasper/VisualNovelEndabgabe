@@ -16,9 +16,9 @@ namespace Endabgabe {
 
             Mira: {
                 T0000: "...",
-                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie füher eben...",
+                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an wenns dir passt.",
+                T0003: "Naja, dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
                 T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen... ",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
@@ -30,15 +30,15 @@ namespace Endabgabe {
                 T0011: "Was mache ich denn bis dahin?",
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
-                T0014: "Viellecht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
+                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
                 T0015: "So, jetzt heißt es wieder warten.",
-                T0016: "Vielleicht sollte ich nochmal Mathe lernen. Da hänge ich eh noch hinterher.",
+                T0016: "Vielleicht sollte ich nochmal Mathematik lernen. Da hänge ich eh noch hinterher.",
 
                 T0017: "...",
-                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
                 T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
-                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, ich glaube das stimmt nicht.",
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
@@ -156,9 +156,9 @@ namespace Endabgabe {
                 await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                 await fS.update();
                 await fS.Speech.tell(characters.Mira, "Echt jetzt, wo bleibt der... 2 Stunden gewartet für nichts. Da hätte ich meine Zeit sinnvoller nutzen können!");
-                await fS.Speech.tell(characters.Mira, "Ich hoffe er hat einen guten Grund dafür!");
+                await fS.Speech.tell(characters.Mira, "Ich hoffe, er hat einen guten Grund dafür!");
                 await fS.Speech.tell(characters.Mira, "...");
-                await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mir doch nochmal Mathe anschauen. Dann war der Tag immerhin nicht völlig umsonst.");
+                await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mir doch nochmal Mathematik anschauen. Dann war der Tag immerhin nicht völlig umsonst.");
                 waitForNick = true;
                 break;
             case waitOrMathAnswer.lernen:
@@ -190,7 +190,7 @@ namespace Endabgabe {
         if (waitForNick) {
             await fS.Speech.tell(characters.Mira, "Keine Nachrichten...");
             await fS.Speech.tell(characters.Mira, "Na danke auch! Lässt mich hier den ganzen Tag warten und meldet sich nicht!");
-            await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich morgen persöhnlich fragen was sein Problem ist! Wobei... am Ende macht er mir garnicht auf.");
+            await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich morgen persönlich fragen, was sein Problem ist! Wobei... am Ende macht er mir gar nicht auf.");
             await fS.Speech.tell(characters.Mira, "Oder ich bereite mich auf meine Prüfungen vor...");
             let visitOrLearnAnswer = {
                 besuchen: "Nick besuchen",
@@ -225,7 +225,7 @@ namespace Endabgabe {
         await fS.update(1);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
-        await fS.Speech.tell(characters.Mira, "Naja, dann nutze ich den restlichen Tag mal noch zum lernen und schaue dann morgen mal bei ihm vorbei.");
+        await fS.Speech.tell(characters.Mira, "Naja, dann nutze ich den restlichen Tag mal noch um zu lernen und schaue dann morgen mal bei ihm vorbei.");
         await fS.Character.hide(characters.Mira);
         fS.Speech.hide();
         await fS.Location.show(location.black);
@@ -352,17 +352,17 @@ namespace Endabgabe {
                     await fS.Character.hide(characters.Mira);
                     await fS.Location.show(location.miraRoomEnglish);
                     await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch drann.");
+                    await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch dran.");
                     await fS.Speech.tell(characters.Mira, "Indirekte Rede...");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past");
+                    await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past.");
                     await fS.Speech.tell(characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Will wird zu would");
+                    await fS.Speech.tell(characters.Mira, "Will wird zu would.");
                     await fS.Speech.tell(characters.Mira, "...");
                     await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                    await fS.Speech.tell(characters.Mira, "This wird zu that... now zu then und ago zu before");
-                    await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    await fS.Speech.tell(characters.Mira, "This wird zu that... now zu then und ago zu before.");
+                    await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei Gelegenheit mal noch ein paar Beispiele anschauen.");
                     fS.Speech.hide();
                     learningDone = true;
                     break;

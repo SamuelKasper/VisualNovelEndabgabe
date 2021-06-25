@@ -14,9 +14,9 @@ namespace Endabgabe {
                 T0001: "4.2... Warte?",
                 T0002: "Gestern hatte doch Nick Geburtstag und ich habe ganz vergessen ihm zu gratulieren.",
                 T0003: "Jetzt aber schnell!",
-                T0004: "Oh man.",
+                T0004: "Oh Mann.",
                 T0005: "Wie konnte ich das nur vergessen.",
-                T0006: "Ich hoffe er ist mir nicht böse.",
+                T0006: "Ich hoffe, er ist mir nicht böse.",
                 T0007: "Was steht denn heute an?"
             }
         }
@@ -82,11 +82,11 @@ namespace Endabgabe {
         fS.Sound.fade(sound.overworldTheme, 0, 1, false);
         await fS.update(1.5);
         await signalDelay2s();
-        await fS.Text.print("2 Wochen später - Nach den Prüfungen.");
-        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
-        await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await fS.Text.print("2 Wochen später - nach den Prüfungen.");
+        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei Nick vorbeizugehen, um zu schauen wie es ihm geht.");
+        await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
-        await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp ein einhalb Wochen selbst umgebracht hat.");
+        await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
         fS.Text.close();
         await fS.update();
         return "BadEnding";
@@ -221,17 +221,17 @@ namespace Endabgabe {
                     await fS.Character.hide(characters.Mira);
                     await fS.Location.show(location.miraRoomEnglish);
                     await fS.update();
-                    await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch drann.");
-                    await fS.Speech.tell(characters.Mira, "indirekte Rede...");
+                    await fS.Speech.tell(characters.Mira, "Heute ist dann wohl Englisch dran.");
+                    await fS.Speech.tell(characters.Mira, "Indirekte Rede...");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past");
+                    await fS.Speech.tell(characters.Mira, "Simple Present wird zu Simple Past.");
                     await fS.Speech.tell(characters.Mira, "Simple Past, Present Perfect und Past Perfect wird zu... Past Perfect?");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Will wird zu would");
+                    await fS.Speech.tell(characters.Mira, "Will wird zu would.");
                     await fS.Speech.tell(characters.Mira, "...");
                     await fS.Speech.tell(characters.Mira, "Orts und Zeitangaben im Satz müssen auch angepasst werden?");
-                    await fS.Speech.tell(characters.Mira, "this wird zu that... now zu then und ago zu before");
-                    await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei gelegenheit mal noch ein paar Beispiele anschauen.");
+                    await fS.Speech.tell(characters.Mira, "This wird zu that... now zu then und ago zu before.");
+                    await fS.Speech.tell(characters.Mira, "Da sollte ich mir bei Gelegenheit mal noch ein paar Beispiele anschauen.");
                     fS.Speech.hide();
                     learningDone = true;
                     break;
