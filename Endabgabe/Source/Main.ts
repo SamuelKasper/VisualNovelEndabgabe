@@ -260,22 +260,6 @@ namespace Endabgabe {
   //delay
   export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 
-  /* Auslagern führt zu problemen. Mira fliegt von oben rein, bottomcenter stimmt nicht mehr
-  export let moveLeftAnimation: fS.AnimationDefinition = {
-    start: { translation: fS.positions.bottomcenter },
-    end: { translation: miraPosWhenBoth },
-    duration: 2,
-    playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-  };
-
-  export let moveRightAnimation: fS.AnimationDefinition = {
-    start: { translation: miraPosWhenBoth },
-    end: { translation: fS.positions.bottomcenter },
-    duration: 2,
-    playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-  };*/
-
-
   //menu variables
   let showingMenu: boolean = true;
   let showingCredits: boolean = true;

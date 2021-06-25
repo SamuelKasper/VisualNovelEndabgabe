@@ -14,11 +14,11 @@ namespace Endabgabe {
 
             Mira: {
                 T0000: "...",
-                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie füher eben...",
+                T0001: "Hm, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an wenns dir passt.",
+                T0003: "Na ja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
-                T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen... ",
+                T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen...",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
                 T0007: "Alles klar. Dann morgen. Kommst du zu mir?",
                 T0008: "Okay. Bis morgen dann.",
@@ -29,22 +29,22 @@ namespace Endabgabe {
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
-                T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
-                T0016: "Naja dann wird eben weiter gelernt.",
+                T0015: "Hm... schade. Hoffe, es ist nichts Schlimmes.",
+                T0016: "Na ja dann wird eben weiter gelernt.",
 
                 T0017: "...",
-                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
                 T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
-                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, ich glaube, das stimmt nicht.",
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
                 T0025: "...",
 
-                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbei gehen und schauen wie es ihm geht.",
+                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbeigehen und schauen wie es ihm geht.",
                 T0027: "Er sah ja gestern schon irgendwie bedrückt aus...",
-                T0028: "Andernfalls gibt es noch so viel Schulstoff den ich lernen sollte..."
+                T0028: "Andernfalls gibt es noch so viel Schulstoff, den ich lernen sollte..."
             },
 
             Nick: {

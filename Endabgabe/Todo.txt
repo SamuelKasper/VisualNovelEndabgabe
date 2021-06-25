@@ -2,15 +2,14 @@
 (- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
 - Item (zahlencode & bild versteck) nicht aus Inventar nach anklicken
 - Ausschalten das es beim drücken von tasten wie credits oder steuerung weiter geht
+
 ------------------------------------------------- Musik
-- Tetris lauter im vergleich zu Background theme
 
 ------------------------------------------------- Anderes:
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
 - Rechtschreibung korregieren
 - Diagram aktualisieren!
-- Inhaltsangabe schreiben
-- Kriterien Katalog
+(- Kriterien Katalog)
 
 ------------------------------------------------- BUGS / Probleme
 - Musik bei WaitForAnswer bei Lernen > Tetris > Pflanzen > Piano: Going geht nach ende nicht aus, !! Wenn zu schnell geskipt
