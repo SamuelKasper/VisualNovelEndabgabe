@@ -30,13 +30,6 @@ namespace Endabgabe {
             }
         }
 
-        let moveLeftAnimation: fS.AnimationDefinition = {
-            start: { translation: fS.positions.bottomcenter },
-            end: { translation: miraPosWhenBoth },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
         //Story
         fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
         await fS.Location.show(location.nicksRoomDoor);
@@ -46,7 +39,7 @@ namespace Endabgabe {
 
         await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
         await fS.update();
-        await fS.Character.animate(characters.Mira, characters.Mira.pose.good, moveLeftAnimation);
+        await fS.Character.animate(characters.Mira, characters.Mira.pose.good, moveLeftAnim());
         await fS.update();
 
         await fS.Character.show(characters.Nick, characters.Nick.pose.neutral, nickPosWhenBoth);

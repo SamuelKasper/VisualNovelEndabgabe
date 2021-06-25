@@ -51,20 +51,6 @@ namespace Endabgabe {
             }
         }
 
-        let moveLeftAnimation: fS.AnimationDefinition = {
-            start: { translation: fS.positions.bottomcenter },
-            end: { translation: miraPosWhenBoth },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
-        let moveRightAnimation: fS.AnimationDefinition = {
-            start: { translation: miraPosWhenBoth },
-            end: { translation: fS.positions.bottomcenter },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-
         await fS.Location.show(location.miraRoom);
         await fS.update();
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
@@ -112,7 +98,7 @@ namespace Endabgabe {
         await fS.Speech.tell(characters.Mira, text.Mira.T0008);
 
         await fS.Character.hide(characters.Mira);
-        await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveLeftAnimation);
+        await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveLeftAnim());
         await fS.update();
         await fS.Character.show(characters.Nachbar, characters.Nachbar.pose.good, nickPosWhenBoth);
         await fS.update();
@@ -141,7 +127,7 @@ namespace Endabgabe {
         await fS.update(1);
 
         await fS.Character.hide(characters.Mira);
-        await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveRightAnimation);
+        await fS.Character.animate(characters.Mira, characters.Mira.pose.neutral, moveRightAnim());
         await fS.update();
 
         await fS.Speech.tell(characters.Mira, text.Mira.T0012);

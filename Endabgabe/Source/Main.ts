@@ -1,8 +1,42 @@
 namespace Endabgabe {
   export import f = FudgeCore;
   export import fS = FudgeStory;
-
   console.log("FudgeStory main starting");
+
+  /**Stuff needed in Scenes */
+  //Both characters on screen
+  export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
+  export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
+  //delay
+  export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
+  //check if inventory open
+  export let inventoryOpen: boolean;
+  //mute piano songs
+  export function mutePianoMusic(): void {
+    console.log("Muting all Songs");
+    fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongFlowerfield, 0, 0.1, false);
+  }
+  //move to left animation
+  export function moveLeftAnim(): fS.AnimationDefinition {
+    return {
+      start: { translation: fS.positions.bottomcenter },
+      end: { translation: miraPosWhenBoth },
+      duration: 2,
+      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+   //move to right animation
+   export function moveRightAnim(): fS.AnimationDefinition {
+    return {
+      start: { translation: miraPosWhenBoth },
+      end: { translation: fS.positions.bottomcenter },
+      duration: 2,
+      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
 
   export let sound = {
     //Music
@@ -243,31 +277,12 @@ namespace Endabgabe {
     }
   };
 
-  /**Stuff needed in Scenes */
-  //Both characters on screen
-  export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
-  export let nickPosWhenBoth: f.Vector2 = new fS.Position(384, -360);
-
-  //mute piano songs
-  export function mutePianoMusic(): void {
-    console.log("Muting all Songs");
-    fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongFlowerfield, 0, 0.1, false);
-  }
-
-  //delay
-  export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
-
   //menu variables
   let showingMenu: boolean = true;
   let showingCredits: boolean = true;
   let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
   let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
 
- 
-  export let inventoryOpen: boolean;
   //key inputs
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
@@ -281,12 +296,12 @@ namespace Endabgabe {
         await fS.Progress.load();
         break;
       case f.KEYBOARD_CODE.I:
-        if(inventoryOpen){
+        if (inventoryOpen) {
           fS.Inventory.close();
-          inventoryOpen=false;
-        }else{
+          inventoryOpen = false;
+        } else {
           fS.Inventory.open();
-          inventoryOpen=true;
+          inventoryOpen = true;
         }
         break;
       case f.KEYBOARD_CODE.M:
@@ -361,7 +376,7 @@ namespace Endabgabe {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-
+      
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },

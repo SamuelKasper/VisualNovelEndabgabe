@@ -97,12 +97,6 @@ namespace Endabgabe {
                 T0033: "Denke schon."
             }
         }
-        let moveRightAnimation: fS.AnimationDefinition = {
-            start: { translation: miraPosWhenBoth },
-            end: { translation: fS.positions.bottomcenter },
-            duration: 2,
-            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
 
         fS.Sound.fade(sound.overworldTheme, 0, 1, true);
         fS.Sound.fade(sound.mysteryTheme, 0.1, 4, true);
@@ -452,7 +446,7 @@ namespace Endabgabe {
             await fS.update(1);
 
             await fS.Character.hide(characters.Mira);
-            await fS.Character.animate(characters.Mira, characters.Mira.pose.sad, moveRightAnimation);
+            await fS.Character.animate(characters.Mira, characters.Mira.pose.sad, moveRightAnim());
             await fS.update();
             await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
             await fS.Sound.fade(sound.hitTheFloor, 3, 0.5);

@@ -19,6 +19,14 @@ declare namespace Endabgabe {
 declare namespace Endabgabe {
     export import f = FudgeCore;
     export import fS = FudgeStory;
+    /**Stuff needed in Scenes */
+    let miraPosWhenBoth: f.Vector2;
+    let nickPosWhenBoth: f.Vector2;
+    let signalDelay2s: fS.Signal;
+    let inventoryOpen: boolean;
+    function mutePianoMusic(): void;
+    function moveLeftAnim(): fS.AnimationDefinition;
+    function moveRightAnim(): fS.AnimationDefinition;
     let sound: {
         overworldTheme: string;
         overworldThemeDark: string;
@@ -217,12 +225,6 @@ declare namespace Endabgabe {
             image: string;
         };
     };
-    /**Stuff needed in Scenes */
-    let miraPosWhenBoth: f.Vector2;
-    let nickPosWhenBoth: f.Vector2;
-    function mutePianoMusic(): void;
-    let signalDelay2s: fS.Signal;
-    let inventoryOpen: boolean;
 }
 declare namespace Endabgabe {
     function NeutralEnding(): fS.SceneReturn;

@@ -558,12 +558,6 @@ var Endabgabe;
                 T0033: "Denke schon."
             }
         };
-        let moveRightAnimation = {
-            start: { translation: Endabgabe.miraPosWhenBoth },
-            end: { translation: Endabgabe.fS.positions.bottomcenter },
-            duration: 2,
-            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
         Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 1, true);
         Endabgabe.fS.Sound.fade(Endabgabe.sound.mysteryTheme, 0.1, 4, true);
         await Endabgabe.fS.Location.show(Endabgabe.location.hideout);
@@ -897,7 +891,7 @@ var Endabgabe;
             Endabgabe.fS.Character.hide(Endabgabe.characters.Nick);
             await Endabgabe.fS.update(1);
             await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
-            await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.sad, moveRightAnimation);
+            await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.sad, Endabgabe.moveRightAnim());
             await Endabgabe.fS.update();
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", true, "hiddenText");
             await Endabgabe.fS.Sound.fade(Endabgabe.sound.hitTheFloor, 3, 0.5);
@@ -970,6 +964,41 @@ var Endabgabe;
     Endabgabe.f = FudgeCore;
     Endabgabe.fS = FudgeStory;
     console.log("FudgeStory main starting");
+    /**Stuff needed in Scenes */
+    //Both characters on screen
+    Endabgabe.miraPosWhenBoth = new Endabgabe.fS.Position(-384, -360);
+    Endabgabe.nickPosWhenBoth = new Endabgabe.fS.Position(384, -360);
+    //delay
+    Endabgabe.signalDelay2s = Endabgabe.fS.Progress.defineSignal([() => Endabgabe.fS.Progress.delay(2)]);
+    //mute piano songs
+    function mutePianoMusic() {
+        console.log("Muting all Songs");
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongGoing, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongDontStand, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongFlowerfield, 0, 0.1, false);
+    }
+    Endabgabe.mutePianoMusic = mutePianoMusic;
+    //move to left animation
+    function moveLeftAnim() {
+        return {
+            start: { translation: Endabgabe.fS.positions.bottomcenter },
+            end: { translation: Endabgabe.miraPosWhenBoth },
+            duration: 2,
+            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    Endabgabe.moveLeftAnim = moveLeftAnim;
+    //move to right animation
+    function moveRightAnim() {
+        return {
+            start: { translation: Endabgabe.miraPosWhenBoth },
+            end: { translation: Endabgabe.fS.positions.bottomcenter },
+            duration: 2,
+            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    Endabgabe.moveRightAnim = moveRightAnim;
     Endabgabe.sound = {
         //Music
         overworldTheme: "Audio/DoingStuff.mp3",
@@ -1170,21 +1199,6 @@ var Endabgabe;
             image: "Images/Backgrounds/NicksDoorCodeInventar.png"
         }
     };
-    /**Stuff needed in Scenes */
-    //Both characters on screen
-    Endabgabe.miraPosWhenBoth = new Endabgabe.fS.Position(-384, -360);
-    Endabgabe.nickPosWhenBoth = new Endabgabe.fS.Position(384, -360);
-    //mute piano songs
-    function mutePianoMusic() {
-        console.log("Muting all Songs");
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongGoing, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongDontStand, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongFlowerfield, 0, 0.1, false);
-    }
-    Endabgabe.mutePianoMusic = mutePianoMusic;
-    //delay
-    Endabgabe.signalDelay2s = Endabgabe.fS.Progress.defineSignal([() => Endabgabe.fS.Progress.delay(2)]);
     //menu variables
     let showingMenu = true;
     let showingCredits = true;
@@ -1378,18 +1392,6 @@ var Endabgabe;
                 T0007: "Bis dann."
             }
         };
-        let moveLeftAnimation = {
-            start: { translation: Endabgabe.fS.positions.bottomcenter },
-            end: { translation: Endabgabe.miraPosWhenBoth },
-            duration: 2,
-            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-        let moveRightAnimation = {
-            start: { translation: Endabgabe.miraPosWhenBoth },
-            end: { translation: Endabgabe.fS.positions.bottomcenter },
-            duration: 2,
-            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
         await Endabgabe.fS.Location.show(Endabgabe.location.miraRoom);
         await Endabgabe.fS.update();
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0000);
@@ -1435,7 +1437,7 @@ var Endabgabe;
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0007);
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0008);
         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
-        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, moveLeftAnimation);
+        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.moveLeftAnim());
         await Endabgabe.fS.update();
         await Endabgabe.fS.Character.show(Endabgabe.characters.Nachbar, Endabgabe.characters.Nachbar.pose.good, Endabgabe.nickPosWhenBoth);
         await Endabgabe.fS.update();
@@ -1462,7 +1464,7 @@ var Endabgabe;
         await Endabgabe.fS.Character.hide(Endabgabe.characters.Nachbar);
         await Endabgabe.fS.update(1);
         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
-        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, moveRightAnimation);
+        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.moveRightAnim());
         await Endabgabe.fS.update();
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0012);
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0013);
@@ -1645,12 +1647,6 @@ var Endabgabe;
                 T0008: "... Naja.. Also... Weiß auch nicht. Ich fühle mich seit einer Weile nicht so gut."
             }
         };
-        let moveLeftAnimation = {
-            start: { translation: Endabgabe.fS.positions.bottomcenter },
-            end: { translation: Endabgabe.miraPosWhenBoth },
-            duration: 2,
-            playmode: Endabgabe.fS.ANIMATION_PLAYMODE.PLAYONCE
-        };
         //Story
         Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0.2, 1.5, true);
         await Endabgabe.fS.Location.show(Endabgabe.location.nicksRoomDoor);
@@ -1659,7 +1655,7 @@ var Endabgabe;
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, text.Narrator.T0000);
         await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.good, Endabgabe.fS.positions.bottomcenter);
         await Endabgabe.fS.update();
-        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.good, moveLeftAnimation);
+        await Endabgabe.fS.Character.animate(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.good, Endabgabe.moveLeftAnim());
         await Endabgabe.fS.update();
         await Endabgabe.fS.Character.show(Endabgabe.characters.Nick, Endabgabe.characters.Nick.pose.neutral, Endabgabe.nickPosWhenBoth);
         await Endabgabe.fS.update();
