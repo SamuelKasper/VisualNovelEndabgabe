@@ -7,11 +7,11 @@ namespace Endabgabe{
         fS.Sound.fade(sound.overworldTheme, 0, 1, false);
         await fS.update(1.5);
         await signalDelay2s();
-        await fS.Text.print("2 Wochen später - Nach den Prüfungen."); 
-        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht."); 
-        await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await fS.Text.print("2 Wochen später - nach den Prüfungen."); 
+        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei ihm vorbeizugehen, um zu schauen, wie es ihm geht."); 
+        await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
-        await fS.Text.print("Von diesen erfährst du das Nick vor knapp ein einhalb Wochen verschwunden und seit dem vermisst ist.");
+        await fS.Text.print("Von diesen erfährst du, dass Nick vor knapp eineinhalb Wochen verschwunden und seit dem vermisst ist.");
         fS.Text.close();
         await fS.update();
         await fS.Location.show(location.neutralEnding);

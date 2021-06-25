@@ -11,22 +11,22 @@ namespace Endabgabe {
             Mira: {
                 T0000: "Hey Nick! Alles Gute zum Geburtstag.",
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
-                T0002: "Ach das macht doch nix. Erinnert mich an früher, als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
-                T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
+                T0002: "Ach, das macht doch nichts. Erinnert mich an früher, als wir zusammen gespielt haben. Da war es bei dir auch immer unordentlich.",
+                T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig.",
                 T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
             },
 
             Nick: {
                 T0000: "Mira? Was machst du denn hier?",
-                T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
+                T0001: "Oh, äh. Danke. Hatte nicht erwartet, dass du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
                 T0002: "Komm doch rein.",
                 T0003: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
                 T0004: "Ja.. Da hast du wohl Recht.",
                 T0005: "...",
-                T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
+                T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Alles gerade etwas stressig.",
                 T0007: "Ja, unter anderem.",
-                T0008: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
+                T0008: "... Naja.. Also... Weiß auch nicht. Ich fühle mich seit einer Weile nicht so gut."
             }
         }
 

@@ -82,7 +82,7 @@ namespace Endabgabe {
                 T0020: "Nein.. Deswegen wäre es vielleicht auch besser, wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
 
-                T0022: "Na ja das wäre doch für alle das Beste.",
+                T0022: "Naja das wäre doch für alle das Beste.",
                 T0023: "?",
                 T0024: "...",
 

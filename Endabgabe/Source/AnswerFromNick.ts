@@ -16,7 +16,7 @@ namespace Endabgabe {
                 T0000: "...",
                 T0001: "Hm, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Na ja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
+                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
                 T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen...",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
@@ -30,7 +30,7 @@ namespace Endabgabe {
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
                 T0015: "Hm... schade. Hoffe, es ist nichts Schlimmes.",
-                T0016: "Na ja dann wird eben weiter gelernt.",
+                T0016: "Naja dann wird eben weiter gelernt.",
 
                 T0017: "...",
                 T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",

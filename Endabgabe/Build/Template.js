@@ -16,7 +16,7 @@ var Endabgabe;
                 T0000: "...",
                 T0001: "Hm, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Na ja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
+                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
                 T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen...",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
@@ -29,7 +29,7 @@ var Endabgabe;
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
                 T0015: "Hm... schade. Hoffe, es ist nichts Schlimmes.",
-                T0016: "Na ja dann wird eben weiter gelernt.",
+                T0016: "Naja dann wird eben weiter gelernt.",
                 T0017: "...",
                 T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
@@ -544,7 +544,7 @@ var Endabgabe;
                 T0019: "Es reicht doch schon, dass ich unter meinen Problemen leide...",
                 T0020: "Nein.. Deswegen wäre es vielleicht auch besser, wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
-                T0022: "Na ja das wäre doch für alle das Beste.",
+                T0022: "Naja das wäre doch für alle das Beste.",
                 T0023: "?",
                 T0024: "...",
                 T0025: "Was meinst du?",
@@ -1314,11 +1314,11 @@ var Endabgabe;
         Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 1, false);
         await Endabgabe.fS.update(1.5);
         await Endabgabe.signalDelay2s();
-        await Endabgabe.fS.Text.print("2 Wochen später - Nach den Prüfungen.");
-        await Endabgabe.fS.Text.print("Da Nick nicht auf deine Antworten reagiert beschließt du bei Nick vorbeizugehen um zu schauen wie es ihm geht.");
-        await Endabgabe.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht wirst du von seinen Nachbarn angesprochen.");
+        await Endabgabe.fS.Text.print("2 Wochen später - nach den Prüfungen.");
+        await Endabgabe.fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei ihm vorbeizugehen, um zu schauen, wie es ihm geht.");
+        await Endabgabe.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         Endabgabe.fS.Sound.fade(Endabgabe.sound.badEnding, 0.2, 1.5, true);
-        await Endabgabe.fS.Text.print("Von diesen erfährst du das Nick vor knapp ein einhalb Wochen verschwunden und seit dem vermisst ist.");
+        await Endabgabe.fS.Text.print("Von diesen erfährst du, dass Nick vor knapp eineinhalb Wochen verschwunden und seit dem vermisst ist.");
         Endabgabe.fS.Text.close();
         await Endabgabe.fS.update();
         await Endabgabe.fS.Location.show(Endabgabe.location.neutralEnding);
@@ -1340,7 +1340,7 @@ var Endabgabe;
                 T0000: "*Klopf Klopf*"
             },
             Mira: {
-                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch schreiben, dass ich vorbei komme.",
+                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch schreiben, dass ich vorbeikomme.",
                 T0001: "So, dann mal aufstehen, richten und frühstücken.",
                 T0002: "Jetzt ist 11:30 und er hat immer noch nicht geantwortet...",
                 T0003: "Naja ich geh einfach mal los. Wird schon klappen.",
@@ -1349,19 +1349,19 @@ var Endabgabe;
                 T0006: "NICK?",
                 T0007: "...",
                 T0008: "Scheint keiner da zu sein. Vielleicht wissen ja die Nachbarn wo er ist oder wann er wieder kommt.",
-                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen, ob du weist wo Nick hingegangen ist.",
-                T0010: "Oh okay, naja danke trotzden.",
+                T0009: "Oh, hey Elias. Ich wollte dich eigentlich eben fragen, ob du weißt, wo Nick hingegangen ist.",
+                T0010: "Oh okay, naja danke trotzdem.",
                 T0011: "Bis dann.",
-                T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
-                T0013: "Vielleicht sollte ich einfach mal rein und schauen ob alles okay ist.",
-                T0014: "Wenn ich mich richtig erinnere hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
+                T0012: "Oh Mann... jetzt mache ich mir wirklich Sorgen.",
+                T0013: "Vielleicht sollte ich einfach mal rein und schauen, ob alles okay ist.",
+                T0014: "Wenn ich mich richtig erinnere, hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
                 T0015: "Wo könnte der Code sein?",
                 T0016: "Vielleicht unter der Schuhmatte?",
                 T0017: "Nein, da ist nix... Dann bleibt ja eigentlich nur noch der Blumentopf übrig...",
                 T0018: "...",
                 T0019: "Da ist er ja!",
                 T0020: "Okay, dann mal schauen...",
-                T0021: "Wo suche ich am besten als erstes?",
+                T0021: "Wo suche ich am besten als Erstes?",
                 T0022: "Hier liegt immer noch das Foto von unserem früheren Geheimversteck...",
                 T0023: "Könnte es sein, dass er da ist?",
                 T0024: "Einen Versuch ist es ja wert...",
@@ -1581,7 +1581,7 @@ var Endabgabe;
         switch (giveUpOrSearch) {
             case giveUpOrSearchAnswer.GiveUp:
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Unwahrscheinlich. Warum sollte er dort hingegangen sein. Er hat ja auch genug zu tun.");
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Wahrscheinlich sitzt er irgendwo in einem Cafe und lernt dort.");
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Wahrscheinlich sitzt er irgendwo in einem Café und lernt dort.");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich sollte auch weiter lernen.");
                 return "neutralEnding";
             case giveUpOrSearchAnswer.Search:
@@ -1628,21 +1628,21 @@ var Endabgabe;
             Mira: {
                 T0000: "Hey Nick! Alles Gute zum Geburtstag.",
                 T0001: "Na doch klar. Als ob ich den Geburtstag meines besten Freundes vergessen würde.",
-                T0002: "Ach das macht doch nix. Erinnert mich an früher, als wir zusammen gespielt haben. Da war's bei dir auch immer unordentlich.",
-                T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig",
+                T0002: "Ach, das macht doch nichts. Erinnert mich an früher, als wir zusammen gespielt haben. Da war es bei dir auch immer unordentlich.",
+                T0003: "Ist bei dir alles okay? Du wirkst irgendwie merkwürdig.",
                 T0004: "Fangen die Prüfungen bei dir auch nächste Woche an?",
                 T0005: "Was denn sonst noch?"
             },
             Nick: {
                 T0000: "Mira? Was machst du denn hier?",
-                T0001: "Oh, äh. Danke. Hatte nicht erwartet das du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
+                T0001: "Oh, äh. Danke. Hatte nicht erwartet, dass du dich daran erinnerst. Haben uns ja schließlich eine Ewigkeit nicht gesehen.",
                 T0002: "Komm doch rein.",
                 T0003: "Tut mir leid. Wenn ich gewusst hätte das du kommst hätte ich aufgeräumt.",
                 T0004: "Ja.. Da hast du wohl Recht.",
                 T0005: "...",
-                T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Bisschen stressig alles zur Zeit.",
+                T0006: "Oh äh... ja... Alles gut. Ich hab nur... eh... gerade ziemlich viel zu tun. Alles gerade etwas stressig.",
                 T0007: "Ja, unter anderem.",
-                T0008: "... Naja.. Also... Weis auch nicht. Ich fühle mich seit einer Weile nicht so gut."
+                T0008: "... Naja.. Also... Weiß auch nicht. Ich fühle mich seit einer Weile nicht so gut."
             }
         };
         let moveLeftAnimation = {

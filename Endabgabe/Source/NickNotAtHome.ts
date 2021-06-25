@@ -10,7 +10,7 @@ namespace Endabgabe {
             },
 
             Mira: {
-                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch schreiben, dass ich vorbei komme.",
+                T0000: "10:00 Uhr. Nick sollte mittlerweile auch wach sein. Vielleicht sollte ich ihm mal noch schreiben, dass ich vorbeikomme.",
                 T0001: "So, dann mal aufstehen, richten und frühstücken.",
                 T0002: "Jetzt ist 11:30 und er hat immer noch nicht geantwortet...",
                 T0003: "Naja ich geh einfach mal los. Wird schon klappen.",
@@ -19,19 +19,19 @@ namespace Endabgabe {
                 T0006: "NICK?",
                 T0007: "...",
                 T0008: "Scheint keiner da zu sein. Vielleicht wissen ja die Nachbarn wo er ist oder wann er wieder kommt.",
-                T0009: "Oh, hey Elias. Ich wollte dich eigenlich eben fragen, ob du weist wo Nick hingegangen ist.",
-                T0010: "Oh okay, naja danke trotzden.",
+                T0009: "Oh, hey Elias. Ich wollte dich eigentlich eben fragen, ob du weißt, wo Nick hingegangen ist.",
+                T0010: "Oh okay, naja danke trotzdem.",
                 T0011: "Bis dann.",
-                T0012: "Oh man... jetzt mache ich mir wirklich Sorgen.",
-                T0013: "Vielleicht sollte ich einfach mal rein und schauen ob alles okay ist.",
-                T0014: "Wenn ich mich richtig erinnere hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
+                T0012: "Oh Mann... jetzt mache ich mir wirklich Sorgen.",
+                T0013: "Vielleicht sollte ich einfach mal rein und schauen, ob alles okay ist.",
+                T0014: "Wenn ich mich richtig erinnere, hatte Nick hier doch irgendwo die Zahlenkombination für seine Tür versteckt.",
                 T0015: "Wo könnte der Code sein?",
                 T0016: "Vielleicht unter der Schuhmatte?",
                 T0017: "Nein, da ist nix... Dann bleibt ja eigentlich nur noch der Blumentopf übrig...",
                 T0018: "...",
                 T0019: "Da ist er ja!",
                 T0020: "Okay, dann mal schauen...",
-                T0021: "Wo suche ich am besten als erstes?",
+                T0021: "Wo suche ich am besten als Erstes?",
                 T0022: "Hier liegt immer noch das Foto von unserem früheren Geheimversteck...",
                 T0023: "Könnte es sein, dass er da ist?",
                 T0024: "Einen Versuch ist es ja wert...",
@@ -264,7 +264,7 @@ namespace Endabgabe {
         switch (giveUpOrSearch) {
             case giveUpOrSearchAnswer.GiveUp:
                 await fS.Speech.tell(characters.Mira, "Unwahrscheinlich. Warum sollte er dort hingegangen sein. Er hat ja auch genug zu tun.");
-                await fS.Speech.tell(characters.Mira, "Wahrscheinlich sitzt er irgendwo in einem Cafe und lernt dort.");
+                await fS.Speech.tell(characters.Mira, "Wahrscheinlich sitzt er irgendwo in einem Café und lernt dort.");
                 await fS.Speech.tell(characters.Mira, "Ich sollte auch weiter lernen.");
                 return "neutralEnding";
             case giveUpOrSearchAnswer.Search:
