@@ -222,6 +222,7 @@ declare namespace Endabgabe {
     let nickPosWhenBoth: f.Vector2;
     function mutePianoMusic(): void;
     let signalDelay2s: fS.Signal;
+    let inventoryOpen: boolean;
 }
 declare namespace Endabgabe {
     function NeutralEnding(): fS.SceneReturn;

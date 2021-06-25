@@ -266,6 +266,8 @@ namespace Endabgabe {
   let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
   let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
 
+ 
+  export let inventoryOpen: boolean;
   //key inputs
   document.addEventListener("keydown", hndKeypress);
   async function hndKeypress(_event: KeyboardEvent): Promise<void> {
@@ -279,12 +281,12 @@ namespace Endabgabe {
         await fS.Progress.load();
         break;
       case f.KEYBOARD_CODE.I:
-        try {
-          console.log("Open Inventory");
-          await fS.Inventory.open();
-        } catch (error) {
+        if(inventoryOpen){
           fS.Inventory.close();
-          console.log("Inventory already open");
+          inventoryOpen=false;
+        }else{
+          fS.Inventory.open();
+          inventoryOpen=true;
         }
         break;
       case f.KEYBOARD_CODE.M:

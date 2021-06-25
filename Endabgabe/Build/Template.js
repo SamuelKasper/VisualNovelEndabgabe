@@ -14,11 +14,11 @@ var Endabgabe;
             },
             Mira: {
                 T0000: "...",
-                T0001: "Naja, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie füher eben...",
+                T0001: "Hm, ich wollte dich nicht vom Lernen abhalten. Wir können uns ja, wenn du möchtest, nach den Prüfungen mal wieder etwas mehr treffen. So wie früher eben...",
                 T0002: "Klar, sonst hätte ich ja nicht gefragt.",
-                T0003: "Naja dann gehe ich mal wieder. Schreib mich einfach mal an wenns dir passt.",
+                T0003: "Na ja dann gehe ich mal wieder. Schreib mich einfach mal an, wenn es dir passt.",
                 T0004: "Supi. Bis dann.",
-                T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen... ",
+                T0005: "Morgen? Hm, eigentlich sollte ich lernen. In einer Woche gehts los und ich habe noch nicht angefangen...",
                 T0006: "Aber ein Tag mehr oder weniger wird da auch keinen Unterschied mehr machen.",
                 T0007: "Alles klar. Dann morgen. Kommst du zu mir?",
                 T0008: "Okay. Bis morgen dann.",
@@ -28,20 +28,20 @@ var Endabgabe;
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
                 T0014: "Oh, er hat mir geschrieben.",
-                T0015: "Hm... schade. Hoffe es ist nichts schlimmes.",
-                T0016: "Naja dann wird eben weiter gelernt.",
+                T0015: "Hm... schade. Hoffe, es ist nichts Schlimmes.",
+                T0016: "Na ja dann wird eben weiter gelernt.",
                 T0017: "...",
-                T0018: "Eine Drehmatrize ist... eine reelle, orthogonale Matrix.",
+                T0018: "Eine Drehmatrix ist... eine reelle, orthogonale Matrix.",
                 T0019: "...",
                 T0020: "Rechtshändiges Koordinatensystem... Wie muss ich meine Hand nochmal halten?",
-                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, das stimmt glaube ich nicht.",
+                T0021: "Daumen auf mich gerichtet, Zeigefinger nach oben...Mittelfinger... Nein, ich glaube, das stimmt nicht.",
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
                 T0025: "...",
-                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbei gehen und schauen wie es ihm geht.",
+                T0026: "Vielleicht sollte ich morgen mal bei ihm vorbeigehen und schauen wie es ihm geht.",
                 T0027: "Er sah ja gestern schon irgendwie bedrückt aus...",
-                T0028: "Andernfalls gibt es noch so viel Schulstoff den ich lernen sollte..."
+                T0028: "Andernfalls gibt es noch so viel Schulstoff, den ich lernen sollte..."
             },
             Nick: {
                 T0000: "Gerne, wenn das für dich in Ordnung geht.",
@@ -393,7 +393,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "", true, "hiddenText");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     Endabgabe.signalDelay2s();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich kann mich nicht errinnern.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich kann mich nicht erinnern.");
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.nicksSong, 0, 1, false);
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0.2, 1, true);
                     break;
@@ -438,7 +438,7 @@ var Endabgabe;
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das hat Spaß gemacht.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kein Wunder dass das alle toll finden.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kein Wunder, dass das alle toll finden.");
                     break;
                 //-------------------lernen
                 case whatToDoAnswer.lernen:
@@ -446,20 +446,20 @@ var Endabgabe;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     await Endabgabe.fS.Location.show(Endabgabe.location.miraRoomMath);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Als erstes Mathe.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht drann?");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Als erstes Mathematik.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen? Kam das überhaupt im Unterricht dran?");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reelenZahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die komplexen Zahlen erweitern den Zahlenbereich der reellen Zahlen derart, dass die Gleichung x² + 1 =0 lösbar wird.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Die Zahl i wird als imaginäre Einheit bezeichnet.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Komplexe Zahlen lassen sich durch folgende Eigenschaften definieren: ");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jede reele Zahl ist eine komplexe Zahl.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Jede reelle Zahl ist eine komplexe Zahl.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Assoziativgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kommutativgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Distributivgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ohje. Ich glaube das muss ich mir später nochmal genauer anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich glaube, das muss ich mir später nochmal genauer anschauen.");
                     learningDone = true;
                     break;
             }
@@ -489,31 +489,31 @@ var Endabgabe;
                 T0009: "Erstmal schauen, ob er verletzt ist.",
                 T0010: "Sind das da an deinen Armen... Nick... warum nur...",
                 T0011: "Egal, das hat Zeit bis später. Ich muss ihn erstmal nach Hause bringen bevor es noch mit Regen anfängt!",
-                T0012: "Jetzt heist es warten...",
+                T0012: "Jetzt heißt es warten...",
                 T0013: "Nick! Endlich bist du wach!",
                 T0014: "Was ich hier mache?",
                 T0015: "Ich hab dich bewusstlos in unserem alten Geheimversteck gefunden und nach Hause getragen.",
-                T0016: "Sag du mir lieber mal was das für ne Aktion war?",
+                T0016: "Sag du mir lieber mal was das für eine Aktion war?",
                 T0017: "Was bitte hattest du denn vor? Was wenn ich dich nicht gefunden hätte?",
                 T0018: "Wie weg? Wohin?",
                 T0019: "Die Narben...",
                 T0020: "W..Warst du das?",
-                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht dass du sowas machst.",
+                T0021: "Warum... Kann ich dir irgendwie helfen? Ich will nicht, dass du sowas machst.",
                 T0022: "Glaubst du, dass du depressiv bist?",
-                T0023: "Kennst du den Grund dafür? Also gibt es vielleicht etwas das dich runter zieht?",
+                T0023: "Kennst du den Grund dafür? Also gibt es vielleicht etwas das dich runterzieht?",
                 T0024: "...",
                 T0025: "...",
                 T0026: "Aber dann schreib mir doch.. Oder irgendwem... Einfach abzuhauen kann doch nicht die Lösung sein...",
                 T0027: "Nick...",
                 T0028: "Hm?",
-                T0029: "...Aber zu es über sich ergehen zu lassen macht es doch auch nicht besser!",
+                T0029: "Aber zu es über sich ergehen zu lassen macht es doch auch nicht besser!",
                 T0030: "Was redest du da?",
                 T0031: "NICK! Hör auf!",
                 T0032: "Es reicht! Hör auf sowas zu sagen! Ich bin froh, dass du existierst. ",
                 T0033: "Denkst du oft über sowas nach?",
-                T0034: "Ja, also dass es besser wäre wenn du nicht existieren würdest...",
+                T0034: "Ja, also dass es besser wäre, wenn du nicht existieren würdest...",
                 T0035: "Sowas meine ich...",
-                T0036: "... Ich weis nicht.",
+                T0036: "... Ich weiß nicht.",
                 T0037: "Eigentlich nicht, nein...",
                 T0038: "...",
                 T0039: "... Warst du deswegen schon mal bei einem Psychologen?",
@@ -522,33 +522,33 @@ var Endabgabe;
                 T0042: "Dann machen wir das so. Zusammen schaffen wir das!"
             },
             Nick: {
-                T0000: "ar... argh...",
+                T0000: "Ar... argh...",
                 T0001: "Wo ... bin ich?",
                 T0002: "M.. Mira? Was machst du hier?",
                 T0003: "... ich",
                 T0004: "... ich wollte weg... von hier.",
-                T0005: "... ist doch egal! Einfach weg! Ich halts nicht mehr aus...",
-                T0006: "... Ich ...will nicht mehr...",
-                T0007: "... ja",
-                T0008: "Ich weis nicht... kann schon sein.",
+                T0005: "... ist doch egal! Einfach weg! Ich halte es nicht mehr aus...",
+                T0006: "... Ich ... will nicht mehr...",
+                T0007: "... Ja",
+                T0008: "Ich weiß nicht... kann schon sein.",
                 T0009: "Schwer zu sagen.",
                 T0010: "Es gibt Tage, an denen fühle ich mich einfach nutzlos...",
                 T0011: "Egal was ich mache, alles ergibt einfach keinen Sinn und bringt mich nicht weiter... ",
                 T0012: "Ich habe auf nichts Lust, egal wie sehr ich versuche mich für etwas zu motivieren...",
-                T0013: "Nichts bringt mich weiter. Tag für Tag immer das gleiche...",
+                T0013: "Nichts bringt mich weiter. Tag für Tag immer das Gleiche...",
                 T0014: "Ich wollte dich eigentlich nicht mit sowas belasten...",
                 T0015: "Du hast ja auch zu tun.",
                 T0016: "Da musst du dich nicht auch noch um meine Probleme kümmern.",
                 T0017: "Ich will nicht, dass du auch noch unter meinen Problemen leidest...",
                 T0018: "Ich will dich nicht auch noch zusätzlich belasten...",
-                T0019: "Es reicht doch schon dass ich unter meinen Problemen leide...",
+                T0019: "Es reicht doch schon, dass ich unter meinen Problemen leide...",
                 T0020: "Nein.. Deswegen wäre es vielleicht auch besser, wenn ich nicht weiter existieren würde...",
                 T0021: "So würde ich niemanden mehr damit belasten und ich müsste auch nicht mehr leiden...",
-                T0022: "Naja das wäre doch für alle das Beste.",
+                T0022: "Na ja das wäre doch für alle das Beste.",
                 T0023: "?",
                 T0024: "...",
                 T0025: "Was meinst du?",
-                T0026: "Hin und wieder. Macht doch jeder mal oder?",
+                T0026: "Hin und wieder. Macht doch jeder mal, oder?",
                 T0027: "Du nicht?",
                 T0028: "Oh...",
                 T0029: "...",
@@ -790,10 +790,10 @@ var Endabgabe;
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", true, "hiddenText");
         return "GoodEnding";
         async function badEnding2() {
-            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht wacht er ja gleich auf");
+            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Vielleicht wacht er ja gleich auf.");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Du wartest 30 Minuten neben Nick. Es beginnt zu regnen.");
             Endabgabe.fS.Sound.fade(Endabgabe.sound.rain, 0.04, 1, true);
-            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oh man, er kommt nicht zu sich.");
+            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Mist, er kommt nicht zu sich.");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich muss ihn erstmal nach Hause ins Trockene bringen!");
             Endabgabe.fS.Sound.fade(Endabgabe.sound.rain, 0.02, 1, true);
             Endabgabe.fS.Sound.fade(Endabgabe.sound.mysteryTheme, 0, 1, false);
@@ -817,7 +817,7 @@ var Endabgabe;
             let waitOrChange = await Endabgabe.fS.Menu.getInput(waitOrChangeAnswer, "decisionClass");
             switch (waitOrChange) {
                 case waitOrChangeAnswer.wait:
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Bis er aufwacht dauert es sicher nicht mehr lange...");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Bis er aufwacht, dauert es sicher nicht mehr lange...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oh man... bin ich...müde...");
                     Endabgabe.fS.Character.hideAll();
                     Endabgabe.fS.Speech.hide();
@@ -845,7 +845,7 @@ var Endabgabe;
                     Endabgabe.fS.Character.hideAll();
                     await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.sad, Endabgabe.fS.positions.bottomcenter);
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich hoffe bei Nick ist alles okay.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich hoffe, dass bei Nick alles okay ist.");
                     break;
                 case waitOrChangeAnswer.change:
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich bin ganz nass vom Regen. Ich sollte schnell nach Hause gehen und mich umziehen bevor ich noch krank werde.");
@@ -879,14 +879,14 @@ var Endabgabe;
             return "BadEnding";
         }
         async function badEnding3() {
-            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Du spinnst doch! Glaubst du wirklich das würde irgendwas ändern?");
+            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Du spinnst doch! Glaubst du wirklich, dass das etwas ändern würde?");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "...");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Merkst du denn nicht, dass es dadurch nur schlimmer wird? Reiß dich mal zusammen!");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "...");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "Tut mir leid...");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Sollte es auch! Ich hab mir echt Sorgen gemacht!");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "...");
-            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Mach sowas nicht nochmal! ");
+            await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Mach sowas nicht nochmal!");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "Ok...");
             await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Versprochen? Du läufst nicht mehr weg?");
             Endabgabe.fS.Character.hide(Endabgabe.characters.Nick);
@@ -1185,20 +1185,6 @@ var Endabgabe;
     Endabgabe.mutePianoMusic = mutePianoMusic;
     //delay
     Endabgabe.signalDelay2s = Endabgabe.fS.Progress.defineSignal([() => Endabgabe.fS.Progress.delay(2)]);
-    /* Auslagern führt zu problemen. Mira fliegt von oben rein, bottomcenter stimmt nicht mehr
-    export let moveLeftAnimation: fS.AnimationDefinition = {
-      start: { translation: fS.positions.bottomcenter },
-      end: { translation: miraPosWhenBoth },
-      duration: 2,
-      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-    };
-  
-    export let moveRightAnimation: fS.AnimationDefinition = {
-      start: { translation: miraPosWhenBoth },
-      end: { translation: fS.positions.bottomcenter },
-      duration: 2,
-      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
-    };*/
     //menu variables
     let showingMenu = true;
     let showingCredits = true;
@@ -1217,13 +1203,13 @@ var Endabgabe;
                 await Endabgabe.fS.Progress.load();
                 break;
             case Endabgabe.f.KEYBOARD_CODE.I:
-                try {
-                    console.log("Open Inventory");
-                    await Endabgabe.fS.Inventory.open();
-                }
-                catch (error) {
+                if (Endabgabe.inventoryOpen) {
                     Endabgabe.fS.Inventory.close();
-                    console.log("Inventory already open");
+                    Endabgabe.inventoryOpen = false;
+                }
+                else {
+                    Endabgabe.fS.Inventory.open();
+                    Endabgabe.inventoryOpen = true;
                 }
                 break;
             case Endabgabe.f.KEYBOARD_CODE.M:
