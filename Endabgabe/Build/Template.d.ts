@@ -218,11 +218,13 @@ declare namespace Endabgabe {
             name: string;
             description: string;
             image: string;
+            static: boolean;
         };
         Code: {
             name: string;
             description: string;
             image: string;
+            static: boolean;
         };
     };
 }

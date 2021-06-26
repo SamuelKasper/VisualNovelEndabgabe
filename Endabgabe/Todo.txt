@@ -7,8 +7,7 @@
 
 ------------------------------------------------- Anderes:
 - Ins konzept schreiben das alle Inhalte selbst erstellt wurden
-- Rechtschreibung korregieren
-- Diagram aktualisieren!
+- Diagram aktualisieren (Rechtschreibung!!)!
 (- Kriterien Katalog)
 
 ------------------------------------------------- BUGS / Probleme

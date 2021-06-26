@@ -267,13 +267,15 @@ namespace Endabgabe {
     Image: {
       name: "Foto",
       description: "Ein Foto von Nick und Miras früherem Geheimversteck.",
-      image: "Images/Backgrounds/VersteckFotoInventar.png"
+      image: "Images/Backgrounds/VersteckFotoInventar.png",
+      static: true
     },
 
     Code: {
       name: "Code",
       description: "Zahlencode für Nicks Haustür",
-      image: "Images/Backgrounds/NicksDoorCodeInventar.png"
+      image: "Images/Backgrounds/NicksDoorCodeInventar.png",
+      static: true
     }
   };
 
