@@ -190,6 +190,7 @@ var Endabgabe;
                 case whatToDoAnswer.klavier:
                     Endabgabe.dataToSave.specialText++;
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
+                    Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Location.show(Endabgabe.location.pianoRoom);
                     await Endabgabe.fS.update(Endabgabe.transition.swipe.duration, Endabgabe.transition.swipe.alpha, Endabgabe.transition.swipe.edge);
@@ -529,7 +530,7 @@ var Endabgabe;
                 T0004: "... ich wollte weg... von hier.",
                 T0005: "... ist doch egal! Einfach weg! Ich halte es nicht mehr aus...",
                 T0006: "... Ich ... will nicht mehr...",
-                T0007: "... Ja",
+                T0007: "... Ja.",
                 T0008: "Ich weiß nicht... kann schon sein.",
                 T0009: "Schwer zu sagen.",
                 T0010: "Es gibt Tage, an denen fühle ich mich einfach nutzlos...",
@@ -1747,7 +1748,7 @@ var Endabgabe;
                 T0011: "Was mache ich denn bis dahin?",
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
-                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
+                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreibe ihm mal.",
                 T0015: "So, jetzt heißt es wieder warten.",
                 T0016: "Vielleicht sollte ich nochmal Mathematik lernen. Da hänge ich eh noch hinterher.",
                 T0017: "...",
@@ -1913,7 +1914,7 @@ var Endabgabe;
                     await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Lernen ist da wohl die sichere Variante.");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Er kann mir auch noch nach den Prüfungen erklären aus welchem Grund er mich sitzen lassen hat.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Er kann mir auch noch nach den Prüfungen erklären, aus welchem Grund er mich sitzen lassen hat.");
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                     Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.Location.show(Endabgabe.location.black);
@@ -1948,6 +1949,7 @@ var Endabgabe;
                 //-------------------piano
                 case whatToDoAnswer.klavier:
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
+                    Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Location.show(Endabgabe.location.pianoRoom);
                     await Endabgabe.fS.update(Endabgabe.transition.swipe.duration, Endabgabe.transition.swipe.alpha, Endabgabe.transition.swipe.edge);
@@ -2218,7 +2220,7 @@ var Endabgabe;
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Kommutativgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Distributivgesetz...");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Oh je. Ich glaube, das muss ich mir später nochmal genauer anschauen.");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich glaube, das muss ich mir später nochmal genauer anschauen.");
                     learningDone = true;
                     break;
             }
@@ -2312,7 +2314,7 @@ var Endabgabe;
         await Endabgabe.fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei Nick vorbeizugehen, um zu schauen wie es ihm geht.");
         await Endabgabe.fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         Endabgabe.fS.Sound.fade(Endabgabe.sound.badEnding, 0.2, 1.5, true);
-        await Endabgabe.fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
+        await Endabgabe.fS.Text.print("Von diesen erfährst du, dass Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
         Endabgabe.fS.Text.close();
         await Endabgabe.fS.update();
         return "BadEnding";
@@ -2339,10 +2341,11 @@ var Endabgabe;
                 //-------------------piano
                 case whatToDoAnswer.klavier:
                     await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
+                    Endabgabe.fS.Speech.hide();
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Location.show(Endabgabe.location.pianoRoom);
                     await Endabgabe.fS.update(Endabgabe.transition.swipe.duration, Endabgabe.transition.swipe.alpha, Endabgabe.transition.swipe.edge);
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hm, was spiele ich denn heute?");
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Was spiele ich denn heute?");
                     let songsAnswer = {
                         going: "Going",
                         dontStand: "Don't Stand",

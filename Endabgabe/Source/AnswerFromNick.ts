@@ -207,6 +207,7 @@ namespace Endabgabe {
                 case whatToDoAnswer.klavier:
                     dataToSave.specialText++;
                     await fS.Character.hide(characters.Mira);
+                    fS.Speech.hide();
                     await fS.update();
                     await fS.Location.show(location.pianoRoom);
                     await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
