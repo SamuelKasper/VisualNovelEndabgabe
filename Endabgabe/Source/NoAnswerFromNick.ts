@@ -30,7 +30,7 @@ namespace Endabgabe {
                 T0011: "Was mache ich denn bis dahin?",
                 T0012: "Nick sollte mittlerweile eigentlich schon längst da sein? Wo bleibt er nur?",
                 T0013: "...",
-                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreib ihm mal.",
+                T0014: "Vielleicht hat er es ja schon wieder vergessen. Ich schreibe ihm mal.",
                 T0015: "So, jetzt heißt es wieder warten.",
                 T0016: "Vielleicht sollte ich nochmal Mathematik lernen. Da hänge ich eh noch hinterher.",
 
@@ -209,7 +209,7 @@ namespace Endabgabe {
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Lernen ist da wohl die sichere Variante.");
-                    await fS.Speech.tell(characters.Mira, "Er kann mir auch noch nach den Prüfungen erklären aus welchem Grund er mich sitzen lassen hat.");
+                    await fS.Speech.tell(characters.Mira, "Er kann mir auch noch nach den Prüfungen erklären, aus welchem Grund er mich sitzen lassen hat.");
                     await fS.Character.hide(characters.Mira);
                     fS.Speech.hide();
                     await fS.Location.show(location.black);

@@ -86,7 +86,7 @@ namespace Endabgabe {
         await fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei Nick vorbeizugehen, um zu schauen wie es ihm geht.");
         await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
-        await fS.Text.print("Von diesen Erfährst du das Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
+        await fS.Text.print("Von diesen erfährst du, dass Nick sich vor knapp eineinhalb Wochen selbst umgebracht hat.");
         fS.Text.close();
         await fS.update();
         return "BadEnding";
@@ -121,7 +121,7 @@ namespace Endabgabe {
                     await fS.update();
                     await fS.Location.show(location.pianoRoom);
                     await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
-                    await fS.Speech.tell(characters.Mira, "Hm, was spiele ich denn heute?");
+                    await fS.Speech.tell(characters.Mira, "Was spiele ich denn heute?");
 
                     let songsAnswer = {
                         going: "Going",

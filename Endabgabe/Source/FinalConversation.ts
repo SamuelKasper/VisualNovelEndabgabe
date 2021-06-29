@@ -65,7 +65,7 @@ namespace Endabgabe {
                 T0005: "... ist doch egal! Einfach weg! Ich halte es nicht mehr aus...",
                 T0006: "... Ich ... will nicht mehr...",
 
-                T0007: "... Ja",
+                T0007: "... Ja.",
                 T0008: "Ich weiß nicht... kann schon sein.",
                 T0009: "Schwer zu sagen.",
                 T0010: "Es gibt Tage, an denen fühle ich mich einfach nutzlos...",

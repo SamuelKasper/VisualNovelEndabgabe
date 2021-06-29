@@ -166,7 +166,7 @@ namespace Endabgabe {
                     await fS.Speech.tell(characters.Mira, "Kommutativgesetz...");
                     await fS.Speech.tell(characters.Mira, "Distributivgesetz...");
                     await fS.Speech.tell(characters.Mira, "Für jede komplexe Zahl x gibt es eine komplexe Zahl -x...");
-                    await fS.Speech.tell(characters.Mira, "Oh je. Ich glaube, das muss ich mir später nochmal genauer anschauen.");
+                    await fS.Speech.tell(characters.Mira, "Ich glaube, das muss ich mir später nochmal genauer anschauen.");
                     learningDone = true;
                     break;
             }
