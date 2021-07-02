@@ -24,6 +24,7 @@ declare namespace Endabgabe {
     let nickPosWhenBoth: f.Vector2;
     let signalDelay2s: fS.Signal;
     let inventoryOpen: boolean;
+    let skipBadEndingNr3: boolean;
     function mutePianoMusic(): void;
     function moveLeftAnim(): fS.AnimationDefinition;
     function moveRightAnim(): fS.AnimationDefinition;
@@ -39,6 +40,7 @@ declare namespace Endabgabe {
         pianoSongFlowerfield: string;
         tetris: string;
         nicksSong: string;
+        harvest: string;
         hitTheFloor: string;
         wateringPlants: string;
         grabPaper: string;
@@ -130,6 +132,10 @@ declare namespace Endabgabe {
             background: string;
         };
         nicksBathroom: {
+            name: string;
+            background: string;
+        };
+        nicksBathroomRemSccsr: {
             name: string;
             background: string;
         };

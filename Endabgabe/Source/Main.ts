@@ -11,6 +11,8 @@ namespace Endabgabe {
   export let signalDelay2s: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
   //check if inventory open
   export let inventoryOpen: boolean;
+  //variable to skip third bad ending
+  export let skipBadEndingNr3: boolean = false;
   //mute piano songs
   export function mutePianoMusic(): void {
     console.log("Muting all Songs");
@@ -51,6 +53,7 @@ namespace Endabgabe {
     pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
     tetris: "Audio/Tetris.mp3",
     nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
+    harvest: "Audio/Harvest.mp3",
     //Sounds
     hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
     wateringPlants: "Audio/Sounds/WateringPlants.mp3",
@@ -167,7 +170,11 @@ namespace Endabgabe {
       name: "nicksBathroom",
       background: "Images/Backgrounds/Nicks_Badezimmer.png"
     },
-
+    nicksBathroomRemSccsr: {
+      name: "nicksBathroomRemSccsr",
+      background: "Images/Backgrounds/Nicks_Badezimmer_Rem_Sccsr.png"
+    },
+    
     nicksBathroomDead: {
       name: "nicksBathroomDead",
       background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
@@ -389,7 +396,7 @@ namespace Endabgabe {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      
+      /*
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
@@ -401,7 +408,7 @@ namespace Endabgabe {
       { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
       //good scenes
       { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
-      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },
+      { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
       { id: "NickNotAtHome", scene: NickNotAtHome, name: "NickNotAtHome" },
       { id: "FinalConversation", scene: FinalConversation, name: "FinalConversation" },
       { id: "GoodEnding", scene: GoodEnding, name: "GoodEnding", next: "endOfNovel" },

@@ -279,7 +279,13 @@ namespace Endabgabe {
         let getAngryOrTalk2 = await fS.Menu.getInput(getAngryOrTalkAnswer2, "decisionClass");
         switch (getAngryOrTalk2) {
             case getAngryOrTalkAnswer2.angry:
-                return await badEnding3();
+                if(!skipBadEndingNr3){
+                    return await badEnding3();
+                }else{
+                    //skip scissor scene
+                    console.log("can't find obj: scissor - skipping badEnding3");
+                    break;
+                }
             case getAngryOrTalkAnswer2.nick:
                 dataToSave.specialText++;
                 break;

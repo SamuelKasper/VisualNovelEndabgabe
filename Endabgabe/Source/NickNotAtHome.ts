@@ -153,14 +153,28 @@ namespace Endabgabe {
 
         //waiting for input of the right code
         async function inputCode() {
-            if (await fS.Speech.getInput() != "139181") {
-                console.log("code incorrect");
+            console.log("https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
+            let code: string = await fS.Speech.getInput();
+            if(code == "139181"){
+                await fS.Speech.tell(characters.Mira, "Das wäre geschafft.");
+            }else if(code == "playHdnSong"){
+                fS.Sound.fade(sound.overworldTheme, 0, 0.2, false);
+                fS.Sound.fade(sound.harvest, 0.3, 0.5, false);
+                await fS.Speech.tell(characters.Narrator, "playing harvest.mp3", true);
+                await fS.Speech.tell(characters.Narrator, "", false);
+                await inputCode();
+            }else if(code == "rmvScssor"){
+                skipBadEndingNr3=true;
+                await fS.Speech.tell(characters.Narrator, "removed object: scissor", true);
+                await fS.Speech.tell(characters.Narrator, "", false);
                 await inputCode();
             }else{
-                await fS.Speech.tell(characters.Mira, "Das wäre geschafft.");
+                await inputCode();
             }
         }
-
+        console.log(skipBadEndingNr3);
+        fS.Sound.fade(sound.harvest, 0, 0, false);
+        fS.Sound.fade(sound.overworldTheme, 0.2, 0.5, false);
         //progress story
         fS.Speech.hide();
         fS.Character.hideAll();
@@ -221,14 +235,20 @@ namespace Endabgabe {
                     fS.Speech.hide();
                     fS.Character.hideAll();
                     await fS.update();
-                    await fS.Location.show(location.nicksBathroom);
+                    if(skipBadEndingNr3){
+                        await fS.Location.show(location.nicksBathroomRemSccsr);
+                    }else{
+                        await fS.Location.show(location.nicksBathroom);
+                    }
                     await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
                     await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Hier ist er auch nicht.");
                     await fS.Speech.tell(characters.Mira, "...");
-                    await fS.Speech.tell(characters.Mira, "Ist das da an der Schere Blut?");
-                    await fS.Speech.tell(characters.Mira, "...");
+                    if(!skipBadEndingNr3){
+                        await fS.Speech.tell(characters.Mira, "Ist das da an der Schere Blut?");
+                        await fS.Speech.tell(characters.Mira, "...");
+                    }
                     bathroom = true;
                     break;
             }

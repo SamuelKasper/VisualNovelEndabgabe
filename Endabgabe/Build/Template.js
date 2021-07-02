@@ -734,7 +734,14 @@ var Endabgabe;
         let getAngryOrTalk2 = await Endabgabe.fS.Menu.getInput(getAngryOrTalkAnswer2, "decisionClass");
         switch (getAngryOrTalk2) {
             case getAngryOrTalkAnswer2.angry:
-                return await badEnding3();
+                if (!Endabgabe.skipBadEndingNr3) {
+                    return await badEnding3();
+                }
+                else {
+                    //skip scissor scene
+                    console.log("can't find obj: scissor - skipping badEnding3");
+                    break;
+                }
             case getAngryOrTalkAnswer2.nick:
                 Endabgabe.dataToSave.specialText++;
                 break;
@@ -971,6 +978,8 @@ var Endabgabe;
     Endabgabe.nickPosWhenBoth = new Endabgabe.fS.Position(384, -360);
     //delay
     Endabgabe.signalDelay2s = Endabgabe.fS.Progress.defineSignal([() => Endabgabe.fS.Progress.delay(2)]);
+    //variable to skip third bad ending
+    Endabgabe.skipBadEndingNr3 = false;
     //mute piano songs
     function mutePianoMusic() {
         console.log("Muting all Songs");
@@ -1013,6 +1022,7 @@ var Endabgabe;
         pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
         tetris: "Audio/Tetris.mp3",
         nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
+        harvest: "Audio/Harvest.mp3",
         //Sounds
         hitTheFloor: "Audio/Sounds/HitTheFloor.mp3",
         wateringPlants: "Audio/Sounds/WateringPlants.mp3",
@@ -1107,6 +1117,10 @@ var Endabgabe;
         nicksBathroom: {
             name: "nicksBathroom",
             background: "Images/Backgrounds/Nicks_Badezimmer.png"
+        },
+        nicksBathroomRemSccsr: {
+            name: "nicksBathroomRemSccsr",
+            background: "Images/Backgrounds/Nicks_Badezimmer_Rem_Sccsr.png"
         },
         nicksBathroomDead: {
             name: "nicksBathroomDead",
@@ -1309,18 +1323,19 @@ var Endabgabe;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Endabgabe.WakeUp, name: "WakeUp" },
+            /*
+            { scene: WakeUp, name: "WakeUp" },
             //bad scenes
-            { id: "DontRememberBirthday", scene: Endabgabe.DontRememberBirthday, name: "DontRememberBirthday" },
-            { id: "WaitForAnswer", scene: Endabgabe.WaitForAnswer, name: "WaitForAnswer" },
-            { id: "BadEnding", scene: Endabgabe.BadEnding, name: "BadEnding", next: "endOfNovel" },
+            { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },
+            { id: "WaitForAnswer", scene: WaitForAnswer, name: "WaitForAnswer" },
+            { id: "BadEnding", scene: BadEnding, name: "BadEnding", next: "endOfNovel" },
             //neutral scenes
-            { id: "RememberWhilePiano", scene: Endabgabe.RememberWhilePiano, name: "RememberWhilePiano" },
-            { id: "NoAnswerFromNick", scene: Endabgabe.NoAnswerFromNick, name: "NoAnswerFromNick" },
-            { id: "neutralEnding", scene: Endabgabe.NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
+            { id: "RememberWhilePiano", scene: RememberWhilePiano, name: "RememberWhilePiano" },
+            { id: "NoAnswerFromNick", scene: NoAnswerFromNick, name: "NoAnswerFromNick" },
+            { id: "neutralEnding", scene: NeutralEnding, name: "NeutralEnding", next: "endOfNovel" },
             //good scenes
-            { id: "NicksBirthday", scene: Endabgabe.NicksBirthday, name: "NicksBirthday" },
-            { id: "AnswerFromNick", scene: Endabgabe.AnswerFromNick, name: "AnswerFromNick" },
+            { id: "NicksBirthday", scene: NicksBirthday, name: "NicksBirthday" },
+            { id: "AnswerFromNick", scene: AnswerFromNick, name: "AnswerFromNick" },*/
             { id: "NickNotAtHome", scene: Endabgabe.NickNotAtHome, name: "NickNotAtHome" },
             { id: "FinalConversation", scene: Endabgabe.FinalConversation, name: "FinalConversation" },
             { id: "GoodEnding", scene: Endabgabe.GoodEnding, name: "GoodEnding", next: "endOfNovel" },
@@ -1503,14 +1518,31 @@ var Endabgabe;
         await inputCode();
         //waiting for input of the right code
         async function inputCode() {
-            if (await Endabgabe.fS.Speech.getInput() != "139181") {
-                console.log("code incorrect");
+            console.log("https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
+            let code = await Endabgabe.fS.Speech.getInput();
+            if (code == "139181") {
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das wäre geschafft.");
+            }
+            else if (code == "playHdnSong") {
+                Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.2, false);
+                Endabgabe.fS.Sound.fade(Endabgabe.sound.harvest, 0.3, 0.5, false);
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "playing harvest.mp3", true);
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", false);
+                await inputCode();
+            }
+            else if (code == "rmvScssor") {
+                Endabgabe.skipBadEndingNr3 = true;
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "removed object: scissor", true);
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", false);
                 await inputCode();
             }
             else {
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das wäre geschafft.");
+                await inputCode();
             }
         }
+        console.log(Endabgabe.skipBadEndingNr3);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.harvest, 0, 0, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0.2, 0.5, false);
         //progress story
         Endabgabe.fS.Speech.hide();
         Endabgabe.fS.Character.hideAll();
@@ -1570,14 +1602,21 @@ var Endabgabe;
                     Endabgabe.fS.Speech.hide();
                     Endabgabe.fS.Character.hideAll();
                     await Endabgabe.fS.update();
-                    await Endabgabe.fS.Location.show(Endabgabe.location.nicksBathroom);
+                    if (Endabgabe.skipBadEndingNr3) {
+                        await Endabgabe.fS.Location.show(Endabgabe.location.nicksBathroomRemSccsr);
+                    }
+                    else {
+                        await Endabgabe.fS.Location.show(Endabgabe.location.nicksBathroom);
+                    }
                     await Endabgabe.fS.update(Endabgabe.transition.swipe.duration, Endabgabe.transition.swipe.alpha, Endabgabe.transition.swipe.edge);
                     await Endabgabe.fS.Character.show(Endabgabe.characters.Mira, Endabgabe.characters.Mira.pose.neutral, Endabgabe.fS.positions.bottomcenter);
                     await Endabgabe.fS.update();
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Hier ist er auch nicht.");
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ist das da an der Schere Blut?");
-                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
+                    if (!Endabgabe.skipBadEndingNr3) {
+                        await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ist das da an der Schere Blut?");
+                        await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "...");
+                    }
                     bathroom = true;
                     break;
             }
