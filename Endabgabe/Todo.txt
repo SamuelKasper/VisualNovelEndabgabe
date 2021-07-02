@@ -1,7 +1,7 @@
 ------------------------------------------------- TASKS
-(- Scene_2_neutral: Disable Zuhause Bleiben Button nach betätigung??)
 - Ausschalten das es beim drücken von tasten wie credits oder steuerung weiter geht
-
+- Wenn Menu ohne Progress gedrückt werden kann in Controls schreiben das auf T text ausgeblendet wird.
+- DoNothin in Main wieder entfernen wenns ohne geht
 ------------------------------------------------- Musik
 
 ------------------------------------------------- Anderes:

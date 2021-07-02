@@ -275,12 +275,13 @@ namespace Endabgabe {
       name: "Code",
       description: "Zahlencode für Nicks Haustür",
       image: "Images/Backgrounds/NicksDoorCodeInventar.png",
-      static: true
+      static: true,
     }
   };
 
   //menu variables
   let showingMenu: boolean = true;
+  let showingSpeech: boolean  = true;
   let showingCredits: boolean = true;
   let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
   let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
@@ -315,6 +316,16 @@ namespace Endabgabe {
           menuObj.style.display = "block";
           showingMenu = true;
         }
+        break;
+      case f.KEYBOARD_CODE.T:
+        if (showingSpeech) {
+          fS.Speech.hide();
+          showingSpeech = false;
+        } else {
+          fS.Speech.show();
+          showingSpeech = true;
+        }
+        break;
     }
 
   }

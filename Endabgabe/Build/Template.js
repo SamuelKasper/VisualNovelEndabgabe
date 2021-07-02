@@ -1199,11 +1199,12 @@ var Endabgabe;
             name: "Code",
             description: "Zahlencode für Nicks Haustür",
             image: "Images/Backgrounds/NicksDoorCodeInventar.png",
-            static: true
+            static: true,
         }
     };
     //menu variables
     let showingMenu = true;
+    let showingSpeech = true;
     let showingCredits = true;
     let controlsObj = document.getElementById("controls");
     let creditsObj = document.getElementById("credit");
@@ -1239,6 +1240,17 @@ var Endabgabe;
                     menuObj.style.display = "block";
                     showingMenu = true;
                 }
+                break;
+            case Endabgabe.f.KEYBOARD_CODE.T:
+                if (showingSpeech) {
+                    Endabgabe.fS.Speech.hide();
+                    showingSpeech = false;
+                }
+                else {
+                    Endabgabe.fS.Speech.show();
+                    showingSpeech = true;
+                }
+                break;
         }
     }
     //OutOfGameMenu
