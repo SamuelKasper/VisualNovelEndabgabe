@@ -597,7 +597,7 @@ var Endabgabe;
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0010);
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0011);
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.rain, 0.03, 3, true);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.rain, 0.015, 3, true);
         Endabgabe.fS.Sound.fade(Endabgabe.sound.mysteryTheme, 0, 1, false);
         Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldThemeDark, 0.03, 1, true);
         Endabgabe.fS.Speech.hide();
@@ -1377,6 +1377,7 @@ var Endabgabe;
         let nicksRoom = false;
         let bathroom = false;
         let kitchen = false;
+        let scissorRemoved = false;
         //Text
         let text = {
             Narrator: {
@@ -1517,31 +1518,36 @@ var Endabgabe;
         await inputCode();
         //waiting for input of the right code
         async function inputCode() {
-            console.log("https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
+            console.log("Nothing, don't look! \n https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
             let code = await Endabgabe.fS.Speech.getInput();
             if (code == "139181") {
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das wäre geschafft.");
             }
             else if (code == "playHdnSong") {
-                Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.2, false);
-                Endabgabe.fS.Sound.fade(Endabgabe.sound.harvest, 0.3, 0.5, false);
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "playing harvest.mp3", true);
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", false);
+                Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.2, true);
+                Endabgabe.fS.Sound.fade(Endabgabe.sound.harvest, 0.3, 0.5, true);
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Playing harvest.mp3", true);
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Code eingeben:", false);
                 await inputCode();
             }
             else if (code == "rmvScssor") {
-                Endabgabe.skipBadEndingNr3 = true;
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "removed object: scissor", true);
-                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "", false);
+                if (scissorRemoved) {
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "'scissor' not found.", true);
+                }
+                else {
+                    Endabgabe.skipBadEndingNr3 = true;
+                    await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Removed object: scissor.", true);
+                    scissorRemoved = true;
+                }
+                await Endabgabe.fS.Speech.tell(Endabgabe.characters.Narrator, "Code eingeben:", false);
                 await inputCode();
             }
             else {
                 await inputCode();
             }
         }
-        console.log(Endabgabe.skipBadEndingNr3);
         Endabgabe.fS.Sound.fade(Endabgabe.sound.harvest, 0, 0, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0.2, 0.5, false);
+        //fS.Sound.fade(sound.overworldTheme, 0.2, 0.5, true);
         //progress story
         Endabgabe.fS.Speech.hide();
         Endabgabe.fS.Character.hideAll();
@@ -1664,6 +1670,7 @@ var Endabgabe;
         Endabgabe.fS.Character.hideAll();
         await Endabgabe.fS.update();
         Endabgabe.fS.Sound.fade(Endabgabe.sound.grabPaper, 0, 0.5);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0);
         await Endabgabe.fS.Location.show(Endabgabe.location.black);
         await Endabgabe.fS.update(2);
         Endabgabe.dataToSave.specialText++;

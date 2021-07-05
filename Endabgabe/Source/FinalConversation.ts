@@ -138,7 +138,7 @@ namespace Endabgabe {
         await fS.Speech.tell(characters.Mira, text.Mira.T0010);
         await fS.Speech.tell(characters.Mira, text.Mira.T0011);
         await fS.Speech.tell(characters.Narrator, "Mira trägt Nick nach Hause und legt ihn auf sein Bett.");
-        fS.Sound.fade(sound.rain, 0.03, 3, true);
+        fS.Sound.fade(sound.rain, 0.015, 3, true);
         fS.Sound.fade(sound.mysteryTheme, 0, 1, false);
         fS.Sound.fade(sound.overworldThemeDark, 0.03, 1, true);
         fS.Speech.hide();

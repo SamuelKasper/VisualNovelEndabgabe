@@ -3,6 +3,7 @@ namespace Endabgabe {
         let nicksRoom: boolean = false;
         let bathroom: boolean = false;
         let kitchen: boolean = false;
+        let scissorRemoved: boolean = false;
         //Text
         let text = {
             Narrator: {
@@ -153,28 +154,33 @@ namespace Endabgabe {
 
         //waiting for input of the right code
         async function inputCode() {
-            console.log("https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
+            console.log("Nothing, don't look! \n https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
             let code: string = await fS.Speech.getInput();
-            if(code == "139181"){
+            if (code == "139181") {
                 await fS.Speech.tell(characters.Mira, "Das wäre geschafft.");
-            }else if(code == "playHdnSong"){
-                fS.Sound.fade(sound.overworldTheme, 0, 0.2, false);
-                fS.Sound.fade(sound.harvest, 0.3, 0.5, false);
-                await fS.Speech.tell(characters.Narrator, "playing harvest.mp3", true);
-                await fS.Speech.tell(characters.Narrator, "", false);
+            } else if (code == "playHdnSong") {
+                fS.Sound.fade(sound.overworldTheme, 0, 0.2, true);
+                fS.Sound.fade(sound.harvest, 0.3, 0.5, true);
+                await fS.Speech.tell(characters.Narrator, "Playing harvest.mp3", true);
+                await fS.Speech.tell(characters.Narrator, "Code eingeben:", false);
                 await inputCode();
-            }else if(code == "rmvScssor"){
-                skipBadEndingNr3=true;
-                await fS.Speech.tell(characters.Narrator, "removed object: scissor", true);
-                await fS.Speech.tell(characters.Narrator, "", false);
+            } else if (code == "rmvScssor") {
+                if (scissorRemoved) {
+                    await fS.Speech.tell(characters.Narrator, "'scissor' not found.", true);
+                } else {
+                    skipBadEndingNr3 = true;
+                    await fS.Speech.tell(characters.Narrator, "Removed object: scissor.", true);
+                    scissorRemoved = true;
+                }
+                await fS.Speech.tell(characters.Narrator, "Code eingeben:", false);
                 await inputCode();
-            }else{
+            } else {
                 await inputCode();
             }
         }
-        console.log(skipBadEndingNr3);
+
         fS.Sound.fade(sound.harvest, 0, 0, false);
-        fS.Sound.fade(sound.overworldTheme, 0.2, 0.5, false);
+        //fS.Sound.fade(sound.overworldTheme, 0.2, 0.5, true);
         //progress story
         fS.Speech.hide();
         fS.Character.hideAll();
@@ -235,9 +241,9 @@ namespace Endabgabe {
                     fS.Speech.hide();
                     fS.Character.hideAll();
                     await fS.update();
-                    if(skipBadEndingNr3){
+                    if (skipBadEndingNr3) {
                         await fS.Location.show(location.nicksBathroomRemSccsr);
-                    }else{
+                    } else {
                         await fS.Location.show(location.nicksBathroom);
                     }
                     await fS.update(transition.swipe.duration, transition.swipe.alpha, transition.swipe.edge);
@@ -245,7 +251,7 @@ namespace Endabgabe {
                     await fS.update();
                     await fS.Speech.tell(characters.Mira, "Hier ist er auch nicht.");
                     await fS.Speech.tell(characters.Mira, "...");
-                    if(!skipBadEndingNr3){
+                    if (!skipBadEndingNr3) {
                         await fS.Speech.tell(characters.Mira, "Ist das da an der Schere Blut?");
                         await fS.Speech.tell(characters.Mira, "...");
                     }
@@ -299,6 +305,7 @@ namespace Endabgabe {
         fS.Character.hideAll();
         await fS.update();
         fS.Sound.fade(sound.grabPaper, 0, 0.5);
+        fS.Sound.fade(sound.overworldTheme, 0, 0);
         await fS.Location.show(location.black);
         await fS.update(2);
         dataToSave.specialText++;

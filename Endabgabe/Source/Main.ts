@@ -334,9 +334,8 @@ namespace Endabgabe {
         }
         break;
     }
-
   }
-
+  
   //OutOfGameMenu
   let gameMenuOptions = {
     save: "Speichern",
