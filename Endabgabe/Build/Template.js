@@ -972,8 +972,6 @@ var Endabgabe;
     Endabgabe.f = FudgeCore;
     Endabgabe.fS = FudgeStory;
     console.log("FudgeStory main starting");
-    //resize to 720p to avoid black borders
-    window.resizeTo(1280, 720);
     /**Stuff needed in Scenes */
     //Both characters on screen
     Endabgabe.miraPosWhenBoth = new Endabgabe.fS.Position(-384, -360);
