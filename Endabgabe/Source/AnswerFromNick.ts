@@ -181,14 +181,14 @@ namespace Endabgabe {
                 await fS.Character.hide(characters.Mira);
                 fS.Speech.hide();
                 await fS.Location.show(location.black);
-                await fS.update(1);
+                await fS.update(2);
                 return "neutralEnding";
         }
 
         await fS.Character.hide(characters.Mira);
         fS.Speech.hide();
         await fS.Location.show(location.black);
-        await fS.update(1);
+        await fS.update(2);
         return "NickNotAtHome";
 
         async function whatToDo(): Promise<void> {

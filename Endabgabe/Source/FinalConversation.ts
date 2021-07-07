@@ -151,7 +151,7 @@ namespace Endabgabe {
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.Location.show(location.black);
-        await fS.update(1);
+        await fS.update(2);
         await fS.Text.print("Zwei Stunden später...");
         fS.Text.close();
         await fS.update();

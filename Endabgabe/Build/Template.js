@@ -169,13 +169,13 @@ var Endabgabe;
                 await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
                 Endabgabe.fS.Speech.hide();
                 await Endabgabe.fS.Location.show(Endabgabe.location.black);
-                await Endabgabe.fS.update(1);
+                await Endabgabe.fS.update(2);
                 return "neutralEnding";
         }
         await Endabgabe.fS.Character.hide(Endabgabe.characters.Mira);
         Endabgabe.fS.Speech.hide();
         await Endabgabe.fS.Location.show(Endabgabe.location.black);
-        await Endabgabe.fS.update(1);
+        await Endabgabe.fS.update(2);
         return "NickNotAtHome";
         async function whatToDo() {
             let whatToDoAnswer = {
@@ -610,7 +610,7 @@ var Endabgabe;
         Endabgabe.fS.Speech.hide();
         Endabgabe.fS.Character.hideAll();
         await Endabgabe.fS.Location.show(Endabgabe.location.black);
-        await Endabgabe.fS.update(1);
+        await Endabgabe.fS.update(2);
         await Endabgabe.fS.Text.print("Zwei Stunden später...");
         Endabgabe.fS.Text.close();
         await Endabgabe.fS.update();
@@ -972,6 +972,8 @@ var Endabgabe;
     Endabgabe.f = FudgeCore;
     Endabgabe.fS = FudgeStory;
     console.log("FudgeStory main starting");
+    //resize to 720p to avoid black borders
+    window.resizeTo(1280, 720);
     /**Stuff needed in Scenes */
     //Both characters on screen
     Endabgabe.miraPosWhenBoth = new Endabgabe.fS.Position(-384, -360);

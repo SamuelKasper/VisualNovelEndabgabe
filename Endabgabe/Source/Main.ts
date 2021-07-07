@@ -3,6 +3,9 @@ namespace Endabgabe {
   export import fS = FudgeStory;
   console.log("FudgeStory main starting");
 
+  //resize to 720p to avoid black borders
+  window.resizeTo(1280, 720);
+
   /**Stuff needed in Scenes */
   //Both characters on screen
   export let miraPosWhenBoth: f.Vector2 = new fS.Position(-384, -360);
