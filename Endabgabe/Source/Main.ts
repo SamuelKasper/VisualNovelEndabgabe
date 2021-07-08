@@ -30,8 +30,8 @@ namespace Endabgabe {
       playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
-   //move to right animation
-   export function moveRightAnim(): fS.AnimationDefinition {
+  //move to right animation
+  export function moveRightAnim(): fS.AnimationDefinition {
     return {
       start: { translation: miraPosWhenBoth },
       end: { translation: fS.positions.bottomcenter },
@@ -174,7 +174,7 @@ namespace Endabgabe {
       name: "nicksBathroomRemSccsr",
       background: "Images/Backgrounds/Nicks_Badezimmer_Rem_Sccsr.png"
     },
-    
+
     nicksBathroomDead: {
       name: "nicksBathroomDead",
       background: "Images/Backgrounds/Nicks_Badezimmer_tot.png"
@@ -288,7 +288,7 @@ namespace Endabgabe {
 
   //menu variables
   let showingMenu: boolean = false;
-  let showingSpeech: boolean  = true;
+  let showingSpeech: boolean = true;
   let showingCredits: boolean = true;
   let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
   let creditsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("credit");
@@ -335,11 +335,13 @@ namespace Endabgabe {
         break;
     }
   }
-  
+
   //OutOfGameMenu
   let gameMenuOptions = {
     save: "Speichern",
     load: "Laden",
+    volumeUp: "Lauter",
+    volumeDown: "Leiser",
     control: "Steuerung",
     credits: "Credits"
   }
@@ -347,12 +349,23 @@ namespace Endabgabe {
   let gameMenu: fS.Menu;
   console.log(gameMenu);
   async function Menu(_option: string): Promise<void> {
+    let volumeCurrent = f.AudioManager.default.volume;
     switch (_option) {
       case gameMenuOptions.save:
         await fS.Progress.save();
         break;
       case gameMenuOptions.load:
         await fS.Progress.load();
+        break;
+      case gameMenuOptions.volumeUp:
+        if (volumeCurrent < 3) {
+          fS.Sound.setMasterVolume(volumeCurrent + 0.2);
+        }
+        break;
+      case gameMenuOptions.volumeDown:
+        if (volumeCurrent > 0) {
+          fS.Sound.setMasterVolume(volumeCurrent - 0.2);
+        }
         break;
       case gameMenuOptions.credits:
         showCredits();
@@ -395,7 +408,7 @@ namespace Endabgabe {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      
+
       { scene: WakeUp, name: "WakeUp" },
       //bad scenes
       { id: "DontRememberBirthday", scene: DontRememberBirthday, name: "DontRememberBirthday" },

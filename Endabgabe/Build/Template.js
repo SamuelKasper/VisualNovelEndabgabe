@@ -1271,18 +1271,31 @@ var Endabgabe;
     let gameMenuOptions = {
         save: "Speichern",
         load: "Laden",
+        volumeUp: "Lauter",
+        volumeDown: "Leiser",
         control: "Steuerung",
         credits: "Credits"
     };
     let gameMenu;
     console.log(gameMenu);
     async function Menu(_option) {
+        let volumeCurrent = Endabgabe.f.AudioManager.default.volume;
         switch (_option) {
             case gameMenuOptions.save:
                 await Endabgabe.fS.Progress.save();
                 break;
             case gameMenuOptions.load:
                 await Endabgabe.fS.Progress.load();
+                break;
+            case gameMenuOptions.volumeUp:
+                if (volumeCurrent < 3) {
+                    Endabgabe.fS.Sound.setMasterVolume(volumeCurrent + 0.2);
+                }
+                break;
+            case gameMenuOptions.volumeDown:
+                if (volumeCurrent > 0) {
+                    Endabgabe.fS.Sound.setMasterVolume(volumeCurrent - 0.2);
+                }
                 break;
             case gameMenuOptions.credits:
                 showCredits();
