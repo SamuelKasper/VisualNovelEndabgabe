@@ -1217,7 +1217,7 @@ var Endabgabe;
         }
     };
     //menu variables
-    let showingMenu = true;
+    let showingMenu = false;
     let showingSpeech = true;
     let showingCredits = true;
     let controlsObj = document.getElementById("controls");

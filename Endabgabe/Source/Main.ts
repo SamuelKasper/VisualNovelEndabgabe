@@ -287,7 +287,7 @@ namespace Endabgabe {
   };
 
   //menu variables
-  let showingMenu: boolean = true;
+  let showingMenu: boolean = false;
   let showingSpeech: boolean  = true;
   let showingCredits: boolean = true;
   let controlsObj: HTMLDivElement = <HTMLDivElement>document.getElementById("controls");
