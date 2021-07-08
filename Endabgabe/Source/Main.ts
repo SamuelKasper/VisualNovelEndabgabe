@@ -314,7 +314,7 @@ namespace Endabgabe {
           inventoryOpen = true;
         }
         break;
-      case f.KEYBOARD_CODE.M:
+      case f.KEYBOARD_CODE.ESC:
         let menuObj: HTMLDialogElement = <HTMLDialogElement>document.getElementsByClassName("gameMenu")[0];
         if (showingMenu) {
           menuObj.style.display = "none";

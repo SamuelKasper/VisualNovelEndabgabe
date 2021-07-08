@@ -1244,7 +1244,7 @@ var Endabgabe;
                     Endabgabe.inventoryOpen = true;
                 }
                 break;
-            case Endabgabe.f.KEYBOARD_CODE.M:
+            case Endabgabe.f.KEYBOARD_CODE.ESC:
                 let menuObj = document.getElementsByClassName("gameMenu")[0];
                 if (showingMenu) {
                     menuObj.style.display = "none";
