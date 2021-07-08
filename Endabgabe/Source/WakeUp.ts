@@ -1,6 +1,7 @@
 namespace Endabgabe {
   export async function WakeUp(): fS.SceneReturn {
     console.log("WakeUp: starting");
+    alert("Schwarzer Rahmen am rechten Rand? \n -> Spiele im Vollbild Modus (F11) \n \nDrücke ESC um das Ingame Menü ein/auszublenden.");
 
     //Text
     let text = {
