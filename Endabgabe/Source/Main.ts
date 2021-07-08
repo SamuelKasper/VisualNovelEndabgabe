@@ -19,7 +19,7 @@ namespace Endabgabe {
     fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
     fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
     fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongFlowerfield, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongCircle, 0, 0.1, false);
   }
   //move to left animation
   export function moveLeftAnim(): fS.AnimationDefinition {
@@ -50,7 +50,7 @@ namespace Endabgabe {
     badEnding: "Audio/Endings/LosingSanity.mp3",
     pianoSongGoing: "Audio/Piano/Going.mp3",
     pianoSongDontStand: "Audio/Piano/DontStand.mp3",
-    pianoSongFlowerfield: "Audio/Piano/Flowerfield.mp3",
+    pianoSongCircle: "Audio/Piano/Circle.mp3",
     tetris: "Audio/Tetris.mp3",
     nicksSong: "Audio/Piano/NicksSong_feat_Lara.mp3",
     harvest: "Audio/Harvest.mp3",

@@ -37,7 +37,7 @@ declare namespace Endabgabe {
         badEnding: string;
         pianoSongGoing: string;
         pianoSongDontStand: string;
-        pianoSongFlowerfield: string;
+        pianoSongCircle: string;
         tetris: string;
         nicksSong: string;
         harvest: string;
