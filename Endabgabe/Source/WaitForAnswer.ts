@@ -157,7 +157,9 @@ namespace Endabgabe {
                     }
 
                     await fS.Speech.tell(characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                    mutePianoMusic();
+                    fS.Sound.fade(sound.pianoSongGoing, 0, 1, false);
+                    fS.Sound.fade(sound.pianoSongDontStand, 0, 1, false);
+                    fS.Sound.fade(sound.pianoSongCircle, 0, 1, false);
                     fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                     fS.Speech.hide();
                     pianoDone = true;

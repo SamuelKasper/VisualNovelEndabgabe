@@ -2446,7 +2446,9 @@ var Endabgabe;
                             break;
                     }
                     await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Nicht perfekt, aber ich mache Fortschritte.");
-                    Endabgabe.mutePianoMusic();
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongGoing, 0, 1, false);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongDontStand, 0, 1, false);
+                    Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongCircle, 0, 1, false);
                     Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0.2, 1, true);
                     Endabgabe.fS.Speech.hide();
                     pianoDone = true;
