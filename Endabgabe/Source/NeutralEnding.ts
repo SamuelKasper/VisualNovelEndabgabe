@@ -1,4 +1,4 @@
-namespace Endabgabe{
+namespace Endabgabe {
     export async function NeutralEnding(): fS.SceneReturn {
         console.log("neutralEnding: starting");
         fS.Character.hideAll();
@@ -7,8 +7,8 @@ namespace Endabgabe{
         fS.Sound.fade(sound.overworldTheme, 0, 1, false);
         await fS.update(1.5);
         await signalDelay2s();
-        await fS.Text.print("2 Wochen später - nach den Prüfungen."); 
-        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei ihm vorbeizugehen, um zu schauen, wie es ihm geht."); 
+        await fS.Text.print("2 Wochen später - nach den Prüfungen.");
+        await fS.Text.print("Da Nick nicht auf deine Antworten reagiert, beschließt du bei ihm vorbeizugehen, um zu schauen, wie es ihm geht.");
         await fS.Text.print("Als du vor seiner Haustür stehst und keiner aufmacht, wirst du von seinen Nachbarn angesprochen.");
         fS.Sound.fade(sound.badEnding, 0.2, 1.5, true);
         await fS.Text.print("Von diesen erfährst du, dass Nick vor knapp eineinhalb Wochen verschwunden und seit dem vermisst ist.");
@@ -17,6 +17,6 @@ namespace Endabgabe{
         await fS.Location.show(location.neutralEnding);
         await fS.update();
         await fS.Speech.tell(characters.Mira, "", true, "hiddenText");
-        fS.Sound.fade(sound.badEnding, 0, 0.3, false);        
+        fS.Sound.fade(sound.badEnding, 0, 0.3, false);
     }
 }

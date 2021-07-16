@@ -19,7 +19,7 @@ namespace Endabgabe {
                 T0006: "Ich hoffe, er ist mir nicht böse.",
                 T0007: "Was steht denn heute an?"
             }
-        }
+        };
 
         //Story
         await fS.Location.show(location.black);
@@ -203,7 +203,7 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
-                    await fS.Location.show(location.black)
+                    await fS.Location.show(location.black);
                     await fS.update(1);
                     await fS.Text.print("Einige Runden später...");
                     fS.Text.close();

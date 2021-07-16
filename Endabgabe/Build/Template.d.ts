@@ -25,7 +25,6 @@ declare namespace Endabgabe {
     let signalDelay2s: fS.Signal;
     let inventoryOpen: boolean;
     let skipBadEndingNr3: boolean;
-    function mutePianoMusic(): void;
     function moveLeftAnim(): fS.AnimationDefinition;
     function moveRightAnim(): fS.AnimationDefinition;
     let sound: {
@@ -233,6 +232,7 @@ declare namespace Endabgabe {
             static: boolean;
         };
     };
+    function mutePianoMusic(): void;
 }
 declare namespace Endabgabe {
     function NeutralEnding(): fS.SceneReturn;

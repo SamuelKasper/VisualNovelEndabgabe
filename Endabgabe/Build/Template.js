@@ -52,7 +52,7 @@ var Endabgabe;
                 T0005: "...",
                 T0006: "Hast du vielleicht Lust schon morgen etwas zusammen zu machen?",
                 T0007: "Gerne.",
-                T0008: "Bis morgen!",
+                T0008: "Bis morgen!"
             }
         };
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0000);
@@ -693,20 +693,20 @@ var Endabgabe;
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, text.Nick.T0016);
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0027);
         //get angry or talk
-        let ThanksOrContradictAnswer = {
+        let thanksOrContradictAnswer = {
             thanks: "Danke",
             contradict: "Widersprechen"
         };
-        let ThanksOrContradict = await Endabgabe.fS.Menu.getInput(ThanksOrContradictAnswer, "decisionClass");
-        switch (ThanksOrContradict) {
-            case ThanksOrContradictAnswer.thanks:
+        let thanksOrContradict = await Endabgabe.fS.Menu.getInput(thanksOrContradictAnswer, "decisionClass");
+        switch (thanksOrContradict) {
+            case thanksOrContradictAnswer.thanks:
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Das ist nett von dir.");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Stimmt schon. Ich hatte in letzter Zeit wirklich viel zu tun...");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Trotzdem solltest du dir darüber nicht so viele Gedanken machen.");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Es ist doch wichtiger das es dir gut geht...");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "...");
                 break;
-            case ThanksOrContradictAnswer.contradict:
+            case thanksOrContradictAnswer.contradict:
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, "Ich bekomme meine Probleme schon irgendwie auf die Reihe!");
                 await Endabgabe.fS.Speech.tell(Endabgabe.characters.Nick, "...");
@@ -980,15 +980,6 @@ var Endabgabe;
     Endabgabe.signalDelay2s = Endabgabe.fS.Progress.defineSignal([() => Endabgabe.fS.Progress.delay(2)]);
     //variable to skip third bad ending
     Endabgabe.skipBadEndingNr3 = false;
-    //mute piano songs
-    function mutePianoMusic() {
-        console.log("Muting all Songs");
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongGoing, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongDontStand, 0, 0.1, false);
-        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongCircle, 0, 0.1, false);
-    }
-    Endabgabe.mutePianoMusic = mutePianoMusic;
     //move to left animation
     function moveLeftAnim() {
         return {
@@ -1213,9 +1204,18 @@ var Endabgabe;
             name: "Code",
             description: "Zahlencode für Nicks Haustür",
             image: "Images/Backgrounds/NicksDoorCodeInventar.png",
-            static: true,
+            static: true
         }
     };
+    //mute piano songs
+    function mutePianoMusic() {
+        console.log("Muting all Songs");
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.overworldTheme, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongGoing, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongDontStand, 0, 0.1, false);
+        Endabgabe.fS.Sound.fade(Endabgabe.sound.pianoSongCircle, 0, 0.1, false);
+    }
+    Endabgabe.mutePianoMusic = mutePianoMusic;
     //menu variables
     let showingMenu = false;
     let showingSpeech = true;
@@ -1829,7 +1829,7 @@ var Endabgabe;
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
-                T0025: "...",
+                T0025: "..."
             },
             Nick: {
                 T0000: "Gerne, wenn das für dich in Ordnung geht.",
@@ -1840,7 +1840,7 @@ var Endabgabe;
                 T0005: "...",
                 T0006: "Hast du vielleicht Lust schon morgen etwas zusammen zu machen?",
                 T0007: "Gerne.",
-                T0008: "Bis morgen!",
+                T0008: "Bis morgen!"
             }
         };
         await Endabgabe.fS.Speech.tell(Endabgabe.characters.Mira, text.Mira.T0000);

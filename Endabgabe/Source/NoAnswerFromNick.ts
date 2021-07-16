@@ -42,7 +42,7 @@ namespace Endabgabe {
                 T0022: "...",
                 T0023: "Einheitsmatrix... multipliziert mit einer anderen Matrix bleibt die gleiche Matrix...",
                 T0024: "Das müsste ja dann so stimmen.",
-                T0025: "...",
+                T0025: "..."
             },
 
             Nick: {
@@ -54,9 +54,9 @@ namespace Endabgabe {
                 T0005: "...",
                 T0006: "Hast du vielleicht Lust schon morgen etwas zusammen zu machen?",
                 T0007: "Gerne.",
-                T0008: "Bis morgen!",
+                T0008: "Bis morgen!"
             }
-        }
+        };
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
         await fS.Character.hide(characters.Mira);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, miraPosWhenBoth);
@@ -145,13 +145,13 @@ namespace Endabgabe {
                 //fade out
                 fS.Speech.hide();
                 fS.Character.hide(characters.Mira);
-                await fS.Location.show(location.black)
+                await fS.Location.show(location.black);
                 await fS.update(1);
                 await fS.Text.print("Einige Zeit später...");
                 fS.Text.close();
                 await fS.update();
                 //text
-                await fS.Location.show(location.miraRoom)
+                await fS.Location.show(location.miraRoom);
                 await fS.update(1);
                 await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
                 await fS.update();
@@ -178,12 +178,12 @@ namespace Endabgabe {
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
         await fS.Speech.tell(characters.Mira, text.Mira.T0025);
         fS.Speech.hide();
-        await fS.Location.show(location.black)
+        await fS.Location.show(location.black);
         await fS.update(1);
         await fS.Text.print("Einige Zeit später...");
         fS.Text.close();
         await fS.update();
-        await fS.Location.show(location.miraRoomHandyNoMessage)
+        await fS.Location.show(location.miraRoomHandyNoMessage);
         await fS.update();
 
         //after doing Math2
@@ -332,7 +332,7 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
-                    await fS.Location.show(location.black)
+                    await fS.Location.show(location.black);
                     await fS.update(1);
                     await fS.Text.print("Einige Runden später...");
                     fS.Text.close();

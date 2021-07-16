@@ -1,3 +1,3 @@
 namespace Endabgabe {
-    export async function EndOfNovel(): fS.SceneReturn { }
+    export async function EndOfNovel(): fS.SceneReturn { /**/}
 }

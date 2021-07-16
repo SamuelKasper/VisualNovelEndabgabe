@@ -15,7 +15,7 @@ namespace Endabgabe {
                 T0005: "Was? Schon 22:00?",
                 T0006: "Ich sollte schlafen gehen damit ich morgen fit bin..."
             }
-        }
+        };
 
         //Story
         fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
@@ -30,7 +30,7 @@ namespace Endabgabe {
         await fS.Character.hide(characters.Mira);
 
         while (!learningDone) {
-            if(await whatToDo() == "NicksBirthday"){
+            if (await whatToDo() == "NicksBirthday") {
                 return "NicksBirthday";
             }
         }
@@ -47,16 +47,16 @@ namespace Endabgabe {
         return "WaitForAnswer";
 
         async function whatToDo(): fS.SceneReturn {
-    
+
             let whatToDoAnswer = {
                 klavier: "Klavier üben",
                 pflanzen: "Pflanzen gießen",
                 tetris: "Tetris spielen",
                 lernen: "Lernen"
             };
-    
+
             let whatToDo = await fS.Menu.getInput(whatToDoAnswer, "decisionClass");
-    
+
             switch (whatToDo) {
                 //-------------------piano
                 case whatToDoAnswer.klavier:
@@ -76,15 +76,15 @@ namespace Endabgabe {
                     await fS.Speech.tell(characters.Mira, "Jetzt weiß ich es. Das Lied hatten Nick und ich uns ausgedacht als wir noch klein waren.");
                     await fS.Speech.tell(characters.Mira, "Apropos, heute ist doch der dritte Februar. Da hat Nick Geburtstag.");
                     await fS.Speech.tell(characters.Mira, "Vielleicht sollte ich mal wieder bei ihm vorbeischauen. Haben uns ja lange nicht gesehen.");
-    
+
                     //Go to birthday or not
                     let hingehenAnswer = {
                         hingehen: "Hingehen",
                         zuhauseDisable: "Zuhause bleiben"
                     };
-    
+
                     let hingehen = await fS.Menu.getInput(hingehenAnswer, "decisionClass");
-                   
+
                     switch (hingehen) {
                         case hingehenAnswer.hingehen:
                             await fS.Speech.tell(characters.Mira, "Ja, das mache ich. Da freut er sich sicher.");
@@ -101,7 +101,7 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.nicksSong, 0, 1, false);
                     fS.Sound.fade(sound.overworldTheme, 0.2, 1, true);
                     break;
-    
+
                 //-------------------plants  
                 case whatToDoAnswer.pflanzen:
                     await fS.Character.show(characters.Mira, characters.Mira.pose.good, fS.positions.bottomcenter);
@@ -120,7 +120,7 @@ namespace Endabgabe {
                     await fS.update();
                     dataToSave.plantsOnDayOne = true;
                     break;
-    
+
                 //-------------------tetris
                 case whatToDoAnswer.tetris:
                     await fS.Character.hide(characters.Mira);
@@ -132,12 +132,12 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
-                    await fS.Location.show(location.black)
+                    await fS.Location.show(location.black);
                     await fS.update(1);
                     await fS.Text.print("Einige Runden später...");
                     fS.Text.close();
                     await fS.update();
-    
+
                     //fade in
                     await fS.Location.show(location.miraRoomLaptop);
                     fS.Sound.fade(sound.tetris, 0, 0.3, false);
@@ -147,7 +147,7 @@ namespace Endabgabe {
                     await fS.Speech.tell(characters.Mira, "Innovative Spielmechanik und angemessene Schwierigkeit.");
                     await fS.Speech.tell(characters.Mira, "Kein Wunder, dass das alle toll finden.");
                     break;
-    
+
                 //-------------------lernen
                 case whatToDoAnswer.lernen:
                     await fS.Character.hide(characters.Mira);

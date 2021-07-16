@@ -96,7 +96,7 @@ namespace Endabgabe {
                 T0032: "...",
                 T0033: "Denke schon."
             }
-        }
+        };
 
         fS.Sound.fade(sound.overworldTheme, 0, 1, true);
         fS.Sound.fade(sound.mysteryTheme, 0.1, 4, true);
@@ -237,20 +237,20 @@ namespace Endabgabe {
         await fS.Speech.tell(characters.Mira, text.Mira.T0027);
 
         //get angry or talk
-        let ThanksOrContradictAnswer = {
+        let thanksOrContradictAnswer = {
             thanks: "Danke",
             contradict: "Widersprechen"
         };
-        let ThanksOrContradict = await fS.Menu.getInput(ThanksOrContradictAnswer, "decisionClass");
-        switch (ThanksOrContradict) {
-            case ThanksOrContradictAnswer.thanks:
+        let thanksOrContradict = await fS.Menu.getInput(thanksOrContradictAnswer, "decisionClass");
+        switch (thanksOrContradict) {
+            case thanksOrContradictAnswer.thanks:
                 await fS.Speech.tell(characters.Mira, "Das ist nett von dir.");
                 await fS.Speech.tell(characters.Mira, "Stimmt schon. Ich hatte in letzter Zeit wirklich viel zu tun...");
                 await fS.Speech.tell(characters.Mira, "Trotzdem solltest du dir darüber nicht so viele Gedanken machen.");
                 await fS.Speech.tell(characters.Mira, "Es ist doch wichtiger das es dir gut geht...");
                 await fS.Speech.tell(characters.Nick, "...");
                 break;
-            case ThanksOrContradictAnswer.contradict:
+            case thanksOrContradictAnswer.contradict:
                 await fS.Speech.tell(characters.Mira, "Deine Probleme sind hier ja gerade wohl wichtiger!");
                 await fS.Speech.tell(characters.Mira, "Ich bekomme meine Probleme schon irgendwie auf die Reihe!");
                 await fS.Speech.tell(characters.Nick, "...");
@@ -279,9 +279,9 @@ namespace Endabgabe {
         let getAngryOrTalk2 = await fS.Menu.getInput(getAngryOrTalkAnswer2, "decisionClass");
         switch (getAngryOrTalk2) {
             case getAngryOrTalkAnswer2.angry:
-                if(!skipBadEndingNr3){
+                if (!skipBadEndingNr3) {
                     return await badEnding3();
-                }else{
+                } else {
                     //skip scissor scene
                     console.log("can't find obj: scissor - skipping badEnding3");
                     break;
@@ -334,7 +334,7 @@ namespace Endabgabe {
         fS.Sound.fade(sound.goodEnding, 0.2, 2, true);
         await fS.Text.print("Kurz nach den Prüfungen beginnen Mira und Nick damit einen geeigneten Psychologen zu suchen, bei Nick sich wohlfühlt.");
         fS.Text.close();
-        await fS.update();  
+        await fS.update();
         await fS.Speech.tell(characters.Narrator, "", true, "hiddenText");
         return "GoodEnding";
 

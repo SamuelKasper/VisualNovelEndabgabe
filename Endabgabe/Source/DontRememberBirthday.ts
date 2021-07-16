@@ -15,7 +15,7 @@ namespace Endabgabe {
                 T0005: "Was? Schon 22:00?",
                 T0006: "Ich sollte schlafen gehen damit ich morgen fit bin..."
             }
-        }
+        };
 
         //Story
         fS.Sound.fade(sound.overworldTheme, 0.2, 1.5, true);
@@ -106,7 +106,7 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
-                    await fS.Location.show(location.black)
+                    await fS.Location.show(location.black);
                     await fS.update(1);
                     await fS.Text.print("Einige Runden später...");
                     fS.Text.close();

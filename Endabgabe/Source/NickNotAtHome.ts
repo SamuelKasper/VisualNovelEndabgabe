@@ -50,7 +50,7 @@ namespace Endabgabe {
                 T0006: "Kein Ding.",
                 T0007: "Bis dann."
             }
-        }
+        };
 
         await fS.Location.show(location.miraRoom);
         await fS.update();
@@ -153,7 +153,7 @@ namespace Endabgabe {
         await inputCode();
 
         //waiting for input of the right code
-        async function inputCode() {
+        async function inputCode(): Promise<void> {
             console.log("Nothing, don't look! \n https://github.com/SamuelKasper/VisualNovelEndabgabe/tree/main/Endabgabe/Other");
             let code: string = await fS.Speech.getInput();
             if (code == "139181") {

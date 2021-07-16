@@ -13,14 +13,6 @@ namespace Endabgabe {
   export let inventoryOpen: boolean;
   //variable to skip third bad ending
   export let skipBadEndingNr3: boolean = false;
-  //mute piano songs
-  export function mutePianoMusic(): void {
-    console.log("Muting all Songs");
-    fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
-    fS.Sound.fade(sound.pianoSongCircle, 0, 0.1, false);
-  }
   //move to left animation
   export function moveLeftAnim(): fS.AnimationDefinition {
     return {
@@ -224,7 +216,7 @@ namespace Endabgabe {
       name: "colorBeforeEnding",
       background: "Images/Backgrounds/ColorBeforeEnding.png"
     }
-  }
+  };
 
   export let characters = {
     Narrator: {
@@ -282,9 +274,18 @@ namespace Endabgabe {
       name: "Code",
       description: "Zahlencode für Nicks Haustür",
       image: "Images/Backgrounds/NicksDoorCodeInventar.png",
-      static: true,
+      static: true
     }
   };
+
+  //mute piano songs
+  export function mutePianoMusic(): void {
+    console.log("Muting all Songs");
+    fS.Sound.fade(sound.overworldTheme, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongGoing, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongDontStand, 0, 0.1, false);
+    fS.Sound.fade(sound.pianoSongCircle, 0, 0.1, false);
+  }
 
   //menu variables
   let showingMenu: boolean = false;
@@ -344,7 +345,7 @@ namespace Endabgabe {
     volumeDown: "Leiser",
     control: "Steuerung",
     credits: "Credits"
-  }
+  };
 
   let gameMenu: fS.Menu;
   console.log(gameMenu);

@@ -56,9 +56,9 @@ namespace Endabgabe {
                 T0005: "...",
                 T0006: "Hast du vielleicht Lust schon morgen etwas zusammen zu machen?",
                 T0007: "Gerne.",
-                T0008: "Bis morgen!",
+                T0008: "Bis morgen!"
             }
-        }
+        };
         await fS.Speech.tell(characters.Mira, text.Mira.T0000);
         await fS.Character.hide(characters.Mira);
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, miraPosWhenBoth);
@@ -154,12 +154,12 @@ namespace Endabgabe {
         await fS.Speech.tell(characters.Mira, text.Mira.T0024);
         await fS.Speech.tell(characters.Mira, text.Mira.T0025);
         fS.Speech.hide();
-        await fS.Location.show(location.black)
+        await fS.Location.show(location.black);
         await fS.update(1);
         await fS.Text.print("Einige Zeit später...");
         fS.Text.close();
         await fS.update();
-        await fS.Location.show(location.miraRoomDarker)
+        await fS.Location.show(location.miraRoomDarker);
         await fS.update();
         await fS.Character.show(characters.Mira, characters.Mira.pose.neutral, fS.positions.bottomcenter);
         await fS.update();
@@ -297,7 +297,7 @@ namespace Endabgabe {
                     fS.Sound.fade(sound.tetris, 0.3, 1, true);
                     //fade out (game time)
                     fS.Speech.hide();
-                    await fS.Location.show(location.black)
+                    await fS.Location.show(location.black);
                     await fS.update(1);
                     await fS.Text.print("Einige Runden später...");
                     fS.Text.close();

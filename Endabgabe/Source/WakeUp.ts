@@ -11,7 +11,7 @@ namespace Endabgabe {
         T0002: "...",
         T0003: "Erst 8:30 Uhr. Soll ich schon aufstehen oder lieber noch ein bisschen weiter schlafen?"
       }
-    }
+    };
 
     //Wake up
     
@@ -36,7 +36,7 @@ namespace Endabgabe {
       sleep: "Schlafen",
       news: "News lesen",
       calendar: "Kalender anschauen"
-    }
+    };
     let sleepNewsCalendar = await fS.Menu.getInput(sleepNewsCalendarAnswer, "decisionClass");
 
     switch (sleepNewsCalendar) {
@@ -55,7 +55,7 @@ namespace Endabgabe {
 
       //News:
       case sleepNewsCalendarAnswer.news:
-        await fS.Speech.tell(characters.Mira, "Mal schauen ob es was Neues gibt.")
+        await fS.Speech.tell(characters.Mira, "Mal schauen ob es was Neues gibt.");
         fS.Speech.hide();
         await fS.Location.show(location.miraRoomHandyNews);
         await fS.update();
