@@ -1,5 +1,4 @@
 ------------------------------------------------- TASKS
-- Wenn Menu ohne Progress gedrückt werden kann in Controls schreiben das auf T text ausgeblendet wird.
 
 ------------------------------------------------- Musik
 
