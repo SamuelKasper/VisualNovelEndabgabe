@@ -1,9 +1,0 @@
-------------------------------------------------- TASKS
-
-------------------------------------------------- Musik
-
-------------------------------------------------- Anderes:
-- Ins konzept schreiben das alle Inhalte selbst erstellt wurden
-
-------------------------------------------------- BUGS / Probleme
-- Musik bei WaitForAnswer bei Lernen > Tetris > Pflanzen > Piano: Going geht nach ende nicht aus, !! Wenn zu schnell geskipt
