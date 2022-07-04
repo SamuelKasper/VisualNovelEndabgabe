@@ -45,6 +45,10 @@ speech{
   padding: 15px;
   margin: 130px;
   margin-bottom: 50px;
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
 }
 
 .hiddenText{
