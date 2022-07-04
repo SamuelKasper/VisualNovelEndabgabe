@@ -72,6 +72,10 @@ speech{
   border-top: none;
   border-right: none;
   border-bottom: none;
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
 }
 
 .decisionClass button:hover{
