@@ -163,6 +163,10 @@ dialog[type="inventory"] > ul > li > name{
   position: absolute;
   top: 5px;
   display: none;
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
 }
 
 .gameMenu button{
